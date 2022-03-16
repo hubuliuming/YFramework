@@ -8,10 +8,13 @@
 
 using UnityEngine;
 
-namespace YFramework
+namespace YFramework.Examples
 {
-    public class SlidingSterringExample : MonoBehaviour 
+    public class SlidingSterringExample 
     {
-    
+        private static void MenuClick()
+        {
+            
+        }
     }
 }

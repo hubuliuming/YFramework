@@ -57,7 +57,7 @@ namespace YFramework
         private void OnDestroy()
         {
             OnBeforeDestroy();
-            MsgDispatcher.UnRegisterAll();
+            MsgDispatcher.UnRegisterAll(); 
         }
         protected abstract void OnBeforeDestroy();
 
