@@ -31,7 +31,7 @@ namespace YFramework
                     temps.Add(t);
                 }
             }
-        
+            
             return temps[Random.Range(0, temps.Count)];
         }
     }

@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace YFramework.Examples
 {
+#if UNITY_EDITOR
     public class SlidingSterringExample 
     {
         private static void MenuClick()
@@ -17,4 +18,5 @@ namespace YFramework.Examples
             
         }
     }
+#endif
 }

@@ -11,8 +11,9 @@ using UnityEngine;
 
 namespace YFramework.Examples
 {
-    public class MathUtilityExam 
+    public class YMathUtilityExample 
     {
+#if UNITY_EDITOR
         [UnityEditor.MenuItem("YFramework/Examples/2/MathUtility")]
         private static void MenuClick()
         {
@@ -23,4 +24,5 @@ namespace YFramework.Examples
             }
         }
     }
+#endif
 }
