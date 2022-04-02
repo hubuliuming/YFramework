@@ -8,25 +8,18 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Test1 : MonoBehaviour 
+public class Test1 : MonoBehaviour
 {
+    public ScrollRect scrollRect;
+
+
     private void Start()
     {
-        int num = 1;
-        Add1(num);
-        Debug.Log(num);
-        Add2(ref num);
-        Debug.Log(num);
-    }
-
-    private void Add1(int num)
-    {
-        num += 55;
-    }
-
-    private void Add2(ref int num)
-    {
-        num += 55;
+        scrollRect.onValueChanged.AddListener(value =>
+        {
+            Debug.Log(value);
+        });
     }
 }

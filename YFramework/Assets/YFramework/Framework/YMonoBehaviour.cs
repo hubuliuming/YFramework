@@ -52,8 +52,6 @@ namespace YFramework
         
         #endregion
         
-        
-        
         private void OnDestroy()
         {
             OnBeforeDestroy();
