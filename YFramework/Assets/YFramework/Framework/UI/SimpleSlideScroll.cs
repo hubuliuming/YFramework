@@ -10,21 +10,23 @@ public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
     private ScrollRect scrollRect;
     private Vector3 contentInitPos;
     private Vector2 contentInitSize;
-    public Text pageText;
 
     public int cellLength;
     public int spacing;
-    public int leftOffect;
+    public int leftOffset;
     private float moveOneItemLength;
 
     private Vector3 curContentLocalPos;
     public int totalItemNunm;
     public int currentIndex;
 
+    public Button btnLast;
+    public Button btnNext;
+    public Text pageText;
     public bool needSendMessage;
 
 
-    private void Awake()
+    private void Start()
     {
         scrollRect = GetComponent<ScrollRect>();
         contentTrans = scrollRect.content;
@@ -33,11 +35,13 @@ public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
         contentInitPos = contentTrans.localPosition;
         contentInitSize = contentTrans.sizeDelta;
         currentIndex = 0;
-        if (pageText!=null)
-        {
+        if(pageText != null)
             pageText.text = currentIndex.ToString() + "/" + totalItemNunm;
-        }
-
+        if(btnLast != null)
+            btnLast.onClick.AddListener(ToLastPage);
+        if(btnNext != null)
+            btnNext.onClick.AddListener(ToNextPage);
+        
         UpdatePanel();
     }
     public void Init()
@@ -81,17 +85,19 @@ public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
         {
             pageText.text = currentIndex.ToString() + "/" + totalItemNunm;
         }
+
         // DOTween.To(() => contentTrans.localPosition,
         //     lerpValue => contentTrans.localPosition = lerpValue,
         //     curContentLocalPos + new Vector3(moveDistance, 0, 0), 0.5f).SetEase(Ease.OutQuint);
+
+        contentTrans.localPosition = curContentLocalPos + new Vector3(moveDistance, 0, 0);
         curContentLocalPos += new Vector3(moveDistance, 0, 0);
     }
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         beginMousePosX = Input.mousePosition.x;
     }
-    public void ToNextPage()
+    private void ToNextPage()
     {
         float moveDistance;
         if (currentIndex >= totalItemNunm)
@@ -104,14 +110,16 @@ public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
         }
         if (needSendMessage)
             UpdatePanel();
-        // DOTween.To(() => contentTrans.localPosition, lerpValue => contentTrans.localPosition = lerpValue,
-        //     curContentLocalPos + new Vector3(moveDistance, 0, 0), 0.5f).SetEase(Ease.OutQuint);
+
+        contentTrans.localPosition = curContentLocalPos + new Vector3(moveDistance, 0, 0);
         curContentLocalPos += new Vector3(moveDistance, 0, 0);
     }
-    public void ToLastPage()
+    
+
+    private void ToLastPage()
     {
         float moveDistance;
-        if (currentIndex <= 1)
+        if (currentIndex <= 0)
             return;
         moveDistance = moveOneItemLength;
         currentIndex--;
@@ -121,8 +129,8 @@ public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
         }
         if (needSendMessage)
             UpdatePanel();
-        // DOTween.To(() => contentTrans.localPosition, lerpValue => contentTrans.localPosition = lerpValue,
-        //     curContentLocalPos + new Vector3(moveDistance, 0, 0), 0.5f).SetEase(Ease.OutQuint);
+
+        contentTrans.localPosition = curContentLocalPos + new Vector3(moveDistance, 0, 0);
         curContentLocalPos += new Vector3(moveDistance, 0, 0);
     }
     public void SetContentLength(int itemNum)
@@ -151,7 +159,7 @@ public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
     private void UpdatePanel()
     {
         Debug.Log(currentIndex);
-        // layer2.UpdateName(currentIndex);
+        //todo Method
     }
 
 }

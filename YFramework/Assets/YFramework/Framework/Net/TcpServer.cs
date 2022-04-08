@@ -12,18 +12,12 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using System.Xml;
 using UnityEngine;
 
 public class TcpServer : MonoBehaviour
 {
-    /// <summary>
-    /// 默认在Application.streamingAssetsPath下
-    /// </summary>
-    public string ipconfigPath;
-    public string othersPath;
-    private string ip;
-    private int port;
+    public string ip;
+    public int port;
     private string submitStr;
     private bool isSubmit;
     private Socket server;
@@ -35,33 +29,7 @@ public class TcpServer : MonoBehaviour
     
 
     public string ReceiveStr => Encoding.UTF8.GetString(receiveBuffer);
-
-    private void Awake()
-    {
-        XmlDocument ipconfigs = new XmlDocument();
-        ipconfigs.Load(Application.streamingAssetsPath + "//" + ipconfigPath + ".xml");
-        XmlElement ipconfigE = ipconfigs.FirstChild as XmlElement;
-        if (ipconfigE != null)
-        {
-            XmlElement ipe = ipconfigE.FirstChild as XmlElement;
-            ip = ipe.GetAttribute("ip");
-            Debug.Log(ip);
-            XmlElement porte = ipconfigE.ChildNodes[1] as XmlElement;
-            port = Convert.ToInt32(porte.GetAttribute("port"));
-            Debug.Log(port);
-        }
-        
-        XmlDocument others = new XmlDocument();
-        others.Load(Application.streamingAssetsPath + "//" + othersPath + ".xml");
-
-        XmlElement other = others.FirstChild as XmlElement;
-
-        if (other != null)
-        {
-            XmlElement submit = other.ChildNodes[1] as XmlElement;
-            submitStr = submit.GetAttribute("submit");
-        }
-    }
+    
 
     private void Start()
     {
