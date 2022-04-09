@@ -28,7 +28,7 @@ namespace YFramework.Examples
     public class JsonExample : MonoBehaviour 
     {
 #if UNITY_EDITOR
-        private static string savePath = Application.dataPath + "/YFramework/Examples/3.Json/Json/json.json";
+        private static string savePath = Application.dataPath + "/TempAgs/json.json";
         [UnityEditor.MenuItem("YFramework/Examples/3/JsonSave")]
         private static void MenuClick()
         {
