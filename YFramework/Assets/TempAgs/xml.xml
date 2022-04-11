@@ -1,1 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><root><ip hao="dd" /></root>
+<Root>
+  <ip ip="aa" />
+  <port port="bb" />
+</Root>

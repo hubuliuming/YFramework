@@ -7,7 +7,6 @@
 *****************************************************/
 
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -23,8 +22,6 @@ public class TcpServer : MonoBehaviour
     private Socket server;
     private Thread thread;
 
-    private Dictionary<int, Socket> clientDict = new Dictionary<int, Socket>();
-    private int cliendID = -1;
     private byte[] receiveBuffer = new byte[1024];
     
 
@@ -51,33 +48,11 @@ public class TcpServer : MonoBehaviour
         Socket serverSocket = ar.AsyncState as Socket;
         Socket clientSocket = serverSocket.EndAccept(ar);
         Debug.Log("连接客户端成功");
-        // SendData
-        // if (cliendID >= Int32.MaxValue)
-        // {
-        //     cliendID = -1;
-        //     clientDict.Clear();
-        // }
-        // cliendID++;
-        // clientDict.Add(cliendID,clientSocket);
         clientSocket.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
         serverSocket.BeginAccept(AcceptCallBack, serverSocket);
     }
 
-    public void SendAll(string msg)
-    {
-        try
-        {
-            for (int i = 0; i < clientDict.Count; i++)
-            {
-                clientDict[i].Send(Encoding.UTF8.GetBytes(msg));
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
+
 
     private void ReceiveCallBack(IAsyncResult ar)
     {
@@ -108,26 +83,7 @@ public class TcpServer : MonoBehaviour
             }
         }
     }
-
-    public string ReceiverMsg()
-    {
-        try
-        {
-            for (int i = 0; i < clientDict.Count; i++)
-            {
-                clientDict[i].Receive(receiveBuffer);
-                return ReceiveStr;
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-      
-
-        return null;
-    }
+    
     
     private void OnDestroy()
     {
@@ -145,11 +101,7 @@ public class TcpServer : MonoBehaviour
         {
             thread.Abort();
         }
-
-        foreach (var i in clientDict.Values)
-        {
-           i.Close();
-        }
+        
     }
   
 }

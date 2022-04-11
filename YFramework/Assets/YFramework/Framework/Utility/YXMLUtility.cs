@@ -6,87 +6,60 @@
     功能：XML工具类
 *****************************************************/
 
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Xml;
-using UnityEngine;
 
 namespace YFramework
 {
     public class YXmlInfo
     {
-        public string mPath;
-        public List<string> elist;
-
-        public YXmlInfo(string path)
-        {
-            this.mPath = path;
-            elist = new List<string>();
-            
-            // FileInfo info = new FileInfo(mPath);
-            // var fs = info.Create();
-            // StreamWriter sr = new StreamWriter(fs);
-            // sr.Write("<Root>");
-            // sr.WriteLine();
-            // sr.Write("/<Root>");
-            // sr.Close();
-            // fs.Close();
-
-
-            XmlDocument doc = new XmlDocument();
-        
-            doc.CreateElement("root",mPath);
-            doc.CreateElement("port", mPath);
-            doc.CreateAttribute("ip", "192", mPath);
-
-            // var xmlWriter = XmlWriter.Create(mPath);
-            // xmlWriter.WriteStartDocument();
-            // xmlWriter.WriteStartElement("root");
-            // xmlWriter.WriteStartElement("ip");
-            // xmlWriter.WriteAttributeString("hao","dd");
-            // xmlWriter.WriteEndElement();
-            // xmlWriter.WriteEndElement();
-            // xmlWriter.WriteEndDocument();
-            // xmlWriter.Close();
-        }
-
-        public void Add(string e)
-        {
-            elist.Add(e);
-          
-
-            foreach (var s in elist)
-            {
-                StreamWriter sr = new StreamWriter(mPath);
-                sr.Write("Roo/");
-            }
-            
-        }
+        public string Path { get; set; }
+        public string rootNode = "Root";
+        public Dictionary<string, string> attributeDict;
     }
-    public class YXMLUtility 
+    public class YXMLUtility
     {
-        public static void Create()
+        public static void CreateStandardXML(YXmlInfo info)
         {
-            
+            XmlDocument docx = new XmlDocument();
+            XmlElement root = docx.CreateElement(info.rootNode);
+            docx.AppendChild(root);
+            foreach (var ele in info.attributeDict)
+            {
+                var e = docx.CreateElement(ele.Key);
+                var a =docx.CreateAttribute(ele.Key);
+                //e.InnerText = ele.Key;
+                a.InnerText = ele.Value;
+                e.Attributes.Append(a);
+                root.AppendChild(e);
+            }
+            docx.Save(info.Path);
         }
-        
-        
-        public void Load()
+
+        /// <summary>
+        /// 从本地路径加载XML到YXMLInfo,注意xml格式必须符合YXMlInfo格式，建议使用CreateStandardXML生成XML文件
+        /// </summary>
+        /// <param name="path">加载的文件路径，包括名字后缀加上.xml</param>
+        /// <returns></returns>
+        public static YXmlInfo LoadXMLToInfo(string path)
         {
-            
-            // XmlDocument xml = new XmlDocument();
-            // ipconfigs.Load(Application.streamingAssetsPath + "//" + ipconfigPath + ".xml");
-            // XmlElement ipconfigE = ipconfigs.FirstChild as XmlElement;
-            // if (ipconfigE != null)
-            // {
-            //     XmlElement ipe = ipconfigE.FirstChild as XmlElement;
-            //     ip = ipe.GetAttribute("ip");
-            //     Debug.Log(ip);
-            //     XmlElement porte = ipconfigE.ChildNodes[1] as XmlElement;
-            //     port = Convert.ToInt32(porte.GetAttribute("port"));
-            //     Debug.Log(port);
-            // }
+            YXmlInfo info = new YXmlInfo();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            info.Path = path;
+            XmlElement root = doc.FirstChild as XmlElement;
+            if (root == null) return null;
+            info.rootNode = root.Name;
+            info.attributeDict = new Dictionary<string, string>();
+            for (int i = 0; i < root.ChildNodes.Count; i++)
+            {
+                var name = root.ChildNodes[i].Name;
+                XmlElement e = root.ChildNodes[i] as  XmlElement;
+                var value = e.GetAttribute(name);
+               info.attributeDict.Add(name,value);
+            }
+
+            return info;
         }
     }
 }
