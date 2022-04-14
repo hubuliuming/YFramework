@@ -28,6 +28,7 @@ namespace YFramework.Examples
                     
             };
             YXMLUtility.CreateStandardXML(info);
+            UnityEditor.AssetDatabase.Refresh();
         }
 
         [UnityEditor.MenuItem("YFramework/Examples/5/XMlLoad")]
