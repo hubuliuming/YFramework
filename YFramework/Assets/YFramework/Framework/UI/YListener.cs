@@ -10,44 +10,47 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class YListener : MonoBehaviour,IPointerClickHandler,IPointerDownHandler,IPointerUpHandler,IDragHandler
+namespace YFramework.UI
 {
-    public Action<object> OnClick;
-    public Action<PointerEventData> OnClickDown;
-    public Action<PointerEventData> OnClickUp;
-    public Action<PointerEventData> OnClickDrag;
-    public object args;
+    public class YListener : MonoBehaviour,IPointerClickHandler,IPointerDownHandler,IPointerUpHandler,IDragHandler
+    {
+        public Action<object> OnClick;
+        public Action<PointerEventData> OnClickDown;
+        public Action<PointerEventData> OnClickUp;
+        public Action<PointerEventData> OnClickDrag;
+        public object args;
     
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (OnClick != null)
+        public void OnPointerClick(PointerEventData eventData)
         {
-            OnClick(args);
+            if (OnClick != null)
+            {
+                OnClick(args);
+            }
         }
-    }
 
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (OnClickDown != null)
+        public void OnPointerDown(PointerEventData eventData)
         {
-            OnClickDown(eventData);
+            if (OnClickDown != null)
+            {
+                OnClickDown(eventData);
+            }
         }
-    }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (OnClickUp != null)
+        public void OnPointerUp(PointerEventData eventData)
         {
-            OnClickUp(eventData);
+            if (OnClickUp != null)
+            {
+                OnClickUp(eventData);
+            }
         }
-    }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (OnClickDrag != null)
+        public void OnDrag(PointerEventData eventData)
         {
-            OnClickDrag(eventData);
+            if (OnClickDrag != null)
+            {
+                OnClickDrag(eventData);
+            }
         }
     }
 }

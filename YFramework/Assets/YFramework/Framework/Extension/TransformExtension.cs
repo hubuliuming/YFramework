@@ -1,5 +1,5 @@
 /****************************************************
-    文件：TransfromLocolPosSimply.cs
+    文件：TransformExtension.cs
     作者：Y
     邮箱: 916111418@qq.com
     日期：2022/1/10 17:16:37
@@ -83,6 +83,21 @@ namespace YFramework
         public static void AddLocalPosZ(this MonoBehaviour mono, float target)
         {
             AddLocalPosZ(mono.transform,target);
+        }
+        
+        public static T GetOrAddComponent<T>(this GameObject go) where T: Component
+        {
+            T t = go.GetComponent<T>();
+            if (t == null)
+            {
+                t =go.AddComponent<T>();
+            }
+
+            return t;
+        }
+        public static T GetOrAddComponent<T>(this Transform trans) where T: Component
+        {
+            return GetOrAddComponent<T>(trans.gameObject);
         }
     }
 }

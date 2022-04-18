@@ -6,66 +6,21 @@
     功能：Nothing
 *****************************************************/
 
-using System;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements.Experimental;
+using YFramework;
 
-public class Test1 : MonoBehaviour
+public class Test1 : YMonoBehaviour
 {
-    public GameObject go;
-    public Vector3 startPos = Vector3.zero;
-    public Vector3 endPos = new Vector3(100, 0, 0);
-    private bool isMove;
-    private float curTime;
-    private float totalTime = 5;
-
-    private void Start()
+    private void Awake()
     {
-        startPos = go.transform.localPosition;
-        Debug.Log(startPos);
-    }
-
-    private void Update()
-    {
-        Test2();
-    }
-    
-    
-    private void Test2()
-    {
-        if (isMove)
+        MsgRegister("1", o =>
         {
-            curTime += Time.deltaTime;
-        }
-      
-        if (curTime >= totalTime)
-        {
-            curTime = 0;
-            isMove = false;
-        }
-        
-        Debug.Log(curTime);
-        
-        go.transform.localPosition = Move(startPos, endPos, curTime, 5);
-    }
-    
-    
-    private float EaseInSide(float x)
-    {
-        return 1 - Mathf.Cos(x * Mathf.PI / 2);
+            Debug.Log("receiver the data is "+o);
+        });
     }
 
-    private float Move(float a, float b, float curTime,float totalTime)
+    protected override void OnBeforeDestroy()
     {
-        isMove = true;
-        return EaseInSide(curTime/totalTime) * (b - a) + a;
+        
     }
-    private Vector3 Move(Vector3 a, Vector3 b, float curTime,float totalTime)
-    {
-        isMove = true;
-        return EaseInSide(curTime/totalTime) * (b - a) + a;
-    }
-    
 }
