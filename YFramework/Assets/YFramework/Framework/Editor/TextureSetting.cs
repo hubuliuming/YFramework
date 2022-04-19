@@ -1,10 +1,13 @@
 using UnityEditor;
 
-public class TextureSetting : AssetPostprocessor
+namespace YFramework
 {
-    private void OnPreprocessTexture()
+    public class TextureSetting : AssetPostprocessor
     {
-        TextureImporter importer = assetImporter as TextureImporter;
-        importer.textureType = TextureImporterType.Sprite;
+        private void OnPreprocessTexture()
+        {
+            TextureImporter importer = assetImporter as TextureImporter;
+            importer.textureType = TextureImporterType.Sprite;
+        }
     }
 }

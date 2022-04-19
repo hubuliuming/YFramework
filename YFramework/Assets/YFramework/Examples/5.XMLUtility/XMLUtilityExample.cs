@@ -14,7 +14,7 @@ namespace YFramework.Examples
     public class XMLUtilityExample : MonoBehaviour 
     {
 #if UNITY_EDITOR
-        private static string savePath = Application.dataPath + "/TempAgs/xml.xml";
+        private static string savePath = Application.dataPath + "/YFramework/Examples/TempAgs/xml.xml";
         [UnityEditor.MenuItem("YFramework/Examples/5/XMlCreate")]
         private static void MenuClick()
         {
