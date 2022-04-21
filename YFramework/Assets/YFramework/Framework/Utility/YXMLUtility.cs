@@ -16,6 +16,11 @@ namespace YFramework
         public string Path { get; set; }
         public string rootNode = "Root";
         public Dictionary<string, string> attributeDict;
+
+        public YXmlInfo(string path)
+        {
+            Path = path;
+        }
     }
     public class YXMLUtility
     {
@@ -43,7 +48,7 @@ namespace YFramework
         /// <returns></returns>
         public static YXmlInfo LoadXMLToInfo(string path)
         {
-            YXmlInfo info = new YXmlInfo();
+            YXmlInfo info = new YXmlInfo(path);
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             info.Path = path;

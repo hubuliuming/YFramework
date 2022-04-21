@@ -6,21 +6,16 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using UnityEngine;
 using YFramework;
 
 public class Test1 : YMonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
-        MsgRegister("1", o =>
-        {
-            Debug.Log("receiver the data is "+o);
-        });
-    }
-
-    protected override void OnBeforeDestroy()
-    {
-        
+        LoaderManager loader = new LoaderManager(new ResLoader());
+        var str = loader.LoadConfig(Application.dataPath + "/YFramework/Examples/TempAgs/json.json");
+        Debug.Log(str);
     }
 }

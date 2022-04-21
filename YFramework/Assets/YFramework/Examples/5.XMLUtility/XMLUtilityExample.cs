@@ -21,11 +21,9 @@ namespace YFramework.Examples
             Dictionary<string, string> attributie = new Dictionary<string, string>();
             attributie.Add("ip","aa");
             attributie.Add("port","bb");
-            YXmlInfo info = new YXmlInfo()
+            YXmlInfo info = new YXmlInfo(savePath)
             {
-                Path = savePath,
                 attributeDict = attributie
-                    
             };
             YXMLUtility.CreateStandardXML(info);
             UnityEditor.AssetDatabase.Refresh();

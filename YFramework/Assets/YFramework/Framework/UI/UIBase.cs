@@ -6,8 +6,6 @@
     功能：UI基类
 *****************************************************/
 
-using UnityEngine;
-
 namespace YFramework.UI
 {
     public interface IView

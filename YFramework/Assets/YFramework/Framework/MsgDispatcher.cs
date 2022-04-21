@@ -11,6 +11,9 @@ using System.Collections.Generic;
 
 namespace YFramework
 {
+    /// <summary>
+    /// 消息机制，注意记得注销消息
+    /// </summary>
     public class MsgDispatcher
     {
         private static Dictionary<string, Action<object>> mRegisteredDict = new Dictionary<string, Action<object>>();

@@ -18,5 +18,11 @@ namespace YFramework
             Debug.LogWarning("未开发AB包加载");
             return null;
         }
+
+        public string LoadConfig(string path)
+        {
+            Debug.LogWarning("未开发AB包加载");
+            return null;
+        }
     }
 }

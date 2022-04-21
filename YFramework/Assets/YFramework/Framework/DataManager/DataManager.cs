@@ -6,7 +6,6 @@
     功能：Nothing
 *****************************************************/
 
-using UnityEngine;
 
 namespace YFramework
 {
@@ -17,14 +16,10 @@ namespace YFramework
         void Clear(string key);
         void ClearAll();
     }
-    public class DataManager : NormalSingleton<DataManager>,IDataMemory
+    public class DataManager : IDataMemory
     {
-        private IDataMemory m_dataMemory;
-        public DataManager()
-        {
-            m_dataMemory = new PlayerPrefsMemory();
-        }
-
+        private  IDataMemory m_dataMemory;
+        public DataManager(IDataMemory dataMemory) => m_dataMemory = dataMemory;
         public T Get<T>(string key) => m_dataMemory.Get<T>(key);
         public void Set<T>(string key, T value) => m_dataMemory.Set<T>(key,value);
         public void Clear(string key) => m_dataMemory.Clear(key);

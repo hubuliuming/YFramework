@@ -12,32 +12,20 @@ namespace YFramework
 {
     public class MonoSingleton<T> : MonoBehaviour where  T : MonoBehaviour
     {
-        private static T _instance;
+        private static T m_instance;
 
         public static T Instance
         {
             get
             {
-                if (_instance == null)
+                if (m_instance == null)
                 {
-                    _instance = FindObjectOfType<T>();
-                    if(_instance == null)
-                        Debug.LogError("场景中未找到类的对象，类名为："+typeof(T).Name);
+                    var go = new GameObject(typeof(T).Name);
+                    DontDestroyOnLoad(go);
+                    m_instance = go.AddComponent<T>();
                 }
 
-                return _instance;
-            }
-        }
-
-        private void Awake()
-        {
-            if (_instance == null)
-            {
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
+                return m_instance;
             }
         }
     }

@@ -17,8 +17,8 @@ namespace YFramework
     {
         private Dictionary<Type, Func<string, object>> m_dataGetter = new Dictionary<Type, Func<string, object>>()
         {
-            {typeof(int), (key) => PlayerPrefs.GetInt(key, 0)},
-            {typeof(float), (key) => PlayerPrefs.GetFloat(key, 0)},
+            {typeof(int), (key) => PlayerPrefs.GetInt(key, -1)},
+            {typeof(float), (key) => PlayerPrefs.GetFloat(key, -1f)},
             {typeof(string), (key) => PlayerPrefs.GetString(key, "")},
         };
         private Dictionary<Type, Action<string, object>> m_dataSetter = new Dictionary<Type, Action<string, object>>()
@@ -33,7 +33,6 @@ namespace YFramework
             var converter = TypeDescriptor.GetConverter(type);
             if (m_dataGetter.ContainsKey(type))
             {
-                // return (T)dataGetter[type](key);
                 return (T)converter.ConvertTo(m_dataGetter[type](key),type);
             }
             else
@@ -42,7 +41,6 @@ namespace YFramework
                 return default(T);
             }
         }
-
         public void Set<T>(string key, T value)
         {
             Type type = typeof(T);
@@ -55,15 +53,7 @@ namespace YFramework
                 Debug.LogError("当前数据储存中无此类型数据，数据未key:"+key+",value:"+value);
             }
         }
-
-        public void Clear(string key)
-        {
-            PlayerPrefs.DeleteKey(key);
-        }
-
-        public void ClearAll()
-        {
-            PlayerPrefs.DeleteAll();
-        }
+        public void Clear(string key) => PlayerPrefs.DeleteKey(key);
+        public void ClearAll() => PlayerPrefs.DeleteAll();
     }
 }

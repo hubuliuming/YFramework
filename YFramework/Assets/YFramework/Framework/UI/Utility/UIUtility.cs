@@ -17,14 +17,14 @@ namespace YFramework.UI
 {
     public class UIUtility : MonoBehaviour
     {
-        private Dictionary<string, UIUtilityData> _datas;
+        private Dictionary<string, UIUtilityData> m_datas;
         public void Init()
         {
-            _datas = new Dictionary<string, UIUtilityData>();
+            m_datas = new Dictionary<string, UIUtilityData>();
             var rectTrans = transform.GetComponent<RectTransform>();
             foreach (RectTransform rectTran in rectTrans)
             {
-                _datas.Add(rectTran.name,new UIUtilityData(rectTran));
+                m_datas.Add(rectTran.name,new UIUtilityData(rectTran));
             }
         }
         /// <summary>
@@ -34,7 +34,7 @@ namespace YFramework.UI
         /// <returns></returns>
         public UIUtilityData Get(string name)
         {
-            if (!_datas.TryGetValue(name,out var data))
+            if (!m_datas.TryGetValue(name,out var data))
             {
                 Transform temp = transform.Find(name);
                 if (temp == null)
@@ -43,10 +43,10 @@ namespace YFramework.UI
                 }
                 else
                 {
-                    _datas.Add(name, new UIUtilityData(temp.GetComponent<RectTransform>()));
+                    m_datas.Add(name, new UIUtilityData(temp.GetComponent<RectTransform>()));
                 }
 
-                return _datas[name];
+                return m_datas[name];
             }
 
             return data;

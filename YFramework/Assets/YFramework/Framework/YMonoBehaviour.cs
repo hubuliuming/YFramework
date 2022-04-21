@@ -30,34 +30,5 @@ namespace YFramework
         }
         
         #endregion
-
-        #region MsgDispatcher
-
-        protected void MsgSend(string msgName, object data)
-        {
-            MsgDispatcher.Send(msgName,data);
-        }
-        protected void MsgRegister(string msgName, Action<object> onReceived)
-        {
-            MsgDispatcher.Register(msgName,onReceived);
-        }
-        protected void UnMsgRegister(string msgName, Action<object> onReceived)
-        {
-            MsgDispatcher.UnRegister(msgName,onReceived);
-        }
-        protected void UnMsgRegister(string msgName)
-        {
-            MsgDispatcher.UnRegister(msgName);
-        }
-        
-        #endregion
-        
-        private void OnDestroy()
-        {
-            OnBeforeDestroy();
-            MsgDispatcher.UnRegisterAll(); 
-        }
-        protected abstract void OnBeforeDestroy();
-
     }
 }

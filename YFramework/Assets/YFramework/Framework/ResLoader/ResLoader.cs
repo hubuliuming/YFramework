@@ -6,13 +6,16 @@
     功能：资源加载器
 *****************************************************/
 
+using System.IO;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace YFramework
 {
     public interface ILoader
     {
         GameObject LoadGameObject(string path, Transform parent = null);
+        string LoadConfig(string path);
     }
     public class ResLoader : ILoader 
     {
@@ -21,6 +24,11 @@ namespace YFramework
             var prefab = Resources.Load<GameObject>(path);
             var go = Object.Instantiate(prefab, parent);
             return go;
+        }
+        
+        public string LoadConfig(string path)
+        {
+            return File.ReadAllText(path);
         }
     }
 }

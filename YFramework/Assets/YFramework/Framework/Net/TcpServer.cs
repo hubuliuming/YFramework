@@ -25,8 +25,7 @@ namespace YFramework
         private Thread thread;
 
         private byte[] receiveBuffer = new byte[1024];
-    
-
+        
         public string ReceiveStr => Encoding.UTF8.GetString(receiveBuffer);
     
 
@@ -36,7 +35,6 @@ namespace YFramework
             thread.IsBackground = true;
             thread.Start();
         }
-    
         private void Init()
         {
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -44,7 +42,6 @@ namespace YFramework
             server.Listen(0);
             server.BeginAccept(AcceptCallBack,server);
         }
-
         private void AcceptCallBack(IAsyncResult ar)
         {
             Socket serverSocket = ar.AsyncState as Socket;
@@ -53,9 +50,6 @@ namespace YFramework
             clientSocket.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
             serverSocket.BeginAccept(AcceptCallBack, serverSocket);
         }
-
-
-
         private void ReceiveCallBack(IAsyncResult ar)
         {
             Socket clientSocket = null;
@@ -85,13 +79,10 @@ namespace YFramework
                 }
             }
         }
-    
-    
         private void OnDestroy()
         {
             Close();
         }
-
         private void Close()
         {
             if (server != null)

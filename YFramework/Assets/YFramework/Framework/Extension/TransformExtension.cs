@@ -36,23 +36,10 @@ namespace YFramework
             trans.localScale = Vector3.one;
             trans.localRotation = Quaternion.identity;
         }
-        
-        public static void SetLocalPosX(this MonoBehaviour mono, float target)
-        {
-            SetLocalPosX(mono.transform,target);
-        }
-        public static void SetLocalPosY(this MonoBehaviour mono, float target)
-        {
-            SetLocalPosY(mono.transform,target);
-        }
-        public static void SetLocalPosZ(this MonoBehaviour mono, float target)
-        {
-            SetLocalPosZ(mono.transform,target);
-        }
-        public static void SetIdentity(this MonoBehaviour mono )
-        {
-          SetIdentity(mono.transform);
-        }
+        public static void SetLocalPosX(this MonoBehaviour mono, float target) => SetLocalPosX(mono.transform,target);
+        public static void SetLocalPosY(this MonoBehaviour mono, float target) => SetLocalPosY(mono.transform, target);
+        public static void SetLocalPosZ(this MonoBehaviour mono, float target) => SetLocalPosZ(mono.transform, target);
+        public static void SetIdentity(this MonoBehaviour mono ) => SetIdentity(mono.transform);
 
         public static void AddLocalPosX(this Transform trans, float target)
         {
@@ -72,19 +59,9 @@ namespace YFramework
             localPos.z += target;
             trans.localPosition = localPos;
         }
-        public static void AddLocalPosX(this MonoBehaviour mono, float target)
-        {
-            AddLocalPosX(mono.transform,target);
-        }
-        public static void AddLocalPosY(this MonoBehaviour mono, float target)
-        {
-            AddLocalPosY(mono.transform,target);
-        }
-        public static void AddLocalPosZ(this MonoBehaviour mono, float target)
-        {
-            AddLocalPosZ(mono.transform,target);
-        }
-        
+        public static void AddLocalPosX(this MonoBehaviour mono, float target) => AddLocalPosX(mono.transform,target);
+        public static void AddLocalPosY(this MonoBehaviour mono, float target) => AddLocalPosY(mono.transform,target);
+        public static void AddLocalPosZ(this MonoBehaviour mono, float target) => AddLocalPosZ(mono.transform,target);
         public static T GetOrAddComponent<T>(this GameObject go) where T: Component
         {
             T t = go.GetComponent<T>();
@@ -95,9 +72,6 @@ namespace YFramework
 
             return t;
         }
-        public static T GetOrAddComponent<T>(this Transform trans) where T: Component
-        {
-            return GetOrAddComponent<T>(trans.gameObject);
-        }
+        public static T GetOrAddComponent<T>(this Transform trans) where T: Component => GetOrAddComponent<T>(trans.gameObject);
     }
 }
