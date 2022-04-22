@@ -7,15 +7,45 @@
 *****************************************************/
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
+using UnityEngine.Windows.WebCam;
 using YFramework;
 
 public class Test1 : YMonoBehaviour
 {
-    private void Start()
+    // private void Start()
+    // {
+    //     LoaderManager loader = new LoaderManager(new ResLoader());
+    //     var str = loader.LoadConfig(Application.dataPath + "/YFramework/Examples/TempAgs/json.json");
+    //     Debug.Log(str);
+    // }
+    
+
+    private void Update()
     {
-        LoaderManager loader = new LoaderManager(new ResLoader());
-        var str = loader.LoadConfig(Application.dataPath + "/YFramework/Examples/TempAgs/json.json");
-        Debug.Log(str);
+        
+    }
+
+    private IEnumerator WebCam()
+    {
+        yield return Application.RequestUserAuthorization(UserAuthorization.WebCam);
+        if (Application.HasUserAuthorization(UserAuthorization.WebCam))
+        {
+            WebCamDevice[] devices = WebCamTexture.devices;
+            var deviceName = devices[0].name;
+            var webCamTexture = new WebCamTexture(deviceName, 1920 / 2, 1080 / 2, 60);
+
+            var rawImage = transform.GetComponent<RawImage>();
+            rawImage.texture = webCamTexture;
+            Texture t1 = webCamTexture;
+
+            RenderTexture t = new RenderTexture(1920, 1080, 16);
+            
+            //webCamTexture.Play();
+        }
     }
 }

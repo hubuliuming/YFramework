@@ -102,6 +102,19 @@ namespace YFramework.UI
                 Debug.LogError("当前物体上没有Image组件，物体名字为："+Go.name);
             }
         }
+        
+
+        public void SetImage(Color color)
+        {
+            if (Img != null)
+            {
+                Img.color = color;
+            }
+            else
+            {
+                Debug.LogError("当前物体上没有Image组件，物体名字为："+Go.name);
+            }
+        }
 
         public void SetText(string str)
         {

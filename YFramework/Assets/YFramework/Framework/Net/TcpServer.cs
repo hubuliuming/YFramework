@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 
-namespace YFramework
+namespace YFramework.Net
 {
     public class TcpServer : MonoBehaviour
     {

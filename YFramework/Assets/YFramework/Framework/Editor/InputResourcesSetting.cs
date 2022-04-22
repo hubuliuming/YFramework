@@ -1,0 +1,47 @@
+using System.IO;
+using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEngine;
+
+namespace YFramework.Editor
+{
+    public class InputResourcesSetting : AssetPostprocessor
+    {
+        private FileData m_fileData;
+        private void OnPreprocessTexture()
+        {
+            SetTexture();
+        }
+
+        private void SetTexture()
+        {
+            TextureImporter importer = assetImporter as TextureImporter;
+            importer.textureType = TextureImporterType.Sprite;
+            importer.mipmapEnabled = false;
+        }
+
+        private void NamingConvention(string path,string rulePattern)
+        {
+            if (assetPath.Contains(path))
+            {
+                var name = Path.GetFileNameWithoutExtension(path);
+                //正则表达式
+                //string pattern = "^[0-9]+_[0-9]+$";
+                var result = Regex.Match(name, rulePattern);
+                if (result.Value == "")
+                {
+                    if (m_fileData == null)
+                    {
+                        m_fileData = new FileData();
+                        m_fileData.Path = path;
+                        m_fileData.NameTip = "规范为(正则表达式)：" + rulePattern;
+                    }
+                    Debug.LogError("导入的资源命名不符合规范，文件名字："+name);
+                    NameMgrWindow.Show();
+                    NameMgrWindowData.Add(m_fileData,name);
+                }
+                
+            }
+        }
+    }
+}
