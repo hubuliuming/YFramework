@@ -6,15 +6,17 @@
     功能：Nothing
 *****************************************************/
 
-using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
 namespace YFramework.Editor
 {
-    public class NameMgrWindow : EditorWindow 
+#if UNITY_EDITOR
+    public class NameMgrWindow : EditorWindow
     {
+        private  Dictionary<string, string> cur_ChangeNameDict = new Dictionary<string, string>();
         public static void Show()
         {
             GetWindow<NameMgrWindow>();
@@ -23,20 +25,76 @@ namespace YFramework.Editor
         private void OnGUI()
         {
             GUILayout.Label("资源名称管理器");
+            NameMgrWindowData.UpdateData();
+            GUILayout.BeginHorizontal();
+            foreach (var pair in NameMgrWindowData.SpriteDict)
+            {
+                foreach (var path in pair.Value)
+                {
+                    GUILayout.BeginVertical();
+                    var texture2D = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+                    GUILayout.Box(texture2D,GUILayout.Height(80),GUILayout.Width(80));
+                    var name = Path.GetFileNameWithoutExtension(path);
+                    if (!cur_ChangeNameDict.ContainsKey(name))
+                    {
+                        cur_ChangeNameDict[name] = name;
+                    }
+                    GUILayout.BeginHorizontal();
+                    cur_ChangeNameDict[name] =GUILayout.TextArea(cur_ChangeNameDict[name], GUILayout.Width(80));
+                    if (GUILayout.Button("确认",GUILayout.Width(50)))
+                    {
+                        if (name != cur_ChangeNameDict[name])
+                        {
+                            YFile.ReName(path,cur_ChangeNameDict[name]);
+                        }
+                        AssetDatabase.Refresh();
+                    }
+                    GUILayout.EndHorizontal();
+                    GUILayout.EndVertical();
+                }
+            }
+            GUILayout.EndHorizontal();
         }
     }
 
     public class NameMgrWindowData
     {
-        private static Dictionary<FileData, List<string>> m_SpriteDict = new Dictionary<FileData, List<string>>();
+        public static Dictionary<FileData, List<string>> SpriteDict = new Dictionary<FileData, List<string>>();
 
         public static void Add(FileData data,string value)
         {
-            if (!m_SpriteDict.ContainsKey(data))
+            if (!SpriteDict.ContainsKey(data))
             {
-                m_SpriteDict[data] = new List<string>();
+                SpriteDict[data] = new List<string>();
             }
-            m_SpriteDict[data].Add(value);
+            SpriteDict[data].Add(value);
+        }
+
+        public static void UpdateData()
+        {
+            var temp = SpriteDict;
+            foreach (var pair in SpriteDict)
+            {
+                var count = pair.Value.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    if (!File.Exists(pair.Value[i]))
+                    {
+                        pair.Value.Remove(pair.Value[i]);
+                        i--;
+                    }
+                }
+                // foreach (var value in pair.Value)
+                // {
+                //     if (!File.Exists(value))
+                //     {
+                //         temp[pair.Key].Remove(value);
+                //     }
+                // }
+            }
+
+            //SpriteDict = temp;
+
         }
     }
 
@@ -45,4 +103,5 @@ namespace YFramework.Editor
         public string Path;
         public string NameTip;
     }
+#endif
 }

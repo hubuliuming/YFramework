@@ -7,10 +7,12 @@ namespace YFramework.Editor
 {
     public class InputResourcesSetting : AssetPostprocessor
     {
-        private FileData m_fileData;
+        private static FileData m_fileData;
+        private string m_ruloPattern = "^[0-9]+_[0-9]+$";
         private void OnPreprocessTexture()
         {
             SetTexture();
+            NamingConvention("Test",m_ruloPattern);
         }
 
         private void SetTexture()
@@ -24,7 +26,7 @@ namespace YFramework.Editor
         {
             if (assetPath.Contains(path))
             {
-                var name = Path.GetFileNameWithoutExtension(path);
+                var name = Path.GetFileNameWithoutExtension(assetPath);
                 //正则表达式
                 //string pattern = "^[0-9]+_[0-9]+$";
                 var result = Regex.Match(name, rulePattern);
@@ -38,9 +40,8 @@ namespace YFramework.Editor
                     }
                     Debug.LogError("导入的资源命名不符合规范，文件名字："+name);
                     NameMgrWindow.Show();
-                    NameMgrWindowData.Add(m_fileData,name);
+                    NameMgrWindowData.Add(m_fileData,assetPath);
                 }
-                
             }
         }
     }
