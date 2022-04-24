@@ -6,6 +6,7 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -18,19 +19,24 @@ namespace YFramework.Editor
         {
             GetWindow<NameMgrWindow>();
         }
+
+        private void OnGUI()
+        {
+            GUILayout.Label("资源名称管理器");
+        }
     }
 
     public class NameMgrWindowData
     {
-        public static Dictionary<FileData, List<string>> SpriteDict = new Dictionary<FileData, List<string>>();
+        private static Dictionary<FileData, List<string>> m_SpriteDict = new Dictionary<FileData, List<string>>();
 
         public static void Add(FileData data,string value)
         {
-            if (!SpriteDict.ContainsKey(data))
+            if (!m_SpriteDict.ContainsKey(data))
             {
-                SpriteDict[data] = new List<string>();
+                m_SpriteDict[data] = new List<string>();
             }
-            SpriteDict[data].Add(value);
+            m_SpriteDict[data].Add(value);
         }
     }
 
