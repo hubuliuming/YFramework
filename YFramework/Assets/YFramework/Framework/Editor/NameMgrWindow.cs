@@ -25,6 +25,7 @@ namespace YFramework.Editor
         private void OnGUI()
         {
             GUILayout.Label("资源名称管理器");
+            //todo foreach中修改访问错误，未修改bug
             NameMgrWindowData.UpdateData();
             GUILayout.BeginHorizontal();
             foreach (var pair in NameMgrWindowData.SpriteDict)
@@ -46,6 +47,7 @@ namespace YFramework.Editor
                         if (name != cur_ChangeNameDict[name])
                         {
                             YFile.ReName(path,cur_ChangeNameDict[name]);
+                            cur_ChangeNameDict.Remove(path);
                         }
                         AssetDatabase.Refresh();
                     }
@@ -72,7 +74,6 @@ namespace YFramework.Editor
 
         public static void UpdateData()
         {
-            var temp = SpriteDict;
             foreach (var pair in SpriteDict)
             {
                 var count = pair.Value.Count;
@@ -84,17 +85,17 @@ namespace YFramework.Editor
                         i--;
                     }
                 }
-                // foreach (var value in pair.Value)
-                // {
-                //     if (!File.Exists(value))
-                //     {
-                //         temp[pair.Key].Remove(value);
-                //     }
-                // }
             }
-
-            //SpriteDict = temp;
-
+            // for (int i = 0; i < SpriteDict.Keys.Count; i++)
+            // {
+            //     for (int j = 0; j < SpriteDict.Values.Count; j++)
+            //     {
+            //         if (File.Exists(SpriteDict.Keys[i][j]))
+            //         {
+            //             
+            //         }
+            //     }
+            // }
         }
     }
 

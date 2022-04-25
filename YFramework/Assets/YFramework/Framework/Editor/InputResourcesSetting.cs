@@ -39,8 +39,8 @@ namespace YFramework.Editor
                         m_fileData.NameTip = "规范为(正则表达式)：" + rulePattern;
                     }
                     Debug.LogError("导入的资源命名不符合规范，文件名字："+name);
-                    NameMgrWindow.Show();
                     NameMgrWindowData.Add(m_fileData,assetPath);
+                    NameMgrWindow.Show();
                 }
             }
         }
