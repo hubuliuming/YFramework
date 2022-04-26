@@ -17,10 +17,11 @@ namespace YFramework.Editor
     public class NameMgrWindow : EditorWindow
     {
         private  Dictionary<string, string> cur_ChangeNameDict = new Dictionary<string, string>();
-        public static void Show()
+        public new static void Show()
         {
             GetWindow<NameMgrWindow>();
         }
+        
 
         private void OnGUI()
         {

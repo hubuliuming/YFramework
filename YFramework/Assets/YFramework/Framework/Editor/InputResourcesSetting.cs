@@ -12,7 +12,7 @@ namespace YFramework.Editor
         private void OnPreprocessTexture()
         {
             SetTexture();
-            NamingConvention("Test",m_ruloPattern);
+            //NamingConvention("Test",m_ruloPattern);
         }
 
         private void SetTexture()

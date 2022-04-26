@@ -73,5 +73,6 @@ namespace YFramework
             return t;
         }
         public static T GetOrAddComponent<T>(this Transform trans) where T: Component => GetOrAddComponent<T>(trans.gameObject);
+        public static RectTransform GetRect(this Transform trans) => trans.GetComponent<RectTransform>();
     }
 }

@@ -27,7 +27,7 @@ public class Test1 : YMonoBehaviour
 
     private void Update()
     {
-        
+        Animation an = GetComponent<Animation>();
     }
 
     private IEnumerator WebCam()
