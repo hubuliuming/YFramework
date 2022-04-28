@@ -9,8 +9,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Pool;
 using UnityEngine.UI;
 using UnityEngine.Windows.WebCam;
 using YFramework;
@@ -23,11 +25,13 @@ public class Test1 : YMonoBehaviour
     //     var str = loader.LoadConfig(Application.dataPath + "/YFramework/Examples/TempAgs/json.json");
     //     Debug.Log(str);
     // }
-    
 
-    private void Update()
+    private int id;
+    private List<int> ins = new List<int>();
+    private void UpdateID(int id)
     {
-        Animation an = GetComponent<Animation>();
+        var rectTrans = GetComponent<RectTransform>();
+       
     }
 
     private IEnumerator WebCam()

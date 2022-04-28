@@ -14,20 +14,19 @@ namespace YFramework
 {
     public class BindUtility
     {
-        private static Dictionary<string, Type> prefabAndScriptsMap = new Dictionary<string, Type>();
+        private static Dictionary<string, HashSet<Type>> prefabAndScriptsMap = new Dictionary<string,HashSet<Type>>();
         public static void Bind(string path,Type type)
         {
             if (!prefabAndScriptsMap.ContainsKey(path))
             {
-                prefabAndScriptsMap.Add(path,type);
+                prefabAndScriptsMap.Add(path,new HashSet<Type>());
+                
             }
-            else
-            {
-                Debug.LogError("当前数据中已存在路径："+path);
-            }
+
+            prefabAndScriptsMap[path].Add(type);
         }
 
-        public static Type GetType(string path)
+        public static HashSet<Type> GetType(string path)
         {
             if (!prefabAndScriptsMap.TryGetValue(path,out var type))
             {
