@@ -9,6 +9,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -16,7 +17,6 @@ using UnityEngine.Pool;
 using UnityEngine.UI;
 using UnityEngine.Windows.WebCam;
 using YFramework;
-
 public class Test1 : YMonoBehaviour
 {
     // private void Start()
@@ -31,8 +31,12 @@ public class Test1 : YMonoBehaviour
     private void UpdateID(int id)
     {
         var rectTrans = GetComponent<RectTransform>();
-       
+        this.id = id;
+        Stopwatch t = new Stopwatch();
+        t.Start();
+        t.Stop();
     }
+    
 
     private IEnumerator WebCam()
     {
