@@ -10,6 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -30,11 +31,8 @@ public class Test1 : YMonoBehaviour
     private List<int> ins = new List<int>();
     private void UpdateID(int id)
     {
-        var rectTrans = GetComponent<RectTransform>();
-        this.id = id;
-        Stopwatch t = new Stopwatch();
-        t.Start();
-        t.Stop();
+        LinkedList<int> list = new LinkedList<int>();
+  
     }
     
 

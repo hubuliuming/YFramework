@@ -7,6 +7,7 @@
 *****************************************************/
 
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace YC
 {
@@ -20,7 +21,8 @@ namespace YC
                 list.AddFirst(i);
                 Debug.Log(list.Count);
                 Debug.Log(list.Get(i));
-            }
+            } 
+            
         }
     }
 }
