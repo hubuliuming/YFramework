@@ -6,27 +6,20 @@
     功能：Mono类单例基类
 *****************************************************/
 
+using System;
 using UnityEngine;
 
 namespace YFramework
 {
-    public class MonoSingleton<T> : MonoBehaviour where  T : MonoBehaviour
+    public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T m_instance;
+        public static T Instance => m_instance;
 
-        public static T Instance
+        private void Awake()
         {
-            get
-            {
-                if (m_instance == null)
-                {
-                    var go = new GameObject(typeof(T).Name);
-                    DontDestroyOnLoad(go);
-                    m_instance = go.AddComponent<T>();
-                }
-
-                return m_instance;
-            }
+            m_instance = this as T;
+            DontDestroyOnLoad(gameObject);
         }
     }
 }

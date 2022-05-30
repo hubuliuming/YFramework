@@ -6,7 +6,9 @@
     功能：AssetBundles加载器
 *****************************************************/
 
+using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace YFramework
 {

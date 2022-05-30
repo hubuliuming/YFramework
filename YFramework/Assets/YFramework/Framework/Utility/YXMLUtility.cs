@@ -19,6 +19,8 @@ namespace YFramework
 
         public YXmlInfo(string path)
         {
+            if (path.EndsWith(".xml"))
+                path += ".xml";
             Path = path;
         }
     }

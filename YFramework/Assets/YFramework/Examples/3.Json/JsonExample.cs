@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace YFramework.Examples
@@ -17,7 +18,8 @@ namespace YFramework.Examples
         public int appNum;
         public bool phoneState;
         //对象为类，枚举等需要加序列化才能成功写入。
-        public List<AppProperty> AppProperties; 
+        public List<AppProperty> AppProperties;
+        public Dictionary<string, int> goodsDict;
     }
     [Serializable]
     public class AppProperty
@@ -28,7 +30,7 @@ namespace YFramework.Examples
     public class JsonExample : MonoBehaviour 
     {
 #if UNITY_EDITOR
-        private static string savePath = Application.dataPath + "/YFramework/Examples/TempAgs/json.json";
+        private static string savePath = Application.dataPath + "/YFramework/Examples/TempAgs/json";
         [UnityEditor.MenuItem("YFramework/Examples/3/JsonSave")]
         private static void MenuClick()
         {
@@ -43,9 +45,17 @@ namespace YFramework.Examples
                          name = "QQ",
                          size = 123f,
                      }
+                 },
+                 goodsDict = new Dictionary<string, int>()
+                 {
+                     {"aa",5},
+                     {"bb",66},
+                     {"cc",88}
                  }
              };
-            YJsonUtility.Save(app,savePath);
+            
+            
+            YJsonUtility.WriteToJson(app,savePath);
             
             UnityEditor.AssetDatabase.Refresh();
         }
@@ -53,13 +63,19 @@ namespace YFramework.Examples
         [UnityEditor.MenuItem("YFramework/Examples/3/JsonLoad")]
         private static void MenuClick2()
         {
-            var app = YJsonUtility.Load<AppForPhone>(savePath);
+            var app = YJsonUtility.ReadFromJson<AppForPhone>(savePath);
             Debug.Log(app.appNum);
             Debug.Log(app.phoneState);
             foreach (var a in app.AppProperties)
             {
                 Debug.Log(a.name);
                 Debug.Log(a.size);
+            }
+
+            foreach (var k in app.goodsDict)
+            {
+                Debug.Log(k.Key);
+                Debug.Log(k.Value);
             }
         }
 #endif

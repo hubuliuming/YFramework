@@ -9,7 +9,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class MenuClick : MonoBehaviour 
+public class MenuClick 
 {
     [MenuItem("Tools/防卡")]
     private static void Click1()
