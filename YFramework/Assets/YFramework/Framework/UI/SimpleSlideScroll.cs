@@ -7,21 +7,12 @@ namespace YFramework.UI
 {
     public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
     {
-        private RectTransform contentTrans;
-        private float beginMousePosX;
-        private float endMousPosX;
-        private ScrollRect scrollRect;
-        private Vector3 contentInitPos;
-        private Vector2 contentInitSize;
-
+        public ScrollRect scrollRect;
         public int cellLength;
         public int spacing;
         public int leftOffset;
-        private float moveOneItemLength;
-
-        private Vector3 curContentLocalPos;
-        public int totalItemNunm;
         public int currentIndex;
+        public int totalItemNum;
 
         public Button btnLast;
         public Button btnNext;
@@ -29,20 +20,29 @@ namespace YFramework.UI
         public TextMeshProUGUI pageTextPro;
         public bool needSendMessage;
 
-
-        private void Start()
+        private Vector3 _curContentLocalPos;
+        private RectTransform _contentTrans;
+        private float _beginMousePosX;
+        private float _endMousePosX;
+        private float _moveOneItemLength;
+        
+        private Vector3 _contentInitPos;
+        private Vector2 _contentInitSize;
+        
+        public void Init()
         {
-            scrollRect = GetComponent<ScrollRect>();
-            contentTrans = scrollRect.content;
-            moveOneItemLength = cellLength + spacing;
-            curContentLocalPos = contentTrans.localPosition;
-            contentInitPos = contentTrans.localPosition;
-            contentInitSize = contentTrans.sizeDelta;
+            scrollRect.inertia = false;
+            _contentTrans = scrollRect.content;
+            _moveOneItemLength = cellLength + spacing;
+            _curContentLocalPos = _contentTrans.localPosition;
+            _contentInitPos = _contentTrans.localPosition;
+            _contentInitSize = _contentTrans.sizeDelta;
             currentIndex = 0;
+            UpdateTotal();
             if(pageText != null)
-                pageText.text = currentIndex.ToString() + "/" + totalItemNunm;
+                pageText.text = currentIndex.ToString() + "/" + totalItemNum;
             if (pageTextPro != null)
-                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNunm;
+                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if(btnLast != null)
                 btnLast.onClick.AddListener(ToLastPage);
             if(btnNext != null)
@@ -50,28 +50,34 @@ namespace YFramework.UI
         
             UpdatePanel();
         }
-        public void Init()
+
+        public void UpdateTotal()
+        {
+            totalItemNum = (int)(_contentTrans.sizeDelta.x / cellLength) + 1;
+        }
+
+        public void InitPos()
         {
             currentIndex = 0;
-            if (contentTrans!=null)
+            if (_contentTrans!=null)
             {
-                contentTrans.localPosition = contentInitPos;
-                curContentLocalPos = contentInitPos;
+                _contentTrans.localPosition = _contentInitPos;
+                _curContentLocalPos = _contentInitPos;
             }
         }
         public void OnEndDrag(PointerEventData eventData)
         {
-            endMousPosX = Input.mousePosition.x;
+            _endMousePosX = Input.mousePosition.x;
             float offectX = 0;
             float moveDistance = 0;
-            offectX = beginMousePosX - endMousPosX;
+            offectX = _beginMousePosX - _endMousePosX;
             if (offectX > 0)//右滑
             {
-                if (currentIndex >= totalItemNunm)
+                if (currentIndex >= totalItemNum)
                 {
                     return;
                 }
-                moveDistance = -moveOneItemLength;
+                moveDistance = -_moveOneItemLength;
                 currentIndex++;
                 if (needSendMessage)
                     UpdatePanel();
@@ -82,45 +88,45 @@ namespace YFramework.UI
                 {
                     return;
                 }
-                moveDistance = moveOneItemLength;
+                moveDistance = _moveOneItemLength;
                 currentIndex--;
                 if (needSendMessage)
                     UpdatePanel();
             }
             if (pageText != null)
-                pageText.text = currentIndex.ToString() + "/" + totalItemNunm;
+                pageText.text = currentIndex.ToString() + "/" + totalItemNum;
             if (pageTextPro != null)
-                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNunm;
+                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
 
             // DOTween.To(() => contentTrans.localPosition,
             //     lerpValue => contentTrans.localPosition = lerpValue,
             //     curContentLocalPos + new Vector3(moveDistance, 0, 0), 0.5f).SetEase(Ease.OutQuint);
 
-            contentTrans.localPosition = curContentLocalPos + new Vector3(moveDistance, 0, 0);
-            curContentLocalPos += new Vector3(moveDistance, 0, 0);
+            _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
+            _curContentLocalPos += new Vector3(moveDistance, 0, 0);
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
-            beginMousePosX = Input.mousePosition.x;
+            _beginMousePosX = Input.mousePosition.x;
         }
         private void ToNextPage()
         {
             float moveDistance;
-            if (currentIndex >= totalItemNunm)
+            if (currentIndex >= totalItemNum)
                 return;
-            moveDistance = -moveOneItemLength;
+            moveDistance = -_moveOneItemLength;
             currentIndex++;
             if (pageText != null)
             {
-                pageText.text = currentIndex.ToString() + "/" + totalItemNunm.ToString();
+                pageText.text = currentIndex.ToString() + "/" + totalItemNum.ToString();
             }
             if (pageTextPro != null)
-                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNunm;
+                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (needSendMessage)
                 UpdatePanel();
 
-            contentTrans.localPosition = curContentLocalPos + new Vector3(moveDistance, 0, 0);
-            curContentLocalPos += new Vector3(moveDistance, 0, 0);
+            _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
+            _curContentLocalPos += new Vector3(moveDistance, 0, 0);
         }
     
 
@@ -129,27 +135,27 @@ namespace YFramework.UI
             float moveDistance;
             if (currentIndex <= 0)
                 return;
-            moveDistance = moveOneItemLength;
+            moveDistance = _moveOneItemLength;
             currentIndex--;
             if (pageText != null)
-                pageText.text = currentIndex.ToString() + "/" + totalItemNunm.ToString();
+                pageText.text = currentIndex.ToString() + "/" + totalItemNum.ToString();
             if (pageTextPro != null)
-                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNunm;
+                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (needSendMessage)
                 UpdatePanel();
 
-            contentTrans.localPosition = curContentLocalPos + new Vector3(moveDistance, 0, 0);
-            curContentLocalPos += new Vector3(moveDistance, 0, 0);
+            _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
+            _curContentLocalPos += new Vector3(moveDistance, 0, 0);
         }
         public void SetContentLength(int itemNum)
         {
-            contentTrans.sizeDelta = new Vector2(contentTrans.sizeDelta.x +
-                                                 (cellLength + spacing) * (itemNum - 1), contentTrans.sizeDelta.y);
-            totalItemNunm = itemNum;
+            _contentTrans.sizeDelta = new Vector2(_contentTrans.sizeDelta.x +
+                                                 (cellLength + spacing) * (itemNum - 1), _contentTrans.sizeDelta.y);
+            totalItemNum = itemNum;
         }
         public void InitScrollLength()
         {
-            contentTrans.sizeDelta = contentInitSize;
+            _contentTrans.sizeDelta = _contentInitSize;
         }
     
         public void UpdatePanel(bool isNext)
