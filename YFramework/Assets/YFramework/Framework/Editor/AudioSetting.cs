@@ -6,12 +6,12 @@
     功能：Nothing
 *****************************************************/
 
-using System;
 using UnityEditor;
 using UnityEngine;
 
 namespace YFramework.Editor
 {
+#if UNITY_EDITOR
     public class AudioSetting : AssetPostprocessor
     {
         AudioImporterSampleSettings  setting = new AudioImporterSampleSettings();
@@ -33,4 +33,5 @@ namespace YFramework.Editor
             importer.defaultSampleSettings = setting;
         }
     }
+#endif
 }

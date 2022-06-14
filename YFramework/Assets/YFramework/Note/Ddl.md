@@ -1,0 +1,1 @@
+- 要想关联其他程序集要在程序集界面勾选Override Reference

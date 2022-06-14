@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace YFramework.Editor
 {
+#if UNITY_EDITOR
+    
+
     public class InputResourcesSetting : AssetPostprocessor
     {
         private static FileData m_fileData;
@@ -45,4 +48,5 @@ namespace YFramework.Editor
             }
         }
     }
+#endif
 }

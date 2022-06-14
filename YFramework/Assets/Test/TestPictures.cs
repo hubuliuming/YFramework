@@ -6,8 +6,8 @@
     功能：Nothing
 *****************************************************/
 
-using System;
 using UnityEngine;
+using YFramework;
 
 public class TestPictures : MonoBehaviour
 {
@@ -15,10 +15,8 @@ public class TestPictures : MonoBehaviour
     public Rect rect;
     private void Start()
     {
-        CutScreen cutScreen = new CutScreen(area.rect);
-
-        Debug.Log(area.rect);
-        //Debug.Log(Screen.width area.rect);
-        cutScreen.SaveLocalFile("D://拍照照片/",cutScreen.Cut());
+     
     }
+
+    
 }

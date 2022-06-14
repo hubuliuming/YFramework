@@ -7,8 +7,8 @@
 *****************************************************/
 
 using System.IO;
-using Unity.Plastic.Newtonsoft.Json;
-using UnityEngine;
+using Newtonsoft.Json;
+
 
 namespace YFramework
 {
@@ -20,6 +20,7 @@ namespace YFramework
                 savePath += ".json";
             var jsonStr = JsonConvert.SerializeObject(data, Formatting.Indented);
             StreamWriter sw = new StreamWriter(savePath);
+            
             sw.Write(jsonStr);
             sw.Close();
         }

@@ -23,6 +23,6 @@ namespace YFramework.Examples
                 Debug.Log(MathYUtility.GetRandomRemoveSelf(list,"b"));
             }
         }
-    }
 #endif
+    }
 }

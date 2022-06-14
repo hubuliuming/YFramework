@@ -30,5 +30,10 @@ namespace YFramework
         }
         
         #endregion
+
+        private void OnDestroy()
+        {
+            MsgDispatcher.UnRegisterAll();
+        }
     }
 }

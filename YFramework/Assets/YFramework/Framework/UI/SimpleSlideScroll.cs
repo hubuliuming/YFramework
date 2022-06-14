@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace YFramework.UI
 {
-    public class SimpleSlideScroll : MonoBehaviour,IBeginDragHandler,IEndDragHandler
+    public class SimpleSlideScroll : UIBase,IBeginDragHandler,IEndDragHandler
     {
         public ScrollRect scrollRect;
         public int cellLength;
@@ -18,6 +18,7 @@ namespace YFramework.UI
         public Button btnNext;
         public Text pageText;
         public TextMeshProUGUI pageTextPro;
+
         public bool needSendMessage;
 
         private Vector3 _curContentLocalPos;
@@ -29,7 +30,7 @@ namespace YFramework.UI
         private Vector3 _contentInitPos;
         private Vector2 _contentInitSize;
         
-        public void Init()
+        public new void Init()
         {
             scrollRect.inertia = false;
             _contentTrans = scrollRect.content;
@@ -47,8 +48,7 @@ namespace YFramework.UI
                 btnLast.onClick.AddListener(ToLastPage);
             if(btnNext != null)
                 btnNext.onClick.AddListener(ToNextPage);
-        
-            UpdatePanel();
+            
         }
 
         public void UpdateTotal()
@@ -80,7 +80,7 @@ namespace YFramework.UI
                 moveDistance = -_moveOneItemLength;
                 currentIndex++;
                 if (needSendMessage)
-                    UpdatePanel();
+                    OnUpdatePage();
             }
             else //左滑
             {
@@ -91,17 +91,13 @@ namespace YFramework.UI
                 moveDistance = _moveOneItemLength;
                 currentIndex--;
                 if (needSendMessage)
-                    UpdatePanel();
+                    OnUpdatePage();
             }
             if (pageText != null)
                 pageText.text = currentIndex.ToString() + "/" + totalItemNum;
             if (pageTextPro != null)
                 pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
-
-            // DOTween.To(() => contentTrans.localPosition,
-            //     lerpValue => contentTrans.localPosition = lerpValue,
-            //     curContentLocalPos + new Vector3(moveDistance, 0, 0), 0.5f).SetEase(Ease.OutQuint);
-
+            
             _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
             _curContentLocalPos += new Vector3(moveDistance, 0, 0);
         }
@@ -123,7 +119,7 @@ namespace YFramework.UI
             if (pageTextPro != null)
                 pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (needSendMessage)
-                UpdatePanel();
+                OnUpdatePage();
 
             _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
             _curContentLocalPos += new Vector3(moveDistance, 0, 0);
@@ -142,7 +138,7 @@ namespace YFramework.UI
             if (pageTextPro != null)
                 pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (needSendMessage)
-                UpdatePanel();
+                OnUpdatePage();
 
             _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
             _curContentLocalPos += new Vector3(moveDistance, 0, 0);
@@ -158,22 +154,22 @@ namespace YFramework.UI
             _contentTrans.sizeDelta = _contentInitSize;
         }
     
-        public void UpdatePanel(bool isNext)
-        {
-            if (isNext)
-            {
-                gameObject.SendMessageUpwards("ToNextLevel");
-            }
-            else
-            {
-                gameObject.SendMessageUpwards("ToLastLevel");
-            }
-        }
+        // public void UpdatePanel(bool isNext)
+        // {
+        //     if (isNext)
+        //     {
+        //         gameObject.SendMessageUpwards("ToNextLevel");
+        //     }
+        //     else
+        //     {
+        //         gameObject.SendMessageUpwards("ToLastLevel");
+        //     }
+        // }
 
-        private void UpdatePanel()
+        public void OnUpdatePage()
         {
             Debug.Log(currentIndex);
-            //todo Method
+            MsgDispatcher.Send("OnUpdatePage",currentIndex);
         }
 
     }
