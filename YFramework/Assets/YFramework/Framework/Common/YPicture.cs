@@ -7,12 +7,14 @@
 *****************************************************/
 
 using System;
-using System.Collections;
 using System.IO;
 using UnityEngine;
 
 namespace YFramework
 {
+    /// <summary>
+    /// 方法需要等这帧渲染完调用
+    /// </summary>
     public class YPicture 
     {
         public enum PictureType
@@ -39,69 +41,42 @@ namespace YFramework
             _defaultName = DateTime.Now.ToString("yyyyMMddHHmmss");
             _startX = (int)_rectTrans.position.x;
             _startY = (int)_rectTrans.position.y;
-            _width = (int)_rectTrans.sizeDelta.x;
-            _height = (int)_rectTrans.sizeDelta.y;
-            Debug.Log(_startX);
-            Debug.Log(_startY);
-            Debug.Log(_width);
-            Debug.Log(_height);
+            _width = (int)_rectTrans.sizeDelta.x/2;
+            _height = (int)_rectTrans.sizeDelta.y/2;
+            // Debug.Log(_startX);
+            // Debug.Log(_startY);
+            // Debug.Log(_width);
+            // Debug.Log(_height);
         }
-
-        public byte[] GetData() => GetData(_type);
-
-        public byte[] GetData(PictureType type)
+        
+        public byte[] Cut(PictureType type = PictureType.PNG)
         {
             Texture2D texture2D = new Texture2D(_width, _height, TextureFormat.ARGB32, false);
             texture2D.ReadPixels(new Rect(_startX,_startY,_width,_height),0,0,false);
             texture2D.Apply();
-        
+
+            byte[] data = null;
             switch (type)
             {
                 case PictureType.PNG:
-                    _data = texture2D.EncodeToPNG();
+                    data = texture2D.EncodeToPNG();
                     break;
                 case PictureType.JPG:
-                    _data = texture2D.EncodeToJPG();
+                    data = texture2D.EncodeToJPG();
                     break;
                 case PictureType.EXR:
-                    _data = texture2D.EncodeToEXR();
+                    data = texture2D.EncodeToEXR();
                     break;
                 case PictureType.TGA:
-                    _data = texture2D.EncodeToTGA();
+                    data = texture2D.EncodeToTGA();
                     break;
             }
 
-            if (_data == null)
+            if (data == null)
                 Debug.LogError("转化图片失败");
-            return _data;
+            return data;
         }
-
-        private IEnumerator CorCut(PictureType type)
-        {
-            yield return new WaitForEndOfFrame();
-            Texture2D texture2D = new Texture2D(_width, _height, TextureFormat.ARGB32, false);
-            texture2D.ReadPixels(new Rect(_startX,_startY,_width,_height),0,0,false);
-            texture2D.Apply();
         
-            switch (type)
-            {
-                case PictureType.PNG:
-                    _data = texture2D.EncodeToPNG();
-                    break;
-                case PictureType.JPG:
-                    _data = texture2D.EncodeToJPG();
-                    break;
-                case PictureType.EXR:
-                    _data = texture2D.EncodeToEXR();
-                    break;
-                case PictureType.TGA:
-                    _data = texture2D.EncodeToTGA();
-                    break;
-            }
-
-            if (_data == null)
-                Debug.LogError("转化图片失败");
-        }
         public byte[] CutByWebCam(WebCamTexture webCamTexture) => CutByWebCam(webCamTexture, _type);
         public byte[] CutByWebCam(WebCamTexture webCamTexture,PictureType type)
         {
@@ -129,8 +104,6 @@ namespace YFramework
                 Debug.LogError("转化图片失败");
             return _data;
         }
-        
-
         public void SaveLocalFile(string path,byte[] pictureData,PictureType type,string pictureName )
         {
             if (!Directory.Exists(path))
