@@ -18,8 +18,6 @@ public class Painting : MonoBehaviour
     private Vector3 _endPosition = Vector3.zero;
     private readonly Vector3[] _positionArray = new Vector3[3];
     private readonly Vector3[] _positionArray1 = new Vector3[4];
-    // private int _width;
-    // private int _height;
     private int a = 0;
     private int b = 0;
     private int s = 0;
@@ -27,11 +25,7 @@ public class Painting : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(raw.rectTransform.sizeDelta);
-        // _width = (int) raw.rectTransform.sizeDelta.x;
-        // _height = (int) raw.rectTransform.sizeDelta.y;
-         _texRender = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
-        //_texRender = new RenderTexture(_width, _height, 24, RenderTextureFormat.ARGB32);
+        _texRender = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
         Clear(_texRender);
     }
     
@@ -46,7 +40,6 @@ public class Painting : MonoBehaviour
             {
                 return;
             }
-
             OnMouseMove(Input.mousePosition);
         }
         if (Input.GetMouseButtonUp(0))
@@ -62,12 +55,10 @@ public class Painting : MonoBehaviour
         _texRender = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
         Clear(_texRender);
     }
-
-
+    
     void OnMouseUp()
     {
         _startPosition = Vector3.zero;
-        //brushScale = 0.5f;
         a = 0;
         b = 0;
         s = 0;
@@ -84,21 +75,16 @@ public class Painting : MonoBehaviour
     {
         if (_startPosition == Vector3.zero)
         {
-          
             _startPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-           
         }
 
         _endPosition = pos;
         float distance = Vector3.Distance(_startPosition, _endPosition);
-        //brushScale = SetScale(distance);
         ThreeOrderBézierCurse(pos, distance, 4.5f);
-
         _startPosition = _endPosition;
         _lastDistance = distance;
     }
-
-    void Clear(RenderTexture destTexture)
+    private void Clear(RenderTexture destTexture)
     {
         Graphics.SetRenderTarget(destTexture);
         GL.PushMatrix();
@@ -106,12 +92,11 @@ public class Painting : MonoBehaviour
         GL.Clear(true, true, new Color(0,0,0,0));
         GL.PopMatrix();
     }
-
-    void DrawBrush(RenderTexture destTexture, int x, int y, Texture sourceTexture, Color color, float scale)
+    private void DrawBrush(RenderTexture destTexture, int x, int y, Texture sourceTexture, Color color, float scale)
     {
         DrawBrush(destTexture, new Rect(x, y, sourceTexture.width, sourceTexture.height), sourceTexture, color, scale);
     }
-    void DrawBrush(RenderTexture destTexture, Rect destRect, Texture sourceTexture, Color color, float scale)
+    private void DrawBrush(RenderTexture destTexture, Rect destRect, Texture sourceTexture, Color color, float scale)
     {
         float left = destRect.xMin - destRect.width * scale / 2.0f;
         float right = destRect.xMin + destRect.width * scale / 2.0f;
@@ -137,7 +122,7 @@ public class Painting : MonoBehaviour
         GL.End();
         GL.PopMatrix();
     }
-    void DrawImage()
+    private void DrawImage()
     {
         raw.texture = _texRender;
     }
@@ -147,7 +132,7 @@ public class Painting : MonoBehaviour
     }
 
     //二阶贝塞尔曲线
-    public void TwoOrderBézierCurse(Vector3 pos, float distance)
+    private void TwoOrderBézierCurse(Vector3 pos, float distance)
     {
         _positionArray[a] = pos;
         a++;

@@ -8,22 +8,21 @@
 
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using YFramework;
 
-public class TestPictures : YMonoBehaviour
+public class TestPictures: YMonoBehaviour
 {
    
     public  RectTransform areaTran;
 
     private string path = "D:/拍照照片";
-    private IEnumerator Start()
+    public IEnumerator Start()
     {
         var pic = new YPicture(areaTran);
         yield return new WaitForEndOfFrame();
-
         var data = pic.Cut();
         pic.SaveLocalFile(path,data);
+        
     }
     
     // public IEnumerator Init()

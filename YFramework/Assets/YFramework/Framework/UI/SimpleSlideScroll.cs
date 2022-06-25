@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -29,7 +30,12 @@ namespace YFramework.UI
         
         private Vector3 _contentInitPos;
         private Vector2 _contentInitSize;
-        
+
+        private void Start()
+        {
+            Init();
+        }
+
         public new void Init()
         {
             scrollRect.inertia = false;
