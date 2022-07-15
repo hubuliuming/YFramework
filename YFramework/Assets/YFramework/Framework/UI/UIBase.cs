@@ -6,7 +6,6 @@
     功能：UI基类
 *****************************************************/
 
-using System;
 
 namespace YFramework.UI
 {
@@ -19,7 +18,6 @@ namespace YFramework.UI
 
     public abstract class UIBase : YMonoBehaviour,IView
     {
-        protected Action<object> onUpdatePage;
         private UIUtility _uiUtility;
 
         protected UIUtility UiUtility
@@ -37,10 +35,7 @@ namespace YFramework.UI
         }
         public virtual void Init()
         {
-            MsgDispatcher.Register("OnUpdatePage", o =>
-            {
-                onUpdatePage?.Invoke(o);
-            });
+          
         }
 
         public virtual void Show()

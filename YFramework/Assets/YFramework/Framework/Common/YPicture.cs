@@ -39,14 +39,10 @@ namespace YFramework
             this._rectTrans = rectTrans;
             this._type = type;
             _defaultName = DateTime.Now.ToString("yyyyMMddHHmmss");
-            _startX = (int)_rectTrans.position.x;
-            _startY = (int)_rectTrans.position.y;
-            _width = (int)_rectTrans.sizeDelta.x/2;
-            _height = (int)_rectTrans.sizeDelta.y/2;
-            // Debug.Log(_startX);
-            // Debug.Log(_startY);
-            // Debug.Log(_width);
-            // Debug.Log(_height);
+            _startX = (int)(_rectTrans.position.x - MathF.Abs(_rectTrans.rect.xMin)); 
+            _startY = (int)(_rectTrans.position.y - MathF.Abs(_rectTrans.rect.yMin)); 
+            _width = (int)_rectTrans.sizeDelta.x;
+            _height = (int)_rectTrans.sizeDelta.y;
         }
         
         public byte[] Cut(PictureType type = PictureType.PNG)

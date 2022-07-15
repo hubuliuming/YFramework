@@ -12,6 +12,28 @@ namespace YFramework
 {
     public static  class TransformExtension
     {
+        public static void SetPosX(this Transform trans, float target)
+        {
+            var pos = trans.position;
+            pos.x = target;
+            trans.position = pos;
+        }
+        public static void SetPosY(this Transform trans, float target)
+        {
+            var pos = trans.position;
+            pos.y = target;
+            trans.position = pos;
+        }
+        public static void SetPosZ(this Transform trans, float target)
+        {
+            var pos = trans.position;
+            pos.z = target;
+            trans.position = pos;
+        }
+        public static void SetPosX(this MonoBehaviour mono, float target) => SetPosX(mono.transform, target);
+        public static void SetPosY(this MonoBehaviour mono, float target) => SetPosY(mono.transform, target);
+        public static void SetPosZ(this MonoBehaviour mono, float target) => SetPosZ(mono.transform, target);
+
         public static void SetLocalPosX(this Transform trans, float target)
         {
             var localPos = trans.localPosition;
@@ -41,6 +63,27 @@ namespace YFramework
         public static void SetLocalPosZ(this MonoBehaviour mono, float target) => SetLocalPosZ(mono.transform, target);
         public static void SetIdentity(this MonoBehaviour mono ) => SetIdentity(mono.transform);
 
+        public static void AddPosX(this Transform trans, float target)
+        {
+            var pos = trans.position;
+            pos.x += target;
+            trans.position = pos;
+        }
+        public static void AddPosY(this Transform trans, float target)
+        {
+            var pos = trans.position;
+            pos.y += target;
+            trans.position = pos;
+        }
+        public static void AddPosZ(this Transform trans, float target)
+        {
+            var pos = trans.position;
+            pos.z += target;
+            trans.position = pos;
+        }
+        public static void AddPosX(this MonoBehaviour mono, float target) => AddPosX(mono.transform, target);
+        public static void AddPosY(this MonoBehaviour mono, float target) => AddPosY(mono.transform, target);
+        public static void AddPosZ(this MonoBehaviour mono, float target) => AddPosZ(mono.transform, target);
         public static void AddLocalPosX(this Transform trans, float target)
         {
             var localPos = trans.localPosition;

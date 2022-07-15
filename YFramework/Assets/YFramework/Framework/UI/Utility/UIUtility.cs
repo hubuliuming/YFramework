@@ -17,36 +17,36 @@ namespace YFramework.UI
 {
     public class UIUtility : MonoBehaviour
     {
-        private Dictionary<string, UIUtilityData> m_datas;
+        private Dictionary<string, UIUtilityData> _datas;
         public void Init()
         {
-            m_datas = new Dictionary<string, UIUtilityData>();
+            _datas = new Dictionary<string, UIUtilityData>();
             var rectTrans = transform.GetComponent<RectTransform>();
             foreach (RectTransform rectTran in rectTrans)
             {
-                m_datas.Add(rectTran.name,new UIUtilityData(rectTran));
+                _datas.Add(rectTran.name,new UIUtilityData(rectTran));
             }
         }
         /// <summary>
         /// 获取当前物体下的UIUtilityData
         /// </summary>
-        /// <param name="name">物体名字（可以传路径）</param>
+        /// <param name="nameStr">物体名字（可以传路径）</param>
         /// <returns></returns>
-        public UIUtilityData Get(string name)
+        public UIUtilityData Get(string nameStr)
         {
-            if (!m_datas.TryGetValue(name,out var data))
+            if (!_datas.TryGetValue(nameStr,out var data))
             {
-                Transform temp = transform.Find(name);
+                Transform temp = transform.Find(nameStr);
                 if (temp == null)
                 {
-                    Debug.LogError("无法按照路径找到物体，路径名字为："+name);
+                    Debug.LogError("无法按照路径找到物体，路径名字为："+nameStr);
                 }
                 else
                 {
-                    m_datas.Add(name, new UIUtilityData(temp.GetComponent<RectTransform>()));
+                    _datas.Add(nameStr, new UIUtilityData(temp.GetComponent<RectTransform>()));
                 }
 
-                return m_datas[name];
+                return _datas[nameStr];
             }
 
             return data;

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.IO;
+using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -11,57 +14,78 @@ public class Painting : MonoBehaviour
     public float brushScale = 0.2f;
     public Color brushColor = Color.black;
     public int num = 50;
+    public Button BtnCutPicture;
+    public RectTransform CutPictureArea;
+    public string SavePicturePath;
+    public YPicture.PictureType PictureType = YPicture.PictureType.PNG;
 
-    private RenderTexture _texRender;   //画布
+    private RenderTexture _texRender; //画布 
+    private bool _draw;
     private float _lastDistance;
     private Vector3 _startPosition = Vector3.zero;
     private Vector3 _endPosition = Vector3.zero;
     private readonly Vector3[] _positionArray = new Vector3[3];
     private readonly Vector3[] _positionArray1 = new Vector3[4];
-    private int a = 0;
-    private int b = 0;
-    private int s = 0;
-    private float[] speedArray = new float[4];
+    private int _a = 0;
+    private int _b = 0;
+    private int _s = 0;
+    private float[] _speedArray = new float[4];
 
     void Start()
     {
         _texRender = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
         Clear(_texRender);
+        UpdateRawTextrue();
+        if (BtnCutPicture != null)
+        {
+            BtnCutPicture.onClick.AddListener(() =>
+            {
+                StartCoroutine(CorCutPicture());
+            });
+        }
+        
     }
-    
     void Update()
     {
+        
         if (Input.GetMouseButton(0))
-        { 
+        {
+            _draw = true;
+        }
+
+        if (_draw)
+        {
             if (Input.mousePosition.y > Screen.height + validPaintArea.offsetMax.y || 
                 Input.mousePosition.y < validPaintArea.offsetMin.y ||
                 Input.mousePosition.x < validPaintArea.offsetMin.x || 
                 Input.mousePosition.x > Screen.width +validPaintArea.offsetMax.x)
             {
+                _draw = false;
                 return;
             }
             OnMouseMove(Input.mousePosition);
+            
         }
         if (Input.GetMouseButtonUp(0))
         {
+            _draw = false;
             OnMouseUp();
         }
-        DrawImage();
+       
     }
-    
     public void RemoveText()
     {
         _texRender = null;
         _texRender = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
         Clear(_texRender);
+        UpdateRawTextrue();
     }
-    
     void OnMouseUp()
     {
         _startPosition = Vector3.zero;
-        a = 0;
-        b = 0;
-        s = 0;
+        _a = 0;
+        _b = 0;
+        _s = 0;
     }
     //设置画笔宽度
     float SetScale(float distance)
@@ -122,7 +146,7 @@ public class Painting : MonoBehaviour
         GL.End();
         GL.PopMatrix();
     }
-    private void DrawImage()
+    private void UpdateRawTextrue()
     {
         raw.texture = _texRender;
     }
@@ -134,9 +158,9 @@ public class Painting : MonoBehaviour
     //二阶贝塞尔曲线
     private void TwoOrderBézierCurse(Vector3 pos, float distance)
     {
-        _positionArray[a] = pos;
-        a++;
-        if (a == 3)
+        _positionArray[_a] = pos;
+        _a++;
+        if (_a == 3)
         {
             for (int index = 0; index < num; index++)
             {
@@ -151,7 +175,7 @@ public class Painting : MonoBehaviour
             }
             _positionArray[0] = _positionArray[1];
             _positionArray[1] = _positionArray[2];
-            a = 2;
+            _a = 2;
         }
         else
         {
@@ -163,12 +187,12 @@ public class Painting : MonoBehaviour
     private void ThreeOrderBézierCurse(Vector3 pos, float distance, float targetPosOffset)
     {
         //记录坐标
-        _positionArray1[b] = pos;
-        b++;
+        _positionArray1[_b] = pos;
+        _b++;
         //记录速度
-        speedArray[s] = distance;
-        s++;
-        if (b == 4)
+        _speedArray[_s] = distance;
+        _s++;
+        if (_b == 4)
         {
             Vector3 temp1 = _positionArray1[1];
             Vector3 temp2 = _positionArray1[2];
@@ -187,22 +211,22 @@ public class Painting : MonoBehaviour
                                  3 * _positionArray1[2] * t1 * t1 * (1 - t1) + _positionArray1[3] * Mathf.Pow(t1, 3);
                 //float deltaspeed = (float)(distance - lastDistance) / num;
                 //获取速度差值（存在问题，参考）
-                float deltaspeed = (float)(speedArray[3] - speedArray[0]) / num;
+                float deltaspeed = (float)(_speedArray[3] - _speedArray[0]) / num;
                 //float randomOffset = Random.Range(-1/(speedArray[0] + (deltaspeed * index1)), 1 / (speedArray[0] + (deltaspeed * index1)));
                 //模拟毛刺效果
                 float randomOffset = Random.Range(-targetPosOffset, targetPosOffset);
-                DrawBrush(_texRender, (int)(target.x + randomOffset), (int)(target.y + randomOffset), brushTypeTexture, brushColor, SetScale(speedArray[0] + (deltaspeed * index1)));
+                DrawBrush(_texRender, (int)(target.x + randomOffset), (int)(target.y + randomOffset), brushTypeTexture, brushColor, SetScale(_speedArray[0] + (deltaspeed * index1)));
             }
 
             _positionArray1[0] = temp1;
             _positionArray1[1] = temp2;
             _positionArray1[2] = _positionArray1[3];
 
-            speedArray[0] = speedArray[1];
-            speedArray[1] = speedArray[2];
-            speedArray[2] = speedArray[3];
-            b = 3;
-            s = 3;
+            _speedArray[0] = _speedArray[1];
+            _speedArray[1] = _speedArray[2];
+            _speedArray[2] = _speedArray[3];
+            _b = 3;
+            _s = 3;
         }
         else
         {
@@ -211,4 +235,118 @@ public class Painting : MonoBehaviour
         }
 
     }
+
+    private IEnumerator CorCutPicture()
+    {
+        var pic = new YPicture(CutPictureArea,PictureType);
+        yield return new WaitForEndOfFrame();
+        var data = pic.Cut();
+        pic.SaveLocalFile(SavePicturePath,data);
+        RemoveText();
+    }
+}
+
+/// <summary>
+/// 方法需要等这帧渲染完调用,和YFramework里名字功能一样的，如有重名功能按照YFramework为准
+/// </summary>
+public class YPicture
+{
+    public enum PictureType
+    {
+        PNG,
+        JPG,
+        EXR,
+        TGA
+    }
+
+    private PictureType _type;
+    private RectTransform _rectTrans;
+    private byte[] _data;
+    private string _defaultName;
+    private int _startX;
+    private int _startY;
+    private int _width;
+    private int _height;
+
+    public YPicture(RectTransform rectTrans, PictureType type = PictureType.PNG)
+    {
+        this._rectTrans = rectTrans;
+        this._type = type;
+        _defaultName = DateTime.Now.ToString("yyyyMMddHHmmss");
+        _startX = (int) (_rectTrans.position.x - MathF.Abs(_rectTrans.rect.xMin));
+        _startY = (int) (_rectTrans.position.y - MathF.Abs(_rectTrans.rect.yMin));
+        _width = (int) _rectTrans.sizeDelta.x;
+        _height = (int) _rectTrans.sizeDelta.y;
+    }
+
+    public byte[] Cut(PictureType type = PictureType.PNG)
+    {
+        Texture2D texture2D = new Texture2D(_width, _height, TextureFormat.ARGB32, false);
+        texture2D.ReadPixels(new Rect(_startX, _startY, _width, _height), 0, 0, false);
+        texture2D.Apply();
+
+        byte[] data = null;
+        switch (type)
+        {
+            case PictureType.PNG:
+                data = texture2D.EncodeToPNG();
+                break;
+            case PictureType.JPG:
+                data = texture2D.EncodeToJPG();
+                break;
+            case PictureType.EXR:
+                data = texture2D.EncodeToEXR();
+                break;
+            case PictureType.TGA:
+                data = texture2D.EncodeToTGA();
+                break;
+        }
+
+        if (data == null)
+            Debug.LogError("转化图片失败");
+        return data;
+    }
+
+    public byte[] CutByWebCam(WebCamTexture webCamTexture) => CutByWebCam(webCamTexture, _type);
+
+    public byte[] CutByWebCam(WebCamTexture webCamTexture, PictureType type)
+    {
+        Texture2D texture2D = new Texture2D(webCamTexture.width, webCamTexture.height, TextureFormat.ARGB32, false);
+        Color[] colors = webCamTexture.GetPixels();
+        texture2D.SetPixels(colors);
+        byte[] data = null;
+        switch (type)
+        {
+            case PictureType.PNG:
+                data = texture2D.EncodeToPNG();
+                break;
+            case PictureType.JPG:
+                data = texture2D.EncodeToJPG();
+                break;
+            case PictureType.EXR:
+                data = texture2D.EncodeToEXR();
+                break;
+            case PictureType.TGA:
+                data = texture2D.EncodeToTGA();
+                break;
+        }
+
+        if (data == null)
+            Debug.LogError("转化图片失败");
+        return _data;
+    }
+
+    public void SaveLocalFile(string path, byte[] pictureData, PictureType type, string pictureName)
+    {
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+
+        File.WriteAllBytes(path + "/" + pictureName + "." + type.ToString(), pictureData);
+    }
+
+    public void SaveLocalFile(string path, byte[] pictureData, string pictureName) => SaveLocalFile(path, pictureData, _type, pictureName);
+    public void SaveLocalFile(string path, byte[] pictureData, PictureType type) => SaveLocalFile(path, pictureData, _type, _defaultName);
+    public void SaveLocalFile(string path, byte[] pictureData) => SaveLocalFile(path, pictureData, _type, _defaultName);
 }
