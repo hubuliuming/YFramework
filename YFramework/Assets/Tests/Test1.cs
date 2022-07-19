@@ -20,12 +20,7 @@ using UnityEngine.Windows.WebCam;
 using YFramework;
 public class Test1 : YMonoBehaviour
 {
-    // private void Start()
-    // {
-    //     LoaderManager loader = new LoaderManager(new ResLoader());
-    //     var str = loader.LoadConfig(Application.dataPath + "/YFramework/Examples/TempAgs/json.json");
-    //     Debug.Log(str);
-    // }
+  
 
     private int id;
     private List<int> ins = new List<int>();

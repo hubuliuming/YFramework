@@ -33,12 +33,10 @@ namespace YFramework
             {
                 starPos = Input.mousePosition;
             }
-
             if (Input.GetMouseButtonUp(0))
             {
                 hasDir = false;
             }
-
             if (Input.GetMouseButton(0) && !hasDir)
             {
                 curPos = Input.mousePosition;
@@ -88,7 +86,6 @@ namespace YFramework
                 case Direction.None:
                     break;
                 case Direction.Up:
-
                     break;
                 case Direction.Down:
                     break;
