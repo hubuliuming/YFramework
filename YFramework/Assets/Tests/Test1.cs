@@ -27,7 +27,7 @@ public class Test1 : YMonoBehaviour
     private void UpdateID(int id)
     {
         LinkedList<int> list = new LinkedList<int>();
-  
+      
     }
     
 

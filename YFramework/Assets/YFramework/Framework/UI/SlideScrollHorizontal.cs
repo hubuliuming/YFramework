@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 namespace YFramework.UI
 {
+    /// <summary>
+    /// 挂载初始默认值的SlideScroll上，只修改宽高
+    /// </summary>
     public class SlideScrollHorizontal : UIBase,IBeginDragHandler,IEndDragHandler
     {
         public ScrollRect scrollRect;
@@ -37,6 +40,8 @@ namespace YFramework.UI
                 scrollRect = GetComponent<ScrollRect>();
             }
             scrollRect.inertia = false;
+            scrollRect.horizontal = true;
+            scrollRect.vertical = false;
             _contentTrans = scrollRect.content;
             _moveOneItemLength = cellLength + spacing;
             _curContentLocalPos = _contentTrans.localPosition;
@@ -118,7 +123,6 @@ namespace YFramework.UI
                 pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (needSendMessage)
                 OnUpdatePage();
-
             _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
             _curContentLocalPos += new Vector3(moveDistance, 0, 0);
         }
@@ -135,7 +139,7 @@ namespace YFramework.UI
         public void OnUpdatePage()
         {
             Debug.Log(currentIndex);
-            MsgDispatcher.Send("OnUpdatePage：",currentIndex);
+            MsgDispatcher.Send(Msg.OnUpdatePage,currentIndex);
         }
     }
 }
