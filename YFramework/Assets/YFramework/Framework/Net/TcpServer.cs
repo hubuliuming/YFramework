@@ -96,9 +96,8 @@ namespace YFramework.Net
         }
     }
     
-    /// <summary>
-    /// 该类无效
-    /// </summary>
+    
+    [Obsolete("该类无效",true)]
     public class EncodeTool
     {
         /// <summary>

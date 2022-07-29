@@ -76,7 +76,6 @@ namespace YFramework.UI
         {
             _endMousePosX = Input.mousePosition.x;
             float offectX = 0;
-            float moveDistance = 0;
             offectX = _beginMousePosX - _endMousePosX;
             if (offectX > 50)//右滑
             { 

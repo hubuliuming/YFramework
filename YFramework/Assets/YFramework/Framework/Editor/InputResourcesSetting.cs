@@ -9,7 +9,7 @@ namespace YFramework.Editor
     public class InputResourcesSetting : AssetPostprocessor
     {
         private static FileData m_fileData;
-        private string m_ruloPattern = "^[0-9]+_[0-9]+$";
+        //private string m_ruloPattern = "^[0-9]+_[0-9]+$";
         private void OnPreprocessTexture()
         {
             SetTexture();

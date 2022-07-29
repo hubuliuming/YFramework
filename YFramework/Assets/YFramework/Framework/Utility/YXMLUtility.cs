@@ -19,7 +19,8 @@ namespace YFramework
 
         public YXmlInfo(string path)
         {
-            if (path.EndsWith(".xml"))
+            attributeDict = new Dictionary<string, string>();
+            if (!path.EndsWith(".xml"))
                 path += ".xml";
             Path = path;
         }
