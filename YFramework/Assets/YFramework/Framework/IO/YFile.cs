@@ -40,7 +40,6 @@ namespace YFramework.IO
             var tagForFiles = new Dictionary<string, List<string>>();
             var fullFileNames = Directory.GetFiles(folderPath);
             var tags = new List<string>();
-            var failFullNames = new List<string>();
             foreach (var fullFileName in fullFileNames)
             {
                 List<string> nameList = new List<string>();
@@ -49,8 +48,15 @@ namespace YFramework.IO
                 //文件名称未找到关键字
                 if (tagName == fileName) 
                 {
-                    failFullNames.Add(fullFileName);
                     Debug.LogWarning("分类时候该文件:"+fileName+", 未包含分类关键字:"+splitKey);
+                    var failFolderPath = folderPath + "/" + "ClassifyFail";
+                    if (!Directory.Exists(failFolderPath))
+                    {
+                        Directory.CreateDirectory(failFolderPath);
+                    }
+
+                    FileInfo info = new FileInfo(fullFileName);
+                    info.MoveTo(failFolderPath + "/" + fileName);
                     continue;
                 }
                 if (tagForFiles.ContainsKey(tagName))
@@ -62,28 +68,17 @@ namespace YFramework.IO
                     tags.Add(tagName);
                 }
 
-                if (!Directory.Exists(folderPath + "/" + tagName))
-                   Directory.CreateDirectory(folderPath + "/" + tagName);
+                var destFolder = folderPath + "/" + tagName + splitKey;
+                if (!Directory.Exists(destFolder))
+                    Directory.CreateDirectory(destFolder);
                 if (File.Exists(folderPath + "/" + tagName + "/" + fileName))
-                    Debug.LogWarning("要复制的文件地址已存在相同名字的文件，重复的文件名字：" + fileName);
+                    Debug.LogWarning("要移动的文件地址已存在相同名字的文件，重复的文件名字：" + fileName);
                 else
                 {
                     FileInfo fileInfo = new FileInfo(fullFileName);
-                    fileInfo.MoveTo(folderPath + "/" + tagName + "/" + fileName);
+                    fileInfo.MoveTo(destFolder + "/" + fileName);
                 }
             }
-
-            var failFolderPath = folderPath + "/" + "ClassifyFail";
-            if (!Directory.Exists(failFolderPath))
-            {
-                Directory.CreateDirectory(failFolderPath);
-            }
-            foreach (var fullName in failFullNames)
-            {
-                FileInfo info = new FileInfo(fullName);
-                info.MoveTo(failFolderPath+"/"+Path.GetFileName(fullName));
-            }
-
             tags.Sort();
             return tags;
         }
