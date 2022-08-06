@@ -7,40 +7,34 @@
 *****************************************************/
 
 using System;
+using UnityEngine;
 using YFramework;
+using YFramework.UI;
 
-public interface ITimerSystem
+public struct MsgData
 {
-    float CurrentSeconds { get; }
-    void AddDelayTask(float second, Action onDelayFinish);
-}
-
-public class  TimerSystem : ITimerSystem
-{
-    public float CurrentSeconds { get; }
-    public void AddDelayTask(float second, Action onDelayFinish)
+    public struct Test1
     {
-        
+        public int index;
     }
-}
-
-public class DelayTask
-{
-    public float Seconds { get; set; }
-    public Action OnFinish { get; set; }
-    
-    public float StarSeconds { get; set; }
-    public float FinishSeconds { get; set; }
-    public DelayTaskState State { get; set; }
-}
-
-public enum DelayTaskState
-{
-    NotStart,
-    Start
 }
 
 public class Test1 : YMonoBehaviour
 {
-    
+    private MsgData.Test1 msgData = new MsgData.Test1();
+    public void Start()
+    {
+        msgData.index = 2;
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            MsgDispatcher.Send("123",msgData);
+            
+        }
+    }
 }
+

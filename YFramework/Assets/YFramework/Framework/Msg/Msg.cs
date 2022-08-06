@@ -6,13 +6,13 @@
     功能：Nothing
 *****************************************************/
 
-using UnityEngine;
 
 namespace YFramework
 {
-    public class Msg : MonoBehaviour
+    public  class Msg 
     {
         //SlideScrollHorizontal里发送的消息
         public const string OnUpdatePage = "OnUpdatePage";
+        
     }
 }

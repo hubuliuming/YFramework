@@ -6,6 +6,7 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using UnityEditor;
 using UnityEngine;
 using YFramework.IO;
@@ -13,7 +14,7 @@ using YFramework.IO;
 #if UNITY_EDITOR
 public class EditorTemp
 {
-    private static string _path = @"F:\UnityProjects\Y_Person\项目素材\华科_毕业照\原始";
+    //private static string _path = @"F:\UnityProjects\Y_Person\项目素材\华科_毕业照\原始";
 
     [MenuItem("TempClick/Click1")]
     private static void Click1()
@@ -28,15 +29,18 @@ public class EditorTemp
         // sum = PlayerPrefs.GetFloat(sumKey, sum);
     }
 
-    public class Solution {
-        // public bool ContainsDuplicate(int[] nums)
-        // {
-        //     for (int i = 0; i < nums.Length; i++)
-        //     {
-        //         
-        //     }
-        // }
+    public class Solution
+    {
+        public int MaxSubArray(int[] nums)
+        {
+            int pre = 0, maxAns = nums[0];
+            foreach (int x in nums)
+            {
+                pre = Math.Max(pre + x, x);
+                maxAns = Math.Max(maxAns, pre);
+            }
+            return maxAns;
+        }
     }
-    
 }
 #endif

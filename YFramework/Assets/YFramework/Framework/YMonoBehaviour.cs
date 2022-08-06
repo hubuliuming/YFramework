@@ -12,8 +12,20 @@ using UnityEngine;
 
 namespace YFramework
 {
-    public abstract class YMonoBehaviour : MonoBehaviour
+    public interface IInitMono
     {
+        void Init();
+    }
+    
+   
+    public abstract class YMonoBehaviour : MonoBehaviour,IInitMono
+    {
+
+        public virtual void Init()
+        {
+            
+        }
+        
         #region TimeDelay
         //利用协程实现定时
         public void Delay(float delay, Action onFinished)
@@ -35,5 +47,7 @@ namespace YFramework
         {
             MsgDispatcher.UnRegisterAll();
         }
+
+       
     }
 }

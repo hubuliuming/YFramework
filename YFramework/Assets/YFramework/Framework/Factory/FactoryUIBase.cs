@@ -39,7 +39,7 @@ namespace YFramework.UI
         {
             var prefab = Resources.Load<GameObject>(path);
             var go = Object.Instantiate(prefab,parent);
-            go.GetComponent<IView>().Init();
+            go.GetComponent<IInitMono>().Init();
             return go;
         }
 

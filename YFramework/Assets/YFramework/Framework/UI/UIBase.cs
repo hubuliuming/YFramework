@@ -7,11 +7,12 @@
 *****************************************************/
 
 
+using PlasticPipe.PlasticProtocol.Client;
+
 namespace YFramework.UI
 {
     public interface IView
     {
-        void Init();
         void Show();
         void Hide();
     }
@@ -33,10 +34,9 @@ namespace YFramework.UI
                 return _uiUtility;
             }
         }
-        public virtual void Init()
-        {
-          
-        }
+
+        
+
 
         public virtual void Show()
         {

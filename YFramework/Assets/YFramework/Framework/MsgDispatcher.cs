@@ -19,14 +19,14 @@ namespace YFramework
         private static Dictionary<string, Action<object>> mRegisteredDict = new Dictionary<string, Action<object>>();
         private static List<MsgRecorder> mRegisteredRecorders = new List<MsgRecorder>();
 
-        public static void Send(string name, object data = null)
+        public static void Send(string msgName, object data = null)
         {
-            if (mRegisteredDict.ContainsKey(name))
+            if (mRegisteredDict.ContainsKey(msgName))
             {
-                mRegisteredDict[name](data);
+                mRegisteredDict[msgName](data);
             }
         }
-        public static void Register(string msgName, Action<object> onReceived)
+        public static void Register(string msgName, Action<object> onReceived = null)
         {
             if (mRegisteredDict.ContainsKey(msgName) == false)
             {
