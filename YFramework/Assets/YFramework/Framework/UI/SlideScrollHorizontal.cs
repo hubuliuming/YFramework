@@ -11,8 +11,8 @@ namespace YFramework.UI
     public class SlideScrollHorizontal : UIBase,IBeginDragHandler,IEndDragHandler
     {
         public ScrollRect scrollRect;
-        public int cellLength;
-        public int spacing;
+        public float cellLength;
+        public float spacing;
         public int currentIndex;
         public int totalItemNum;
 
@@ -23,22 +23,19 @@ namespace YFramework.UI
 
         public bool needSendMessage;
 
-        private Vector3 _curContentLocalPos;
+
         private RectTransform _contentTrans;
+        private Vector3 _curContentLocalPos;
         private float _beginMousePosX;
         private float _endMousePosX;
         private float _moveOneItemLength;
-        
+
         private Vector3 _contentInitPos;
         private Vector2 _contentInitSize;
         
 
         public override void Init()
         {
-            if (scrollRect != null)
-            {
-                scrollRect = GetComponent<ScrollRect>();
-            }
             scrollRect.inertia = false;
             scrollRect.horizontal = true;
             scrollRect.vertical = false;

@@ -6,9 +6,6 @@
     功能：UI基类
 *****************************************************/
 
-
-using PlasticPipe.PlasticProtocol.Client;
-
 namespace YFramework.UI
 {
     public interface IView

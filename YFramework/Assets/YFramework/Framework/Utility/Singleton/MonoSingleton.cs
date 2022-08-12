@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace YFramework
 {
-    public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
+    public class MonoSingleton<T> : YMonoBehaviour where T : MonoBehaviour
     {
         private static T m_instance;
         public static T Instance => m_instance;

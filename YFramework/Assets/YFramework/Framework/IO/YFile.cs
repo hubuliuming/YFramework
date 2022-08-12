@@ -44,7 +44,7 @@ namespace YFramework.IO
             {
                 List<string> nameList = new List<string>();
                 var fileName = Path.GetFileName(fullFileName);
-                var tagName = fileName.Split(splitKey)[0];
+                var tagName = fileName.Split(splitKey)[0] + splitKey;
                 //文件名称未找到关键字
                 if (tagName == fileName) 
                 {
@@ -68,10 +68,10 @@ namespace YFramework.IO
                     tags.Add(tagName);
                 }
 
-                var destFolder = folderPath + "/" + tagName + splitKey;
+                var destFolder = folderPath + "/" + tagName;
                 if (!Directory.Exists(destFolder))
                     Directory.CreateDirectory(destFolder);
-                if (File.Exists(folderPath + "/" + tagName + "/" + fileName))
+                if (File.Exists(destFolder + "/" + fileName))
                     Debug.LogWarning("要移动的文件地址已存在相同名字的文件，重复的文件名字：" + fileName);
                 else
                 {
