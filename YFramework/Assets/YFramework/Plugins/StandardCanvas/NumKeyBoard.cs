@@ -14,6 +14,7 @@ public class NumKeyBoard : MonoBehaviour
 {
     public Text TxtShow;
     public Button BtnSure;
+    public Button BtnClear;
     public int NumMaxInput;
     public bool AllowFirstZero;
     public UnityEvent OnSure;
@@ -23,10 +24,10 @@ public class NumKeyBoard : MonoBehaviour
     {
         BtnSure.onClick.AddListener(() =>
         {
-            _index = 0;
-            TxtShow.text = "";
+            Clear();
             OnSure?.Invoke();
         });
+        BtnClear.onClick.AddListener(Clear);
     }
 
     public void OnClickSure(string str)
@@ -40,5 +41,11 @@ public class NumKeyBoard : MonoBehaviour
             return;
         }
         _index++;
+    }
+
+    private void Clear()
+    {
+        _index = 0;
+        TxtShow.text = "";
     }
 }

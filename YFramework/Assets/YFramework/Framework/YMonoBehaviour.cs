@@ -8,24 +8,43 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace YFramework
 {
-    public interface IInitMono
+    public interface IMono : IInit
+    {
+    }
+
+    public interface IInit
     {
         void Init();
     }
-    
+
+    public static class Event
+    {
+        private static Dictionary<int, IMono> _orderForMonoMap = new Dictionary<int, IMono>();
+
+        public static void RegisterEvent(IMono mono, int order)
+        {
+            if (!_orderForMonoMap.TryAdd(order,mono))
+            {
+                Debug.LogError("注册时当前顺序已经存在order:" +order);
+            }
+        }
+    }
    
-    public abstract class YMonoBehaviour : MonoBehaviour,IInitMono
+    public abstract class YMonoBehaviour : MonoBehaviour,IMono
     {
 
         public virtual void Init()
         {
             
         }
-        
+
+     
+
         #region TimeDelay
         //利用协程实现定时
         public void Delay(float delay, Action onFinished)

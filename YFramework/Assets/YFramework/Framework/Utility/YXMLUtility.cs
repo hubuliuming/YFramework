@@ -16,10 +16,12 @@ namespace YFramework
         public string Path { get; set; }
         public string rootNode = "Root";
         public Dictionary<string, string> attributeDict;
-
+        public List<string> values;
+        public string FirstValues => values[0];
         public YXmlInfo(string path)
         {
             attributeDict = new Dictionary<string, string>();
+            values = new List<string>();
             if (!path.EndsWith(".xml"))
                 path += ".xml";
             Path = path;
@@ -41,6 +43,7 @@ namespace YFramework
                 e.Attributes.Append(a);
                 root.AppendChild(e);
             }
+            
             docx.Save(info.Path);
         }
 
@@ -53,6 +56,8 @@ namespace YFramework
         {
             YXmlInfo info = new YXmlInfo(path);
             XmlDocument doc = new XmlDocument();
+            if (!path.EndsWith(".xml"))
+                path += ".xml";
             doc.Load(path);
             info.Path = path;
             XmlElement root = doc.FirstChild as XmlElement;
@@ -65,6 +70,7 @@ namespace YFramework
                 XmlElement e = root.ChildNodes[i] as  XmlElement;
                 var value = e.GetAttribute(name);
                info.attributeDict.Add(name,value);
+               info.values.Add(value);
             }
 
             return info;

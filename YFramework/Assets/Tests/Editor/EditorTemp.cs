@@ -87,7 +87,7 @@ public class EditorTemp
     [MenuItem("TempClick/Click2")]
     private static void Click2()
     {
-        var path = @"F:\UnityProjects\Y_Person\项目素材\华科_毕业照\整理好后制作开发\整理好后制作开发\13机械\ClassifyFail";
+        //var path = @"F:\UnityProjects\Y_Person\项目素材\华科_毕业照\整理好后制作开发\整理好后制作开发\13机械\ClassifyFail";
 
         // var fileNames = Directory.GetFiles(path);
         // foreach (var fileName in fileNames)
@@ -99,21 +99,35 @@ public class EditorTemp
         // }
     }
 
-    [MenuItem("TempClick/Click3")]
-    private static void Click3()
+    // [MenuItem("TempClick/Click3")]
+    // private static void Click3()
+    // {
+    //     var path = @"F:\UnityProjects\Y_Person\项目素材\华科_毕业照\整理好的";
+    //     var newFolders = YFile.Classify(path, "届");
+    //     foreach (var newFolder in newFolders)
+    //     {
+    //         var folderPath = path+"/" + newFolder;
+    //         if (!Directory.Exists(folderPath))
+    //         {
+    //             Debug.LogError("found path error path :"+folderPath);
+    //             continue;
+    //         }
+    //         YFile.Classify(folderPath, "学院");
+    //     }
+    // }
+
+    [MenuItem("TempClick/Click4")]
+    private static void Click4()
     {
-        var path = @"F:\UnityProjects\Y_Person\项目素材\华科_毕业照\整理好的";
-        var newFolders = YFile.Classify(path, "届");
-        foreach (var newFolder in newFolders)
+        List<int> lists = new List<int>();
+        lists.Add(0);
+        lists.Add(1);
+        lists.Insert(3,3);
+        foreach (var s in lists) 
         {
-            var folderPath = path+"/" + newFolder;
-            if (!Directory.Exists(folderPath))
-            {
-                Debug.LogError("found path error path :"+folderPath);
-                continue;
-            }
-            YFile.Classify(folderPath, "学院");
+            Debug.Log(s);
         }
     }
+    
 }
 #endif
