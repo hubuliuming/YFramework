@@ -13,6 +13,13 @@ namespace YFramework
 {
     public static class UIExtension 
     {
+        /// <summary>
+        /// 更新ScrollRect下content的长度，注意content的锚点要默认的顶上对其
+        /// </summary>
+        /// <param name="scrollRect"></param>
+        /// <param name="rawNum">展示的页面横向数量</param>
+        /// <param name="columnNum">展示的页面纵向数量</param>
+        /// <param name="totalGirdNum">content下所有gird的总数目</param>
         public static void UpdateContentLength(this ScrollRect scrollRect,int rawNum,int columnNum,int totalGirdNum)
         {
             var gridGroup = scrollRect.content.GetComponent<GridLayoutGroup>();
@@ -23,25 +30,27 @@ namespace YFramework
             }
             var xSize = 1;
             var ySize = 1;
-            switch (gridGroup.constraint)
+            if (scrollRect.horizontal && !scrollRect.vertical)
             {
-                case GridLayoutGroup.Constraint.FixedColumnCount :
-                    xSize = gridGroup.constraintCount;
-                    ySize = Mathf.CeilToInt(totalGirdNum / (float) rawNum);
-                    break;
-                case GridLayoutGroup.Constraint.FixedRowCount :
-                    ySize = gridGroup.constraintCount;
-                    xSize = Mathf.CeilToInt(totalGirdNum / (float) columnNum);
-                    break;
-                //混合的默认都是1不做任何改变
-                case GridLayoutGroup.Constraint.Flexible :
-                    xSize = 1;
-                    ySize = 1;
-                    break;
+                xSize = Mathf.CeilToInt(totalGirdNum / (float) rawNum);
+                ySize = rawNum;
             }
+            else if (scrollRect.vertical && !scrollRect.horizontal)
+            {
+                xSize = columnNum;
+                ySize = Mathf.CeilToInt(totalGirdNum / (float) columnNum);
+            }
+            else
+            {
+                xSize = Mathf.CeilToInt(totalGirdNum / (float) columnNum);
+                ySize = Mathf.CeilToInt(totalGirdNum / (float) rawNum);
+            }
+            var realWith = scrollRect.content.rect.width;
+            var expandWith = (gridGroup.cellSize.x + gridGroup.spacing.x) * xSize - gridGroup.spacing.x;
+            var width = expandWith < realWith ? 0 : expandWith - realWith;
+            var height =(gridGroup.cellSize.y + gridGroup.spacing.y) * ySize + gridGroup.spacing.y;
+            scrollRect.content.sizeDelta = new Vector2(width, height);
             
-            scrollRect.content.sizeDelta = new Vector2((gridGroup.cellSize.x + gridGroup.spacing.x) * xSize - gridGroup.spacing.x, 
-                (gridGroup.cellSize.y + gridGroup.spacing.y) * ySize + gridGroup.spacing.y);
         }
     }
 }

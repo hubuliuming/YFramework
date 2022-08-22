@@ -7,7 +7,6 @@
 *****************************************************/
 
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class NumKeyBoard : MonoBehaviour
@@ -17,20 +16,19 @@ public class NumKeyBoard : MonoBehaviour
     public Button BtnClear;
     public int NumMaxInput;
     public bool AllowFirstZero;
-    public UnityEvent OnSure;
     private int _index = 0;
+
 
     private void Start()
     {
         BtnSure.onClick.AddListener(() =>
         {
-            Clear();
-            OnSure?.Invoke();
+            //Clear();
         });
         BtnClear.onClick.AddListener(Clear);
     }
 
-    public void OnClickSure(string str)
+    public void NumClick(string str)
     {
         if (_index >= NumMaxInput)
             return;
