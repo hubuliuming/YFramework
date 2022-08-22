@@ -22,8 +22,7 @@ namespace YFramework.UI
         public TextMeshProUGUI pageTextPro;
 
         public bool needSendMessage;
-
-
+        
         private RectTransform _contentTrans;
         private Vector3 _curContentLocalPos;
         private float _beginMousePosX;
@@ -40,6 +39,12 @@ namespace YFramework.UI
             scrollRect.horizontal = true;
             scrollRect.vertical = false;
             _contentTrans = scrollRect.content;
+            var girdGroup = _contentTrans.GetComponent<GridLayoutGroup>();
+            if (girdGroup != null)
+            {
+                cellLength = girdGroup.cellSize.x;
+                spacing = girdGroup.spacing.x;
+            }
             _moveOneItemLength = cellLength + spacing;
             _curContentLocalPos = _contentTrans.localPosition;
             _contentInitPos = _contentTrans.localPosition;

@@ -1,5 +1,5 @@
 /****************************************************
-    文件：Test1.cs
+    文件：TempTest.cs
     作者：Y
     邮箱: 916111418@qq.com
     日期：#CreateTime#
@@ -7,34 +7,32 @@
 *****************************************************/
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using YFramework;
+using YFramework.IO;
 using YFramework.UI;
-
-public struct MsgData
-{
-    public struct Test1
-    {
-        public int index;
-    }
-}
 
 public class Test1 : YMonoBehaviour
 {
-    private MsgData.Test1 msgData = new MsgData.Test1();
-    public void Start()
+    //private ScrollRect _scrollRect;
+    private SlideScrollHorizontal _slider;
+    private void Start()
     {
-        msgData.index = 2;
+        // _slider = GetComponent<SlideScrollHorizontal>();
+        // _slider.scrollRect.UpdateContentLength(2,3,10);
+        // _slider.Init();
+        //_scrollRect = GetComponent<ScrollRect>();
+        
+        
 
     }
+    
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MsgDispatcher.Send("123",msgData);
-            
-        }
+      
     }
 }
-
