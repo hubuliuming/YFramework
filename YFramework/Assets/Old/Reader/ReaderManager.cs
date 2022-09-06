@@ -8,7 +8,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using YFramework;
+using YFrameworkOld;
 
 public class ReaderManager : NormalSingleton<ReaderManager>
 {

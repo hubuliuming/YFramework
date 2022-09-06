@@ -9,7 +9,7 @@
 using System;
 using UnityEngine;
 
-namespace YFramework
+namespace YFrameworkOld
 {
     public enum Direction
     {

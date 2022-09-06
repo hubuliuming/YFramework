@@ -11,8 +11,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using YFramework;
-using YFramework.UI;
+using YFrameworkOld;
+using YFrameworkOld.UI;
 
 [Obsolete("已经过时，请使用UIBase")]
     public class WindowRoot : MonoBehaviour

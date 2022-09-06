@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace YFramework
+namespace YFrameworkOld
 {
     public class RotationCam : MonoBehaviour
     {

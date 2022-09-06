@@ -6,6 +6,7 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,11 +17,17 @@ using UnityEngine.UI;
 public class AdaptivityShow : MonoBehaviour,IPointerClickHandler
 {
     public RectTransform areaTrans;
+    public Action onClose;
     public void OnPointerClick(PointerEventData eventData)
     {
         areaTrans.gameObject.SetActive(true);
         var go = Instantiate(gameObject, areaTrans);
         Destroy(go.GetComponent<AdaptivityShow>());
+        onClose += () =>
+        {
+            areaTrans.gameObject.SetActive(false);
+            Destroy(go);
+        };
         
         //image
         var img = go.GetComponent<Image>();
@@ -38,8 +45,7 @@ public class AdaptivityShow : MonoBehaviour,IPointerClickHandler
 
         go.AddComponent<Button>().onClick.AddListener(()=>
         {
-            areaTrans.gameObject.SetActive(false);
-            Destroy(go);
+            onClose?.Invoke();
         });
     }
 

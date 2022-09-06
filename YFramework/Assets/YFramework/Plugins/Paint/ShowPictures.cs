@@ -10,8 +10,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using YFramework;
-using YFramework.UI;
+using YFrameworkOld;
+using YFrameworkOld.UI;
 
 /// <summary>
 /// 该功能需要导入YFramework，且只支持Horizontal

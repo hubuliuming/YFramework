@@ -10,7 +10,7 @@ using System.IO;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace YFramework
+namespace YFrameworkOld
 {
     public class ResLoader : ILoader 
     {
