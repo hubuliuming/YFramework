@@ -9,7 +9,7 @@
 using System;
 using UnityEngine;
 
-namespace YFrameworkOld
+namespace YFramework.Kit
 {
     public class MonoSingleton<T> : YMonoBehaviour where T : MonoBehaviour
     {

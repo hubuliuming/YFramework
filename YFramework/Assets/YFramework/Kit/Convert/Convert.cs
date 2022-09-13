@@ -6,11 +6,10 @@
     功能：Nothing
 *****************************************************/
 
-using System;
 
-namespace YFrameworkOld
+namespace YFramework.Kit.Convert
 {
-    public class YConvert  
+    public class Convert  
     {
         public static byte[] Convert16Byte(string strText)
         {
@@ -18,7 +17,7 @@ namespace YFrameworkOld
             byte[] bText = new byte[strText.Length / 2];
             for (int i = 0; i < strText.Length / 2; i++)
             {
-                bText[i] = Convert.ToByte(Convert.ToInt32(strText.Substring(i * 2, 2), 16));
+                bText[i] = System.Convert.ToByte(System.Convert.ToInt32(strText.Substring(i * 2, 2), 16));
             }
             return bText;
         }

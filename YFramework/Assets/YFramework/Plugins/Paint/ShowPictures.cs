@@ -12,6 +12,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using YFrameworkOld;
 using YFrameworkOld.UI;
+using Texture2D = UnityEngine.Texture2D;
 
 /// <summary>
 /// 该功能需要导入YFramework，且只支持Horizontal

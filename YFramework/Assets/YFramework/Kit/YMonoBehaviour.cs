@@ -10,8 +10,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YFrameworkOld;
 
-namespace YFrameworkOld
+namespace YFramework.Kit
 {
     public interface IMono : IInit
     {
@@ -37,7 +38,6 @@ namespace YFrameworkOld
    
     public abstract class YMonoBehaviour : MonoBehaviour,IMono
     {
-
         public virtual void Init()
         {
             
