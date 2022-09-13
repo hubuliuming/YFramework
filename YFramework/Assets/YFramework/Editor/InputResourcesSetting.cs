@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
-namespace YFrameworkOld.Editor
+namespace YFramework
 {
 #if UNITY_EDITOR
     public class InputResourcesSetting : AssetPostprocessor
