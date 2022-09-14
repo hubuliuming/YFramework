@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 
-namespace YFrameworkOld.Net
+namespace YFramework.Kit.Net
 {
     public class TcpServer : MonoBehaviour
     {

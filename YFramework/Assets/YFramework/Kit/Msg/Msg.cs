@@ -7,9 +7,9 @@
 *****************************************************/
 
 
-namespace YFrameworkOld
+namespace YFramework.Kit.Msg
 {
-    public  class Msg 
+    public class Msg 
     {
         //SlideScrollHorizontal里发送的消息
         public const string OnUpdatePage = "OnUpdatePage";

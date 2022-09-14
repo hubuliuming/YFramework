@@ -2,8 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using YFrameworkOld;
 
-namespace YFrameworkOld.UI
+namespace YFramework.Kit.UI
 {
     /// <summary>
     /// 挂载初始默认值的SlideScroll上，只修改宽高
@@ -31,7 +32,7 @@ namespace YFrameworkOld.UI
 
         private Vector3 _contentInitPos;
         private Vector2 _contentInitSize;
-        public override void Init()
+        public  void Init()
         {
             scrollRect.inertia = false;
             scrollRect.horizontal = true;
@@ -161,7 +162,7 @@ namespace YFrameworkOld.UI
         public void OnUpdatePage()
         {
             Debug.Log(currentIndex);
-            MsgDispatcher.Send(Msg.OnUpdatePage,currentIndex);
+            MsgDispatcher.Send(Msg.Msg.OnUpdatePage,currentIndex);
         }
     }
 }

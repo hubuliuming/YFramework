@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace YFrameworkOld.IO
+namespace YFramework.Kit.IO
 {
     public static class YFile
     {

@@ -9,7 +9,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace YFramework
+namespace YFramework.Editor
 {
 #if UNITY_EDITOR
     public class AudioSetting : AssetPostprocessor

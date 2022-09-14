@@ -3,12 +3,12 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
-namespace YFramework
+namespace YFramework.Editor
 {
 #if UNITY_EDITOR
     public class InputResourcesSetting : AssetPostprocessor
     {
-        private static FileData m_fileData;
+        private static FileData _fileData;
         //private string m_ruloPattern = "^[0-9]+_[0-9]+$";
         private void OnPreprocessTexture()
         {
@@ -33,14 +33,14 @@ namespace YFramework
                 var result = Regex.Match(name, rulePattern);
                 if (result.Value == "")
                 {
-                    if (m_fileData == null)
+                    if (_fileData == null)
                     {
-                        m_fileData = new FileData();
-                        m_fileData.Path = path;
-                        m_fileData.NameTip = "规范为(正则表达式)：" + rulePattern;
+                        _fileData = new FileData();
+                        _fileData.Path = path;
+                        _fileData.NameTip = "规范为(正则表达式)：" + rulePattern;
                     }
                     Debug.LogError("导入的资源命名不符合规范，文件名字："+name);
-                    NameMgrWindowData.Add(m_fileData,assetPath);
+                    NameMgrWindowData.Add(_fileData,assetPath);
                     NameMgrWindow.Show();
                 }
             }

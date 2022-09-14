@@ -10,9 +10,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using YFrameworkOld.IO;
+using YFramework.Kit.IO;
 
-namespace YFramework
+namespace YFramework.Editor
 {
 #if UNITY_EDITOR
     public class NameMgrWindow : EditorWindow
@@ -22,8 +22,6 @@ namespace YFramework
         {
             GetWindow<NameMgrWindow>();
         }
-        
-
         private void OnGUI()
         {
             GUILayout.Label("资源名称管理器");

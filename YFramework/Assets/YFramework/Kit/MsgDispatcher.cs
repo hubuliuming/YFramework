@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace YFrameworkOld
+namespace YFramework.Kit
 {
     /// <summary>
     /// 消息机制，注意记得注销消息

@@ -6,26 +6,16 @@
     功能：Nothing
 *****************************************************/
 
-using System;
-using System.Collections;
 using UnityEngine;
 using YFramework.Kit;
 
 public class Test1 : MonoBehaviour
 {
-    public RectTransform rectTrans;
+    public Picture picture;
     private void Start()
     {
-        var picture = new Picture(rectTrans);
-        // var data = picture.Cut();
-        // picture.SaveLocalFile(Application.dataPath,data);
+        picture.CreatePictureToLocalFile(Application.dataPath+"/Video");
     }
-
-    private IEnumerator Load()
-    {
-        yield return new WaitForEndOfFrame();
-        //
-        
-    }
+    
     
 }

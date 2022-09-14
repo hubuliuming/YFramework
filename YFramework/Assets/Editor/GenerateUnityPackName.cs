@@ -9,23 +9,21 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace YFrameworkOld
+public class GenerateUnityPackName
 {
-    public class GenerateUnityPackName
+    public static string GetPackName()
     {
-        public static string GetPackName()
-        {
-            return "YFramework" + DateTime.Now.ToString("yyyyMMdd_HH");
-        }
-#if UNITY_EDITOR
-        //总结
-        [UnityEditor.MenuItem("YFramework/Framework/Editor/自动导出unitypackage %e",false,1)]
-        private static void ClickExportPack()
-        {
-            UnityEditor.AssetDatabase.ExportPackage("Assets/YFramework", GetPackName() + ".unitypackage",
-                UnityEditor.ExportPackageOptions.Recurse);
-            Application.OpenURL("file:///" + Path.Combine(Application.dataPath, "../"));
-        }
-#endif
+        return "YFramework" + DateTime.Now.ToString("yyyyMMdd_HH");
     }
+#if UNITY_EDITOR
+    //总结
+    [UnityEditor.MenuItem("YFramework/Framework/Editor/自动导出unitypackage %e", false, 1)]
+    private static void ClickExportPack()
+    {
+        UnityEditor.AssetDatabase.ExportPackage("Assets/YFramework", GetPackName() + ".unitypackage",
+            UnityEditor.ExportPackageOptions.Recurse);
+        Application.OpenURL("file:///" + Path.Combine(Application.dataPath, "../"));
+    }
+#endif
 }
+

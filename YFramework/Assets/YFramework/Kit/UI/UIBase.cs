@@ -8,7 +8,7 @@
 
 using YFramework.Kit;
 
-namespace YFrameworkOld.UI
+namespace YFramework.Kit.UI
 {
     public interface IView
     {
