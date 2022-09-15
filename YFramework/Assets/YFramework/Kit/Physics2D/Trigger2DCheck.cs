@@ -35,7 +35,6 @@ namespace YFramework.Kit.Physics2D
         private bool IsLayerMask(GameObject go, LayerMask mask)
         {
             var goLayerMask = 1 << go.layer;
-            Debug.Log((mask.value & goLayerMask));
             return (mask.value & goLayerMask) > 0;
         }
     }

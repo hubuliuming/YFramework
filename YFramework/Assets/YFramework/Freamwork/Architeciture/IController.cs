@@ -8,7 +8,7 @@
 
 namespace YFramework
 {
-    public interface IController :ICanGetModel,ICanSendCommand,ICanRegisterEvent
+    public interface IController :ICanGetModel,ICanSendCommand,ICanRegisterEvent,ICanGetSystem
     {
        
     }
