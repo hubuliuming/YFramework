@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using YFramework.Kit.Singleton;
 using Object = UnityEngine.Object;
 
 namespace YFrameworkOld
