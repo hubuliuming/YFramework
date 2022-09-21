@@ -9,7 +9,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace YFrameworkOld
+namespace YFramework.Extension
 {
     public static class UIExtension 
     {

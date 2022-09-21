@@ -12,7 +12,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using YFrameworkOld;
+using YFramework.Extension;
 
 namespace YFramework.Kit.UI
 {
