@@ -23,7 +23,7 @@ namespace YFramework.Kit.Net
         private byte[] _receiveBuffer;
 
         public string ReceivedStr;
-        public Action<string> OnReceived;
+        public bool Received;
 
         public TcpClient(string ip,int port,int receiveBufferLength = 1024)
         {
@@ -34,7 +34,6 @@ namespace YFramework.Kit.Net
             this._thread.IsBackground = true;
             this._thread.Start();
         }
-
         public void SendMessage(string msg)
         {
             if (_client == null)
@@ -64,7 +63,6 @@ namespace YFramework.Kit.Net
                 throw;
             }
         }
-    
         private void ReceivedCallBack(IAsyncResult ar)
         {
             try
@@ -73,11 +71,12 @@ namespace YFramework.Kit.Net
                 {
                     return;
                 }
+
                 var lenght = _client.EndReceive(ar);
                 if (lenght > 0)
                 {
                     ReceivedStr = Encoding.UTF8.GetString(_receiveBuffer);
-                    OnReceived?.Invoke(ReceivedStr);
+                    Received = true;
                     Debug.Log("收到的信息为："+ReceivedStr+",长度为：" + lenght);
                 }
                 _client.BeginReceive(_receiveBuffer, 0 ,_receiveBuffer.Length, SocketFlags.None, ReceivedCallBack,null);
@@ -89,7 +88,6 @@ namespace YFramework.Kit.Net
             }
        
         }
-
         public void Close()
         {
             if (_thread != null)
@@ -103,6 +101,7 @@ namespace YFramework.Kit.Net
                 _client.Close();
                 _client = null;
             }
+
         }
 
     }
