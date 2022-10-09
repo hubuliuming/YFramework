@@ -7,15 +7,36 @@
 *****************************************************/
 
 using UnityEngine;
-using YFramework.Kit;
+using YFramework.Kit.Net;
 
 public class Test1 : MonoBehaviour
 {
-    public Picture picture;
+    // private TcpServer _server;
+    // private TcpClient _client;
+    private UDPClient _udpClient;
     private void Start()
     {
-        picture.CreatePictureToLocalFile(Application.dataPath+"/Video");
+         //_server = new TcpServer("192.168.2.39", 6666);
+         //_client = new TcpClient("192.168.2.39", 7777);
+          _udpClient = new UDPClient("192.168.2.39", 8888);
     }
-    
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _udpClient.SendMessage("192.168.2.39", 9999,"haha");
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            _udpClient.SendMessage("192.168.2.39", 10000,"baba");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        //_server.Close();
+        //_client.Close();
+        _udpClient.Close();
+    }
 }

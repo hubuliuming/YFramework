@@ -17,41 +17,44 @@ using UnityEngine;
 
 namespace YFramework.Kit.Net
 {
-    public class TcpServer : MonoBehaviour
+    public class TcpServer
     {
-        private string ip = "127.0.0.1";
+        private string _ip;
+        private int _port;
 
-        private int port = 6666;
+        private Socket _server;
+        private Thread _thread;
 
-        //private string submitStr;
-        //private bool isSubmit;
-        private Socket server;
-        private Thread thread;
+        private byte[] _receiveBuffer;
+        public string ReceiveStr => Encoding.UTF8.GetString(_receiveBuffer);
+        
 
-        private byte[] receiveBuffer = new byte[1024];
-
-        public string ReceiveStr => Encoding.UTF8.GetString(receiveBuffer);
-
-        private void Start()
+        public TcpServer(string ip,int port,int receiveBufferLength = 1024)
         {
-            thread = new Thread(Init);
-            thread.IsBackground = true;
-            thread.Start();
+            this._ip = ip;
+            this._port = port;
+            this._receiveBuffer = new byte[receiveBufferLength];
+            this._thread = new Thread(Init);
+            this._thread.IsBackground = true;
+            this._thread.Start();
+            
         }
         private void Init()
         {
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            server.Bind(new IPEndPoint(IPAddress.Parse(ip),port));
-            server.Listen(0);
-            server.BeginAccept(AcceptCallBack,server);
+            _server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _server.Bind(new IPEndPoint(IPAddress.Parse(_ip),_port));
+            _server.Listen(0);
+            _server.BeginAccept(AcceptCallBack,_server);
         }
+        
         private void AcceptCallBack(IAsyncResult ar)
         {
             Socket serverSocket = ar.AsyncState as Socket;
             Socket clientSocket = serverSocket.EndAccept(ar);
             Debug.Log("连接客户端成功");
             
-            clientSocket.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
+            clientSocket.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
+            
             serverSocket.BeginAccept(AcceptCallBack, serverSocket);
         }
         private void ReceiveCallBack(IAsyncResult ar)
@@ -68,11 +71,8 @@ namespace YFramework.Kit.Net
                 }  
                 //接收到消息，执行方法
                 Debug.Log(ReceiveStr);
-                // if (ReceiveStr.Contains(submitStr))
-                // {
-                //     isSubmit = true;
-                // }
-                clientSocket.BeginReceive(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
+            
+                clientSocket.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
             }
             catch (Exception e)
             {
@@ -83,16 +83,20 @@ namespace YFramework.Kit.Net
                 }
             }
         }
-        private void OnDestroy()
+     
+        public void Close()
         {
-            Close();
-        }
-        private void Close()
-        {
-            if (server != null)
-                server.Close();
-            if (thread != null)
-                thread.Abort();
+            if (_server != null)
+            {
+                _server.Close();
+                _server = null;
+            }
+
+            if (_thread != null)
+            {
+                _thread.Abort();
+                _thread = null;
+            }
         }
     }
     
@@ -113,7 +117,7 @@ namespace YFramework.Kit.Net
             Buffer.BlockCopy(ms.GetBuffer(),0,packet,0,(int)ms.Length);
             bw.Close();
             ms.Close();
-            Debug.Log(packet.Length);
+            Console.WriteLine(packet.Length);
             return packet;
         }
         /// <summary>
