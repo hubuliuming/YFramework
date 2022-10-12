@@ -12,6 +12,10 @@ namespace YFramework
 {
     public class BindableProperty<T>  where T : IEquatable<T>
     {
+        public BindableProperty(T defaultValue = default)
+        {
+            _value = defaultValue;
+        }
         private T _value = default(T);
 
         public T Value
@@ -19,6 +23,7 @@ namespace YFramework
             get => _value;
             set
             {
+                if(value == null && _value ==null) return;
                 if (!_value.Equals(value))
                 {
                     _value = value;

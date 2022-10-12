@@ -28,6 +28,8 @@ namespace YFramework.Extension
                 Debug.LogError("UpdateContentLength need require GridLayerGroup component!");
                 return;
             }
+            scrollRect.content.anchorMin = new Vector2(0, 1);
+            scrollRect.content.anchorMax = new Vector2(0, 1);
             var xSize = 1;
             var ySize = 1;
             if (scrollRect.horizontal && !scrollRect.vertical)
@@ -50,7 +52,60 @@ namespace YFramework.Extension
             var width = expandWith < realWith ? 0 : expandWith - realWith;
             var height =(gridGroup.cellSize.y + gridGroup.spacing.y) * ySize + gridGroup.spacing.y;
             scrollRect.content.sizeDelta = new Vector2(width, height);
-            
+        }
+
+        /// <summary>
+        /// 原比例在指定区域内放大
+        /// </summary>
+        /// <param name="rectTrans"></param>
+        /// <param name="tartTrans"></param>
+        public static void AdaptivitySize(this RectTransform rectTrans, RectTransform tartTrans)
+        {
+            var img = rectTrans.GetComponent<Image>();
+            if (img != null)
+            {
+                img.SetNativeSize();
+            }
+            else
+            {
+                var rawImg = rectTrans.GetComponent<RawImage>();
+                rawImg.SetNativeSize();
+            }
+            Vector2 areaSize = tartTrans.sizeDelta;
+            Vector2 rectSize = rectTrans.sizeDelta;
+            //显示区域足够不做处理
+            if (rectSize.x <= areaSize.x && rectSize.y <= areaSize.y)
+            {
+                return;
+            }
+            var offsetScale = 1f;
+            // 宽度都未超出，所以是高度超出了按高度比例来计算
+            if (rectSize.x < areaSize.x)
+            {
+                offsetScale = areaSize.y / rectSize.y;
+                Debug.Log(offsetScale);
+            }
+            // 反之 高度未超出
+            else if (rectSize.y < areaSize.y)
+            {
+                offsetScale = areaSize.x / rectSize.x;
+            }
+            //两者都超出
+            else
+            {
+                var x =Mathf.Abs(areaSize.x - rectSize.x) / areaSize.x;
+                var y =Mathf.Abs(areaSize.y - rectSize.y) / areaSize.y;
+                //取最大比例值来适应框
+                if (x >= y)
+                {
+                    offsetScale = areaSize.x / rectSize.x ;
+                }
+                else if (x < y)
+                {
+                    offsetScale = areaSize.y / rectSize.y ;
+                }
+            }
+            rectTrans.sizeDelta *= offsetScale;
         }
     }
 }
