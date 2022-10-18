@@ -7,6 +7,7 @@
 *****************************************************/
 
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 using YFramework.Kit.Net;
 
@@ -15,7 +16,11 @@ public class Test1 : MonoBehaviour
    
     private void Start()
     {
-         
+        UnityWebRequest request = new UnityWebRequest("192.168.1");
+        
+        // UnityWebRequestTexture
+        // or use VideoPlayer.url
+        
     }
 
     private void Update()
