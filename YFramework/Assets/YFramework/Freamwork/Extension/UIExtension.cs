@@ -53,6 +53,7 @@ namespace YFramework.Extension
             var height =(gridGroup.cellSize.y + gridGroup.spacing.y) * ySize + gridGroup.spacing.y;
             scrollRect.content.sizeDelta = new Vector2(width, height);
         }
+
         /// <summary>
         /// 原比例在指定区域内放大
         /// </summary>

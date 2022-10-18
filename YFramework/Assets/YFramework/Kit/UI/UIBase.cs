@@ -6,6 +6,7 @@
     功能：UI基类
 *****************************************************/
 
+using YFramework.Kit;
 
 namespace YFramework.Kit.UI
 {

@@ -31,7 +31,7 @@ namespace YFramework.Kit.UI
 
         private Vector3 _contentInitPos;
         private Vector2 _contentInitSize;
-        public void Init()
+        public  void Init()
         {
             scrollRect.inertia = false;
             scrollRect.horizontal = true;
