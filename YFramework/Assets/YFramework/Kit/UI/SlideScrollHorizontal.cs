@@ -31,7 +31,7 @@ namespace YFramework.Kit.UI
 
         private Vector3 _contentInitPos;
         private Vector2 _contentInitSize;
-        public  void Init()
+        public void Init()
         {
             scrollRect.inertia = false;
             scrollRect.horizontal = true;
@@ -54,10 +54,16 @@ namespace YFramework.Kit.UI
                 pageText.text = currentIndex.ToString() + "/" + totalItemNum;
             if (pageTextPro != null)
                 pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
-            if(btnLast != null)
+            if (btnLast != null)
+            {
+                btnLast.onClick.RemoveAllListeners();
                 btnLast.onClick.AddListener(ToLastPage);
-            if(btnNext != null)
+            }
+            if (btnNext != null)
+            {
+                btnNext.onClick.RemoveAllListeners();
                 btnNext.onClick.AddListener(ToNextPage);
+            }
         }
         public void UpdateTotal()
         {

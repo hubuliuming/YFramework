@@ -17,10 +17,10 @@ namespace YFramework.Extension
         /// 更新ScrollRect下content的长度，注意content的锚点要默认的顶上对其
         /// </summary>
         /// <param name="scrollRect"></param>
-        /// <param name="rawNum">展示的页面横向数量</param>
+        /// <param name="rowNum">展示的页面横向数量</param>
         /// <param name="columnNum">展示的页面纵向数量</param>
         /// <param name="totalGirdNum">content下所有gird的总数目</param>
-        public static void UpdateContentLength(this ScrollRect scrollRect,int rawNum,int columnNum,int totalGirdNum)
+        public static void UpdateContentLength(this ScrollRect scrollRect,int rowNum,int columnNum,int totalGirdNum)
         {
             var gridGroup = scrollRect.content.GetComponent<GridLayoutGroup>();
             if (gridGroup == null)
@@ -30,12 +30,14 @@ namespace YFramework.Extension
             }
             scrollRect.content.anchorMin = new Vector2(0, 1);
             scrollRect.content.anchorMax = new Vector2(0, 1);
+            scrollRect.content.sizeDelta = Vector2.zero;
+            scrollRect.content.localPosition =Vector3.zero;
             var xSize = 1;
             var ySize = 1;
             if (scrollRect.horizontal && !scrollRect.vertical)
             {
-                xSize = Mathf.CeilToInt(totalGirdNum / (float) rawNum);
-                ySize = rawNum;
+                xSize = Mathf.CeilToInt(totalGirdNum / (float) rowNum);
+                ySize = rowNum;
             }
             else if (scrollRect.vertical && !scrollRect.horizontal)
             {
@@ -45,7 +47,7 @@ namespace YFramework.Extension
             else
             {
                 xSize = Mathf.CeilToInt(totalGirdNum / (float) columnNum);
-                ySize = Mathf.CeilToInt(totalGirdNum / (float) rawNum);
+                ySize = Mathf.CeilToInt(totalGirdNum / (float) rowNum);
             }
             var realWith = scrollRect.content.rect.width;
             var expandWith = (gridGroup.cellSize.x + gridGroup.spacing.x) * xSize - gridGroup.spacing.x;
@@ -83,7 +85,6 @@ namespace YFramework.Extension
             if (rectSize.x < areaSize.x)
             {
                 offsetScale = areaSize.y / rectSize.y;
-                Debug.Log(offsetScale);
             }
             // 反之 高度未超出
             else if (rectSize.y < areaSize.y)

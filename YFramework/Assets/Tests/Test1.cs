@@ -6,6 +6,7 @@
     功能：Nothing
 *****************************************************/
 
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -16,11 +17,9 @@ public class Test1 : MonoBehaviour
    
     private void Start()
     {
-        UnityWebRequest request = new UnityWebRequest("192.168.1");
-        
-        // UnityWebRequestTexture
-        // or use VideoPlayer.url
-        
+        var curPos = transform.localPosition;
+        transform.DOLocalPath(new[] { curPos, curPos + Vector3.right * 10f ,curPos}, 3,PathType.Linear);
+
     }
 
     private void Update()

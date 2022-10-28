@@ -25,6 +25,9 @@ namespace YFramework.Kit.UI
         {
             areaTrans.gameObject.SetActive(true);
             var go = Instantiate(gameObject, areaTrans);
+            var trans = go.GetComponent<RectTransform>();
+            trans.anchorMin = Vector2.one * 0.5f;
+            trans.anchorMax = Vector2.one * 0.5f;
             Destroy(go.GetComponent<AdaptivityShow>());
             onClose += () =>
             {
