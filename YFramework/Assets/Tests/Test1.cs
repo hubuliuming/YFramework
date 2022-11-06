@@ -6,9 +6,6 @@
     功能：Nothing
 *****************************************************/
 
-using System.Collections.Generic;
-using System.ComponentModel.Composition.Hosting;
-using System.IO;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -20,45 +17,116 @@ public class Test1 : MonoBehaviour
    
     private void Start()
     {
-        var curPos = transform.localPosition;
-        transform.DOLocalPath(new[] { curPos, curPos + Vector3.right * 10f ,curPos}, 3,PathType.Linear);
+        
+        
+        //KeyCode.Joystick1Button0 = A
+        //KeyCode.Joystick1Button1 = b
+        //KeyCode.Joystick1Button2 = X
+        //KeyCode.Joystick1Button3 = y
+        //KeyCode.Joystick1Button4 = LB
+        //KeyCode.Joystick1Button5 = RB
+        //KeyCode.Joystick1Button6 = Select
+        //KeyCode.Joystick1Button7 = Start
+        //KeyCode.Joystick1Button8 = C
+        //KeyCode.Joystick1Button9 = Z
+        
+        //Input.GetAxis("Horizontal") = 左边轮盘输入
+        //Input.GetAxis("Vertical") = 左边轮盘输入
+        
+        //Input.GetAxis("Jump") = Y
+        //Input.GetAxis("Submit") = A
+        var names =Input.GetJoystickNames();
+        foreach (var str in names)
+        {
+            Debug.Log(str);
+        }
+        
+        
+    }
 
-    }
-    public enum JoyInput
-    {
-        A,
-        B,
-        X,
-        Y
-    }
-    private Dictionary<KeyCode, JoyInput> curInputSetingDic = new Dictionary<KeyCode, JoyInput>()
-    {
-        { KeyCode.Joystick1Button0, JoyInput.A },
-        { KeyCode.Joystick1Button1, JoyInput.B }
-    };
-
-    private Dictionary<JoyInput, KeyCode> lastInputSetingDic = new Dictionary<JoyInput, KeyCode>()
-    {
-        {JoyInput.A,KeyCode.Joystick1Button0},
-        {JoyInput.B,KeyCode.Joystick1Button1}
-    };
-    //如果用户要把原来B建改成Ａ键盘功能
-    private void CustomInput(JoyInput updateInput)
-    {
-        var keycode = lastInputSetingDic[updateInput];
-        curInputSetingDic[keycode] = updateInput;
-        //把新的输入更新到老的字典里
-        lastInputSetingDic[updateInput] = keycode;
-    }
     private void Update()
     {
-        //初始默认是 Joystick1Button0 对应 A手柄键
-        //初始默认是 Joystick1Button1 对应 B手柄键
-        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-        {
-            var input = curInputSetingDic[KeyCode.Joystick1Button0];
-            //input才是正真的操作指令，再对接实际游戏里的操作
-        }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+        // {
+        //     Debug.Log("4");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button5))
+        // {
+        //     Debug.Log("5");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button6))
+        // {
+        //     Debug.Log("6");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button7))
+        // {
+        //     Debug.Log("7");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button8))
+        // {
+        //     Debug.Log("8");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button9))
+        // {
+        //     Debug.Log("9");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button10))
+        // {
+        //     Debug.Log("10");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button11))
+        // {
+        //     Debug.Log("11");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button12))
+        // {
+        //     Debug.Log("12");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button13))
+        // {
+        //     Debug.Log("13");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button14))
+        // {
+        //     Debug.Log("14");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button15))
+        // {
+        //     Debug.Log("15");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button16))
+        // {
+        //     Debug.Log("16");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button17))
+        // {
+        //     Debug.Log("17");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button18))
+        // {
+        //     Debug.Log("18");
+        // }
+        // if (Input.GetKeyDown(KeyCode.Joystick1Button19))
+        // {
+        //     Debug.Log("19");
+        // }
+        // if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        // {
+        //     Debug.Log("0");
+        // }
+      
+
+        
+        Debug.Log(Input.GetAxis("Horizontal"));
+        Debug.Log(Input.GetAxis("Vertical"));
+        
+        //Debug.Log(Input.GetAxis("Cancel"));
+        // Debug.Log(Input.GetAxis("Fire1"));
+        // Debug.Log(Input.GetAxis("Fire2"));
+        // Debug.Log(Input.GetAxis("Fire3"));
+        // Debug.Log(Input.GetAxis("Jump"));
+        // Debug.Log(Input.GetAxis("Submit"));
+        
         
     }
 
