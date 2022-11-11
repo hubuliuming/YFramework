@@ -6,6 +6,7 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -15,6 +16,7 @@ using YFramework.Kit.IO;
 namespace YFramework.Editor
 {
 #if UNITY_EDITOR
+    [Obsolete("this class have bug")]
     public class NameMgrWindow : EditorWindow
     {
         private  Dictionary<string, string> cur_ChangeNameDict = new Dictionary<string, string>();
@@ -25,7 +27,7 @@ namespace YFramework.Editor
         private void OnGUI()
         {
             GUILayout.Label("资源名称管理器");
-            //todo foreach中修改访问错误，未修改bug
+            // foreach中修改访问错误，未修改bug
             NameMgrWindowData.UpdateData();
             GUILayout.BeginHorizontal();
             foreach (var pair in NameMgrWindowData.SpriteDict)

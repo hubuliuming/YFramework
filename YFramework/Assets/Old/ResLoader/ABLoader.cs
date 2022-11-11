@@ -12,7 +12,6 @@ using Object = UnityEngine.Object;
 
 namespace YFrameworkOld
 {
-    //todo 
     public class ABLoader : ILoader 
     {
         public GameObject LoadGameObject(string path, Transform parent = null)
