@@ -17,6 +17,7 @@ using UnityEngine;
 
 namespace YFramework.Kit.Net
 {
+    //todo SendMessage
     public class TcpServer
     {
         private string _ip;
@@ -26,6 +27,8 @@ namespace YFramework.Kit.Net
         private Thread _thread;
 
         private byte[] _receiveBuffer;
+
+        public Action<string> onReceved;
         public string ReceiveStr => Encoding.UTF8.GetString(_receiveBuffer);
         
 
@@ -71,7 +74,7 @@ namespace YFramework.Kit.Net
                 }  
                 //接收到消息，执行方法
                 Debug.Log(ReceiveStr);
-            
+                onReceved?.Invoke(ReceiveStr);
                 clientSocket.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
             }
             catch (Exception e)

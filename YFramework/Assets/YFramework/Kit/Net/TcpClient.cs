@@ -21,9 +21,9 @@ namespace YFramework.Kit.Net
         private Socket _client;
         private Thread _thread;
         private byte[] _receiveBuffer;
-
+        
         public string ReceivedStr;
-        public bool Received;
+        public Action<string> onReceived;
 
         public TcpClient(string ip,int port,int receiveBufferLength = 1024)
         {
@@ -48,6 +48,24 @@ namespace YFramework.Kit.Net
             }
         }
         
+        public void SendMessage(byte[] data)
+        {
+            if (_client == null)
+            {
+                return;
+            }
+            if (_client.Connected)
+            {
+                _client.Send(data, 0, data.Length, SocketFlags.None);
+            }
+        }
+        public void SendMessageBy16Bite(string msg)
+        {
+            var data =Convert.Convert.Convert16Byte(msg);
+            SendMessage(data);
+        }
+
+
         private void Main()
         {
             try
@@ -76,8 +94,8 @@ namespace YFramework.Kit.Net
                 if (lenght > 0)
                 {
                     ReceivedStr = Encoding.UTF8.GetString(_receiveBuffer);
-                    Received = true;
                     Debug.Log("收到的信息为："+ReceivedStr+",长度为：" + lenght);
+                    onReceived?.Invoke(ReceivedStr);
                 }
                 _client.BeginReceive(_receiveBuffer, 0 ,_receiveBuffer.Length, SocketFlags.None, ReceivedCallBack,null);
             }

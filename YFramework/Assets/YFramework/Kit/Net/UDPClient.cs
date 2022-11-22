@@ -72,6 +72,29 @@ namespace YFramework.Kit.Net
                 throw;
             }
         }
+        
+        public void SendMessage(string ip,int port,byte[] data)
+        {
+            if (_remoteSocket == null)
+            {
+                return;
+            }
+            try
+            {
+                _remoteSocket.Connect(new IPEndPoint(IPAddress.Parse(ip),port));
+                _remoteSocket.Send(data, 0, data.Length, SocketFlags.None);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+                throw;
+            }
+        }
+        public void SendMessageBy16Bite(string ip,int port,string msg)
+        {
+            var data =Convert.Convert.Convert16Byte(msg);
+            SendMessage(ip,port,data);
+        }
         private void ReceivedCallBack(IAsyncResult ar)
         {
             try

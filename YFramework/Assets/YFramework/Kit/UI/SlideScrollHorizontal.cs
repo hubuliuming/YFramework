@@ -48,7 +48,7 @@ namespace YFramework.Kit.UI
             _contentInitPos = _contentTrans.localPosition;
             _contentInitSize = _contentTrans.sizeDelta;
             currentIndex = 0;
-            
+            //todo 验证全部情况的正确性
             UpdateTotal();
             if(pageText != null)
                 pageText.text = currentIndex.ToString() + "/" + totalItemNum;

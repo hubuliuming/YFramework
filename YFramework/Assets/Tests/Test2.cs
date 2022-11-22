@@ -8,40 +8,20 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using YFramework.Kit.Net;
+using YFramework.Kit.UI;
 
 public class Test2 : MonoBehaviour
 {
-    private List<int> _num1s = new List<int>();
-    private List<int> _num2s = new List<int>();
-
-
     private void Start()
     {
-        A();
-        var a = "555";
-        var b = "666";
-        unsafe
+        var client = new TcpClient("192.168.2.105", 6666);
+        client.onReceived = str =>
         {
-            
-        }
-    }
-
-    private unsafe void A()
-    {
-        int i = 3;
-        int* x = &i;
-        Debug.Log((int)x);//819584904
-    }
-
-    private unsafe void B()
-    {
+            Debug.Log(str);
+        };
         
     }
-
     
-
 }

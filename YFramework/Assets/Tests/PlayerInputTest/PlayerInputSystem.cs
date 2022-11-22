@@ -13,7 +13,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputSystem : MonoBehaviour
 {
     public static PlayerInputSystem System;
-    public static PlayerInput myInput;
+    public static PlayerInput MyInput;
 
     private static string[] names =
     {
@@ -36,7 +36,7 @@ public class PlayerInputSystem : MonoBehaviour
 
     private void Awake()
     {
-        myInput = GetComponent<PlayerInput>();
+        MyInput = GetComponent<PlayerInput>();
         System = this;
         for (int i = 0; i < names.Length; i++)
         {
@@ -46,24 +46,24 @@ public class PlayerInputSystem : MonoBehaviour
 
     public void Update()
     {
-        IsEsc = myInput.actions["Esc"].WasPressedThisFrame();
-        IsRight = myInput.actions["Right"].IsPressed();
-        IsLeft = myInput.actions["Left"].IsPressed();
+        IsEsc = MyInput.actions["Esc"].WasPressedThisFrame();
+        IsRight = MyInput.actions["Right"].IsPressed();
+        IsLeft = MyInput.actions["Left"].IsPressed();
 
-        if (IsRight)
-        {
-            Debug.Log("Right");
-        }
-
-        if (IsLeft)
-        {
-            Debug.Log("Left");
-        }
-
-        if (IsEsc)
-        {
-            Debug.Log("Esc");
-        }
+        // if (IsRight)
+        // {
+        //     Debug.Log("Right");
+        // }
+        //
+        // if (IsLeft)
+        // {
+        //     Debug.Log("Left");
+        // }
+        //
+        // if (IsEsc)
+        // {
+        //     Debug.Log("Esc");
+        // }
     }
 
     public void Buttons(InputAction.CallbackContext context)

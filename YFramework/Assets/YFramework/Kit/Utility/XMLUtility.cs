@@ -17,7 +17,7 @@ namespace YFramework.Kit.Utility
         public string rootNode = "Root";
         public Dictionary<string, string> attributeDict;
         public List<string> values;
-        public string FirstValues => values[0];
+        public string firstValue => values[0];
         public XmlInfo(string path)
         {
             attributeDict = new Dictionary<string, string>();

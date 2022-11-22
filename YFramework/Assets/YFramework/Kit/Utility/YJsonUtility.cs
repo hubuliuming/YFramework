@@ -14,7 +14,7 @@ namespace YFramework.Kit.Utility
 {
     public static class YJsonUtility 
     {
-        public static void WriteToJson<T>(T data,string savePath)
+        public static string WriteToJson<T>(T data,string savePath)
         {
             if (!savePath.EndsWith(".json"))
                 savePath += ".json";
@@ -23,6 +23,7 @@ namespace YFramework.Kit.Utility
             
             sw.Write(jsonStr);
             sw.Close();
+            return jsonStr;
         }
 
         public static T ReadFromJson<T>(string path) 
