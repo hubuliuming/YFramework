@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using YFramework.Kit.Net;
 using YFramework.Kit.UI;
 
@@ -16,12 +17,19 @@ public class Test2 : MonoBehaviour
 {
     private void Start()
     {
-        var client = new TcpClient("192.168.2.105", 6666);
-        client.onReceived = str =>
-        {
-            Debug.Log(str);
-        };
+        TcpServer tcpServer = new TcpServer("192.168.2.105", 6666);
         
+    }
+
+    private void Update()
+    {
+        
+    }
+
+
+    public void OnSelected(int index)
+    {
+        Debug.Log(index);
     }
     
 }

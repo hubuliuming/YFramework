@@ -22,7 +22,7 @@ namespace YFramework.Kit.Net
         private Thread _thread;
         private byte[] _receiveBuffer;
         
-        public string ReceivedStr;
+        public string ReceivedStr { get; private set; }
         public Action<string> onReceived;
 
         public TcpClient(string ip,int port,int receiveBufferLength = 1024)
@@ -93,7 +93,7 @@ namespace YFramework.Kit.Net
                 var lenght = _client.EndReceive(ar);
                 if (lenght > 0)
                 {
-                    ReceivedStr = Encoding.UTF8.GetString(_receiveBuffer);
+                    ReceivedStr = Encoding.UTF8.GetString(_receiveBuffer,0,lenght);
                     Debug.Log("收到的信息为："+ReceivedStr+",长度为：" + lenght);
                     onReceived?.Invoke(ReceivedStr);
                 }

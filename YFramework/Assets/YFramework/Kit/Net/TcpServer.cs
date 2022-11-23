@@ -25,13 +25,10 @@ namespace YFramework.Kit.Net
 
         private Socket _server;
         private Thread _thread;
-
         private byte[] _receiveBuffer;
-
         public Action<string> onReceved;
-        public string ReceiveStr => Encoding.UTF8.GetString(_receiveBuffer);
+        public string ReceiveStr { get; private set; }
         
-
         public TcpServer(string ip,int port,int receiveBufferLength = 1024)
         {
             this._ip = ip;
@@ -55,7 +52,6 @@ namespace YFramework.Kit.Net
             Socket serverSocket = ar.AsyncState as Socket;
             Socket clientSocket = serverSocket.EndAccept(ar);
             Debug.Log("连接客户端成功");
-            
             clientSocket.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
             
             serverSocket.BeginAccept(AcceptCallBack, serverSocket);
@@ -66,14 +62,15 @@ namespace YFramework.Kit.Net
             try
             {
                 clientSocket = ar.AsyncState as Socket;
-                int count = clientSocket.EndReceive(ar);
-                if (count <= 0)
+                int length = clientSocket.EndReceive(ar);
+                if (length <= 0)
                 {
                     clientSocket.Close();
                     return;
-                }  
-                //接收到消息，执行方法
-                Debug.Log(ReceiveStr);
+                }
+                ReceiveStr = Encoding.UTF8.GetString(_receiveBuffer, 0, length);
+                Debug.Log("收到消息:"+ReceiveStr);
+                Debug.Log("收到消息的长度:"+length);
                 onReceved?.Invoke(ReceiveStr);
                 clientSocket.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
             }

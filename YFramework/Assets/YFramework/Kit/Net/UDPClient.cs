@@ -24,7 +24,7 @@ namespace YFramework.Kit.Net
         private Thread _localThread;
         private byte[] _receiveBuffer;
 
-        public string ReceivedStr;
+        public string ReceivedStr { get; private set; }
         public Action<string> OnReceived;
         
         private Socket _remoteSocket;
@@ -103,12 +103,12 @@ namespace YFramework.Kit.Net
                 {
                     return;
                 }
-                var lenght = _localSocket.EndReceive(ar);
-                if (lenght > 0)
+                var length = _localSocket.EndReceive(ar);
+                if (length > 0)
                 {
-                    ReceivedStr = Encoding.UTF8.GetString(_receiveBuffer);
+                    ReceivedStr = Encoding.UTF8.GetString(_receiveBuffer,0, length);
                     OnReceived?.Invoke(ReceivedStr);
-                    Debug.Log("收到的信息为：" + ReceivedStr + ",长度为：" + lenght);
+                    Debug.Log("收到的信息为：" + ReceivedStr + ",长度为：" + length);
                 }
 
                 _localSocket.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceivedCallBack, null);
