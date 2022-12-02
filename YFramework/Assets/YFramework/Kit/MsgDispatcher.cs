@@ -32,27 +32,15 @@ namespace YFramework.Kit
             {
                 mRegisteredDict.Add(msgName, _ => { });
             }
-
-            mRegisteredDict[msgName] += onReceived;
+            mRegisteredDict[msgName] = onReceived;
             mRegisteredRecorders.Add(MsgRecorder.Allocate(msgName,onReceived));
-        }
-        public static void UnRegister(string msgName, Action<object> onReceived)
-        {
-            var selectRecorder = mRegisteredRecorders.FindAll(recorder => recorder.name == msgName && recorder.OnReceived == onReceived);
-            selectRecorder.ForEach(recorder =>
-            { 
-                mRegisteredDict[recorder.name] -= onReceived;
-                mRegisteredRecorders.Remove(recorder);
-                recorder.Recycle();
-            });
-            selectRecorder.Clear();
         }
         public static void UnRegister(string msgName)
         {
             var selectRecorder = mRegisteredRecorders.FindAll(recorder => recorder.name == msgName);
             selectRecorder.ForEach(recorder =>
             {
-                mRegisteredDict[recorder.name] -= recorder.OnReceived;
+                mRegisteredDict[recorder.name] = null;
                 mRegisteredRecorders.Remove(recorder);
                 recorder.Recycle();
             });
@@ -62,7 +50,7 @@ namespace YFramework.Kit
         {
             foreach (var msgRecorder in mRegisteredRecorders)
             {
-                mRegisteredDict[msgRecorder.name]-=msgRecorder.OnReceived;
+                mRegisteredDict[msgRecorder.name] = null;
                 msgRecorder.Recycle();
             }
             mRegisteredDict.Clear();
@@ -75,16 +63,14 @@ namespace YFramework.Kit
             private static Stack<MsgRecorder> msgRecorderPool = new Stack<MsgRecorder>();
             public static MsgRecorder Allocate(string msgName, Action<object> onReceived)
             {
-                return msgRecorderPool.Count > 0 ? msgRecorderPool.Pop() : new MsgRecorder {name = msgName, OnReceived = onReceived};
+                return msgRecorderPool.Count > 0 ? msgRecorderPool.Pop() : new MsgRecorder {name = msgName};
             }
             public void Recycle()
             {
                 name = null;
-                OnReceived = null;
                 msgRecorderPool.Push(this);
             }
             public string name;
-            public Action<object> OnReceived;
         }
     }
 }

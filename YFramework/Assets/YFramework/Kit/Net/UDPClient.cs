@@ -33,11 +33,15 @@ namespace YFramework.Kit.Net
             this._ip = ip;
             this._port = port;
             this._receiveBuffer = new byte[receiveBufferLength];
-            this. _localSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-            this._localThread = new Thread(LocalStart);
-            this._localThread.IsBackground = true;
-            this._localThread.Start();
-            this. _remoteSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+        }
+
+        public void Start()
+        {
+            _localSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            _localThread = new Thread(LocalStart);
+            _localThread.IsBackground = true;
+            _localThread.Start();
+            _remoteSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         }
 
         private void LocalStart()

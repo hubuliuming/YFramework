@@ -23,7 +23,7 @@ namespace YFramework.Kit.Net
         private string _ip;
         private int _port;
 
-        private Socket _server;
+        public Socket server;
         private Thread _thread;
         private byte[] _receiveBuffer;
         public Action<string> onReceved;
@@ -34,17 +34,20 @@ namespace YFramework.Kit.Net
             this._ip = ip;
             this._port = port;
             this._receiveBuffer = new byte[receiveBufferLength];
-            this._thread = new Thread(Init);
-            this._thread.IsBackground = true;
-            this._thread.Start();
-            
+        }
+
+        public void Start()
+        {
+            _thread = new Thread(Init);
+            _thread.IsBackground = true;
+            _thread.Start();
         }
         private void Init()
         {
-            _server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            _server.Bind(new IPEndPoint(IPAddress.Parse(_ip),_port));
-            _server.Listen(0);
-            _server.BeginAccept(AcceptCallBack,_server);
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            server.Bind(new IPEndPoint(IPAddress.Parse(_ip),_port));
+            server.Listen(0);
+            server.BeginAccept(AcceptCallBack,server);
         }
         
         private void AcceptCallBack(IAsyncResult ar)
@@ -69,8 +72,7 @@ namespace YFramework.Kit.Net
                     return;
                 }
                 ReceiveStr = Encoding.UTF8.GetString(_receiveBuffer, 0, length);
-                Debug.Log("收到消息:"+ReceiveStr);
-                Debug.Log("收到消息的长度:"+length);
+                Debug.Log("收到消息:"+ReceiveStr+",长度为："+length);
                 onReceved?.Invoke(ReceiveStr);
                 clientSocket.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, clientSocket);
             }
@@ -86,10 +88,10 @@ namespace YFramework.Kit.Net
      
         public void Close()
         {
-            if (_server != null)
+            if (server != null)
             {
-                _server.Close();
-                _server = null;
+                server.Close();
+                server = null;
             }
 
             if (_thread != null)

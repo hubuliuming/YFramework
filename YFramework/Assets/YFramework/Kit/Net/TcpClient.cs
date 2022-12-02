@@ -18,7 +18,7 @@ namespace YFramework.Kit.Net
     {
         private string _ip;
         private int _port;
-        private Socket _client;
+        public Socket client;
         private Thread _thread;
         private byte[] _receiveBuffer;
         
@@ -30,33 +30,37 @@ namespace YFramework.Kit.Net
             this._ip = ip;
             this._port = port;
             this._receiveBuffer = new byte[receiveBufferLength];
-            this._thread = new Thread(Main);
-            this._thread.IsBackground = true;
-            this._thread.Start();
+        }
+
+        public void Start()
+        {
+            _thread = new Thread(Main);
+            _thread.IsBackground = true;
+            _thread.Start();
         }
         public void SendMessage(string msg)
         {
-            if (_client == null)
+            if (client == null)
             {
                 return;
             }
 
-            if (_client.Connected)
+            if (client.Connected)
             {
                var sendBuffer = Encoding.UTF8.GetBytes(msg);
-                _client.Send(sendBuffer, 0, sendBuffer.Length, SocketFlags.None);
+                client.Send(sendBuffer, 0, sendBuffer.Length, SocketFlags.None);
             }
         }
         
         public void SendMessage(byte[] data)
         {
-            if (_client == null)
+            if (client == null)
             {
                 return;
             }
-            if (_client.Connected)
+            if (client.Connected)
             {
-                _client.Send(data, 0, data.Length, SocketFlags.None);
+                client.Send(data, 0, data.Length, SocketFlags.None);
             }
         }
         public void SendMessageBy16Bite(string msg)
@@ -70,10 +74,10 @@ namespace YFramework.Kit.Net
         {
             try
             {
-                _client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                _client.Connect(_ip, _port);
+                client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                client.Connect(_ip, _port);
                 Debug.Log("连接成功！");
-                _client.BeginReceive(_receiveBuffer,0,_receiveBuffer.Length,SocketFlags.None,ReceivedCallBack,null);
+                client.BeginReceive(_receiveBuffer,0,_receiveBuffer.Length,SocketFlags.None,ReceivedCallBack,null);
             }
             catch (Exception e)
             {
@@ -85,19 +89,19 @@ namespace YFramework.Kit.Net
         {
             try
             {
-                if (!_client.Connected)
+                if (!client.Connected)
                 {
                     return;
                 }
 
-                var lenght = _client.EndReceive(ar);
+                var lenght = client.EndReceive(ar);
                 if (lenght > 0)
                 {
                     ReceivedStr = Encoding.UTF8.GetString(_receiveBuffer,0,lenght);
                     Debug.Log("收到的信息为："+ReceivedStr+",长度为：" + lenght);
                     onReceived?.Invoke(ReceivedStr);
                 }
-                _client.BeginReceive(_receiveBuffer, 0 ,_receiveBuffer.Length, SocketFlags.None, ReceivedCallBack,null);
+                client.BeginReceive(_receiveBuffer, 0 ,_receiveBuffer.Length, SocketFlags.None, ReceivedCallBack,null);
             }
             catch (Exception e)
             {
@@ -114,10 +118,10 @@ namespace YFramework.Kit.Net
                 _thread = null;
             }
 
-            if (_client != null)
+            if (client != null)
             {
-                _client.Close();
-                _client = null;
+                client.Close();
+                client = null;
             }
 
         }

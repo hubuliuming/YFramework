@@ -18,15 +18,23 @@ namespace YFramework.Kit
         //利用协程实现定时
         public void Delay(float delay, Action onFinished)
         {
-            StartCoroutine(DelayCor(delay, onFinished));
+            StartCoroutine(CorDelay(delay, onFinished));
         }
-        private IEnumerator DelayCor(float delay, Action onFinished = null)
+        private IEnumerator CorDelay(float delay, Action onFinished = null)
         {
             yield return new WaitForSeconds(delay);
-            if (onFinished != null)
-            {
-                onFinished();
-            }
+            onFinished?.Invoke();
+        }
+
+        public void DelayOneFrame(Action callback)
+        {
+            StartCoroutine(CorDelayOneFrame(callback));
+        }
+
+        private IEnumerator CorDelayOneFrame(Action callback)
+        {
+            yield return null;
+            callback?.Invoke();
         }
         
         #endregion

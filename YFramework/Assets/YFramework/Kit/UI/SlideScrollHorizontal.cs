@@ -67,7 +67,7 @@ namespace YFramework.Kit.UI
         }
         public void UpdateTotal()
         {
-            totalItemNum = (int)(_contentTrans.sizeDelta.x / cellLength) + 1;
+            totalItemNum = (int)(_contentTrans.sizeDelta.x / (cellLength+spacing)) +1;
         }
         public void InitPos()
         {
