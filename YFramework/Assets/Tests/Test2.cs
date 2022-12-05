@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using YFramework.Kit.Net;
@@ -15,10 +16,11 @@ using YFramework.Kit.UI;
 
 public class Test2 : MonoBehaviour
 {
+    private GameObject go;
     private void Start()
     {
-        TcpServer tcpServer = new TcpServer("192.168.2.105", 6666);
-        
+      
+        go?.SetActive(true);
     }
 
     private void Update()

@@ -8,7 +8,7 @@ namespace YFramework.Kit.UI
     /// <summary>
     /// 挂载初始默认值的SlideScroll上，只修改宽高
     /// </summary>
-    public class SlideScrollHorizontal : UIBase,IBeginDragHandler,IEndDragHandler
+    public class SlideScrollHorizontal : MonoBehaviour,IBeginDragHandler,IEndDragHandler
     {
         public ScrollRect scrollRect;
         public float cellLength;
