@@ -41,6 +41,7 @@ namespace YFramework.Kit
             selectRecorder.ForEach(recorder =>
             {
                 mRegisteredDict[recorder.name] = null;
+                mRegisteredDict.Remove(msgName);
                 mRegisteredRecorders.Remove(recorder);
                 recorder.Recycle();
             });

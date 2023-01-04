@@ -38,26 +38,26 @@ namespace YFramework.Kit.UI
 
         public virtual void Show()
         {
-            UISystem.Instance.ShowUI(gameObject);
+            UIManager.Instance.ShowUI(gameObject);
         }
 
         public virtual void Hide()
         {
-            UISystem.Instance.HideUI(gameObject);
+            UIManager.Instance.HideUI(gameObject);
         }
     }
 
-    public class UISystem 
+    public class UIManager 
     {
-        private static UISystem _instance;
-        public static UISystem Instance
+        private static UIManager _instance;
+        public static UIManager Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    UISystem uiSystem = new UISystem();
-                    _instance = uiSystem;
+                    UIManager uiManager = new UIManager();
+                    _instance = uiManager;
                 }
                 return _instance;
             }
@@ -65,24 +65,29 @@ namespace YFramework.Kit.UI
         
         private static Stack<GameObject> _lastUIs = new Stack<GameObject>();
         private static GameObject _curUI;
-        public bool IsNullUI { get; private set; } = true;
+        public bool IsNullUI  => _curUI == null;
         
         public void ShowUI(GameObject curUI,Action onShow = null) 
         {
+            if (curUI == null)
+            {
+                Debug.LogWarning("要展示的物体为空！");
+                return;
+            }
             if (_curUI != null) 
             {
                 _lastUIs.Push(_curUI);
             }
             _curUI = curUI;
             _curUI.gameObject.SetActive(true);
-            IsNullUI = false;
           
             onShow?.Invoke();
         }
         
         public void HideUI(Action onHide = null)
         {
-            _curUI.gameObject.SetActive(false);
+            if (_curUI == null) return;
+            _curUI.SetActive(false);
             if (_lastUIs.Count > 0)
             { 
                 _curUI = _lastUIs.Pop();
@@ -90,7 +95,6 @@ namespace YFramework.Kit.UI
             else
             {
                 _curUI = null;
-                IsNullUI = true;
                 _lastUIs.Clear();
             }
             onHide?.Invoke();
@@ -102,15 +106,15 @@ namespace YFramework.Kit.UI
             {
                 HideUI(onHide);
             } else {
-               Debug.LogError("不允许跨索引隐藏,请检查控制UI界面逻辑是否纳入UISystem控制"); 
+                Debug.LogError("不允许跨索引隐藏:"+ curUI.name +","+"当前UI为："+_curUI.name); 
             }
         }
 
-        public void HideAllUI(Action onHideAll = null)
+        public void HideAllUI(Action onHide = null)
         {
-            foreach (var go in _lastUIs)
+            for (int i = 0; i < _lastUIs.Count +1; i++)
             {
-                HideUI(go,onHideAll);
+                HideUI(onHide);
             }
         }
     }

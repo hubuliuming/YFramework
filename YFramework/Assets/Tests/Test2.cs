@@ -7,20 +7,48 @@
 *****************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+using System.IO;
 using UnityEngine;
-using UnityEngine.Events;
-using YFramework.Kit.Net;
-using YFramework.Kit.UI;
+using UnityEngine.Networking;
+
 
 public class Test2 : MonoBehaviour
 {
-    private GameObject go;
+    private AudioSource source;
     private void Start()
     {
-      
-        go?.SetActive(true);
+        source = gameObject.AddComponent<AudioSource>();
+
+        var path = Application.streamingAssetsPath + "/麦田.wav";
+        if (!File.Exists(path))
+        {
+            Debug.LogError("不存在音频，路径："+path);
+        }
+        else
+        {
+            StartCoroutine(LoadAudio(path,AudioType.WAV));
+        }
+        
+        
+    }
+
+    private IEnumerator LoadAudio(string url,AudioType type)
+    {
+        UnityWebRequest request = UnityWebRequestMultimedia.GetAudioClip(url, type);
+        yield return request.SendWebRequest();
+        if (request.result == UnityWebRequest.Result.Success)
+        { 
+            var clip =DownloadHandlerAudioClip.GetContent(request);
+            source.clip = clip;
+            source.Play();
+           
+        }
+        else
+        {
+            Debug.Log("加载错误:"+url);
+        }
     }
 
     private void Update()
