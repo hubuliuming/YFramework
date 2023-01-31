@@ -6,6 +6,7 @@
     功能：transform操作的拓展
 *****************************************************/
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace YFramework.Extension
@@ -116,6 +117,30 @@ namespace YFramework.Extension
             return t;
         }
         public static T GetOrAddComponent<T>(this Transform trans) where T: Component => GetOrAddComponent<T>(trans.gameObject);
+        public static Transform[] GetActiveGameObjectsInChildren(this Transform trans)
+        {
+            List<Transform> activeGos = new List<Transform>();
+            for (int i = 0; i < trans.childCount; i++)
+            {
+                if (trans.transform.GetChild(i).gameObject.activeSelf)
+                {
+                    activeGos.Add(trans.GetChild(i));
+                }
+            }
+
+            return activeGos.ToArray();
+        }
+        public static GameObject[] GetActiveGameObjectsInChildren(this GameObject go)
+        {
+            var activeTrans =GetActiveGameObjectsInChildren(go.transform);
+            var activeGos = new GameObject[activeTrans.Length];
+            for (int i = 0; i < activeTrans.Length; i++)
+            {
+                activeGos[i] = activeTrans[i].gameObject;
+            }
+            return activeGos;
+        }
+      
         public static RectTransform GetRect(this Transform trans) => trans.GetComponent<RectTransform>();
     }
 }
