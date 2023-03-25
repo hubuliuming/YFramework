@@ -7,7 +7,6 @@
 *****************************************************/
 
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -84,16 +83,16 @@ namespace YFramework.Extension
             this._uiText = text;
             this._originalWord = text.text;
             this._writeInterval = interval;
-            _type = TextType.UIText;
-            _init = true;
+            this._type = TextType.UIText;
+            this._init = true;
         }
         public void InitText(TextMesh text,float interval)
         {
             this._textMesh = text;
             this._originalWord = text.text;
             this._writeInterval = interval;
-            _type = TextType.TextMesh;
-            _init = true;
+            this._type = TextType.TextMesh;
+            this._init = true;
         }
         
         public void InitText(TextMeshPro text,float interval)
@@ -101,8 +100,8 @@ namespace YFramework.Extension
             this._textMeshPro = text;
             this._originalWord = text.text;
             this._writeInterval = interval;
-            _type = TextType.TextMeshPro;
-            _init = true;
+            this._type = TextType.TextMeshPro;
+            this._init = true;
         }
 
         private void SetWords()

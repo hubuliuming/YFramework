@@ -17,7 +17,7 @@ namespace YFramework.Kit.UI
     /// <summary>
     ///  指定区域内自适应放大图片
     /// </summary>
-    public class AdaptivityShow : MonoBehaviour,IPointerClickHandler
+    public class AdaptivityImageShow : MonoBehaviour,IPointerClickHandler
     {
         public RectTransform areaTrans;
         public Action onClose;
@@ -28,7 +28,7 @@ namespace YFramework.Kit.UI
             var trans = go.GetComponent<RectTransform>();
             trans.anchorMin = Vector2.one * 0.5f;
             trans.anchorMax = Vector2.one * 0.5f;
-            Destroy(go.GetComponent<AdaptivityShow>());
+            Destroy(go.GetComponent<AdaptivityImageShow>());
             onClose += () =>
             {
                 areaTrans.gameObject.SetActive(false);

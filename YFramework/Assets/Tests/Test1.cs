@@ -6,17 +6,18 @@
     功能：Nothing
 *****************************************************/
 
-using DG.Tweening;
+using CustomUnity;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using YFramework.Extension;
 using YFramework.Kit.Net;
 
-public class Test1 : MonoBehaviour
+public class Test1 : CustomMonoBehaviour
 {
+    
     private void Start()
     {
-        GetComponent<Text>().StartTypewrite(0.1f);
+        GetComponent<Text>();
     }
 }
