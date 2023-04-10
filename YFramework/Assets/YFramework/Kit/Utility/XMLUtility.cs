@@ -7,7 +7,9 @@
 *****************************************************/
 
 using System.Collections.Generic;
+using System.IO;
 using System.Xml;
+using UnityEngine;
 
 namespace YFramework.Kit.Utility
 {
@@ -24,6 +26,10 @@ namespace YFramework.Kit.Utility
             values = new List<string>();
             if (!path.EndsWith(".xml"))
                 path += ".xml";
+            if (!File.Exists(path))
+            {
+                Debug.LogWarning("该xml文件不存在，路径："+path);
+            }
             Path = path;
         }
     }
