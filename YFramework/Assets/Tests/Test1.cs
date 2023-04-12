@@ -6,11 +6,13 @@
     功能：Nothing
 *****************************************************/
 
+using System.Collections;
 using CustomUnity;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using YFramework.Extension;
+using YFramework.Kit.Managers;
 using YFramework.Kit.Net;
 
 public class Test1 : CustomMonoBehaviour
@@ -18,6 +20,12 @@ public class Test1 : CustomMonoBehaviour
     
     private void Start()
     {
-        GetComponent<Text>();
+        CoroutineKit.StartCoroutine(Cor());
+    }
+
+    private IEnumerator Cor()
+    {
+        yield return 0;
+        Debug.Log("ddd");
     }
 }

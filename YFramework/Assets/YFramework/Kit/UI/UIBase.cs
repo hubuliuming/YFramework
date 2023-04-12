@@ -21,6 +21,7 @@ namespace YFramework.Kit.UI
     public abstract class UIBase : YMonoBehaviour,IUIBase
     {
         private UIUtility _uiUtility;
+        
 
         protected UIUtility UiUtility
         {
@@ -87,7 +88,7 @@ namespace YFramework.Kit.UI
             CurUI.gameObject.SetActive(true);
         }
         
-        public void HideUI(Action onHide = null)
+        public void HideUI()
         {
             if (CurUI == null) return;
             CurUI.SetActive(false);
@@ -100,24 +101,23 @@ namespace YFramework.Kit.UI
                 CurUI = null;
                 _lastUIs.Clear();
             }
-            onHide?.Invoke();
         }
 
-        public void HideUI(GameObject curUI, Action onHide = null)
+        public void HideUI(GameObject curUI)
         {
             if (CurUI == curUI)
             {
-                HideUI(onHide);
+                HideUI();
             } else {
                 Debug.LogError("不允许跨索引隐藏:"+ curUI.name +","+"当前UI为："+CurUI.name); 
             }
         }
 
-        public void HideAllUI(Action onHide = null)
+        public void HideAllUI()
         {
             for (int i = 0; i < _lastUIs.Count +1; i++)
             {
-                HideUI(onHide);
+                HideUI();
             }
         }
     }
