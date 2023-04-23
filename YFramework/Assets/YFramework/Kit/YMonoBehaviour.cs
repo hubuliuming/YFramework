@@ -39,7 +39,7 @@ namespace YFramework.Kit
         
         #endregion
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             MsgDispatcher.UnRegisterAll();
         }

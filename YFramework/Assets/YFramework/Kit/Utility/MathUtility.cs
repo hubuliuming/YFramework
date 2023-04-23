@@ -8,7 +8,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace YFramework.Kit.Utility
 {
@@ -33,6 +32,29 @@ namespace YFramework.Kit.Utility
             }
             
             return temps[Random.Range(0, temps.Count)];
+        }
+        
+        /// <summary>
+        /// 得到一个从大总集合里面随机不重复小集合
+        /// </summary>
+        /// <param name="sumList"></param>
+        /// <param name="subsetsLength"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static List<T> GetRandomSubsetsInSums<T>(List<T> sumList, int subsetsLength)
+        {
+            if (subsetsLength >= sumList.Count) return null;
+            var temps = new List<T>();
+            foreach (var t in sumList) temps.Add(t);
+            var values = new List<T>();
+            for (int i = 0; i < subsetsLength; i++)
+            {
+                var t = temps[Random.Range(0, temps.Count)];
+                values.Add(t);
+                temps.Remove(t);
+            }
+
+            return values;
         }
     }
 }

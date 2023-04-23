@@ -14,18 +14,14 @@ using UnityEngine.UI;
 using YFramework.Extension;
 using YFramework.Kit.Managers;
 using YFramework.Kit.Net;
+using YFramework.Kit.Utility;
 
 public class Test1 : CustomMonoBehaviour
 {
     
     private void Start()
     {
-        CoroutineKit.StartCoroutine(Cor());
+        XMLUtility.CreateDefaultXML();
     }
-
-    private IEnumerator Cor()
-    {
-        yield return 0;
-        Debug.Log("ddd");
-    }
+    
 }

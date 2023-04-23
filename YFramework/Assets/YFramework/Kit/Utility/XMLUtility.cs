@@ -35,6 +35,18 @@ namespace YFramework.Kit.Utility
     }
     public class XMLUtility
     {
+        public static void CreateDefaultXML()
+        {
+            var path = Application.streamingAssetsPath + "/Config.xml";
+            if (!Directory.Exists(Application.streamingAssetsPath))
+            {
+                Directory.CreateDirectory(Application.streamingAssetsPath);
+            }
+            var info = new XmlInfo(Application.streamingAssetsPath + "/Config.xml");
+            info.attributeDict.Add("firsValue","Hello");
+            CreateStandardXML(info);
+        }
+        
         public static void CreateStandardXML(XmlInfo info)
         {
             XmlDocument docx = new XmlDocument();
