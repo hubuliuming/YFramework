@@ -33,6 +33,13 @@ namespace YFramework.Extension
             TextMeshPro
         }
 
+        private string _word;
+
+        public string Word
+        {
+            get => _word;
+        }
+
         private float _timer;
         private int _curWordIndex;
         private float _writeInterval = 0.1f;
@@ -54,6 +61,11 @@ namespace YFramework.Extension
             {
                 SetWords();
             }
+        }
+
+        public void InitWords(string word)
+        {
+            this._word = word;
         }
 
         public void StartWrite()

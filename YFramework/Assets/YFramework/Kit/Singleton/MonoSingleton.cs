@@ -27,7 +27,7 @@ namespace YFramework.Kit.Singleton
             }
         }
 
-        private void Awake()
+        public void Awake()
         {
             DontDestroyOnLoad(gameObject);
         }

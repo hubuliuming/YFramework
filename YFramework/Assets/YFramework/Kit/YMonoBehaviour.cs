@@ -14,6 +14,7 @@ namespace YFramework.Kit
 {
     public abstract class YMonoBehaviour : MonoBehaviour
     {
+
         #region TimeDelay
         //利用协程实现定时
         public void Delay(float delay, Action onFinished)
@@ -42,6 +43,45 @@ namespace YFramework.Kit
         protected virtual void OnDestroy()
         {
             MsgDispatcher.UnRegisterAll();
+        }
+    }
+
+    public interface IMono
+    {
+        void OnUpdate();
+    }
+
+    public class YMonoManager : MonoBehaviour,IMono
+    {
+        private static YMonoManager _instance;
+        public static YMonoManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    var go = new GameObject(nameof(YMonoManager));
+                    var t = go.AddComponent<YMonoManager>();
+                    _instance = t;
+                }
+                return _instance;
+            }
+        }
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
+        private void Update()
+        {
+            
+        }
+        
+
+        public void OnUpdate()
+        {
+            
         }
     }
 }

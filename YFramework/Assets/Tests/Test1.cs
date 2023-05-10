@@ -7,21 +7,22 @@
 *****************************************************/
 
 using System.Collections;
-using CustomUnity;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using YFramework.Extension;
+using YFramework.Kit;
 using YFramework.Kit.Managers;
 using YFramework.Kit.Net;
 using YFramework.Kit.Utility;
 
-public class Test1 : CustomMonoBehaviour
+[RequireComponent(typeof(Text))]
+public class Test1 : YMonoBehaviour
 {
     
     private void Start()
     {
-        XMLUtility.CreateDefaultXML();
+        GetComponent<Text>().StartTypewrite();
     }
     
 }
