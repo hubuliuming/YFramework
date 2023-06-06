@@ -8,14 +8,12 @@
 
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 public class PlayerInputTest : MonoBehaviour
 {
     public GameObject Select;
-    private InputSystemUIInputModule _uiInputModule;
+    //private InputSystemUIInputModule _uiInputModule;
 
     private void Start()
     {

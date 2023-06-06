@@ -6,8 +6,10 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using YFramework.Extension;
@@ -16,13 +18,30 @@ using YFramework.Kit.Managers;
 using YFramework.Kit.Net;
 using YFramework.Kit.Utility;
 
-[RequireComponent(typeof(Text))]
 public class Test1 : YMonoBehaviour
 {
-    
     private void Start()
     {
-        GetComponent<Text>().StartTypewrite();
+        Application.targetFrameRate = 60;
+        GetComponent<BoxCollider2D>();
     }
-    
+
+
+    private void Update()
+    {
+        if (Keyboard.current.dKey.IsPressed())
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.right * 3;
+        }
+
+        if (Keyboard.current.aKey.IsPressed())
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.left * 3;
+        }
+
+        if (Keyboard.current.spaceKey.IsPressed())
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.up * 3;
+        }
+    }
 }

@@ -15,6 +15,23 @@ namespace YFramework.Kit.IO
     public static class YFile
     {
         /// <summary>
+        /// 获取指定路径文件夹下文件名
+        /// </summary>
+        /// <param name="dirFullPath"></param>
+        /// <param name="searchPattern"></param>
+        /// <returns></returns>
+        private static string[] GetDirectoriesNames(string dirFullPath,string searchPattern)
+        {
+            string[] s = Directory.GetDirectories(dirFullPath, searchPattern);
+            string[] directoriesNames = new string[s.Length];
+            for (int i = 0; i < s.Length; i++)
+            {
+                directoriesNames[i] = Path.GetFileName(s[i]);
+            }
+            return directoriesNames;
+        }
+
+        /// <summary>
         /// 文件重命名操作
         /// </summary>
         /// <param name="sourceName">带有文件路径的全名称</param>

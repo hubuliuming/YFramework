@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace YFramework.Extension
 {
-    public static  class TransformExtension
+    public static class TransformExtension
     {
         public static void SetPosX(this Transform trans, float target)
         {
@@ -142,5 +142,15 @@ namespace YFramework.Extension
         }
       
         public static RectTransform GetRect(this Transform trans) => trans.GetComponent<RectTransform>();
+
+        public static void LookAt2D(this Transform self, Vector3 target)
+        {
+            //计算目标方向
+            Vector3 dir = target - self.position;
+            //计算旋转角度
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //设置旋转
+            self.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
 }
