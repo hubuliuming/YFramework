@@ -108,5 +108,19 @@ namespace YFramework.Extension
             }
             rectTrans.sizeDelta *= offsetScale;
         }
+
+        /// <summary>
+        /// 在UI中挂载HorizontalLayoutGroup的物体上使用该方法可以使得下面所有子物体宽度在该物体居中位置HorizontalLayoutGroup
+        /// </summary>
+        /// <param name="layoutGroup"></param>
+        public static void SetCenterSize(this HorizontalLayoutGroup layoutGroup)
+        {
+            var sumWidth = 0;
+            foreach (var t in layoutGroup.transform.GetActiveGameObjectsInChildren())
+            {
+                sumWidth += (int)t.GetComponent<RectTransform>().sizeDelta.x;
+            }
+            layoutGroup.padding.left = -sumWidth / 2 + (int)layoutGroup.transform.GetComponent<RectTransform>().sizeDelta.x/ 2;
+        }
     }
 }
