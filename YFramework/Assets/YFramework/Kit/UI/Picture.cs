@@ -52,20 +52,20 @@ namespace YFramework.Kit
         }
         
 
-        public void CreatePictureToLocalFile(string path)
+        public void CreatePictureToLocalFile(string path,UnityEngine.Camera camera)
         {
-            StartCoroutine(CorCreatePictureToLocalFile(path));
+            StartCoroutine(CorCreatePictureToLocalFile(path,camera));
         }
      
-        private IEnumerator CorCreatePictureToLocalFile(string path)
+        private IEnumerator CorCreatePictureToLocalFile(string path,UnityEngine.Camera camera)
         {
             yield return new WaitForEndOfFrame();
-            var data = CutData();
+            var data = CutData(camera);
             SaveLocalFile(path,data,Type);
         }
-        public byte[] Cut()
+        public byte[] Cut(UnityEngine.Camera camera)
         {
-            StartCoroutine(CorCut());
+            StartCoroutine(CorCut(camera));
             return _data;
         }
         public byte[] CutByWebCam(WebCamTexture webCamTexture)
@@ -83,17 +83,15 @@ namespace YFramework.Kit
         }
         public void SaveLocalFile(string path, byte[] pictureData,PictureType type) => SaveLocalFile(path, pictureData,type,_defaultName);
 
-        private IEnumerator CorCut()
+        private IEnumerator CorCut(UnityEngine.Camera camera)
         {
             yield return new WaitForEndOfFrame();
-            CutData();
+            CutData(camera);
         }
 
-        private byte[] CutData()
+        private byte[] CutData(UnityEngine.Camera camera)
         {
-            Texture2D texture2D = new Texture2D(_width, _height, TextureFormat.ARGB32, false);
-            texture2D.ReadPixels(new Rect(_startX,_startY,_width,_height),0,0,false);
-            texture2D.Apply();
+            var texture2D = CaptureCamera(camera, new Rect(_startX, _startY, _width, _height));
 
             byte[] data = null;
             switch (Type)
@@ -115,6 +113,37 @@ namespace YFramework.Kit
             if (data == null)
                 Debug.LogError("转化图片失败");
             return data;
+        }
+        private Texture2D CaptureCamera(UnityEngine.Camera camera, Rect rect)   
+        {  
+            // 创建一个RenderTexture对象  
+            RenderTexture rt = new RenderTexture(Screen.width, Screen.height, 0);  
+            // 临时设置相关相机的targetTexture为rt, 并手动渲染相关相机  
+            camera.targetTexture = rt;  
+            camera.Render();  
+            //ps: --- 如果这样加上第二个相机，可以实现只截图某几个指定的相机一起看到的图像。  
+            //ps: camera2.targetTexture = rt;  
+            //ps: camera2.Render();  
+            //ps: -------------------------------------------------------------------  
+
+            // 激活这个rt, 并从中中读取像素。  
+            RenderTexture.active = rt;  
+            Texture2D screenShot = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.ARGB32,false);  
+            screenShot.ReadPixels(rect, 0, 0);// 注：这个时候，它是从RenderTexture.active中读取像素  
+            screenShot.Apply();  
+
+            // 重置相关参数，以使用camera继续在屏幕上显示  
+            camera.targetTexture = null;  
+            //ps: camera2.targetTexture = null;  
+            RenderTexture.active = null; // JC: added to avoid errors  
+            GameObject.Destroy(rt);  
+            // 最后将这些纹理数据，成一个png图片文件  
+            // byte[] bytes = screenShot.EncodeToPNG();  
+            // string filename = Application.dataPath + "/Screenshot.png";  
+            // System.IO.File.WriteAllBytes(filename, bytes);  
+            // Debug.Log(string.Format("截屏了一张照片: {0}", filename));  
+
+            return screenShot;  
         }
         private IEnumerator CorCutByWebCam(WebCamTexture webCamTexture)
         {
