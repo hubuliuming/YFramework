@@ -6,42 +6,35 @@
     功能：Nothing
 *****************************************************/
 
-using System;
-using System.Collections;
+
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+
 using UnityEngine.InputSystem;
-using UnityEngine.Networking;
-using UnityEngine.UI;
-using YFramework.Extension;
+using YFramework.Arithmetic;
 using YFramework.Kit;
-using YFramework.Kit.Managers;
-using YFramework.Kit.Net;
-using YFramework.Kit.Utility;
 
 public class Test1 : YMonoBehaviour
 {
+    public Transform[] trans;
+
+    private CircleFollowRounding _rounding;
     private void Start()
     {
-        Application.targetFrameRate = 60;
-        GetComponent<BoxCollider2D>();
+        _rounding = new CircleFollowRounding(Vector2.zero,1f);
+        // foreach (var tran in trans)
+        // {
+        //     _rounding.Add(tran,3);
+        // };
+        _rounding.Add(trans[0],1);
+        _rounding.Add(trans[1],2);
+        _rounding.Add(trans[2],3);
     }
 
 
     private void Update()
     {
-        if (Keyboard.current.dKey.IsPressed())
-        {
-            GetComponent<Rigidbody2D>().velocity = Vector2.right * 3;
-        }
-
-        if (Keyboard.current.aKey.IsPressed())
-        {
-            GetComponent<Rigidbody2D>().velocity = Vector2.left * 3;
-        }
-
-        if (Keyboard.current.spaceKey.IsPressed())
-        {
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * 3;
-        }
+       _rounding.OnUpdate();
     }
 }
