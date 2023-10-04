@@ -7,34 +7,21 @@
 *****************************************************/
 
 
-using System.Collections.Generic;
-using UnityEditor;
+using System;
 using UnityEngine;
 
-using UnityEngine.InputSystem;
-using YFramework.Arithmetic;
 using YFramework.Kit;
 
 public class Test1 : YMonoBehaviour
 {
-    public Transform[] trans;
-
-    private CircleFollowRounding _rounding;
     private void Start()
     {
-        _rounding = new CircleFollowRounding(Vector2.zero,1f);
-        // foreach (var tran in trans)
-        // {
-        //     _rounding.Add(tran,3);
-        // };
-        _rounding.Add(trans[0],1);
-        _rounding.Add(trans[1],2);
-        _rounding.Add(trans[2],3);
+        A(()=> 2);
     }
 
-
-    private void Update()
+    public void A(Func<int> dd)
     {
-       _rounding.OnUpdate();
+        Debug.Log(dd.Invoke());
     }
+
 }

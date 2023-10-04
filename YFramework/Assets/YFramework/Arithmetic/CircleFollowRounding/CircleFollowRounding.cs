@@ -47,6 +47,8 @@ namespace YFramework.Arithmetic
             this._speed = speed;
         }
         
+        //可拓展写SetIndexR()
+        
         /// <summary>
         /// 实时更新旋转
         /// </summary>
@@ -69,6 +71,7 @@ namespace YFramework.Arithmetic
         }
         public CircleFollowRounding(Vector2 targetPos,float speed)
         {
+            //拓展调整顺逆旋转
             _trans = new List<Grid>();
             this._targetPos = targetPos;
             this._speed = speed;
