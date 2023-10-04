@@ -9,7 +9,7 @@
 
 using System;
 using UnityEngine;
-
+using YFramework;
 using YFramework.Kit;
 
 public class Test1 : YMonoBehaviour

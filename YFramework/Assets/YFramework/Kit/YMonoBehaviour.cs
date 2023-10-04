@@ -10,7 +10,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace YFramework.Kit
+namespace YFramework
 {
     public abstract class YMonoBehaviour : MonoBehaviour
     {
@@ -42,16 +42,11 @@ namespace YFramework.Kit
 
         protected virtual void OnDestroy()
         {
-            MsgDispatcher.UnRegisterAll();
+            Kit.MsgDispatcher.UnRegisterAll();
         }
     }
 
-    public interface IMono
-    {
-        void OnUpdate();
-    }
-
-    public class YMonoManager : MonoBehaviour,IMono
+    public class YMonoManager : YMonoBehaviour
     {
         private static YMonoManager _instance;
         public static YMonoManager Instance
@@ -72,16 +67,6 @@ namespace YFramework.Kit
         {
             DontDestroyOnLoad(gameObject);
         }
-
-        private void Update()
-        {
-            
-        }
         
-
-        public void OnUpdate()
-        {
-            
-        }
     }
 }

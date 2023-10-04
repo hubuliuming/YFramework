@@ -13,14 +13,13 @@ namespace YFramework.Examples
 {
     public class CircleFollowRoundingExample : MonoBehaviour 
     {
-        public Transform[] trans;
         public float spped =3;
         private CircleFollowRounding _rounding;
 
         private void Start()
         {
             _rounding = new CircleFollowRounding(Vector2.zero, spped);
-            foreach (var tran in trans)
+            foreach (Transform tran in transform)
             {
                 _rounding.Add(tran,2);
             }
