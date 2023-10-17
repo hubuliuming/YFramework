@@ -54,8 +54,9 @@ namespace YFramework.Arithmetic
         /// </summary>
         public void OnUpdate() 
         {
+            if(_trans.Count <= 0) return;
             _angle += Time.deltaTime * _speed;
-            if (_angle >= Mathf.PI * (_trans.Count -1)) _angle = 0;
+            if (_angle -  Mathf.PI >= Mathf.PI * _trans.Count) _angle = 0;
             for (int i = 0; i < _trans.Count; i++)
             {
                 float x = Mathf.Cos(_angle + 2 * Mathf.PI / _trans.Count * i) * _trans[i].r;
