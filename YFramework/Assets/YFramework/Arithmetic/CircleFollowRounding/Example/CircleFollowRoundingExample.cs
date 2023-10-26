@@ -14,21 +14,40 @@ namespace YFramework.Examples
     public class CircleFollowRoundingExample : MonoBehaviour 
     {
         public float spped =3;
-        private CircleFollowRounding _rounding;
+        private CircleFollowRounding2D _rounding2D;
 
         private void Start()
         {
-            _rounding = new CircleFollowRounding(Vector2.zero, spped);
-            foreach (Transform tran in transform)
-            {
-                _rounding.Add(tran,2);
-            }
+            _rounding2D = new CircleFollowRounding2D(Vector2.zero, 3);
+            
         }
 
         private void Update()
         {
-            _rounding.SetSpeed(spped);
-            _rounding.OnUpdate();
+           _rounding2D.SetSpeed(spped);
+            var pos = _rounding2D.OnUpdate();
+            //不建议使用trans来遍历，建议使用pos得到的坐标来遍历
+            // for (int i = 0; i < transform.childCount; i++)
+            // {
+            //     transform.GetChild(i).position = pos[i];
+            // }
+            if (pos !=null)
+            {
+                for (int i = 0; i < pos.Length; i++)
+                {
+                    transform.GetChild(i).position = pos[i];
+                }
+            }
+            
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                _rounding2D.AddChild(3);
+            }
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                _rounding2D.AddChild(5);
+            }
         }
     }
 }
