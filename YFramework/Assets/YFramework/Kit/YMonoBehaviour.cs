@@ -46,17 +46,17 @@ namespace YFramework
         }
     }
 
-    public class YMonoManager : YMonoBehaviour
+    public class MonoManager : YMonoBehaviour
     {
-        private static YMonoManager _instance;
-        public static YMonoManager Instance
+        private static MonoManager _instance;
+        public static MonoManager Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    var go = new GameObject(nameof(YMonoManager));
-                    var t = go.AddComponent<YMonoManager>();
+                    var go = new GameObject(nameof(MonoManager));
+                    var t = go.AddComponent<MonoManager>();
                     _instance = t;
                 }
                 return _instance;
