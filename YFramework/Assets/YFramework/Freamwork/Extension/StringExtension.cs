@@ -29,5 +29,22 @@ namespace YFramework.Extension
             info += strs[^1];
             return info;
         }
+        
+        /// <summary>
+        /// 处理一下文字换行
+        /// </summary>
+        /// <param name="txt"></param>
+        /// <param name="splitLength">达到多长开始换行</param>
+        /// <returns></returns>
+        public static string HandleText(this string txt,int splitLength)
+        {
+            var startIndex = txt.IndexOf("\n", StringComparison.Ordinal);
+            for (int i = startIndex + splitLength; i < txt.Length; i+=splitLength)
+            {
+                txt = txt.Insert(i, "\n");
+            }
+
+            return txt;
+        }
     }
 }
