@@ -8,7 +8,6 @@
 
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -64,7 +63,6 @@ namespace YFramework.Kit.UI
         public Image Img { get; private set; }
         public Button Btn { get; private set; }
         public Text Text { get; private set; }
-        public TextMeshProUGUI ProText { get; private set; }
 
         public UIUtilityData(RectTransform rectTrans)
         {
@@ -73,7 +71,6 @@ namespace YFramework.Kit.UI
             this.Img = rectTrans.GetComponent<Image>();
             this.Btn = rectTrans.GetComponent<Button>();
             this.Text = rectTrans.GetComponent<Text>();
-            this.ProText = rectTrans.GetComponent<TextMeshProUGUI>();
         }
 
         public void AddListener(Action action)
@@ -126,18 +123,6 @@ namespace YFramework.Kit.UI
             else
             {
                 Debug.LogError("当前物体上没有Text组件，物体名字为："+Go.name);
-            }
-        }
-
-        public void SetProText(string str)
-        {
-            if (ProText != null)
-            {
-                ProText.text = str;
-            }
-            else
-            {
-                Debug.LogError("当前物体上没有TextMeshProUGUI组件，物体名字为："+Go.name);
             }
         }
         #region ClickEvents

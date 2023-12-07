@@ -7,7 +7,6 @@
 *****************************************************/
 
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +29,6 @@ namespace YFramework.Extension
         {
             UIText,
             TextMesh,
-            TextMeshPro
         }
 
         private string _word;
@@ -52,7 +50,6 @@ namespace YFramework.Extension
         private TextType _type;
         private Text _uiText;
         private TextMesh _textMesh;
-        private TextMeshPro _textMeshPro;
 
 
         private void Update()
@@ -83,9 +80,6 @@ namespace YFramework.Extension
                 case TextType.TextMesh:
                     _textMesh.text = "";
                     break;
-                case TextType.TextMeshPro:
-                    _textMeshPro.text = "";
-                    break;
             }
 
             Active = true;
@@ -107,14 +101,6 @@ namespace YFramework.Extension
             this._init = true;
         }
         
-        public void InitText(TextMeshPro text,float interval)
-        {
-            this._textMeshPro = text;
-            this._originalWord = text.text;
-            this._writeInterval = interval;
-            this._type = TextType.TextMeshPro;
-            this._init = true;
-        }
 
         private void SetWords()
         {
@@ -132,9 +118,6 @@ namespace YFramework.Extension
                         case TextType.TextMesh:
                             _textMesh.text = _originalWord.Substring(0, _curWordIndex);
                             break;
-                        case TextType.TextMeshPro:
-                            _textMeshPro.text = _originalWord.Substring(0, _curWordIndex);
-                            break;
                     }
                    
                 }
@@ -151,9 +134,6 @@ namespace YFramework.Extension
                             break;
                         case TextType.TextMesh:
                             _textMesh.text = _originalWord;
-                            break;
-                        case TextType.TextMeshPro:
-                            _textMeshPro.text = _originalWord;
                             break;
                     }
                 }

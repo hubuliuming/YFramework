@@ -1,5 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -19,7 +18,6 @@ namespace YFramework.Kit.UI
         public Button btnLast;
         public Button btnNext;
         public Text pageText;
-        public TextMeshProUGUI pageTextPro;
 
         public bool needSendMessage;
         
@@ -52,8 +50,6 @@ namespace YFramework.Kit.UI
             UpdateTotal();
             if(pageText != null)
                 pageText.text = currentIndex.ToString() + "/" + totalItemNum;
-            if (pageTextPro != null)
-                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (btnLast != null)
             {
                 btnLast.onClick.RemoveAllListeners();
@@ -107,8 +103,6 @@ namespace YFramework.Kit.UI
             {
                 pageText.text = currentIndex.ToString() + "/" + totalItemNum.ToString();
             }
-            if (pageTextPro != null)
-                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (needSendMessage)
                 OnUpdatePage();
 
@@ -124,8 +118,6 @@ namespace YFramework.Kit.UI
             currentIndex--;
             if (pageText != null)
                 pageText.text = currentIndex.ToString() + "/" + totalItemNum.ToString();
-            if (pageTextPro != null)
-                pageTextPro.text = currentIndex.ToString() + "/" + totalItemNum;
             if (needSendMessage)
                 OnUpdatePage();
             _contentTrans.localPosition = _curContentLocalPos + new Vector3(moveDistance, 0, 0);
