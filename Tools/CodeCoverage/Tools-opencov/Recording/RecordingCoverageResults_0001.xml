@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="0.0.0.0">
+  <Summary numSequencePoints="297" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="21" visitedMethods="0" numMethods="55" />
+  <Modules>
+    <Module>
+      <Summary numSequencePoints="17" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+      <ModuleTime>0001-01-01T00:00:00</ModuleTime>
+      <ModuleName>Assembly-CSharp</ModuleName>
+      <Files>
+        <File uid="1" fullPath="E:/UnityProjects/YFramework/Tools/Assets/Test/Scripts/Test1.cs" />
+        <File uid="2" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/EPPlus/Scripts/ExcelSystem.cs" />
+        <File uid="3" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/NumKeyBoard/NumKeyBoard.cs" />
+        <File uid="4" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/Paint/Painting.cs" />
+        <File uid="5" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/Paint/ShowPictures.cs" />
+        <File uid="6" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/Plugins/UI/Tips/Scripts/TipsController.cs" />
+        <File uid="7" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/Port/SerialPortManager.cs" />
+        <File uid="8" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/Plugins/Arithmetic/CircleFollowRounding/Example/CircleFollowRoundingExample.cs" />
+        <File uid="9" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/Plugins/Arithmetic/CircleFollowRounding/CircleFollowRounding2D.cs" />
+        <File uid="10" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/Json/YJsonUtility.cs" />
+        <File uid="11" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/XML/XMLUtility.cs" />
+        <File uid="12" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YTools/DebugConsole/ChinarViewConsole.cs" />
+      </Files>
+      <Classes>
+        <Class>
+          <Summary numSequencePoints="17" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.Kit.Utility.YJsonUtility</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="9" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663366</MetadataToken>
+              <Name>static System.String YFramework.Kit.Utility.YJsonUtility::WriteToJson[T](T, System.String)</Name>
+              <FileRef uid="10" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3164" ordinal="0" offset="0" sl="18" sc="0" el="18" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3165" ordinal="0" offset="1" sl="19" sc="0" el="19" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3166" ordinal="0" offset="19" sl="20" sc="0" el="20" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3167" ordinal="0" offset="32" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3168" ordinal="0" offset="45" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3169" ordinal="0" offset="52" sl="24" sc="0" el="24" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3170" ordinal="0" offset="60" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3171" ordinal="0" offset="67" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3172" ordinal="0" offset="71" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="10" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="8" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663367</MetadataToken>
+              <Name>static T YFramework.Kit.Utility.YJsonUtility::ReadFromJson[T](System.String)</Name>
+              <FileRef uid="10" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3173" ordinal="0" offset="0" sl="30" sc="0" el="30" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3174" ordinal="0" offset="1" sl="31" sc="0" el="31" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3175" ordinal="0" offset="19" sl="32" sc="0" el="32" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3176" ordinal="0" offset="32" sl="33" sc="0" el="33" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3177" ordinal="0" offset="39" sl="34" sc="0" el="34" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3178" ordinal="0" offset="46" sl="35" sc="0" el="35" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3179" ordinal="0" offset="53" sl="36" sc="0" el="36" ec="0" bec="0" bev="0" fileid="10" />
+                <SequencePoint vc="0" uspid="3180" ordinal="0" offset="62" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="10" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+      </Classes>
+    </Module>
+    <Module>
+      <Summary numSequencePoints="280" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="20" visitedMethods="0" numMethods="53" />
+      <ModuleTime>0001-01-01T00:00:00</ModuleTime>
+      <ModuleName>YFramework</ModuleName>
+      <Files>
+        <File uid="14" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/Architecture.cs" />
+        <File uid="15" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/IModel.cs" />
+        <File uid="16" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/ISystem.cs" />
+        <File uid="17" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetModel.cs" />
+        <File uid="18" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetSystem.cs" />
+        <File uid="19" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetUtility.cs" />
+        <File uid="20" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/Rules/ICanRegisterEvent.cs" />
+        <File uid="21" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/Rules/ICanSendCommand.cs" />
+        <File uid="22" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Architeciture/Rules/ICanSendEvent.cs" />
+        <File uid="23" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/BindableProperty/BindableProperty.cs" />
+        <File uid="24" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Command/ICommand.cs" />
+        <File uid="25" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Event/TypeEventSystem.cs" />
+        <File uid="26" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/GameLoop.cs" />
+        <File uid="27" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/IOC/IOCContainer.cs" />
+        <File uid="28" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/YMonoBehaviour.cs" />
+        <File uid="29" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/MsgDispatcher.cs" />
+        <File uid="30" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/Picture.cs" />
+        <File uid="31" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Windows/MainScriptfull.cs" />
+        <File uid="32" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Utility/EventSystemUtility.cs" />
+        <File uid="33" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Utility/MathUtility.cs" />
+        <File uid="34" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/Adaptive/AdaptiveDropDown.cs" />
+        <File uid="35" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/Adaptive/AdaptivityImageShow.cs" />
+        <File uid="36" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/BtnGirdGroup.cs" />
+        <File uid="37" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/BtnGrid.cs" />
+        <File uid="38" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/SlideScrollHorizontal.cs" />
+        <File uid="39" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/UIBase.cs" />
+        <File uid="40" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/UIUtility.cs" />
+        <File uid="41" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/YListener.cs" />
+        <File uid="42" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/UI/Layout/RawImageAdaptivityLayout.cs" />
+        <File uid="43" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Singleton/MonoSingleton.cs" />
+        <File uid="44" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Singleton/NormalSingleton.cs" />
+        <File uid="45" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Physics2D/Trigger2DCheck.cs" />
+        <File uid="46" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Net/TcpClient.cs" />
+        <File uid="47" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Net/TcpServer.cs" />
+        <File uid="48" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Net/UDPClient.cs" />
+        <File uid="49" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/IO/YFile.cs" />
+        <File uid="50" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Convert/Convert.cs" />
+        <File uid="51" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Kit/Camera/RotationCam.cs" />
+        <File uid="52" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Extension/StringExtension.cs" />
+        <File uid="53" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Extension/TransformExtension.cs" />
+        <File uid="54" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Extension/TxtExtension.cs" />
+        <File uid="55" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Freamwork/Extension/UIExtension.cs" />
+        <File uid="56" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Editor/AudioSetting.cs" />
+        <File uid="57" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Editor/InputResourcesSetting.cs" />
+        <File uid="58" fullPath="E:/UnityProjects/YFramework/Tools/Assets/YFramework/Editor/NameMgrWindow.cs" />
+      </Files>
+      <Classes>
+        <Class>
+          <Summary numSequencePoints="93" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="16" />
+          <FullName>YFramework.Architecture[T]</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663311</MetadataToken>
+              <Name>static YFramework.IArchitecture YFramework.Architecture[T]::get_Interface()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3354" ordinal="0" offset="0" sl="42" sc="0" el="42" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3355" ordinal="0" offset="1" sl="43" sc="0" el="43" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3356" ordinal="0" offset="18" sl="44" sc="0" el="44" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3357" ordinal="0" offset="19" sl="45" sc="0" el="45" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3358" ordinal="0" offset="25" sl="46" sc="0" el="46" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3359" ordinal="0" offset="26" sl="48" sc="0" el="48" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3360" ordinal="0" offset="39" sl="49" sc="0" el="49" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="25" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663312</MetadataToken>
+              <Name>static System.Void YFramework.Architecture[T]::MakeSureArchitecture()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3361" ordinal="0" offset="0" sl="52" sc="0" el="52" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3362" ordinal="0" offset="1" sl="53" sc="0" el="53" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3363" ordinal="0" offset="21" sl="54" sc="0" el="54" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3364" ordinal="0" offset="22" sl="55" sc="0" el="55" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3365" ordinal="0" offset="32" sl="56" sc="0" el="56" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3366" ordinal="0" offset="48" sl="57" sc="0" el="57" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3367" ordinal="0" offset="70" sl="58" sc="0" el="58" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3368" ordinal="0" offset="71" sl="58" sc="0" el="58" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3369" ordinal="0" offset="94" sl="58" sc="0" el="58" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3370" ordinal="0" offset="102" sl="59" sc="0" el="59" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3371" ordinal="0" offset="103" sl="60" sc="0" el="60" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3372" ordinal="0" offset="110" sl="61" sc="0" el="61" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3373" ordinal="0" offset="111" sl="58" sc="0" el="58" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3374" ordinal="0" offset="137" sl="62" sc="0" el="62" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3375" ordinal="0" offset="138" sl="62" sc="0" el="62" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3376" ordinal="0" offset="161" sl="62" sc="0" el="62" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3377" ordinal="0" offset="170" sl="63" sc="0" el="63" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3378" ordinal="0" offset="171" sl="64" sc="0" el="64" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3379" ordinal="0" offset="179" sl="65" sc="0" el="65" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3380" ordinal="0" offset="180" sl="62" sc="0" el="62" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3381" ordinal="0" offset="206" sl="66" sc="0" el="66" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3382" ordinal="0" offset="227" sl="67" sc="0" el="67" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3383" ordinal="0" offset="248" sl="68" sc="0" el="68" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3384" ordinal="0" offset="264" sl="69" sc="0" el="69" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3385" ordinal="0" offset="265" sl="70" sc="0" el="70" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="11" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663314</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::RegisterModel[T1](T1)</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3386" ordinal="0" offset="0" sl="77" sc="0" el="77" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3387" ordinal="0" offset="1" sl="78" sc="0" el="78" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3388" ordinal="0" offset="16" sl="79" sc="0" el="79" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3389" ordinal="0" offset="29" sl="80" sc="0" el="80" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3390" ordinal="0" offset="42" sl="81" sc="0" el="81" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3391" ordinal="0" offset="43" sl="82" sc="0" el="82" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3392" ordinal="0" offset="61" sl="83" sc="0" el="83" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3393" ordinal="0" offset="64" sl="85" sc="0" el="85" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3394" ordinal="0" offset="65" sl="86" sc="0" el="86" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3395" ordinal="0" offset="79" sl="87" sc="0" el="87" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3396" ordinal="0" offset="80" sl="89" sc="0" el="89" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="11" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663315</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::RegisterSystem[T1](T1)</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3397" ordinal="0" offset="0" sl="91" sc="0" el="91" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3398" ordinal="0" offset="1" sl="92" sc="0" el="92" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3399" ordinal="0" offset="16" sl="93" sc="0" el="93" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3400" ordinal="0" offset="29" sl="94" sc="0" el="94" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3401" ordinal="0" offset="42" sl="95" sc="0" el="95" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3402" ordinal="0" offset="43" sl="96" sc="0" el="96" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3403" ordinal="0" offset="61" sl="97" sc="0" el="97" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3404" ordinal="0" offset="64" sl="99" sc="0" el="99" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3405" ordinal="0" offset="65" sl="100" sc="0" el="100" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3406" ordinal="0" offset="79" sl="101" sc="0" el="101" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3407" ordinal="0" offset="80" sl="102" sc="0" el="102" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663316</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::RegisterUtility[T1](T1)</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3408" ordinal="0" offset="0" sl="104" sc="0" el="104" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3409" ordinal="0" offset="1" sl="105" sc="0" el="105" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3410" ordinal="0" offset="14" sl="106" sc="0" el="106" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663317</MetadataToken>
+              <Name>T1 YFramework.Architecture[T]::GetModel[T1]()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3411" ordinal="0" offset="0" sl="108" sc="0" el="108" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3412" ordinal="0" offset="1" sl="109" sc="0" el="109" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3413" ordinal="0" offset="15" sl="110" sc="0" el="110" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663318</MetadataToken>
+              <Name>T1 YFramework.Architecture[T]::GetUtility[T1]()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3414" ordinal="0" offset="0" sl="112" sc="0" el="112" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3415" ordinal="0" offset="1" sl="113" sc="0" el="113" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3416" ordinal="0" offset="15" sl="114" sc="0" el="114" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663319</MetadataToken>
+              <Name>T1 YFramework.Architecture[T]::GetSystem[T1]()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3417" ordinal="0" offset="0" sl="117" sc="0" el="117" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3418" ordinal="0" offset="1" sl="118" sc="0" el="118" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3419" ordinal="0" offset="15" sl="119" sc="0" el="119" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663320</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::SendCommand[T1]()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3420" ordinal="0" offset="0" sl="122" sc="0" el="122" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3421" ordinal="0" offset="1" sl="123" sc="0" el="123" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3422" ordinal="0" offset="7" sl="124" sc="0" el="124" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3423" ordinal="0" offset="22" sl="125" sc="0" el="125" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3424" ordinal="0" offset="36" sl="126" sc="0" el="126" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663321</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::SendCommand[T1](T1)</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3425" ordinal="0" offset="0" sl="128" sc="0" el="128" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3426" ordinal="0" offset="1" sl="129" sc="0" el="129" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3427" ordinal="0" offset="16" sl="130" sc="0" el="130" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3428" ordinal="0" offset="30" sl="131" sc="0" el="131" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663322</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::SendEvent[T1]()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3429" ordinal="0" offset="0" sl="135" sc="0" el="135" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3430" ordinal="0" offset="1" sl="136" sc="0" el="136" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3431" ordinal="0" offset="13" sl="137" sc="0" el="137" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663323</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::SendEvent[T1](T1)</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3432" ordinal="0" offset="0" sl="139" sc="0" el="139" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3433" ordinal="0" offset="1" sl="140" sc="0" el="140" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3434" ordinal="0" offset="14" sl="141" sc="0" el="141" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663324</MetadataToken>
+              <Name>YFramework.IUnRegister YFramework.Architecture[T]::RegisterEvent[T1](System.Action[T1])</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3435" ordinal="0" offset="0" sl="143" sc="0" el="143" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3436" ordinal="0" offset="1" sl="144" sc="0" el="144" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3437" ordinal="0" offset="16" sl="145" sc="0" el="145" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663325</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]::UnRegisterEvent[T1](System.Action[T1])</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3438" ordinal="0" offset="0" sl="147" sc="0" el="147" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3439" ordinal="0" offset="1" sl="148" sc="0" el="148" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3440" ordinal="0" offset="14" sl="149" sc="0" el="149" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663326</MetadataToken>
+              <Name>YFramework.Architecture[T]::Architecture()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3441" ordinal="0" offset="0" sl="34" sc="0" el="34" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3442" ordinal="0" offset="7" sl="35" sc="0" el="35" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3443" ordinal="0" offset="18" sl="36" sc="0" el="36" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3444" ordinal="0" offset="29" sl="72" sc="0" el="72" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="3445" ordinal="0" offset="40" sl="133" sc="0" el="133" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="true" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663327</MetadataToken>
+              <Name>static YFramework.Architecture[T]::Architecture()</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3446" ordinal="0" offset="0" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.CanGetModelExtensive</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663344</MetadataToken>
+              <Name>static T YFramework.CanGetModelExtensive::GetModel[T](YFramework.ICanGetModel)</Name>
+              <FileRef uid="17" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3466" ordinal="0" offset="0" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="0" uspid="3467" ordinal="0" offset="1" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="17" />
+                <SequencePoint vc="0" uspid="3468" ordinal="0" offset="15" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="17" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.CanGetSystemExtensive</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663345</MetadataToken>
+              <Name>static T YFramework.CanGetSystemExtensive::GetSystem[T](YFramework.ICanGetSystem)</Name>
+              <FileRef uid="18" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3469" ordinal="0" offset="0" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="18" />
+                <SequencePoint vc="0" uspid="3470" ordinal="0" offset="1" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="18" />
+                <SequencePoint vc="0" uspid="3471" ordinal="0" offset="15" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="18" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.CanGetUtilityExtensive</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663346</MetadataToken>
+              <Name>static T YFramework.CanGetUtilityExtensive::GetUtility[T](YFramework.ICanGetUtility)</Name>
+              <FileRef uid="19" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3472" ordinal="0" offset="0" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="19" />
+                <SequencePoint vc="0" uspid="3473" ordinal="0" offset="1" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="19" />
+                <SequencePoint vc="0" uspid="3474" ordinal="0" offset="15" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="19" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="6" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.CanRegisterEventExpensive</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663347</MetadataToken>
+              <Name>static YFramework.IUnRegister YFramework.CanRegisterEventExpensive::RegisterEvent[T](YFramework.ICanRegisterEvent, System.Action[T])</Name>
+              <FileRef uid="20" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3475" ordinal="0" offset="0" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="0" uspid="3476" ordinal="0" offset="1" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="0" uspid="3477" ordinal="0" offset="16" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="20" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663348</MetadataToken>
+              <Name>static System.Void YFramework.CanRegisterEventExpensive::UnRegisterEvent[T](YFramework.ICanRegisterEvent, System.Action[T])</Name>
+              <FileRef uid="20" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3478" ordinal="0" offset="0" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="0" uspid="3479" ordinal="0" offset="1" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="0" uspid="3480" ordinal="0" offset="14" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="20" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="6" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.CanSendCommandExtensive</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663349</MetadataToken>
+              <Name>static System.Void YFramework.CanSendCommandExtensive::SendCommand[T](YFramework.ICanSendCommand)</Name>
+              <FileRef uid="21" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3481" ordinal="0" offset="0" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="21" />
+                <SequencePoint vc="0" uspid="3482" ordinal="0" offset="1" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="21" />
+                <SequencePoint vc="0" uspid="3483" ordinal="0" offset="13" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="21" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663350</MetadataToken>
+              <Name>static System.Void YFramework.CanSendCommandExtensive::SendCommand[T](YFramework.ICanSendCommand, T)</Name>
+              <FileRef uid="21" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3484" ordinal="0" offset="0" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="21" />
+                <SequencePoint vc="0" uspid="3485" ordinal="0" offset="1" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="21" />
+                <SequencePoint vc="0" uspid="3486" ordinal="0" offset="14" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="21" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="6" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.CanSendEventExtensive</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663351</MetadataToken>
+              <Name>static System.Void YFramework.CanSendEventExtensive::SendEvent[T](YFramework.ICanSendEvent)</Name>
+              <FileRef uid="22" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3487" ordinal="0" offset="0" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="22" />
+                <SequencePoint vc="0" uspid="3488" ordinal="0" offset="1" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="22" />
+                <SequencePoint vc="0" uspid="3489" ordinal="0" offset="13" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="22" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663352</MetadataToken>
+              <Name>static System.Void YFramework.CanSendEventExtensive::SendEvent[T](YFramework.ICanSendEvent, T)</Name>
+              <FileRef uid="22" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3490" ordinal="0" offset="0" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="22" />
+                <SequencePoint vc="0" uspid="3491" ordinal="0" offset="1" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="22" />
+                <SequencePoint vc="0" uspid="3492" ordinal="0" offset="14" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="22" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="23" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="5" />
+          <FullName>YFramework.BindableProperty[T]</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663354</MetadataToken>
+              <Name>T YFramework.BindableProperty[T]::get_Value()</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3493" ordinal="0" offset="0" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
+              <Summary numSequencePoints="9" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663355</MetadataToken>
+              <Name>System.Void YFramework.BindableProperty[T]::set_Value(T)</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3494" ordinal="0" offset="0" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3495" ordinal="0" offset="1" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3496" ordinal="0" offset="30" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3497" ordinal="0" offset="32" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3498" ordinal="0" offset="57" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3499" ordinal="0" offset="58" sl="29" sc="0" el="29" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3500" ordinal="0" offset="65" sl="30" sc="0" el="30" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3501" ordinal="0" offset="84" sl="31" sc="0" el="31" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3502" ordinal="0" offset="85" sl="32" sc="0" el="32" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663356</MetadataToken>
+              <Name>YFramework.IUnRegister YFramework.BindableProperty[T]::RegisterOnValueChange(System.Action[T])</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3503" ordinal="0" offset="0" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3504" ordinal="0" offset="1" sl="38" sc="0" el="38" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3505" ordinal="0" offset="24" sl="39" sc="0" el="39" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3506" ordinal="0" offset="48" sl="44" sc="0" el="44" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663357</MetadataToken>
+              <Name>System.Void YFramework.BindableProperty[T]::UnRegisterOnValueChange(System.Action[T])</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3507" ordinal="0" offset="0" sl="47" sc="0" el="47" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3508" ordinal="0" offset="1" sl="48" sc="0" el="48" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3509" ordinal="0" offset="24" sl="49" sc="0" el="49" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="6" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663353</MetadataToken>
+              <Name>YFramework.BindableProperty[T]::BindableProperty(T)</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3510" ordinal="0" offset="0" sl="19" sc="0" el="19" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3511" ordinal="0" offset="12" sl="35" sc="0" el="35" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3512" ordinal="0" offset="49" sl="15" sc="0" el="15" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3513" ordinal="0" offset="56" sl="16" sc="0" el="16" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3514" ordinal="0" offset="57" sl="17" sc="0" el="17" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3515" ordinal="0" offset="64" sl="18" sc="0" el="18" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="9" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="5" />
+          <FullName>YFramework.BindablePropertyUnRegister[T]</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663358</MetadataToken>
+              <Name>YFramework.BindableProperty[T] YFramework.BindablePropertyUnRegister[T]::get_BindableProperty()</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3516" ordinal="0" offset="0" sl="54" sc="0" el="54" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663359</MetadataToken>
+              <Name>System.Void YFramework.BindablePropertyUnRegister[T]::set_BindableProperty(YFramework.BindableProperty[T])</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3517" ordinal="0" offset="0" sl="54" sc="0" el="54" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663360</MetadataToken>
+              <Name>System.Action[T] YFramework.BindablePropertyUnRegister[T]::get_OnValueChanged()</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3518" ordinal="0" offset="0" sl="55" sc="0" el="55" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663361</MetadataToken>
+              <Name>System.Void YFramework.BindablePropertyUnRegister[T]::set_OnValueChanged(System.Action[T])</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3519" ordinal="0" offset="0" sl="55" sc="0" el="55" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663362</MetadataToken>
+              <Name>System.Void YFramework.BindablePropertyUnRegister[T]::UnRegister()</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3520" ordinal="0" offset="0" sl="57" sc="0" el="57" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3521" ordinal="0" offset="1" sl="58" sc="0" el="58" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3522" ordinal="0" offset="19" sl="59" sc="0" el="59" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3523" ordinal="0" offset="27" sl="60" sc="0" el="60" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="3524" ordinal="0" offset="35" sl="61" sc="0" el="61" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.TypeEventSystemUnRegister[T]</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663375</MetadataToken>
+              <Name>System.Void YFramework.TypeEventSystemUnRegister[T]::UnRegister()</Name>
+              <FileRef uid="25" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3534" ordinal="0" offset="0" sl="33" sc="0" el="33" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3535" ordinal="0" offset="1" sl="34" sc="0" el="34" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3536" ordinal="0" offset="19" sl="35" sc="0" el="35" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3537" ordinal="0" offset="26" sl="36" sc="0" el="36" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3538" ordinal="0" offset="33" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="25" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="28" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="4" />
+          <FullName>YFramework.TypeEventSystem</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663380</MetadataToken>
+              <Name>System.Void YFramework.TypeEventSystem::Send[T]()</Name>
+              <FileRef uid="25" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3561" ordinal="0" offset="0" sl="86" sc="0" el="86" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3562" ordinal="0" offset="1" sl="87" sc="0" el="87" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3563" ordinal="0" offset="7" sl="88" sc="0" el="88" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3564" ordinal="0" offset="15" sl="89" sc="0" el="89" ec="0" bec="0" bev="0" fileid="25" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663381</MetadataToken>
+              <Name>System.Void YFramework.TypeEventSystem::Send[T](T)</Name>
+              <FileRef uid="25" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3565" ordinal="0" offset="0" sl="92" sc="0" el="92" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3566" ordinal="0" offset="1" sl="93" sc="0" el="93" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3567" ordinal="0" offset="12" sl="95" sc="0" el="95" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3568" ordinal="0" offset="30" sl="96" sc="0" el="96" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3569" ordinal="0" offset="31" sl="97" sc="0" el="97" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3570" ordinal="0" offset="49" sl="98" sc="0" el="98" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3571" ordinal="0" offset="50" sl="99" sc="0" el="99" ec="0" bec="0" bev="0" fileid="25" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="10" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663382</MetadataToken>
+              <Name>YFramework.IUnRegister YFramework.TypeEventSystem::Register[T](System.Action[T])</Name>
+              <FileRef uid="25" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3572" ordinal="0" offset="0" sl="102" sc="0" el="102" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3573" ordinal="0" offset="1" sl="103" sc="0" el="103" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3574" ordinal="0" offset="12" sl="105" sc="0" el="105" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3575" ordinal="0" offset="33" sl="106" sc="0" el="106" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3576" ordinal="0" offset="34" sl="107" sc="0" el="107" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3577" ordinal="0" offset="40" sl="108" sc="0" el="108" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3578" ordinal="0" offset="54" sl="109" sc="0" el="109" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3579" ordinal="0" offset="55" sl="111" sc="0" el="111" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3580" ordinal="0" offset="83" sl="112" sc="0" el="112" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3581" ordinal="0" offset="117" sl="117" sc="0" el="117" ec="0" bec="0" bev="0" fileid="25" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663383</MetadataToken>
+              <Name>System.Void YFramework.TypeEventSystem::UnRegister[T](System.Action[T])</Name>
+              <FileRef uid="25" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3582" ordinal="0" offset="0" sl="119" sc="0" el="119" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3583" ordinal="0" offset="1" sl="120" sc="0" el="120" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3584" ordinal="0" offset="12" sl="122" sc="0" el="122" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3585" ordinal="0" offset="30" sl="123" sc="0" el="123" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3586" ordinal="0" offset="31" sl="124" sc="0" el="124" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3587" ordinal="0" offset="59" sl="125" sc="0" el="125" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="3588" ordinal="0" offset="60" sl="126" sc="0" el="126" ec="0" bec="0" bev="0" fileid="25" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="17" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.IOCContainer</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="10" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663388</MetadataToken>
+              <Name>System.Void YFramework.IOCContainer::Register[T](T)</Name>
+              <FileRef uid="27" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3601" ordinal="0" offset="0" sl="20" sc="0" el="20" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3602" ordinal="0" offset="1" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3603" ordinal="0" offset="12" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3604" ordinal="0" offset="28" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3605" ordinal="0" offset="29" sl="24" sc="0" el="24" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3606" ordinal="0" offset="48" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3607" ordinal="0" offset="51" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3608" ordinal="0" offset="52" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3609" ordinal="0" offset="71" sl="29" sc="0" el="29" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3610" ordinal="0" offset="72" sl="30" sc="0" el="30" ec="0" bec="0" bev="0" fileid="27" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="7" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663389</MetadataToken>
+              <Name>T YFramework.IOCContainer::Get[T]()</Name>
+              <FileRef uid="27" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3611" ordinal="0" offset="0" sl="33" sc="0" el="33" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3612" ordinal="0" offset="1" sl="34" sc="0" el="34" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3613" ordinal="0" offset="12" sl="35" sc="0" el="35" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3614" ordinal="0" offset="30" sl="36" sc="0" el="36" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3615" ordinal="0" offset="31" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3616" ordinal="0" offset="45" sl="40" sc="0" el="40" ec="0" bec="0" bev="0" fileid="27" />
+                <SequencePoint vc="0" uspid="3617" ordinal="0" offset="58" sl="41" sc="0" el="41" ec="0" bec="0" bev="0" fileid="27" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="38" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.Kit.Utility.MathUtility</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="18" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663430</MetadataToken>
+              <Name>static T YFramework.Kit.Utility.MathUtility::GetRandomRemoveSelf[T](System.Collections.Generic.List[T], T)</Name>
+              <FileRef uid="33" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3783" ordinal="0" offset="0" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3784" ordinal="0" offset="1" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3785" ordinal="0" offset="15" sl="24" sc="0" el="24" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3786" ordinal="0" offset="16" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3787" ordinal="0" offset="58" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3788" ordinal="0" offset="59" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3789" ordinal="0" offset="65" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3790" ordinal="0" offset="66" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3791" ordinal="0" offset="75" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3792" ordinal="0" offset="84" sl="29" sc="0" el="29" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3793" ordinal="0" offset="85" sl="30" sc="0" el="30" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3794" ordinal="0" offset="112" sl="31" sc="0" el="31" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3795" ordinal="0" offset="113" sl="32" sc="0" el="32" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3796" ordinal="0" offset="122" sl="33" sc="0" el="33" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3797" ordinal="0" offset="123" sl="34" sc="0" el="34" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3798" ordinal="0" offset="124" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3799" ordinal="0" offset="150" sl="36" sc="0" el="36" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3800" ordinal="0" offset="172" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="33" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="20" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663431</MetadataToken>
+              <Name>static System.Collections.Generic.List[T] YFramework.Kit.Utility.MathUtility::GetRandomSubsetsInSums[T](System.Collections.Generic.List[T], System.Int32)</Name>
+              <FileRef uid="33" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="3801" ordinal="0" offset="0" sl="47" sc="0" el="47" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3802" ordinal="0" offset="1" sl="48" sc="0" el="48" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3803" ordinal="0" offset="17" sl="48" sc="0" el="48" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3804" ordinal="0" offset="24" sl="49" sc="0" el="49" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3805" ordinal="0" offset="30" sl="50" sc="0" el="50" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3806" ordinal="0" offset="31" sl="50" sc="0" el="50" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3807" ordinal="0" offset="41" sl="50" sc="0" el="50" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3808" ordinal="0" offset="50" sl="50" sc="0" el="50" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3809" ordinal="0" offset="59" sl="50" sc="0" el="50" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3810" ordinal="0" offset="85" sl="51" sc="0" el="51" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3811" ordinal="0" offset="91" sl="52" sc="0" el="52" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3812" ordinal="0" offset="96" sl="53" sc="0" el="53" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3813" ordinal="0" offset="97" sl="54" sc="0" el="54" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3814" ordinal="0" offset="117" sl="55" sc="0" el="55" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3815" ordinal="0" offset="126" sl="56" sc="0" el="56" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3816" ordinal="0" offset="135" sl="57" sc="0" el="57" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3817" ordinal="0" offset="136" sl="52" sc="0" el="52" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3818" ordinal="0" offset="142" sl="52" sc="0" el="52" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3819" ordinal="0" offset="153" sl="59" sc="0" el="59" ec="0" bec="0" bev="0" fileid="33" />
+                <SequencePoint vc="0" uspid="3820" ordinal="0" offset="157" sl="60" sc="0" el="60" ec="0" bec="0" bev="0" fileid="33" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="12" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.Kit.Singleton.MonoSingleton[T]</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="9" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663506</MetadataToken>
+              <Name>static T YFramework.Kit.Singleton.MonoSingleton[T]::get_Instance()</Name>
+              <FileRef uid="43" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="4234" ordinal="0" offset="0" sl="19" sc="0" el="19" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4235" ordinal="0" offset="1" sl="20" sc="0" el="20" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4236" ordinal="0" offset="21" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4237" ordinal="0" offset="22" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4238" ordinal="0" offset="43" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4239" ordinal="0" offset="50" sl="24" sc="0" el="24" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4240" ordinal="0" offset="56" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4241" ordinal="0" offset="57" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4242" ordinal="0" offset="65" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="43" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663507</MetadataToken>
+              <Name>System.Void YFramework.Kit.Singleton.MonoSingleton[T]::Awake()</Name>
+              <FileRef uid="43" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="4243" ordinal="0" offset="0" sl="31" sc="0" el="31" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4244" ordinal="0" offset="1" sl="32" sc="0" el="32" ec="0" bec="0" bev="0" fileid="43" />
+                <SequencePoint vc="0" uspid="4245" ordinal="0" offset="13" sl="33" sc="0" el="33" ec="0" bec="0" bev="0" fileid="43" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="12" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.Kit.Singleton.NormalSingleton[T]</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="12" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663509</MetadataToken>
+              <Name>static T YFramework.Kit.Singleton.NormalSingleton[T]::get_Instance()</Name>
+              <FileRef uid="44" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="4246" ordinal="0" offset="0" sl="21" sc="0" el="21" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4247" ordinal="0" offset="1" sl="22" sc="0" el="22" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4248" ordinal="0" offset="18" sl="23" sc="0" el="23" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4249" ordinal="0" offset="19" sl="24" sc="0" el="24" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4250" ordinal="0" offset="25" sl="25" sc="0" el="25" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4251" ordinal="0" offset="43" sl="26" sc="0" el="26" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4252" ordinal="0" offset="44" sl="27" sc="0" el="27" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4253" ordinal="0" offset="55" sl="28" sc="0" el="28" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4254" ordinal="0" offset="56" sl="30" sc="0" el="30" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4255" ordinal="0" offset="62" sl="31" sc="0" el="31" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4256" ordinal="0" offset="63" sl="32" sc="0" el="32" ec="0" bec="0" bev="0" fileid="44" />
+                <SequencePoint vc="0" uspid="4257" ordinal="0" offset="71" sl="33" sc="0" el="33" ec="0" bec="0" bev="0" fileid="44" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="9" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="2" />
+          <FullName>YFramework.Extension.TransformExtension</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="8" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663585</MetadataToken>
+              <Name>static T YFramework.Extension.TransformExtension::GetOrAddComponent[T](UnityEngine.GameObject)</Name>
+              <FileRef uid="53" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="4753" ordinal="0" offset="0" sl="110" sc="0" el="110" ec="0" bec="0" bev="0" fileid="53" />
+                <SequencePoint vc="0" uspid="4754" ordinal="0" offset="1" sl="111" sc="0" el="111" ec="0" bec="0" bev="0" fileid="53" />
+                <SequencePoint vc="0" uspid="4755" ordinal="0" offset="8" sl="112" sc="0" el="112" ec="0" bec="0" bev="0" fileid="53" />
+                <SequencePoint vc="0" uspid="4756" ordinal="0" offset="24" sl="113" sc="0" el="113" ec="0" bec="0" bev="0" fileid="53" />
+                <SequencePoint vc="0" uspid="4757" ordinal="0" offset="25" sl="114" sc="0" el="114" ec="0" bec="0" bev="0" fileid="53" />
+                <SequencePoint vc="0" uspid="4758" ordinal="0" offset="32" sl="115" sc="0" el="115" ec="0" bec="0" bev="0" fileid="53" />
+                <SequencePoint vc="0" uspid="4759" ordinal="0" offset="33" sl="117" sc="0" el="117" ec="0" bec="0" bev="0" fileid="53" />
+                <SequencePoint vc="0" uspid="4760" ordinal="0" offset="37" sl="118" sc="0" el="118" ec="0" bec="0" bev="0" fileid="53" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663586</MetadataToken>
+              <Name>static T YFramework.Extension.TransformExtension::GetOrAddComponent[T](UnityEngine.Transform)</Name>
+              <FileRef uid="53" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="4761" ordinal="0" offset="0" sl="119" sc="0" el="119" ec="0" bec="0" bev="0" fileid="53" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="2" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.Architecture[T]/&lt;&gt;c</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="2" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663621</MetadataToken>
+              <Name>System.Void YFramework.Architecture[T]/&lt;&gt;c::&lt;.cctor&gt;b__24_0(T)</Name>
+              <FileRef uid="14" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="5055" ordinal="0" offset="0" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="14" />
+                <SequencePoint vc="0" uspid="5056" ordinal="0" offset="1" sl="37" sc="0" el="37" ec="0" bec="0" bev="0" fileid="14" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="2" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.BindableProperty[T]/&lt;&gt;c</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="2" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663624</MetadataToken>
+              <Name>System.Void YFramework.BindableProperty[T]/&lt;&gt;c::&lt;.ctor&gt;b__0_0(T)</Name>
+              <FileRef uid="23" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="5057" ordinal="0" offset="0" sl="35" sc="0" el="35" ec="0" bec="0" bev="0" fileid="23" />
+                <SequencePoint vc="0" uspid="5058" ordinal="0" offset="1" sl="35" sc="0" el="35" ec="0" bec="0" bev="0" fileid="23" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.TypeEventSystemRegistrations[T]</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663625</MetadataToken>
+              <Name>YFramework.TypeEventSystemRegistrations[T]::Registrations()</Name>
+              <FileRef uid="25" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="5059" ordinal="0" offset="0" sl="82" sc="0" el="82" ec="0" bec="0" bev="0" fileid="25" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="2" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <FullName>YFramework.TypeEventSystemRegistrations[T]/&lt;&gt;c</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="0.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="2" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+              <MetadataToken>100663673</MetadataToken>
+              <Name>System.Void YFramework.TypeEventSystemRegistrations[T]/&lt;&gt;c::&lt;.ctor&gt;b__1_0(T)</Name>
+              <FileRef uid="25" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="5109" ordinal="0" offset="0" sl="82" sc="0" el="82" ec="0" bec="0" bev="0" fileid="25" />
+                <SequencePoint vc="0" uspid="5110" ordinal="0" offset="1" sl="82" sc="0" el="82" ec="0" bec="0" bev="0" fileid="25" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+      </Classes>
+    </Module>
+  </Modules>
+</CoverageSession>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageReport scope="Summary">
+  <Summary>
+    <Generatedon>2023/12/10 - 12:58:47</Generatedon>
+    <Parser>MultiReportParser (2x OpenCoverParser)</Parser>
+    <Assemblies>3</Assemblies>
+    <Classes>72</Classes>
+    <Files>58</Files>
+    <Coveredlines>0</Coveredlines>
+    <Uncoveredlines>2393</Uncoveredlines>
+    <Coverablelines>2393</Coverablelines>
+    <Totallines>4772</Totallines>
+    <Linecoverage>0</Linecoverage>
+    <Coveredbranches>0</Coveredbranches>
+    <Totalbranches>0</Totalbranches>
+    <Coveredmethods>0</Coveredmethods>
+    <Totalmethods>352</Totalmethods>
+    <Methodcoverage>0</Methodcoverage>
+  </Summary>
+  <Coverage>
+    <Assembly name="Assembly-CSharp" classes="15" coverage="0" coveredlines="0" coverablelines="728" totallines="2018" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="83" methodcoverage="0">
+      <Class name="ExcelSystem" coverage="0" coveredlines="0" coverablelines="25" totallines="60" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="NumKeyBoard" coverage="0" coveredlines="0" coverablelines="21" totallines="49" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="Painting" coverage="0" coveredlines="0" coverablelines="167" totallines="352" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="15" methodcoverage="0" />
+      <Class name="SerialPortController" coverage="0" coveredlines="0" coverablelines="58" totallines="194" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
+      <Class name="SerialPortManager" coverage="0" coveredlines="0" coverablelines="52" totallines="194" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="8" methodcoverage="0" />
+      <Class name="ShowPictures" coverage="0" coveredlines="0" coverablelines="68" totallines="125" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="Test1" coverage="0" coveredlines="0" coverablelines="11" totallines="23" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="TipsController" coverage="0" coveredlines="0" coverablelines="67" totallines="143" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.Arithmetic.CircleFollowRounding2D" coverage="0" coveredlines="0" coverablelines="37" totallines="101" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.Examples.CircleFollowRoundingExample" coverage="0" coveredlines="0" coverablelines="23" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Kit.DebugConsole.ChinarViewConsole" coverage="0" coveredlines="0" coverablelines="65" totallines="138" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="11" methodcoverage="0" />
+      <Class name="YFramework.Kit.Utility.XmlInfo" coverage="0" coveredlines="0" coverablelines="15" totallines="97" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="YFramework.Kit.Utility.XMLUtility" coverage="0" coveredlines="0" coverablelines="45" totallines="97" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Kit.Utility.YJsonUtility" coverage="0" coveredlines="0" coverablelines="17" totallines="40" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YPicture" coverage="0" coveredlines="0" coverablelines="57" totallines="352" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="8" methodcoverage="0" />
+    </Assembly>
+    <Assembly name="Assembly-CSharp-Editor" classes="1" coverage="0" coveredlines="0" coverablelines="7" totallines="31" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0">
+      <Class name="GenerateUnityPackName" coverage="0" coveredlines="0" coverablelines="7" totallines="31" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+    </Assembly>
+    <Assembly name="YFramework" classes="56" coverage="0" coveredlines="0" coverablelines="1658" totallines="4692" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="267" methodcoverage="0">
+      <Class name="YFramework.AbstractCommand" coverage="0" coveredlines="0" coverablelines="9" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.AbstractModel" coverage="0" coveredlines="0" coverablelines="10" totallines="39" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="YFramework.AbstractSystem" coverage="0" coveredlines="0" coverablelines="9" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Architecture[T]" coverage="0" coveredlines="0" coverablelines="87" totallines="151" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="16" methodcoverage="0" />
+      <Class name="YFramework.BindableProperty[T]" coverage="0" coveredlines="0" coverablelines="22" totallines="64" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.BindablePropertyUnRegister[T]" coverage="0" coveredlines="0" coverablelines="7" totallines="64" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.CanGetModelExtensive" coverage="0" coveredlines="0" coverablelines="3" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.CanGetSystemExtensive" coverage="0" coveredlines="0" coverablelines="3" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.CanGetUtilityExtensive" coverage="0" coveredlines="0" coverablelines="3" totallines="26" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.CanRegisterEventExpensive" coverage="0" coveredlines="0" coverablelines="6" totallines="30" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.CanSendCommandExtensive" coverage="0" coveredlines="0" coverablelines="6" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.CanSendEventExtensive" coverage="0" coveredlines="0" coverablelines="6" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.Editor.AudioSetting" coverage="0" coveredlines="0" coverablelines="12" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.Editor.InputResourcesSetting" coverage="0" coveredlines="0" coverablelines="27" totallines="50" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Editor.NameMgrWindow" coverage="0" coveredlines="0" coverablelines="37" totallines="110" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Editor.NameMgrWindowData" coverage="0" coveredlines="0" coverablelines="22" totallines="110" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Extension.StringExtension" coverage="0" coveredlines="0" coverablelines="22" totallines="50" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.Extension.TransformExtension" coverage="0" coveredlines="0" coverablelines="113" totallines="156" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="32" methodcoverage="0" />
+      <Class name="YFramework.Extension.TxtExtension" coverage="0" coveredlines="0" coverablelines="6" totallines="145" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.Extension.TypewriterEffect" coverage="0" coveredlines="0" coverablelines="65" totallines="145" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="10" methodcoverage="0" />
+      <Class name="YFramework.Extension.UIExtension" coverage="0" coveredlines="0" coverablelines="78" totallines="126" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.GameLoop" coverage="0" coveredlines="0" coverablelines="10" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.IOCContainer" coverage="0" coveredlines="0" coverablelines="18" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Kit.Camera.RotationCam" coverage="0" coveredlines="0" coverablelines="41" totallines="75" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="YFramework.Kit.Convert.Convert" coverage="0" coveredlines="0" coverablelines="9" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.Kit.IO.YFile" coverage="0" coveredlines="0" coverablelines="56" totallines="103" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Kit.MsgDispatcher" coverage="0" coveredlines="0" coverablelines="45" totallines="77" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="9" methodcoverage="0" />
+      <Class name="YFramework.Kit.Net.EncodeTool" coverage="0" coveredlines="0" coverablelines="27" totallines="146" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.Kit.Net.TcpClient" coverage="0" coveredlines="0" coverablelines="78" totallines="130" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="10" methodcoverage="0" />
+      <Class name="YFramework.Kit.Net.TcpServer" coverage="0" coveredlines="0" coverablelines="60" totallines="146" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="8" methodcoverage="0" />
+      <Class name="YFramework.Kit.Net.UDPClient" coverage="0" coveredlines="0" coverablelines="91" totallines="147" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="10" methodcoverage="0" />
+      <Class name="YFramework.Kit.Physics2D.Trigger2DCheck" coverage="0" coveredlines="0" coverablelines="17" totallines="41" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="YFramework.Kit.Picture" coverage="0" coveredlines="0" coverablelines="88" totallines="180" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="14" methodcoverage="0" />
+      <Class name="YFramework.Kit.Singleton.MonoSingleton[T]" coverage="0" coveredlines="0" coverablelines="12" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.Kit.Singleton.NormalSingleton[T]" coverage="0" coveredlines="0" coverablelines="12" totallines="36" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.AdaptiveDropDown" coverage="0" coveredlines="0" coverablelines="3" totallines="23" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.AdaptivityImageShow" coverage="0" coveredlines="0" coverablelines="18" totallines="44" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.BtnGirdGroup" coverage="0" coveredlines="0" coverablelines="23" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.BtnGrid" coverage="0" coveredlines="0" coverablelines="22" totallines="59" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.Layout.RawImageAdaptivityLayout" coverage="0" coveredlines="0" coverablelines="6" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.SlideScrollHorizontal" coverage="0" coveredlines="0" coverablelines="114" totallines="165" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="11" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.UIBase" coverage="0" coveredlines="0" coverablelines="14" totallines="124" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.UIManager" coverage="0" coveredlines="0" coverablelines="53" totallines="124" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="9" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.UIUtility" coverage="0" coveredlines="0" coverablelines="22" totallines="153" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.UIUtilityData" coverage="0" coveredlines="0" coverablelines="69" totallines="153" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="20" methodcoverage="0" />
+      <Class name="YFramework.Kit.UI.YListener" coverage="0" coveredlines="0" coverablelines="24" totallines="56" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
+      <Class name="YFramework.Kit.Utility.EventSystemUtility" coverage="0" coveredlines="0" coverablelines="10" totallines="30" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.Kit.Utility.MathUtility" coverage="0" coveredlines="0" coverablelines="61" totallines="143" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.Kit.Windows.MainScriptfull" coverage="0" coveredlines="0" coverablelines="19" totallines="59" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.MonoManager" coverage="0" coveredlines="0" coverablelines="12" totallines="72" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="YFramework.TypeEventSystem" coverage="0" coveredlines="0" coverablelines="29" totallines="128" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+      <Class name="YFramework.TypeEventSystemRegistrations[T]" coverage="0" coveredlines="0" coverablelines="1" totallines="128" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.TypeEventSystemUnRegister[T]" coverage="0" coveredlines="0" coverablelines="5" totallines="128" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.UnRegisterExtensive" coverage="0" coveredlines="0" coverablelines="8" totallines="128" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="YFramework.UnRegisterOnDestroyTrigger" coverage="0" coveredlines="0" coverablelines="11" totallines="128" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
+      <Class name="YFramework.YMonoBehaviour" coverage="0" coveredlines="0" coverablelines="17" totallines="72" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
+    </Assembly>
+  </Coverage>
+</CoverageReport>

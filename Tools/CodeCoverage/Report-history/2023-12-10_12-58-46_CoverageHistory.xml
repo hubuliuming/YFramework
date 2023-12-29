@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2023-12-10_12-58-46" tag="">
+  <assembly name="Assembly-CSharp">
+    <class name="ExcelSystem" coveredlines="0" coverablelines="25" totallines="60" coveredbranches="0" totalbranches="0" />
+    <class name="NumKeyBoard" coveredlines="0" coverablelines="21" totallines="49" coveredbranches="0" totalbranches="0" />
+    <class name="Painting" coveredlines="0" coverablelines="167" totallines="352" coveredbranches="0" totalbranches="0" />
+    <class name="SerialPortController" coveredlines="0" coverablelines="58" totallines="194" coveredbranches="0" totalbranches="0" />
+    <class name="SerialPortManager" coveredlines="0" coverablelines="52" totallines="194" coveredbranches="0" totalbranches="0" />
+    <class name="ShowPictures" coveredlines="0" coverablelines="68" totallines="125" coveredbranches="0" totalbranches="0" />
+    <class name="Test1" coveredlines="0" coverablelines="11" totallines="23" coveredbranches="0" totalbranches="0" />
+    <class name="TipsController" coveredlines="0" coverablelines="67" totallines="143" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Arithmetic.CircleFollowRounding2D" coveredlines="0" coverablelines="37" totallines="101" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Examples.CircleFollowRoundingExample" coveredlines="0" coverablelines="23" totallines="53" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.DebugConsole.ChinarViewConsole" coveredlines="0" coverablelines="65" totallines="138" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Utility.XmlInfo" coveredlines="0" coverablelines="15" totallines="97" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Utility.XMLUtility" coveredlines="0" coverablelines="45" totallines="97" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Utility.YJsonUtility" coveredlines="0" coverablelines="17" totallines="40" coveredbranches="0" totalbranches="0" />
+    <class name="YPicture" coveredlines="0" coverablelines="57" totallines="352" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="Assembly-CSharp-Editor">
+    <class name="GenerateUnityPackName" coveredlines="0" coverablelines="7" totallines="31" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="YFramework">
+    <class name="YFramework.AbstractCommand" coveredlines="0" coverablelines="9" totallines="34" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.AbstractModel" coveredlines="0" coverablelines="10" totallines="39" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.AbstractSystem" coveredlines="0" coverablelines="9" totallines="36" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Architecture[T]" coveredlines="0" coverablelines="87" totallines="151" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.BindableProperty[T]" coveredlines="0" coverablelines="22" totallines="64" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.BindablePropertyUnRegister[T]" coveredlines="0" coverablelines="7" totallines="64" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.CanGetModelExtensive" coveredlines="0" coverablelines="3" totallines="25" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.CanGetSystemExtensive" coveredlines="0" coverablelines="3" totallines="25" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.CanGetUtilityExtensive" coveredlines="0" coverablelines="3" totallines="26" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.CanRegisterEventExpensive" coveredlines="0" coverablelines="6" totallines="30" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.CanSendCommandExtensive" coveredlines="0" coverablelines="6" totallines="29" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.CanSendEventExtensive" coveredlines="0" coverablelines="6" totallines="29" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Editor.AudioSetting" coveredlines="0" coverablelines="12" totallines="36" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Editor.InputResourcesSetting" coveredlines="0" coverablelines="27" totallines="50" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Editor.NameMgrWindow" coveredlines="0" coverablelines="37" totallines="110" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Editor.NameMgrWindowData" coveredlines="0" coverablelines="22" totallines="110" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Extension.StringExtension" coveredlines="0" coverablelines="22" totallines="50" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Extension.TransformExtension" coveredlines="0" coverablelines="113" totallines="156" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Extension.TxtExtension" coveredlines="0" coverablelines="6" totallines="145" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Extension.TypewriterEffect" coveredlines="0" coverablelines="65" totallines="145" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Extension.UIExtension" coveredlines="0" coverablelines="78" totallines="126" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.GameLoop" coveredlines="0" coverablelines="10" totallines="35" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.IOCContainer" coveredlines="0" coverablelines="18" totallines="43" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Camera.RotationCam" coveredlines="0" coverablelines="41" totallines="75" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Convert.Convert" coveredlines="0" coverablelines="9" totallines="25" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.IO.YFile" coveredlines="0" coverablelines="56" totallines="103" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.MsgDispatcher" coveredlines="0" coverablelines="45" totallines="77" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Net.EncodeTool" coveredlines="0" coverablelines="27" totallines="146" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Net.TcpClient" coveredlines="0" coverablelines="78" totallines="130" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Net.TcpServer" coveredlines="0" coverablelines="60" totallines="146" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Net.UDPClient" coveredlines="0" coverablelines="91" totallines="147" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Physics2D.Trigger2DCheck" coveredlines="0" coverablelines="17" totallines="41" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Picture" coveredlines="0" coverablelines="88" totallines="180" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Singleton.MonoSingleton[T]" coveredlines="0" coverablelines="12" totallines="35" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Singleton.NormalSingleton[T]" coveredlines="0" coverablelines="12" totallines="36" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.AdaptiveDropDown" coveredlines="0" coverablelines="3" totallines="23" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.AdaptivityImageShow" coveredlines="0" coverablelines="18" totallines="44" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.BtnGirdGroup" coveredlines="0" coverablelines="23" totallines="47" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.BtnGrid" coveredlines="0" coverablelines="22" totallines="59" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.Layout.RawImageAdaptivityLayout" coveredlines="0" coverablelines="6" totallines="29" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.SlideScrollHorizontal" coveredlines="0" coverablelines="114" totallines="165" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.UIBase" coveredlines="0" coverablelines="14" totallines="124" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.UIManager" coveredlines="0" coverablelines="53" totallines="124" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.UIUtility" coveredlines="0" coverablelines="22" totallines="153" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.UIUtilityData" coveredlines="0" coverablelines="69" totallines="153" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.UI.YListener" coveredlines="0" coverablelines="24" totallines="56" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Utility.EventSystemUtility" coveredlines="0" coverablelines="10" totallines="30" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Utility.MathUtility" coveredlines="0" coverablelines="61" totallines="143" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.Kit.Windows.MainScriptfull" coveredlines="0" coverablelines="19" totallines="59" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.MonoManager" coveredlines="0" coverablelines="12" totallines="72" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.TypeEventSystem" coveredlines="0" coverablelines="29" totallines="128" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.TypeEventSystemRegistrations[T]" coveredlines="0" coverablelines="1" totallines="128" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.TypeEventSystemUnRegister[T]" coveredlines="0" coverablelines="5" totallines="128" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.UnRegisterExtensive" coveredlines="0" coverablelines="8" totallines="128" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.UnRegisterOnDestroyTrigger" coveredlines="0" coverablelines="11" totallines="128" coveredbranches="0" totalbranches="0" />
+    <class name="YFramework.YMonoBehaviour" coveredlines="0" coverablelines="17" totallines="72" coveredbranches="0" totalbranches="0" />
+  </assembly>
+</coverage>
