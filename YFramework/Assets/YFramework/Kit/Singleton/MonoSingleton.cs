@@ -19,6 +19,10 @@ namespace YFramework.Kit.Singleton
             {
                 if (_instance == null)
                 {
+                    _instance = FindFirstObjectByType<T>();
+                }
+                if (_instance == null)
+                {
                     var go = new GameObject(typeof(T).Name);
                     var t = go.AddComponent<T>();
                     _instance = t;
@@ -30,6 +34,7 @@ namespace YFramework.Kit.Singleton
         public void Awake()
         {
             DontDestroyOnLoad(gameObject);
+            if (_instance == null) _instance = this as T;
         }
     }
 }
