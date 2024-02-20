@@ -122,22 +122,5 @@ namespace YFramework.Kit.Utility
             //返回最接近x的值
             return closest;
         }
-
-        //从中心点生成一圈扩散子弹
-        // public static void CrateBullet(Vector2 orginPos,int num)
-        // {
-        // todo 完善
-        //     for (int i = 0; i < 20; i++)
-        //     {
-        //         //var go =  Object.Instantiate(_bullet.gameObject,OtherBoxControl.Control.transform);
-        //         go.transform.position = Actor.transform.position;
-        //         go.SetActive(true);
-        //         var g = 360f / 10 * i;
-        //         var q = Quaternion.Euler(new Vector3(0, 0, g));
-        //         Vector2 dir = q * Vector2.right;
-        //         Debug.Log(dir);
-        //         go.GetComponent<AttackControl>().RB.velocity = dir * 5;
-        //     }
-        // }
     }
 }

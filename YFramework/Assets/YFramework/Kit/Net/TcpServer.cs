@@ -17,7 +17,6 @@ using UnityEngine;
 
 namespace YFramework.Kit.Net
 {
-    //todo SendMessage
     public class TcpServer
     {
         private string _ip;

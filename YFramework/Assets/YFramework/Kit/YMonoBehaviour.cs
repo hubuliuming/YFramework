@@ -9,6 +9,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using YFramework.Kit.Utility;
+using YFramework.Math;
 
 namespace YFramework
 {
