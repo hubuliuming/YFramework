@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Test1 : MonoBehaviour
 {
-    public Transform go1;
+    public GameObject go;
+    
     
     private void Start()
     {
-        var v = Vector3.Dot(transform.forward, go1.position - transform.position);
-         Debug.Log(v);
-        var v2 = Vector3.Cross(transform.forward, go1.position - transform.position);
-        Debug.Log(v2);
-        // Debug.Log(transform.Get(go1.position));
+        
     }
 
     private void Update()
