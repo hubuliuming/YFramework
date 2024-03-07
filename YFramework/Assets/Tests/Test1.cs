@@ -16,15 +16,8 @@ public class Test1 : YMonoBehaviour
 {
     private void Start()
     {
-        Debug.Log(1/3);
-        Debug.Log(5/3);
-        Debug.Log(7/3);
-        Debug.Log(10/3);
+       
     }
-
-    public void A(Func<int> dd)
-    {
-        Debug.Log(dd.Invoke());
-    }
+    
 
 }

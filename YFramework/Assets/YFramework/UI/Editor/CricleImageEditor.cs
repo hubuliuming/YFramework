@@ -9,32 +9,35 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(CircleImage),true)]
-[CanEditMultipleObjects]
-public class CricleImageEditor : UnityEditor.UI.ImageEditor
+namespace YFramework.Editor.UI
 {
-    private SerializedProperty _fillPercent;
-    private SerializedProperty _segement;
-    private SerializedProperty _h;
-
-    protected override void OnEnable()
+    [CustomEditor(typeof(YFramework.UI.CircleImage),true)]
+    [CanEditMultipleObjects]
+    public class CricleImageEditor : UnityEditor.UI.ImageEditor
     {
-        base.OnEnable();
-        _fillPercent = serializedObject.FindProperty("showPercent");
-        _segement = serializedObject.FindProperty("segments");
-      
-    }
+        private SerializedProperty _fillPercent;
+        private SerializedProperty _segement;
+        private SerializedProperty _h;
 
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        serializedObject.Update();
-        EditorGUILayout.Slider(_fillPercent, 0, 1, new GUIContent("showPercent"));
-        EditorGUILayout.PropertyField(_segement);
-        serializedObject.ApplyModifiedProperties();
-        if (GUI.changed)
+        protected override void OnEnable()
         {
-            EditorUtility.SetDirty(target);
+            base.OnEnable();
+            _fillPercent = serializedObject.FindProperty("showPercent");
+            _segement = serializedObject.FindProperty("segments");
+      
+        }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            serializedObject.Update();
+            EditorGUILayout.Slider(_fillPercent, 0, 1, new GUIContent("showPercent"));
+            EditorGUILayout.PropertyField(_segement);
+            serializedObject.ApplyModifiedProperties();
+            if (GUI.changed)
+            {
+                EditorUtility.SetDirty(target);
+            }
         }
     }
 }
