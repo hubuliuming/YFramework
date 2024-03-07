@@ -651,11 +651,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488492103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70dcf3e619e7c247b76e2a8453a2967, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e51b70f6f2e1c64ba58110b1db0ebad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 954170487}
-  asds: 0
+  targetUI: {fileID: 954170487}
+  moveSpeed: 5
+  endMoveDistance: 60
+  open: 0
 --- !u!1 &1850772796
 GameObject:
   m_ObjectHideFlags: 0
