@@ -13,14 +13,14 @@ namespace YFramework.UI
 {
     public class CustomImage : Image
     {
-        private PolygonCollider2D _polygonCollider;
+        private PolygonCollider2D m_polygonCollider;
 
-        private PolygonCollider2D PolygonCollider
+        private PolygonCollider2D polygonCollider
         {
             get
             {
-                if (_polygonCollider == null) _polygonCollider = GetComponent<PolygonCollider2D>();
-                return _polygonCollider;
+                if (m_polygonCollider == null) m_polygonCollider = GetComponent<PolygonCollider2D>();
+                return m_polygonCollider;
             }
         }
         
@@ -29,7 +29,7 @@ namespace YFramework.UI
         {
             Vector3 point;
             RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, screenPoint, eventCamera, out point);
-            return PolygonCollider.OverlapPoint(point);
+            return polygonCollider.OverlapPoint(point);
         }
     }
 }
