@@ -16,13 +16,15 @@ namespace YFramework.UI.Kit
 {
     public class RotationDiagram2DItem : MonoBehaviour,IDragHandler,IEndDragHandler
     {
-        internal int posId; 
-        private Image m_image;
-        
+        internal int posId;
+
         private float _offsetX;
         private float _animTime = 1;
         private Action<float> _moveCB;
-        private Image MImage
+
+        private Image m_image;
+
+        private Image image
         {
             get
             {
@@ -49,7 +51,7 @@ namespace YFramework.UI.Kit
 
         public void SetSprite(Sprite sprite)
         {
-            MImage.sprite = sprite;
+            image.sprite = sprite;
         }
 
         public void SetItemData(ItemPosData data)
