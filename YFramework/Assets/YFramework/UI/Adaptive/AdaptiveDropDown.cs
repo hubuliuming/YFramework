@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     [RequireComponent(typeof(Dropdown))]
     public class AdaptiveDropDown : Dropdown 

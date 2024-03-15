@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using YFramework.Kit;
+using YFramework.Kit.Msg;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     /// <summary>
     /// 挂载初始默认值的SlideScroll上，只修改宽高
@@ -159,7 +161,7 @@ namespace YFramework.Kit.UI
         public void OnUpdatePage()
         {
             Debug.Log(currentIndex);
-            MsgDispatcher.Send(Msg.Msg.OnUpdatePage,currentIndex);
+            MsgDispatcher.Send(Msg.OnUpdatePage,currentIndex);
         }
     }
 }

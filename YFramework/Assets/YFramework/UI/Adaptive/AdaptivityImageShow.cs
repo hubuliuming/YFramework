@@ -12,7 +12,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using YFramework.Extension;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     /// <summary>
     ///  指定区域内自适应放大图片

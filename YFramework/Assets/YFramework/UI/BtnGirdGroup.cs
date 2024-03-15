@@ -9,7 +9,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     public class BtnGirdGroup : MonoBehaviour
     {

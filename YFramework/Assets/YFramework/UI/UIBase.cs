@@ -6,11 +6,10 @@
     功能：UI基类
 *****************************************************/
 
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     public interface IUIBase
     {
@@ -22,8 +21,18 @@ namespace YFramework.Kit.UI
     {
         private UIUtility _uiUtility;
         
+        private RectTransform m_rectTransform;
 
-        protected UIUtility UiUtility
+        public virtual RectTransform rectTransform
+        {
+            get
+            {
+                if (m_rectTransform == null) m_rectTransform = GetComponent<RectTransform>();
+                return m_rectTransform;
+            }
+        }
+
+        public virtual UIUtility UiUtility
         {
             get
             {

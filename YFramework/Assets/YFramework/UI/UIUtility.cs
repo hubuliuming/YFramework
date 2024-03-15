@@ -13,7 +13,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using YFramework.Extension;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     public class UIUtility : MonoBehaviour
     {

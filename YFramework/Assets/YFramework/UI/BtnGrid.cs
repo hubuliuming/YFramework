@@ -12,7 +12,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     /// <summary>
     ///  相当于点击保持切换图片样式，只有点击同组的Image才更换选择状态图片

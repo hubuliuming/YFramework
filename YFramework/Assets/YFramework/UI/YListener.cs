@@ -10,7 +10,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace YFramework.Kit.UI
+namespace YFramework.UI
 {
     public class YListener : MonoBehaviour,IPointerClickHandler,IPointerDownHandler,IPointerUpHandler,IDragHandler
     {

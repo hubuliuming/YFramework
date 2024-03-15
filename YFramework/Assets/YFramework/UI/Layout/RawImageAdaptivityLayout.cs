@@ -1,5 +1,5 @@
 /****************************************************
-    文件：RawImageAdaptivityLayerout.cs
+    文件：RawImageAdaptivityLayout.cs
     作者：Y
     邮箱: 916111418@qq.com
     日期：#CreateTime#
@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using YFramework.Extension;
 
-namespace YFramework.Kit.UI.Layout
+namespace YFramework.UI.Layout
 {
     [ExecuteAlways]
     [RequireComponent(typeof(RawImage))]

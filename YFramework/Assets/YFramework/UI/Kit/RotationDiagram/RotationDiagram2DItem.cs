@@ -7,14 +7,13 @@
 *****************************************************/
 
 using System;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace YFramework.UI.Kit
 {
-    public class RotationDiagram2DItem : MonoBehaviour,IDragHandler,IEndDragHandler
+    public class RotationDiagram2DItem : UIBase,IDragHandler,IEndDragHandler
     {
         internal int posId;
 
@@ -32,18 +31,7 @@ namespace YFramework.UI.Kit
                 return m_image;
             }
         }
-
-        private RectTransform m_rect;
-
-        private RectTransform rect
-        {
-            get
-            {
-                if (m_rect == null) m_rect = GetComponent<RectTransform>();
-                return m_rect;
-            }
-        }
-
+        
         public void SetParent(Transform parent)
         {
             transform.SetParent(parent);
@@ -61,8 +49,8 @@ namespace YFramework.UI.Kit
             // rect.DOScale(Vector3.one * data.ScaleTimes, _animTime);
             // MonoManager.Instance.Delay(()=>transform.SetSiblingIndex(data.Order),_animTime);
             //下面是不开启动画的
-            rect.anchoredPosition = Vector2.right * data.X;
-            rect.localScale = Vector3.one * data.ScaleTimes;
+            rectTransform.anchoredPosition = Vector2.right * data.X;
+            rectTransform.localScale = Vector3.one * data.ScaleTimes;
             transform.SetSiblingIndex(data.Order);
         }
         public void OnDrag(PointerEventData eventData)
