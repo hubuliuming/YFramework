@@ -8,6 +8,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace YFramework.UI
 {
@@ -19,30 +20,14 @@ namespace YFramework.UI
 
     public abstract class UIBase : YMonoBehaviour,IUIBase
     {
-        private UIUtility _uiUtility;
-        
         private RectTransform m_rectTransform;
 
-        public virtual RectTransform rectTransform
+        public RectTransform rectTransform
         {
             get
             {
                 if (m_rectTransform == null) m_rectTransform = GetComponent<RectTransform>();
                 return m_rectTransform;
-            }
-        }
-
-        public virtual UIUtility UiUtility
-        {
-            get
-            {
-                if (_uiUtility == null)
-                {
-                    _uiUtility = gameObject.AddComponent<UIUtility>();
-                    _uiUtility.Init();
-                }
-
-                return _uiUtility;
             }
         }
 

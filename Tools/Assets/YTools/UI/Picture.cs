@@ -11,7 +11,7 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 
-namespace YFramework.Kit
+namespace YFramework.UI.Kit
 {
     /// <summary>
     /// 方法需要等这帧渲染完调用
