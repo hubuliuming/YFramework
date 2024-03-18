@@ -56,6 +56,8 @@ namespace YFramework.UI.Kit
             _content = content;
             _spaceY = spaceY;
             _showNum = showNum;
+            //pivot设定左上角方便位置计算
+            rectTransform.pivot = new Vector2(0, 1);
             ChangeID(id);
         }
 
@@ -107,6 +109,7 @@ namespace YFramework.UI.Kit
 
         private void SetPos()
         {
+
             rectTransform.anchoredPosition = new Vector2(0, -_id * (rectTransform.rect.height + _spaceY));
         }
 
