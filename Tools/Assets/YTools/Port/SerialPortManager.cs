@@ -4,10 +4,30 @@ using System.IO.Ports;
 using System.Text;
 using System.Threading;
 using UnityEngine;
-using YFramework.Kit.Singleton;
 
-public class SerialPortManager : MonoSingleton<SerialPortManager>
+//Unity的平台框架需要选择为.framework
+public class SerialPortManager : MonoBehaviour
 {
+    private static SerialPortManager _instance;
+
+    public static SerialPortManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new GameObject(nameof(SerialPortManager)).AddComponent<SerialPortManager>();
+            }
+
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+       DontDestroyOnLoad(gameObject);
+    }
+
     private readonly Dictionary<string, SerialPortController> SerialPortDic = new Dictionary<string, SerialPortController>();
 
     private string ErrorMessage

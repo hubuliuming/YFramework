@@ -10,31 +10,27 @@ using System.IO;
 using Newtonsoft.Json;
 
 
-namespace YFramework.Kit.Utility
+public static class YJsonUtility
 {
-    public static class YJsonUtility 
+    public static string WriteToJson<T>(T data, string savePath)
     {
-        public static string WriteToJson<T>(T data,string savePath)
-        {
-            if (!savePath.EndsWith(".json"))
-                savePath += ".json";
-            var jsonStr = JsonConvert.SerializeObject(data, Formatting.Indented);
-            StreamWriter sw = new StreamWriter(savePath);
-            
-            sw.Write(jsonStr);
-            sw.Close();
-            return jsonStr;
-        }
+        if (!savePath.EndsWith(".json"))
+            savePath += ".json";
+        var jsonStr = JsonConvert.SerializeObject(data, Formatting.Indented);
+        StreamWriter sw = new StreamWriter(savePath);
 
-        public static T ReadFromJson<T>(string path) 
-        {
-            if (!path.EndsWith(".json"))
-                path += ".json"; 
-            StreamReader sr = new StreamReader(path);
-            var data = sr.ReadToEnd(); 
-            sr.Close();
-            return JsonConvert.DeserializeObject<T>(data);
-        }
+        sw.Write(jsonStr);
+        sw.Close();
+        return jsonStr;
+    }
 
+    public static T ReadFromJson<T>(string path)
+    {
+        if (!path.EndsWith(".json"))
+            path += ".json";
+        StreamReader sr = new StreamReader(path);
+        var data = sr.ReadToEnd();
+        sr.Close();
+        return JsonConvert.DeserializeObject<T>(data);
     }
 }

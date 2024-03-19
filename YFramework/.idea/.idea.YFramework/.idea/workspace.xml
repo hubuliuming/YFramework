@@ -7,13 +7,6 @@
     <list default="true" id="9fa4b431-3e6f-43e7-85b1-bd597c471878" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Test1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/UI/Picture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/UI/Picture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/UI/UIBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YFramework/UI/UIBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/UI/UIUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/UI/UIUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/UI/YListener.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/UI/YListener.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +24,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbd3a770660a456e8db8894556cf3cad26c00/93/45cbf973/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbd3a770660a456e8db8894556cf3cad26c00/d5/678f931a/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/UnityProjects/YFramework/YFramework/Assets/Tests/Test1.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/UnityProjects/YFramework/YFramework/Assets/Tests/Test1.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Custom/CircleImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Custom/CustomImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Editor/RadarChartEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Kit/LoopList/LoopList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/UnityProjects/YFramework/YFramework/Assets/YFramework/UI/Kit/LoopList/LoopListItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Kit/LoopList/LoopListItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Kit/LoopList/LoopListItemModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/ImageEditor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -137,7 +133,10 @@
       <workItem from="1710473465111" duration="17531000" />
       <workItem from="1710584180710" duration="599000" />
       <workItem from="1710593784982" duration="2756000" />
-      <workItem from="1710678326368" duration="8150000" />
+      <workItem from="1710678326368" duration="8312000" />
+      <workItem from="1710728672258" duration="2302000" />
+      <workItem from="1710731339141" duration="599000" />
+      <workItem from="1710816280591" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="调整Kit中的UI文件到外一层级，新增CircleImage">
       <option name="closed" value="true" />
@@ -179,7 +178,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710491469139</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="完成Custom Scroll View,和一些结构调整">
+      <option name="closed" value="true" />
+      <created>1710687074228</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710687074228</updated>
+    </task>
+    <task id="LOCAL-00007" summary="补充注释">
+      <option name="closed" value="true" />
+      <created>1710729688674</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710729688674</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +233,8 @@
     <MESSAGE value="完成UI.Kit里用Image仿3D轮播效果图" />
     <MESSAGE value="完成UI.Kit雷达图" />
     <MESSAGE value="调整UI文件下脚本结构规整" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整UI文件下脚本结构规整" />
+    <MESSAGE value="完成Custom Scroll View,和一些结构调整" />
+    <MESSAGE value="补充注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="补充注释" />
   </component>
 </project>
