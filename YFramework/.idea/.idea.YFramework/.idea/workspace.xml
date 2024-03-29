@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa4b431-3e6f-43e7-85b1-bd597c471878" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Test1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +138,7 @@
       <workItem from="1710728672258" duration="2302000" />
       <workItem from="1710731339141" duration="599000" />
       <workItem from="1710816280591" duration="599000" />
+      <workItem from="1711544967991" duration="750000" />
     </task>
     <task id="LOCAL-00001" summary="调整Kit中的UI文件到外一层级，新增CircleImage">
       <option name="closed" value="true" />

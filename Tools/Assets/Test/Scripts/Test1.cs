@@ -1,5 +1,7 @@
 
+using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.U2D;
 
 
 public class Test1 : MonoBehaviour
@@ -9,7 +11,7 @@ public class Test1 : MonoBehaviour
     
     private void Start()
     {
-        
+      
     }
 
     private void Update()
@@ -42,6 +44,10 @@ public static class TestExtensive
         y *= -1;
         return new Vector2(x, y);
         int ToInt(float a) => a > 0 ? 1 : a < 0 ? -1 : 0;
+        
+        Regex reg = new Regex(@"^(?<x>\d+)-(?<y>\d+)$");
+        var match = reg.Match("sddd");
+        
     }
 }
 
