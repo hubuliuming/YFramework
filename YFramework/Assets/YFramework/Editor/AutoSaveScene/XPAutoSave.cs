@@ -7,19 +7,22 @@ using System;
 namespace YFramework.Editor
 {
     [InitializeOnLoad]
-    public class XPAutoSave 
+    public class XPAutoSave
     {
         public static Scene nowScene;
         public static DateTime lastSaveTime = DateTime.Now;
+
         static XPAutoSave()
         {
             lastSaveTime = DateTime.Now;
             EditorApplication.update += EditorUpdate;
         }
+
         ~XPAutoSave()
         {
             EditorApplication.update -= EditorUpdate;
         }
+
         static void EditorUpdate()
         {
             if (AutoSaveWindow.autoSaveScene)
@@ -33,11 +36,13 @@ namespace YFramework.Editor
             }
         }
 
-        private static void SaveScene() {
-        
+        private static void SaveScene()
+        {
+            if (Application.isPlaying) return;
             nowScene = EditorSceneManager.GetActiveScene();
             EditorSceneManager.SaveScene(nowScene);
-            if (AutoSaveWindow.showMessage) {
+            if (AutoSaveWindow.showMessage)
+            {
                 Debug.Log("curScenePath:" + nowScene.path + "  " + lastSaveTime);
             }
         }

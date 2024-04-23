@@ -11,14 +11,17 @@ public class Test1 : MonoBehaviour
     
     private void Start()
     {
-      
+        for (int i = go.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(go.transform.GetChild(i).gameObject);
+        }
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            
+ 
         }
     }
     
