@@ -1,0 +1,18 @@
+{
+    "name": "YFramework.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c9c420c8923f17042a243ff493012884"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
