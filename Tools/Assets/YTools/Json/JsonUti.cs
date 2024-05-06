@@ -10,7 +10,7 @@ using System.IO;
 using Newtonsoft.Json;
 
 
-public static class YJsonUtility
+public static class JsonUti
 {
     public static string WriteToJson<T>(T data, string savePath)
     {

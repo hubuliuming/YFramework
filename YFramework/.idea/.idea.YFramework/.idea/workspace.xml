@@ -5,87 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa4b431-3e6f-43e7-85b1-bd597c471878" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/AddCountCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/AddCountCommand.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/ConterApp.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/ConterApp.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/CounterApp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/CounterApp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/CounterViewController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/CounterViewController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/IAchievement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/IAchievement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/SubCounterCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/CountApp/SubCounterCommand.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Event.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Event/TypeEventSystemExample.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Event/TypeEventSystemExample.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/IOC.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/IOC/DIPExamples.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/IOC/DIPExamples.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/IOC/IOCExample.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/IOC/IOCExample.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Test1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Editor/AutoSaveScene/XPAutoSave.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YFramework/Editor/AutoSaveScene/XPAutoSave.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Architecture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Architecture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IBelongToArchitecture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IBelongToArchitecture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/ICanSetArchitecture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/ICanSetArchitecture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/ISystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/ISystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/IUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanGetUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanRegisterEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanRegisterEvent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanSendCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanSendCommand.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanSendEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Architeciture/Rules/ICanSendEvent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/BindableProperty.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/BindableProperty/BindableProperty.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/BindableProperty/BindableProperty.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Command.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Command/ICommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Command/ICommand.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Event.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Event/TypeEventSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Event/TypeEventSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/StringExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/StringExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/TransformExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/TransformExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/TxtExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/TxtExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/UIExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/Extension/UIExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/GameLoop.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/GameLoop.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/IOC.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/IOC/IOCContainer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Freamwork/IOC/IOCContainer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,12 +26,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbd3a770660a456e8db8894556cf3cad26c00/93/45cbf973/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dbd3a770660a456e8db8894556cf3cad26c00/d5/678f931a/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/UnityProjects/YFramework/Tools/Assets/Test/Test.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/UnityProjects/YFramework/Tools/Assets/Test/Test.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/Editor/AutoSaveScene/AutoSaveWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/YFramework/Editor/UI/CricleImageEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Custom/CircleImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Custom/CustomImage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Editor/RadarChartEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Kit/LoopList/LoopList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Kit/LoopList/LoopListItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Kit/LoopList/LoopListItemModel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -222,6 +141,8 @@
       <workItem from="1711699942437" duration="3082000" />
       <workItem from="1711707974274" duration="1303000" />
       <workItem from="1712370401280" duration="1900000" />
+      <workItem from="1714654587555" duration="183000" />
+      <workItem from="1714920130727" duration="89000" />
     </task>
     <task id="LOCAL-00001" summary="调整Kit中的UI文件到外一层级，新增CircleImage">
       <option name="closed" value="true" />
@@ -287,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711702798093</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix:调整程序集结构错误">
+      <option name="closed" value="true" />
+      <created>1714654706515</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714654706515</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +258,7 @@
     <MESSAGE value="完成Custom Scroll View,和一些结构调整" />
     <MESSAGE value="补充注释" />
     <MESSAGE value="导入TMP，导入自动保存场景" />
-    <option name="LAST_COMMIT_MESSAGE" value="导入TMP，导入自动保存场景" />
+    <MESSAGE value="Fix:调整程序集结构错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix:调整程序集结构错误" />
   </component>
 </project>
