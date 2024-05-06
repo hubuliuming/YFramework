@@ -22,7 +22,7 @@ public class GenerateUnityPackName
     [UnityEditor.MenuItem("Tools/自动导出unitypackage %e", false, 1)]
     private static void ClickExportPack()
     {
-        UnityEditor.AssetDatabase.ExportPackage("Assets/Tools", GetPackName() + ".unitypackage",
+        UnityEditor.AssetDatabase.ExportPackage("Assets/YTools", GetPackName() + ".unitypackage",
             UnityEditor.ExportPackageOptions.Recurse);
         Application.OpenURL("file:///" + Path.Combine(Application.dataPath, "../"));
     }
