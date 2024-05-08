@@ -9,6 +9,8 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using YFramework.Kit.Utility;
+using YFramework.Math;
 
 namespace YFramework
 {
@@ -17,7 +19,7 @@ namespace YFramework
 
         #region TimeDelay
         //利用协程实现定时
-        public void Delay(float delay, Action onFinished)
+        public void Delay(Action onFinished,float delay)
         {
             StartCoroutine(CorDelay(delay, onFinished));
         }

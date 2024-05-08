@@ -11,7 +11,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using YFramework.Extension;
-using YFramework.Kit.UI;
+using YFramework.UI;
 using Texture2D = UnityEngine.Texture2D;
 
 /// <summary>

@@ -1,18 +1,17 @@
-
+/****************************************************
+    文件：BezierCurveExample.cs
+    作者：Y
+    邮箱: 916111418@qq.com
+    日期：#CreateTime#
+    功能：Nothing
+*****************************************************/
 
 using UnityEngine;
-using UnityEngine.U2D;
 
-
-public class Test1 : MonoBehaviour
+public class BezierCurveExample : MonoBehaviour 
 {
     public BezierCurve BezierCurve;
     
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -25,4 +24,3 @@ public class Test1 : MonoBehaviour
         }
     }
 }
-

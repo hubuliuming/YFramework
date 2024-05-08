@@ -87,14 +87,14 @@ namespace YFramework.Kit.Utility
             //定义一个变量，存储最接近x的值
             int closest = arr[0];
             //定义一个变量，存储最小的差值
-            int minDiff = Math.Abs(x - arr[0]);
+            int minDiff = System.Math.Abs(x - arr[0]);
             //使用二分法查找最接近x的值
             while (left <= right)
             {
                 //计算中间位置
                 int mid = (left + right) / 2;
                 //计算中间位置的值与x的差值
-                int diff = Math.Abs(x - arr[mid]);
+                int diff = System.Math.Abs(x - arr[mid]);
                 //如果差值为0，说明找到了x，直接返回x
                 if (diff == 0)
                 {
@@ -122,22 +122,5 @@ namespace YFramework.Kit.Utility
             //返回最接近x的值
             return closest;
         }
-
-        //从中心点生成一圈扩散子弹
-        // public static void CrateBullet(Vector2 orginPos,int num)
-        // {
-        // todo 完善
-        //     for (int i = 0; i < 20; i++)
-        //     {
-        //         //var go =  Object.Instantiate(_bullet.gameObject,OtherBoxControl.Control.transform);
-        //         go.transform.position = Actor.transform.position;
-        //         go.SetActive(true);
-        //         var g = 360f / 10 * i;
-        //         var q = Quaternion.Euler(new Vector3(0, 0, g));
-        //         Vector2 dir = q * Vector2.right;
-        //         Debug.Log(dir);
-        //         go.GetComponent<AttackControl>().RB.velocity = dir * 5;
-        //     }
-        // }
     }
 }
