@@ -1,29 +1,26 @@
 
+using System.Collections;
+using System.Net.WebSockets;
 using System.Text.RegularExpressions;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.U2D;
+
 
 
 public class Test1 : MonoBehaviour
 {
-    public GameObject go;
-    
-    
-    private void Start()
+    private IEnumerator Start()
     {
-        for (int i = go.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(go.transform.GetChild(i).gameObject);
-        }
+        yield return null;
+    
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
- 
-        }
+            
+       
+        }   
     }
     
 }

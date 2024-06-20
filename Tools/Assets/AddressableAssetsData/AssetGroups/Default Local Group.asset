@@ -15,13 +15,8 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 732deef37ef54bf45874209a37ffa456
-  m_SerializeEntries:
-  - m_GUID: d49b56cc006191b40b94ddb7c87ae737
-    m_Address: Assets/AATools/AAObj.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: dbe1604f8b113d44ba7282b9d0f4a7fa
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 296e6f296bff56449b446eb18ffc0d6a, type: 2}
   m_SchemaSet:
