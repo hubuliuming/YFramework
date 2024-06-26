@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine;
 
 namespace YFramework.Extension
 {
@@ -9,7 +10,7 @@ namespace YFramework.Extension
             MonoManager.Instance.StartCoroutine(enumerator);
         }
         
-        public static void StartCoroutine(this IEnumerator enumerator,MonoManager mono)
+        public static void StartCoroutine(this IEnumerator enumerator,MonoBehaviour mono)
         {
             mono.StartCoroutine(enumerator);
         }
