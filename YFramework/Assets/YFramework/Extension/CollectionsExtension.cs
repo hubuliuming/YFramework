@@ -7,7 +7,7 @@ namespace YFramework.Extension
     {
         public static void StartCoroutineGlobal(this IEnumerator enumerator)
         {
-            MonoManager.Instance.StartCoroutine(enumerator);
+            MonoGlobal.Instance.StartCoroutine(enumerator);
         }
         
         public static void StartCoroutine(this IEnumerator enumerator,MonoBehaviour mono)

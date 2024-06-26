@@ -1,8 +1,7 @@
-﻿using UnityEngine;
+﻿using QFramework;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using YFramework.Kit;
-using YFramework.Kit.Msg;
 
 namespace YFramework.UI
 {
@@ -158,10 +157,10 @@ namespace YFramework.UI
         {
             _contentTrans.sizeDelta = _contentInitSize;
         }
+        
         public void OnUpdatePage()
         {
             Debug.Log(currentIndex);
-            MsgDispatcher.Send(Msg.OnUpdatePage,currentIndex);
         }
     }
 }

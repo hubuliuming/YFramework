@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa4b431-3e6f-43e7-85b1-bd597c471878" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/YFramework/Extension/CollectionsExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/YFramework/Extension/CollectionsExtension.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/ScriptableBuildPipeline.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/ScriptableBuildPipeline.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Tools/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/YFramework/Extension/TransformExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/YFramework/Extension/TransformExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +17,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/81/a6369561/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProjects/YFramework/Tools/Assets/AddressableAssetsData/AddressableAssetSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/Editor/AutoSaveScene/AutoSaveWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/Editor/UI/CricleImageEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/UnityProjects/YFramework/YFramework/Assets/YFramework/Extension/CollectionsExtension.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Custom/CircleImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Custom/CustomImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/YFramework/UI/Kit/LoopList/LoopList.cs" root0="FORCE_HIGHLIGHTING" />
@@ -159,6 +142,8 @@
       <workItem from="1718672324731" duration="698000" />
       <workItem from="1718763433750" duration="64000" />
       <workItem from="1719366597356" duration="353000" />
+      <workItem from="1719367469340" duration="70000" />
+      <workItem from="1719367956583" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="调整Kit中的UI文件到外一层级，新增CircleImage">
       <option name="closed" value="true" />
@@ -232,7 +217,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714654706515</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="全部提交">
+      <option name="closed" value="true" />
+      <created>1719367503760</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719367503760</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1719368010063</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719368010063</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +281,8 @@
     <MESSAGE value="补充注释" />
     <MESSAGE value="导入TMP，导入自动保存场景" />
     <MESSAGE value="Fix:调整程序集结构错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix:调整程序集结构错误" />
+    <MESSAGE value="全部提交" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
 </project>
