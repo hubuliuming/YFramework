@@ -7,12 +7,11 @@
 *****************************************************/
 
 
-namespace YFramework.Kit.Msg
+namespace YFramework.Msg
 {
+    
     public class Msg 
     {
-        //SlideScrollHorizontal里发送的消息
-        public const string OnUpdatePage = "OnUpdatePage";
         
     }
 }
