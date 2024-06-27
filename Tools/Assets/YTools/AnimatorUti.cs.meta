@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Tools/Assets/YFramework/Editor/AutoSaveScene/AutoSaveWindow.cs.meta
 guid: 36919db759fcdde46bdc2466709f7b3f
+========
+guid: a8d70a72410038244a6ccd7ada75c7f8
+>>>>>>>> cd28a43 (整理文件资源):Tools/Assets/YTools/AnimatorUti.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

@@ -5,8 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa4b431-3e6f-43e7-85b1-bd597c471878" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/AATools/AAObj.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/AATools/AAObj.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/Windows/addressables_content_state.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/AddressableAssetsData/Windows/addressables_content_state.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Res/Test1.controller" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Res/Test1.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Res/test1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Res/test1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Scripts/Test1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Assets/Test/Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Tree.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Assets/Tree.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/ProjectSettings/ScriptableBuildPipeline.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/ProjectSettings/ScriptableBuildPipeline.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Tools/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../Tools/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YFramework/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests/Test1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/Test1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +67,9 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Utility/VertexHelper.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2dLfjXR8jypF86IIdExqX7SYPW4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -61,20 +86,21 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\91611\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\91611\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\91611\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\Administrator\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Administrator\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Administrator\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\UnitHub\2022.3.14f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\2022.3.29f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\UnityProjects\YFramework\YFramework -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\UnityProjects\YFramework\YFramework" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -82,7 +108,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\UnitHub\2022.3.14f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityHub\2022.3.29f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\UnityProjects\YFramework\YFramework -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\UnityProjects\YFramework\YFramework" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -143,6 +169,8 @@
       <workItem from="1712370401280" duration="1900000" />
       <workItem from="1714654587555" duration="183000" />
       <workItem from="1714920130727" duration="89000" />
+      <workItem from="1718672324731" duration="698000" />
+      <workItem from="1718763433750" duration="64000" />
     </task>
     <task id="LOCAL-00001" summary="调整Kit中的UI文件到外一层级，新增CircleImage">
       <option name="closed" value="true" />
@@ -224,6 +252,11 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
