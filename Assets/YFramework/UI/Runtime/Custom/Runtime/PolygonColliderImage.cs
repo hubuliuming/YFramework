@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 namespace YFramework.UI
 {
-    public class CustomImage : Image
+    public class PolygonColliderImage : Image
     {
         private PolygonCollider2D m_polygonCollider;
 
