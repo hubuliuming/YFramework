@@ -9,14 +9,17 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using YFramework;
+using YFramework.Extension;
 using YFramework.Kit;
 
 public class Test1 : YMonoBehaviour
 {
     private void Start()
     {
-        
+        GetOrAddComponent<RawImage>();
+        GetOrAddComponent<ScrollRect>();
     }
     
 

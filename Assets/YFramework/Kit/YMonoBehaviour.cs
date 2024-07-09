@@ -17,7 +17,6 @@ namespace YFramework
 {
     public abstract class YMonoBehaviour : MonoBehaviour
     {
-
         #region TimeDelay
         //利用协程实现定时
         public void Delay(Action onFinished,float delay)
@@ -42,6 +41,18 @@ namespace YFramework
         }
         
         #endregion
+        
+        public T GetOrAddComponent<T>() where T: Component
+        {
+            T t = gameObject.GetComponent<T>();
+            if (t == null)
+            {
+                t = gameObject.AddComponent<T>();
+            }
+
+            return t;
+        }
+        
     }
 
     /// <summary>
