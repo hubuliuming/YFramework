@@ -23,6 +23,7 @@ namespace YFramework.Editor.UI
         {
             PolygonColliderImage = 2001,
             PolygonColliderRawImage = 2002,
+            CircleImage = 2010,
         }
         
         private const string kUILayerName = "UI";
@@ -31,10 +32,27 @@ namespace YFramework.Editor.UI
         private const int UI_Layer = 5;
 
         [MenuItem("GameObject/YFreamwork/UI/PolygonColliderImage", false ,(int)MenuOptionsPriorityOrder.PolygonColliderImage)]
-        private static void AddImage()
+        private static void AddPolygonColliderImage()
         {
             var canvasTrans = GetOrCreateCanvasGameObject();
             var image = CreatePolygonColliderImage();
+
+            if (Selection.activeGameObject != null && Selection.activeGameObject.layer == UI_Layer)
+            {
+                image.transform.SetParent(Selection.activeGameObject.transform);
+            }
+            else
+            {
+                image.transform.SetParent(canvasTrans.transform);
+            }
+            image.transform.localPosition = Vector3.zero;
+        }
+        
+        [MenuItem("GameObject/YFreamwork/UI/CircleImage", false ,(int)MenuOptionsPriorityOrder.CircleImage)]
+        private static void AddCircleImage()
+        {
+            var canvasTrans = GetOrCreateCanvasGameObject();
+            var image = CreateCircleImage();
 
             if (Selection.activeGameObject != null && Selection.activeGameObject.layer == UI_Layer)
             {
@@ -235,6 +253,14 @@ namespace YFramework.Editor.UI
         {
             Type[] types = new Type[] {typeof(RectTransform), typeof(PolygonCollider2D), typeof(PolygonColliderImage)};
                 GameObject image = new GameObject("PolygonColliderImage",types);
+            SetLayer(image);
+            return image.gameObject;
+        }
+        
+        private static GameObject CreateCircleImage()
+        {
+            Type[] types = new Type[] {typeof(RectTransform), typeof(CircleImage)};
+            GameObject image = new GameObject("CircleImage",types);
             SetLayer(image);
             return image.gameObject;
         }

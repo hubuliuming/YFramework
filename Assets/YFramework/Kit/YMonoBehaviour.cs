@@ -41,7 +41,11 @@ namespace YFramework
         }
         
         #endregion
-        
+
+        public virtual bool IsActive()
+        {
+            return isActiveAndEnabled;
+        }
         public T GetOrAddComponent<T>() where T: Component
         {
             T t = gameObject.GetComponent<T>();

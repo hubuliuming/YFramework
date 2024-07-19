@@ -9,8 +9,10 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using YFramework;
+using YFramework.Event;
 using YFramework.Extension;
 using YFramework.Kit;
 
@@ -18,8 +20,9 @@ public class Test1 : YMonoBehaviour
 {
     private void Start()
     {
-        GetOrAddComponent<RawImage>();
-        GetOrAddComponent<ScrollRect>();
+        var go = transform.GetChild(0).gameObject;
+        // EventSystem.current.SetSelectedGameObject(go);
+        go.AddComponent<ButtonEvent>().onClick.AddListener(()=> go.GetComponent<MeshRenderer>().material.color = Color.cyan);
     }
     
 
