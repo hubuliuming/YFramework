@@ -7,6 +7,7 @@
 *****************************************************/
 
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,13 @@ namespace YFramework.Extension
             typewriter.InitText(text,interval);
             typewriter.StartWrite();
             if(!typewriter.Active) onFinish?.Invoke();
+        }
+        
+        public static bool IsEmail(this string email)
+        {
+            string pattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
+            bool isValid = Regex.IsMatch(email, pattern);
+            return isValid;
         }
     }
 
