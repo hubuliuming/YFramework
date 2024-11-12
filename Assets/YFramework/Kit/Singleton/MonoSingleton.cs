@@ -31,7 +31,7 @@ namespace YFramework.Kit.Singleton
             }
         }
 
-        public void Awake()
+        public virtual void Awake()
         {
             DontDestroyOnLoad(gameObject);
             if (_instance == null) _instance = this as T;

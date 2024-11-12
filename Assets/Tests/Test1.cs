@@ -20,9 +20,7 @@ public class Test1 : YMonoBehaviour
 {
     private void Start()
     {
-        var go = transform.GetChild(0).gameObject;
-        // EventSystem.current.SetSelectedGameObject(go);
-        go.AddComponent<ButtonEvent>().onClick.AddListener(()=> go.GetComponent<MeshRenderer>().material.color = Color.cyan);
+        
     }
     
 
