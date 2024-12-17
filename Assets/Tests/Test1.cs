@@ -18,11 +18,16 @@ using YFramework.Kit;
 
 public class Test1 : YMonoBehaviour
 {
+    public GameObject target;
     private void Start()
     {
         
+        target.AddComponentFrom(GetComponent<FPCharacter>());
     }
-    
 
+    private void Update()
+    {
+        
+    }
 }
 
