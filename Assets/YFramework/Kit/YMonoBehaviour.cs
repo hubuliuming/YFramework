@@ -17,44 +17,9 @@ namespace YFramework
 {
     public abstract class YMonoBehaviour : MonoBehaviour
     {
-        #region TimeDelay
-        //利用协程实现定时
-        public void Delay(Action onFinished,float delay)
-        {
-            CorDelay(delay, onFinished).StartCoroutine(this);
-        }
-     
-        public void DelayOneFrame(Action callback)
-        {
-            CorDelayOneFrame(callback).StartCoroutine(this);
-        }
-  
-        private IEnumerator CorDelay(float delay, Action onFinished = null)
-        {
-            yield return new WaitForSeconds(delay);
-            onFinished?.Invoke();
-        }
-        private IEnumerator CorDelayOneFrame(Action callback)
-        {
-            yield return null;
-            callback?.Invoke();
-        }
-        
-        #endregion
-
         public virtual bool IsActive()
         {
             return isActiveAndEnabled;
-        }
-        public T GetOrAddComponent<T>() where T: Component
-        {
-            T t = gameObject.GetComponent<T>();
-            if (t == null)
-            {
-                t = gameObject.AddComponent<T>();
-            }
-
-            return t;
         }
         
     }

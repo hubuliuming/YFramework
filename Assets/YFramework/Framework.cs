@@ -7,6 +7,7 @@
 *****************************************************/
 
 using System;
+using YFramework.Kit;
 
 namespace YFramework
 {
@@ -32,7 +33,7 @@ namespace YFramework
         public void Execute()
         {
             Value = true;
-            MonoGlobal.Instance.DelayOneFrame(()=>Value = false);
+            ActionKit.DelayOneFrame(()=>Value = false);
         }
 
         public override string ToString()

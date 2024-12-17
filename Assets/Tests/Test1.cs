@@ -19,15 +19,37 @@ using YFramework.Kit;
 public class Test1 : YMonoBehaviour
 {
     public GameObject target;
+
+    private FixedUpdate _fixedUpdate;
     private void Start()
     {
-        
-        target.AddComponentFrom(GetComponent<FPCharacter>());
+       _fixedUpdate = ActionKit.SecondsFixedUpdate(30, DeA);
+    }
+    
+
+    private void DeA()
+    {
+        Debug.Log("A");
+    }
+
+    private void DeB()
+    {
+        Debug.Log("B");
     }
 
     private void Update()
     {
         
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            _fixedUpdate.frequency = 3;
+            _fixedUpdate.Action = DeA;
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            _fixedUpdate.frequency = 600;
+            _fixedUpdate.Action = DeB;
+        }
     }
 }
 

@@ -25,7 +25,7 @@ namespace YFramework.Extension
             System.Reflection.PropertyInfo[] properties = type.GetProperties();
             foreach (System.Reflection.PropertyInfo prop in properties)
             {
-                if (!prop.CanWrite || !prop.CanWrite || prop.Name == "name") continue;
+                if (!prop.CanWrite || prop.Name == "name") continue;
                 prop.SetValue(comp, prop.GetValue(other, null), null);
             }
             return comp as T;

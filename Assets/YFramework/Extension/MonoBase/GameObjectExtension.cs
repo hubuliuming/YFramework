@@ -28,10 +28,11 @@ namespace YFramework.Extension
         /// <param name="goObj">需要添加的物体</param>
         /// <param name="comp">指定的component</param>
         /// <typeparam name="T">限制为Component</typeparam>
-        public static void AddComponentFrom<T>(this GameObject goObj, T comp) where T : Component
+        public static T AddComponentFrom<T>(this GameObject goObj, T comp) where T : Component
         {
-            var t = goObj.AddComponent<T>();
+            var t = goObj.AddComponent<T>(); 
             t.GetCopyOf(comp);
+            return t;
         }
     }
 }
