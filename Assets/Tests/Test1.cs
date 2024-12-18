@@ -20,16 +20,21 @@ public class Test1 : YMonoBehaviour
 {
     public GameObject target;
 
-    private FixedUpdate _fixedUpdate;
+    private ActionFixedUpdate _actionFixedUpdate;
     private void Start()
     {
-       _fixedUpdate = ActionKit.SecondsFixedUpdate(30, DeA);
+       _actionFixedUpdate = ActionKit.SecondsFixedUpdate(30, DeA);
     }
     
 
     private void DeA()
     {
         Debug.Log("A");
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("UP");
+        }
     }
 
     private void DeB()
@@ -42,13 +47,17 @@ public class Test1 : YMonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _fixedUpdate.frequency = 3;
-            _fixedUpdate.Action = DeA;
+            _actionFixedUpdate.SetFrequency(3);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            _fixedUpdate.frequency = 600;
-            _fixedUpdate.Action = DeB;
+            _actionFixedUpdate.SetFrequency(300);;
+            _actionFixedUpdate.AddFixedAction(DeB);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            _actionFixedUpdate.RemoveFixedAction(DeB);
         }
     }
 }

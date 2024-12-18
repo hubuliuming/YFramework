@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  speedfast: 1.1111112e+9
+  speedfast: 1.111111e+9
   gravity: -9.8
 --- !u!143 &1432168233
 CharacterController:

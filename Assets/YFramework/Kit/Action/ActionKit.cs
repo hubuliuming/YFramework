@@ -33,12 +33,12 @@ namespace YFramework.Kit
         /// <param name="frequency">执行的频率</param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static FixedUpdate SecondsFixedUpdate(int frequency,Action action)
+        public static ActionFixedUpdate SecondsFixedUpdate(int frequency,Action action)
         {
             if (frequency <= 0 || action == null ) return null;
             var go = new GameObject("FixedUpdate");
-            var fixedUpdate = go.AddComponent<FixedUpdate>();
-            fixedUpdate.Init(FixedUpdate.TimeType.Seconds,frequency,action);
+            var fixedUpdate = go.AddComponent<ActionFixedUpdate>();
+            fixedUpdate.InitState(1,frequency,action);
             return fixedUpdate;
         }
         
