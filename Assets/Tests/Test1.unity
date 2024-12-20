@@ -487,8 +487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1432168230}
   - component: {fileID: 1432168231}
-  - component: {fileID: 1432168233}
-  - component: {fileID: 1432168232}
   m_Layer: 0
   m_Name: Test1
   m_TagString: Untagged
@@ -524,47 +522,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1574608127}
---- !u!114 &1432168232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432168228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7244c56fd1a50b42acd8b50fb196ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  speedfast: 1.111111e+9
-  gravity: -9.8
---- !u!143 &1432168233
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432168228}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1574608127
 GameObject:
   m_ObjectHideFlags: 0

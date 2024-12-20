@@ -26,6 +26,11 @@ namespace YFramework.Kit
         {
             CorDelayOneFrame(callback).StartCoroutine(MonoGlobal.Instance);
         }
+        
+        public static void DelayOneFrame(Action callback,MonoBehaviour mono)
+        {
+            CorDelayOneFrame(callback).StartCoroutine(mono);
+        }
 
         /// <summary>
         /// 一秒内执行指定次数的方法

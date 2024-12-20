@@ -8,6 +8,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -21,44 +22,18 @@ public class Test1 : YMonoBehaviour
     public GameObject target;
 
     private ActionFixedUpdate _actionFixedUpdate;
+
+
+
     private void Start()
     {
-       _actionFixedUpdate = ActionKit.SecondsFixedUpdate(30, DeA);
-    }
-    
 
-    private void DeA()
-    {
-        Debug.Log("A");
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            Debug.Log("UP");
-        }
-    }
-
-    private void DeB()
-    {
-        Debug.Log("B");
     }
 
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            _actionFixedUpdate.SetFrequency(3);
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            _actionFixedUpdate.SetFrequency(300);;
-            _actionFixedUpdate.AddFixedAction(DeB);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            _actionFixedUpdate.RemoveFixedAction(DeB);
-        }
+    
     }
 }
 

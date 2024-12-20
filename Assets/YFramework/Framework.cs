@@ -7,6 +7,7 @@
 *****************************************************/
 
 using System;
+using UnityEngine;
 using YFramework.Kit;
 
 namespace YFramework
@@ -16,29 +17,22 @@ namespace YFramework
         
     }
 
-    public class Trigger
-    {
-        private bool _value;
-        public Action OnTrigger;
-        private bool Value
-        {
-            get => _value; 
-            set
-            {
-                _value = value;
-                OnTrigger?.Invoke();
-            }
-        }
-
-        public void Execute()
-        {
-            Value = true;
-            ActionKit.DelayOneFrame(()=>Value = false);
-        }
-
-        public override string ToString()
-        {
-            return Value.ToString();
-        }
-    }
+    // public class Trigger
+    // {
+    //     private bool _value;
+    //     
+    //     public void Execute()
+    //     {
+    //         _value = true;
+    //         ActionKit.DelayOneFrame(() => _value = false);
+    //     }
+    //
+    //     public override string ToString()
+    //     {
+    //         return _value.ToString();
+    //     }
+    //
+    //
+    //     public static implicit operator bool(Trigger trigger) { return trigger._value; }
+    // }
 }
