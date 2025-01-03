@@ -16,6 +16,11 @@ namespace YFramework.Kit.Utility
     {
         private EventSystemUtility(){}
         
+        /// <summary>
+        /// 放在UI的IPointClickHand方法后
+        /// </summary>
+        /// <param name="go"></param>
+        /// <param name="eventData"></param>
         public static void ExecuteClickAll(GameObject go,PointerEventData eventData) 
         {
             var list = new List<RaycastResult>();
