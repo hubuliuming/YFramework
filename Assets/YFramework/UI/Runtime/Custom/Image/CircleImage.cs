@@ -6,10 +6,12 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
 using UnityEngine.UI;
+using YFramework.Kit.Utility;
 
 namespace YFramework.UI
 {
@@ -19,11 +21,12 @@ namespace YFramework.UI
         [Tooltip("圆形由多少三角块形成")] 
         [SerializeField]
         private int segments = 100;
-        [Tooltip("显示占圆的百分比")] 
+        [Tooltip("显示占圆的百分比")]
+        [Obsolete("共用的中心顶点实现效果有点差，需要重新设计不共用中心顶点的")] 
         [SerializeField] 
         private float showPercent = 1;
         //所有顶点坐标不包括圆心点
-        private List<Vector3> _vertexPos;
+        private List<Vector2> _vertexPos;
 
         protected int maxSegment = 1000;
 
@@ -39,7 +42,7 @@ namespace YFramework.UI
                 return;
             }
 
-            _vertexPos = new List<Vector3>();
+            _vertexPos = new List<Vector2>();
             toFill.Clear();
             //纠正中心点偏移情况
             _originPos = new Vector3((0.5f - rectTransform.pivot.x) * rectTransform.rect.width, (0.5f - rectTransform.pivot.y) * rectTransform.rect.height);
@@ -62,11 +65,11 @@ namespace YFramework.UI
             return GetCrossPointNum(localPoint,_vertexPos) % 2 == 1;
         }
 
-        private int GetCrossPointNum(Vector2 localPoint,List<Vector3> vertexPos)
+        private int GetCrossPointNum(Vector2 localPoint,List<Vector2> vertexPos)
         {
             int count = 0;
-            Vector3 vec1 = Vector3.zero;
-            Vector3 vec2 = Vector3.zero;
+            Vector2 vec1 = Vector2.zero;
+            Vector2 vec2 = Vector2.zero; 
             for (int i = 0; i < vertexPos.Count; i++)
             {
                 vec1 = vertexPos[i];
@@ -83,7 +86,7 @@ namespace YFramework.UI
         /// 判断点击y轴是否在两个顶点之间，之间才有效
         /// </summary>
         /// <returns></returns>
-        private bool IsYInRange(Vector2 localPoint, Vector3 vec1, Vector3 vec2)
+        private bool IsYInRange(Vector2 localPoint, Vector2 vec1, Vector2 vec2)
         {
             if (vec1.y > vec2.y)
             {
@@ -99,7 +102,7 @@ namespace YFramework.UI
         /// 获取点击点y轴在两个顶点之间的x值
         /// </summary>
         /// <returns></returns>
-        private float GetInRangeX(Vector2 localPos,Vector3 vec1,Vector3 vec2)
+        private float GetInRangeX(Vector2 localPos,Vector2 vec1,Vector2 vec2)
         {
             //直线的斜率
             float k = (vec1.y - vec2.y) / (vec1.x - vec2.x);
@@ -145,16 +148,17 @@ namespace YFramework.UI
             var curRadian = 0f;
             for (int i = 0; i < segments + 1; i++)
             {
-                var x = Mathf.Cos(curRadian) * rectTransform.rect.width/2;
-                var y = Mathf.Sin(curRadian) * rectTransform.rect.height/2;
+                var x = Mathf.Cos(curRadian) * width/2;
+                var y = Mathf.Sin(curRadian) * height/2;
                 //+=从坐标逆时针生成顶点，显示的百分比顺序为顺时针
                 curRadian += radian;
                 //反之可以采用-=
                 //curRadian -= radian;
                 UIVertex temp = new UIVertex();
                 temp.position = _originPos + new Vector3(x, y);
-                //todo 最后有点颜色显示错误
+                // 最后有点颜色显示错误
                 temp.color = i <= curSegments ? color : Color.gray;
+                
                 temp.uv0 = new Vector2(temp.position.x * convertRatio.x + uvCenter.x,
                     temp.position.y * convertRatio.y + uvCenter.y);
                 vh.AddVert(temp);
