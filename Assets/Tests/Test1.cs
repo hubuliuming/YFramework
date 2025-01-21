@@ -30,7 +30,7 @@ public class Test1 : YMonoBehaviour
     private void Start()
     {
         Main();
-
+        ushort i = 3;
     }
 
     private void Update()

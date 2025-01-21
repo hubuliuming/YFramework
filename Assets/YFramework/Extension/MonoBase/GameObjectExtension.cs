@@ -25,14 +25,20 @@ namespace YFramework.Extension
         /// <summary>
         /// 从指定Component添加到该物体上，采用反射获取各种属性值，属性值多的性能耗费较大谨慎使用
         /// </summary>
-        /// <param name="goObj">需要添加的物体</param>
+        /// <param name="obj">需要添加的物体</param>
         /// <param name="comp">指定的component</param>
         /// <typeparam name="T">限制为Component</typeparam>
-        public static T AddComponentFrom<T>(this GameObject goObj, T comp) where T : Component
+        public static T AddComponentFrom<T>(this GameObject obj, T comp) where T : Component
         {
-            var t = goObj.AddComponent<T>(); 
+            var t = obj.AddComponent<T>(); 
             t.GetCopyOf(comp);
             return t;
+        }
+
+        public static bool ActiveSelfInverse(this GameObject obj)
+        {
+            obj.SetActive(!obj.activeSelf);
+            return obj.activeSelf;
         }
     }
 }
