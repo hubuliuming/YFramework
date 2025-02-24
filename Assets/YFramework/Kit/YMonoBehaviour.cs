@@ -6,12 +6,7 @@
     功能：
 *****************************************************/
 
-using System;
-using System.Collections;
 using UnityEngine;
-using YFramework.Extension;
-using YFramework.Kit.Utility;
-using YFramework.Math;
 
 namespace YFramework
 {
@@ -47,6 +42,12 @@ namespace YFramework
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
+            string a = "dd";
+            for (int i = 0; i < 10000; i++)
+            {
+                a += "33";
+            }
+
         }
         
     }

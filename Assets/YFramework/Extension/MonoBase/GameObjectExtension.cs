@@ -34,7 +34,11 @@ namespace YFramework.Extension
             t.GetCopyOf(comp);
             return t;
         }
-
+        /// <summary>
+        /// 每次反向设置active，如果true时候执行后为false，反之亦然
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool ActiveSelfInverse(this GameObject obj)
         {
             obj.SetActive(!obj.activeSelf);
