@@ -107,6 +107,13 @@ namespace YFramework.Extension
         public static void AddLocalPosX(this MonoBehaviour mono, float target) => AddLocalPosX(mono.transform,target);
         public static void AddLocalPosY(this MonoBehaviour mono, float target) => AddLocalPosY(mono.transform,target);
         public static void AddLocalPosZ(this MonoBehaviour mono, float target) => AddLocalPosZ(mono.transform,target);
+
+        public static void Reset(this Transform trans)
+        {
+            trans.localPosition = Vector3.zero;
+            trans.localScale = Vector3.one;
+            trans.localRotation = Quaternion.identity;
+        }
         public static void GetOrAddComponent<T>(this MonoBehaviour mono) where T: Component => GetOrAddComponent<T>(mono.gameObject);
         public static T GetOrAddComponent<T>(this GameObject go) where T: Component
         {
