@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEditor;
@@ -9,10 +10,16 @@ namespace YFramework.Editor
     public class InputResourcesSetting : AssetPostprocessor
     {
         private static FileData _fileData;
+        private static List<string> _curApplyPaths = new List<string>(100);
+
         //private string m_ruloPattern = "^[0-9]+_[0-9]+$";
         private void OnPreprocessTexture()
         {
+            if (_curApplyPaths.Contains(assetPath)) return;
             SetTexture();
+            _curApplyPaths.Add(assetPath);
+            
+            //NamingConvention("UI",m_ruloPattern);
             //NamingConvention("Test",m_ruloPattern);
         }
 
