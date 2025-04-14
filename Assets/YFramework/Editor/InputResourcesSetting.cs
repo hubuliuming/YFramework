@@ -16,20 +16,16 @@ namespace YFramework.Editor
         private void OnPreprocessTexture()
         {
             if (_curApplyPaths.Contains(assetPath)) return;
-            SetTexture();
+            TextureImporter importer = assetImporter as TextureImporter;
+            if(importer.textureType != TextureImporterType.Default) return;
+            importer.textureType = TextureImporterType.Sprite;
+            importer.mipmapEnabled = false;
             _curApplyPaths.Add(assetPath);
             
             //NamingConvention("UI",m_ruloPattern);
             //NamingConvention("Test",m_ruloPattern);
         }
-
-        private void SetTexture()
-        {
-            TextureImporter importer = assetImporter as TextureImporter;
-            importer.textureType = TextureImporterType.Sprite;
-            importer.mipmapEnabled = false;
-        }
-
+        
         private void NamingConvention(string path,string rulePattern)
         {
             if (assetPath.Contains(path))
