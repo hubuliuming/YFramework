@@ -35,4 +35,12 @@ public class PEListener :
     {
         onDrag?.Invoke(eventData, args);
     }
+
+    private void OnDestroy()
+    {
+        onClick = null;
+        onClickDown = null;
+        onClickUp = null;
+        onDrag = null;
+    }
 }
