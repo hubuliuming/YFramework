@@ -65,6 +65,52 @@ namespace YFramework.Extension
         public static void SetLocalPosZ(this MonoBehaviour mono, float target) => SetLocalPosZ(mono.transform, target);
         public static void SetIdentity(this MonoBehaviour mono ) => SetIdentity(mono.transform);
 
+        public static void SetEulerAnglesX(this MonoBehaviour mono, float target) => SetEulerAnglesX(mono.transform, target);
+        public static void SetEulerAnglesY(this MonoBehaviour mono, float target) => SetEulerAnglesY(mono.transform, target);
+        public static void SetEulerAnglesZ(this MonoBehaviour mono, float target) => SetEulerAnglesZ(mono.transform, target);
+        public static void SetEulerAnglesX(this Transform trans, float target)
+        {
+            var euler = trans.eulerAngles;
+            euler.x = target;
+            trans.eulerAngles = euler;
+        }
+        public static void SetEulerAnglesY(this Transform trans, float target)
+        {
+            var euler = trans.eulerAngles;
+            euler.y = target;
+            trans.eulerAngles = euler;
+        }
+        public static void SetEulerAnglesZ(this Transform trans, float target)
+        {
+            var euler = trans.eulerAngles;
+            euler.z = target;
+            trans.eulerAngles = euler;
+        }
+        
+        public static void SetLocalEulerAnglesX(this MonoBehaviour mono, float target) => SetLocalEulerAnglesX(mono.transform, target);
+        public static void SetLocalEulerAnglesY(this MonoBehaviour mono, float target) => SetLocalEulerAnglesY(mono.transform, target);
+        public static void SetLocalEulerAnglesZ(this MonoBehaviour mono, float target) => SetLocalEulerAnglesZ(mono.transform, target);
+        
+        public static void SetLocalEulerAnglesX(this Transform trans, float target)
+        {
+            var euler = trans.localEulerAngles;
+            euler.x = target;
+            trans.localEulerAngles = euler;
+        }
+        
+        public static void SetLocalEulerAnglesY(this Transform trans, float target)
+        {
+            var euler = trans.localEulerAngles;
+            euler.y = target;
+            trans.localEulerAngles = euler;
+        }
+        public static void SetLocalEulerAnglesZ(this Transform trans, float target)
+        {
+            var euler = trans.localEulerAngles;
+            euler.z = target;
+            trans.localEulerAngles = euler;
+        }
+        
         public static void AddPosX(this Transform trans, float target)
         {
             var pos = trans.position;
