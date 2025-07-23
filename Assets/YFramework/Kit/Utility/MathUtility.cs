@@ -249,7 +249,6 @@ namespace YFramework.Kit.Utility
             {
                 return null;
             }
-
             return temp;
         }
     }
