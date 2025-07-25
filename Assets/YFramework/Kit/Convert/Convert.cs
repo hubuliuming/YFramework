@@ -8,6 +8,7 @@
 
 
 using System;
+using System.Text;
 
 namespace YFramework.Kit.Convert
 {
@@ -32,6 +33,21 @@ namespace YFramework.Kit.Convert
         public static Tuple<int, int> Seconds2Minute(int seconds)
         {
             return new Tuple<int, int>(seconds / 60, seconds % 60);
+        }
+        
+        /// <summary>
+        /// 把数组里的每个元素依次转化成一个string
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        public static string ToStringAnyItem(int[] array)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in array)
+            {
+                sb.Append(item.ToString());
+            }
+            return sb.ToString();
         }
     }
 }
