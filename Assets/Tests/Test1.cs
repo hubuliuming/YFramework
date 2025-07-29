@@ -26,12 +26,12 @@ public class Test1 : YMonoBehaviour
 
     private ActionFixedUpdate _actionFixedUpdate;
 
-    private List<Vector3> _list;
+    public List<Vector3> _list;
 
     private void Start()
     {
-        int[] index = new int[] { 0, 1, 2, 3 };
-        Debug.Log(Convert.ToStringAnyItem(index));
+        var l = _list;
+       
     }
 
     private void Update()
