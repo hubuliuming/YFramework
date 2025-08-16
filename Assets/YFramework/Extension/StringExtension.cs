@@ -46,5 +46,14 @@ namespace YFramework.Extension
 
             return txt;
         }
+        
+        public static string RemoveCloneStr(this string txt)
+        {
+            if (txt.EndsWith("(Clone)"))
+            {
+                txt = txt.Replace("(Clone)", "");
+            }
+            return txt;
+        }
     }
 }

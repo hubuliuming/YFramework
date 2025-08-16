@@ -34,8 +34,8 @@ namespace YFramework.Kit.IO
         /// <summary>
         /// 文件重命名操作
         /// </summary>
-        /// <param name="sourceName">带有文件路径的全名称</param>
-        /// <param name="newName">输入的新文件名字</param>
+        /// <param name="sourceName">带有文件路径的全名称,需要文件名后缀</param>
+        /// <param name="newName">输入的新文件名字，不需要带文件名后缀</param>
         public static void ReName(string sourceName, string newName)
         {
             var name = Path.GetFileNameWithoutExtension(sourceName);
