@@ -20,6 +20,7 @@ namespace YFramework.Editor
             if(importer.textureType != TextureImporterType.Default) return;
             importer.textureType = TextureImporterType.Sprite;
             importer.mipmapEnabled = false;
+            importer.alphaIsTransparency = true;
             _curApplyPaths.Add(assetPath);
             
             //NamingConvention("UI",m_ruloPattern);
