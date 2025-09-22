@@ -7,20 +7,15 @@
 *****************************************************/
 
 
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Pool;
 using UnityEngine.UI;
 using YFramework;
-using YFramework.Event;
-using YFramework.Extension;
 using YFramework.Kit;
-using Convert = YFramework.Kit.Convert.Convert;
 
-public class Test1 : YMonoBehaviour
+public partial class Test1 : YMonoBehaviour
 {
+    
     public GameObject target;
     public Image img;
 
@@ -30,7 +25,7 @@ public class Test1 : YMonoBehaviour
 
     private void Start()
     {
-        var l = _list;
+       Debug.Log("dd");
        
     }
 
@@ -45,5 +40,9 @@ public class Test1 : YMonoBehaviour
   
     
 
+}
+
+public class Test1Model 
+{ 
 }
 
