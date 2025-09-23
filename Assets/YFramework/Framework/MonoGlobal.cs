@@ -1,24 +1,15 @@
 /****************************************************
-    文件：YMonoBehaviour.cs
+    文件：MonoGloable.cs
     作者：Y
     邮箱: 916111418@qq.com
-    日期：2022/1/11 16:40:53
-    功能：
+    日期：#CreateTime#
+    功能：Nothing
 *****************************************************/
 
 using UnityEngine;
 
 namespace YFramework
 {
-    public abstract class YMonoBehaviour : MonoBehaviour
-    {
-        protected virtual bool IsActive()
-        {
-            return isActiveAndEnabled;
-        }
-        
-    }
-
     /// <summary>
     /// 全局唯一共享MonoBehaviour
     /// </summary>
@@ -42,12 +33,6 @@ namespace YFramework
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
-            string a = "dd";
-            for (int i = 0; i < 10000; i++)
-            {
-                a += "33";
-            }
-
         }
         
     }
