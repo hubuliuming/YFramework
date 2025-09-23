@@ -15,18 +15,9 @@ using YFramework.Kit;
 
 public partial class Test1 : YMonoBehaviour
 {
-    
-    public GameObject target;
-    public Image img;
-
-    private ActionFixedUpdate _actionFixedUpdate;
-
-    public List<Vector3> _list;
-
     private void Start()
     {
-       Debug.Log("dd");
-       
+ 
     }
 
     private void Update()
@@ -34,15 +25,7 @@ public partial class Test1 : YMonoBehaviour
        
     
     }
-    
-  
-
-  
-    
-
 }
 
-public class Test1Model 
-{ 
-}
+
 

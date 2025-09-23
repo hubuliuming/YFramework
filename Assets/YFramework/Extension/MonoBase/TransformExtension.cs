@@ -227,5 +227,22 @@ namespace YFramework.Extension
             //设置旋转
             self.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+        
+        
+        public static void RecursiveFind(this Transform parent, string startWithStr, List<GameObject> resultList)
+        {
+            foreach (Transform child in parent)
+            {
+                if (child.name.StartsWith(startWithStr))
+                {
+                    resultList.Add(child.gameObject);
+                }
+
+                if (child.childCount > 0)
+                {
+                    RecursiveFind(child, startWithStr, resultList);
+                }
+            }
+        }
     }
 }
