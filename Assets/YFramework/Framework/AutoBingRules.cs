@@ -7,27 +7,40 @@
 *****************************************************/
 
 
+using System;
 using System.Collections.Generic;
 
-public class AutoBingRules
+namespace YFramework
 {
+    public class AutoBingRules
+    {
 
-    public static Dictionary<string, string> SignToTypeDic = new Dictionary<string, string>()
-    {
-        {"Go", Go.TName},
-        {"Img", Img.TName},
-    };
-    
-    public static class Go
-    {
-        public static string Name = "Go";
-        public static string TName = typeof(UnityEngine.GameObject).FullName;
+        public static Dictionary<string, string> SignToTypeDic = new Dictionary<string, string>()
+        {
+            {"Img", Img.TName},
+            {"Txt", Text.TName},
+        };
+        
+        public static class Img
+        {
+            public static string Name = "Img";
+            public static string TName = typeof(UnityEngine.UI.Image).FullName;
+        }
+        public static class Text
+        {
+            public static string Name = "Txt";
+            public static string TName = typeof(UnityEngine.UI.Text).FullName;
+        }
     }
-    public static class Img
+
+    [AttributeUsage(AttributeTargets.Field)]
+    public class AutoBingAttribute : Attribute
     {
-        public static string Name = "Img";
-        public static string TName = typeof(UnityEngine.UI.Image).FullName;
+        public string Name { get; }
+        
+        public AutoBingAttribute(string name = "")
+        {
+            Name = name;
+        }
     }
-    
-    
 }

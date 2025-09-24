@@ -10,11 +10,13 @@ namespace YFramework.Editor
     public class InputResourcesSetting : AssetPostprocessor
     {
         private static FileData _fileData;
+        //todo 需要持久化存储
         private static List<string> _curApplyPaths = new List<string>(100);
 
         //private string m_ruloPattern = "^[0-9]+_[0-9]+$";
         private void OnPreprocessTexture()
         {
+            Debug.Log("cout:" + _curApplyPaths.Count);
             if (_curApplyPaths.Contains(assetPath)) return;
             TextureImporter importer = assetImporter as TextureImporter;
             if(importer.textureType != TextureImporterType.Default) return;

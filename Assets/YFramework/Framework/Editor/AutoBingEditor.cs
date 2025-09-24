@@ -8,15 +8,20 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YFramework.Extension;
 
 namespace YFramework.Editor
 {
-    public class AutoBingEditor
+    public static class AutoBingEditor
     {
+        private static bool isChange;
+
         [MenuItem("CONTEXT/MonoBehaviour/AutoBing")]
         private static void AutoBing(MenuCommand command)
         {
@@ -29,17 +34,18 @@ namespace YFramework.Editor
                 string fullPath = Path.GetFullPath(scriptAssetPath);
                 if (fullPath.Contains("Library")) return;
                 if (!fullPath.Contains("Assets")) return;
+                var temp = new GameObject("YFrameworkAutoBingTemp").AddComponent<AutoBingCacheData>();
+                temp.targetMono = mono;
                 var text = scriptAsset.text;
                 if (text.IndexOf("partial class " + className) == -1)
                 {
                     var index = text.IndexOf("class");
                     var newText = text.Insert(index, "partial ");
                     File.WriteAllText(fullPath, newText);
+                    isChange = !text.Equals(newText);
                 }
 
-                CreateDesigner(mono, fullPath);
-                AssetDatabase.Refresh();
-
+                CreateDesigner(mono, temp, fullPath);
             }
             else
             {
@@ -47,17 +53,21 @@ namespace YFramework.Editor
             }
         }
 
-        private static void CreateDesigner(MonoBehaviour mono,string fullPath)
+        private static void CreateDesigner(MonoBehaviour mono, AutoBingCacheData temp, string fullPath)
         {
             var directory = Path.GetDirectoryName(fullPath);
-            string newFileName = $"{mono.GetType().Name}.Designer.cs"; // 新文件名
+            string newFileName = $"{mono.GetType().Name}.Designer.cs";
             string fullNewPath = Path.Combine(directory, newFileName);
-            var text = GetDesignerText(mono);
-            File.WriteAllText(fullNewPath, text);
+            CreateDesignerText(mono, temp, fullNewPath);
         }
-        
-        private static string GetDesignerText(MonoBehaviour mono)
+
+        private static void CreateDesignerText(MonoBehaviour mono, AutoBingCacheData temp, string fullNewPath)
         {
+            string oldText = "";
+            if (File.Exists(fullNewPath))
+            {
+                oldText = File.ReadAllText(fullNewPath);
+            }
             StringBuilder str = new StringBuilder();
             str.AppendLine();
             str.Append("public partial class ");
@@ -68,24 +78,56 @@ namespace YFramework.Editor
             foreach (var key in signDic.Keys)
             {
                 List<GameObject> bingGos = new List<GameObject>();
-                mono.transform.RecursiveFind(key, bingGos);
+                mono.transform.FindRecursiveWithStart(key, bingGos);
                 foreach (var go in bingGos)
                 {
-                    var t = go.GetComponent(signDic.GetType().Name);
                     str.AppendLine("   public " + signDic[key] + " " + go.name + ";");
                 }
             }
 
-            EditorApplication.delayCall += () =>
-            {
-                var t = mono.GetType();
-                Debug.Log("完成:" + mono.GetType().Name);
-                //引用赋值
-            };
             str.AppendLine("}");
-            
-            return str.ToString();
+            var newText = str.ToString();
+            File.WriteAllText(fullNewPath, newText);
+            isChange = !oldText.Equals(newText);
+            AssetDatabase.Refresh();
+            if (!isChange)
+            {
+                BingMember();
+            }
         }
-        
+
+        //todo bug再下层子物体绑定不上
+        [UnityEditor.Callbacks.DidReloadScripts]
+        private static void BingMember()
+        {
+            var cache = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == "YFrameworkAutoBingTemp")?.GetComponent<AutoBingCacheData>();
+            if (cache != null)
+            {
+                var t = cache.targetMono.GetType();
+                //引用赋值
+                var fieldInfos = t.GetFields(BindingFlags.Public | BindingFlags.Instance);
+                foreach (var fieldInfo in fieldInfos)
+                {
+                    var tran = cache.targetMono.transform.FindRecursive(fieldInfo.Name);
+                    if (tran)
+                    {
+                        if (!fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
+                        {
+                            Debug.LogWarning("不是继承mono的组件:" + fieldInfo.Name);
+                            continue;
+                        }
+                        var type = tran.GetComponent(fieldInfo.FieldType.FullName);
+                        fieldInfo.SetValue(cache.targetMono, type);
+                    }
+                }
+                Object.DestroyImmediate(cache.gameObject);
+            }
+        }
+
+
+        public class AutoBingCacheData : MonoBehaviour
+        {
+            public MonoBehaviour targetMono;
+        }
     }
 }

@@ -228,8 +228,24 @@ namespace YFramework.Extension
             self.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
         
+        public static Transform FindRecursive(this Transform parent, string goName)
+        {
+            Transform child = null;
+            foreach (Transform c in parent)
+            {
+                if (c.name.Equals(goName))
+                {
+                    child = c;
+                    break;
+                }
+
+                if (child == null && c.childCount > 0)
+                    child = FindRecursive(c, goName);
+            }
+            return child;
+        }
         
-        public static void RecursiveFind(this Transform parent, string startWithStr, List<GameObject> resultList)
+        public static void FindRecursiveWithStart(this Transform parent, string startWithStr, List<GameObject> resultList)
         {
             foreach (Transform child in parent)
             {
@@ -240,7 +256,7 @@ namespace YFramework.Extension
 
                 if (child.childCount > 0)
                 {
-                    RecursiveFind(child, startWithStr, resultList);
+                    FindRecursiveWithStart(child, startWithStr, resultList);
                 }
             }
         }
