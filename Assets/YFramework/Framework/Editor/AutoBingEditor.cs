@@ -96,7 +96,6 @@ namespace YFramework.Editor
             }
         }
 
-        //todo bug再下层子物体绑定不上
         [UnityEditor.Callbacks.DidReloadScripts]
         private static void BingMember()
         {
