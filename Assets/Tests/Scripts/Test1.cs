@@ -17,7 +17,7 @@ public partial class Test1 : YMonoBehaviour
 {
     private void Start()
     {
- 
+        
     }
 
     private void Update()

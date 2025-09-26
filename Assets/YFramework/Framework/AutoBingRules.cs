@@ -17,30 +17,95 @@ namespace YFramework
 
         public static Dictionary<string, string> SignToTypeDic = new Dictionary<string, string>()
         {
-            {"Img", Img.TName},
-            {"Txt", Text.TName},
+            {Img.Name, Img.TName},
+            {Txt.Name, Txt.TName},
+            {RawImg.Name, RawImg.TName},
+            {Tog.Name, Tog.TName},
+            {Sld.Name, Sld.TName},
+            {ScoBar.Name, ScoBar.TName},
+            {Btn.Name, Btn.TName},
+            {Drod.Name, Drod.TName},
+            {Ipf.Name, Ipf.TName},
+            {Cvas.Name, Cvas.TName},
         };
+        #region UI
         
-        public static class Img
+        private class Img : IAutoBingElement
         {
-            public static string Name = "Img";
+            public static string Name = typeof(Img).Name;
             public static string TName = typeof(UnityEngine.UI.Image).FullName;
         }
-        public static class Text
+        private class Txt : IAutoBingElement
         {
-            public static string Name = "Txt";
+            public static string Name =  typeof(Txt).Name;
             public static string TName = typeof(UnityEngine.UI.Text).FullName;
         }
+        
+        private class RawImg : IAutoBingElement
+        {
+            public static string Name =  typeof(RawImg).Name;
+            public static string TName = typeof(UnityEngine.UI.RawImage).FullName;
+        }
+        
+        private class Tog : IAutoBingElement
+        {
+            public static string Name =  typeof(Tog).Name;
+            public static string TName = typeof(UnityEngine.UI.Toggle).FullName;
+        }
+        
+        private class Sld : IAutoBingElement
+        {
+            public static string Name =  typeof(Sld).Name;
+            public static string TName = typeof(UnityEngine.UI.Slider).FullName;
+        }
+        
+        private class ScoBar : IAutoBingElement
+        {
+            public static string Name =  typeof(ScoBar).Name;
+            public static string TName = typeof(UnityEngine.UI.Scrollbar).FullName;
+        }
+        
+        private class Btn : IAutoBingElement
+        {
+            public static string Name =  typeof(Btn).Name;
+            public static string TName = typeof(UnityEngine.UI.Button).FullName;
+        }
+        
+        private class Drod : IAutoBingElement
+        {
+            public static string Name =  typeof(Drod).Name;
+            public static string TName = typeof(UnityEngine.UI.Dropdown).FullName;
+        }
+        
+        private class Ipf : IAutoBingElement
+        {
+            public static string Name =  typeof(Ipf).Name;
+            public static string TName = typeof(UnityEngine.UI.InputField).FullName;
+        }
+        
+        private class Cvas : IAutoBingElement
+        {
+            public static string Name =  typeof(Cvas).Name;
+            public static string TName = typeof(UnityEngine.Canvas).FullName;
+        }
+        
+        #endregion
+    }
+    
+    public interface IAutoBingElement
+    { 
+   
     }
 
-    [AttributeUsage(AttributeTargets.Field)]
-    public class AutoBingAttribute : Attribute
+    public class AutoBingUti
     {
-        public string Name { get; }
-        
-        public AutoBingAttribute(string name = "")
+        public static IAutoBingElement GetElement(string signName)
         {
-            Name = name;
+            if (AutoBingRules.SignToTypeDic.ContainsKey(signName))
+            {
+                return (IAutoBingElement) Type.GetType(AutoBingRules.SignToTypeDic[signName]);
+            }
+            return null;
         }
     }
 }
