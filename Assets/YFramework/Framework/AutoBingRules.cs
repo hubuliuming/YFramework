@@ -12,21 +12,20 @@ using System.Collections.Generic;
 
 namespace YFramework
 {
-    public class AutoBingRules
+    internal class AutoBingRules
     {
-
-        public static Dictionary<string, string> SignToTypeDic = new Dictionary<string, string>()
+        internal static List<Type> BingElementTypes = new List<Type>()
         {
-            {Img.Name, Img.TName},
-            {Txt.Name, Txt.TName},
-            {RawImg.Name, RawImg.TName},
-            {Tog.Name, Tog.TName},
-            {Sld.Name, Sld.TName},
-            {ScoBar.Name, ScoBar.TName},
-            {Btn.Name, Btn.TName},
-            {Drod.Name, Drod.TName},
-            {Ipf.Name, Ipf.TName},
-            {Cvas.Name, Cvas.TName},
+            typeof(Img),
+            typeof(Txt),
+            typeof(RawImg),
+            typeof(Tog),
+            typeof(Sld),
+            typeof(ScoBar),
+            typeof(Btn),
+            typeof(Drod),
+            typeof(Ipf),
+            typeof(Cvas),
         };
         #region UI
         
@@ -101,9 +100,9 @@ namespace YFramework
     {
         public static IAutoBingElement GetElement(string signName)
         {
-            if (AutoBingRules.SignToTypeDic.ContainsKey(signName))
+            if (AutoBingRules.BingElementTypes.Contains(Type.GetType(signName)))
             {
-                return (IAutoBingElement) Type.GetType(AutoBingRules.SignToTypeDic[signName]);
+                return Activator.CreateInstance(Type.GetType(signName)) as IAutoBingElement;
             }
             return null;
         }

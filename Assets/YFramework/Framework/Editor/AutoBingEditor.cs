@@ -20,6 +20,7 @@ namespace YFramework.Editor
 {
     public static class AutoBingEditor
     {
+        private static readonly string tempName = "YFrameworkAutoBingTemp";
         private static bool isChange;
 
         [MenuItem("CONTEXT/MonoBehaviour/AutoBing")]
@@ -34,7 +35,7 @@ namespace YFramework.Editor
                 string fullPath = Path.GetFullPath(scriptAssetPath);
                 if (fullPath.Contains("Library")) return;
                 if (!fullPath.Contains("Assets")) return;
-                var temp = new GameObject("YFrameworkAutoBingTemp").AddComponent<AutoBingCacheData>();
+                var temp = new GameObject(tempName).AddComponent<AutoBingCacheData>();
                 temp.targetMono = mono;
                 var text = scriptAsset.text;
                 if (text.IndexOf("partial class " + className) == -1)
@@ -74,14 +75,14 @@ namespace YFramework.Editor
             str.AppendLine(mono.GetType().Name);
             str.AppendLine("{");
 
-            var signDic = AutoBingRules.SignToTypeDic;
-            foreach (var key in signDic.Keys)
+            var bingElementTypes = AutoBingRules.BingElementTypes;
+            foreach (var eType in bingElementTypes)
             {
                 List<GameObject> bingGos = new List<GameObject>();
-                mono.transform.FindRecursiveWithStart(key, bingGos);
+                mono.transform.FindRecursiveWithStart(eType.GetField("Name").GetValue(null).ToString(), bingGos);
                 foreach (var go in bingGos)
                 {
-                    str.AppendLine("   public " + signDic[key] + " " + go.name + ";");
+                    str.AppendLine("   public " + eType.GetField("TName").GetValue(null) + " " + go.name + ";");
                 }
             }
 
@@ -99,7 +100,7 @@ namespace YFramework.Editor
         [UnityEditor.Callbacks.DidReloadScripts]
         private static void BingMember()
         {
-            var cache = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == "YFrameworkAutoBingTemp")?.GetComponent<AutoBingCacheData>();
+            var cache = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName)?.GetComponent<AutoBingCacheData>();
             if (cache != null)
             {
                 var t = cache.targetMono.GetType();
