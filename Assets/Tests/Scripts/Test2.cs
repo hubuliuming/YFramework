@@ -9,24 +9,27 @@
 using UnityEngine;
 using YFramework.UI;
 
-public partial class Test2 : UIBase 
+namespace CC
 {
-    #region 成员变量
-
-    #endregion
-
-    public override void OnStart()
+    public partial class Test2 : UIBase 
     {
-        Debug.Log("OnStart");
-    }
+        #region 成员变量
 
-    protected override void OnShow()
-    {
-        Debug.Log("OnShow");
-    }
+        #endregion
 
-    protected override void OnHide()
-    {
-        Debug.Log("OnHide");
+        public override void OnStart()
+        {
+            Debug.Log("OnStart");
+        }
+
+        protected override void OnShow()
+        {
+            Debug.Log("OnShow");
+        }
+
+        protected override void OnHide()
+        {
+            Debug.Log("OnHide");
+        }
     }
 }

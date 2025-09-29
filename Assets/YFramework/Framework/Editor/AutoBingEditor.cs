@@ -104,9 +104,12 @@ namespace YFramework.Editor
                 var eType = AutoBingRules.BingElementTypes.Find(bingElementType =>
                 {
                     var startWithStr = bingElementType.GetField("Name").GetValue(null).ToString();
-                    var tName = bingElementType.GetField("TName").GetValue(null).ToString();
+                    var tbaseName = bingElementType.GetField("TName").GetValue(null).ToString();
+               
                     if (child.name.StartsWith(startWithStr))
                     {
+                        var objT = child.gameObject.GetComponent(tbaseName);
+                        var tName = objT.GetType().FullName;
                         str.AppendLine("   public " + tName + " " + child.gameObject.name + ";");
                         return true;
                     }
