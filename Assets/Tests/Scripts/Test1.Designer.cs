@@ -1,7 +1,7 @@
 
 public partial class Test1
 {
-   public UnityEngine.UI.Image ImgShow;
-   public UnityEngine.UI.Text TxtCC;
-   public UnityEngine.UI.Toggle Togdd;
+   public UnityEngine.UI.Button BtnShow;
+   public UnityEngine.UI.Button BtnHide;
+   public YFramework.UI.UIBase UIETest2;
 }

@@ -25,5 +25,10 @@ namespace YFramework.UI.Layout
                 GetComponent<RectTransform>().AdaptivitySize(areaTrans);
             }
         }
+
+        public override void OnStart()
+        {
+            
+        }
     }
 }

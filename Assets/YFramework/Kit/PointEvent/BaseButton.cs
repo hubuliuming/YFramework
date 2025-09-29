@@ -24,6 +24,12 @@ public class BaseButton : YMonoBehaviour,IPointerClickHandler
    {
       EventUtil.CheckRaycaster(objType);
    }
+
+   public override void OnStart()
+   {
+      
+   }
+
    /// <summary>
    /// Function definition for a button click event.
    /// </summary>

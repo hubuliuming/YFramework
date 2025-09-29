@@ -6,6 +6,7 @@
     功能：Nothing
 *****************************************************/
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,7 @@ using YFramework.Extension;
 
 namespace YFramework.Editor
 {
-    public static class AutoBingEditor
+    internal static class AutoBingEditor
     {
         private static readonly string tempName = "YFrameworkAutoBingTemp";
         private static bool isChange;
@@ -27,6 +28,11 @@ namespace YFramework.Editor
         private static void AutoBing(MenuCommand command)
         {
             var mono = (MonoBehaviour) command.context;
+            AutoBing(mono);
+        }
+
+        private static void AutoBing(MonoBehaviour mono)
+        {
             MonoScript scriptAsset = MonoScript.FromMonoBehaviour(mono);
             if (scriptAsset != null)
             {
@@ -35,8 +41,11 @@ namespace YFramework.Editor
                 string fullPath = Path.GetFullPath(scriptAssetPath);
                 if (fullPath.Contains("Library")) return;
                 if (!fullPath.Contains("Assets")) return;
-                var temp = new GameObject(tempName).AddComponent<AutoBingCacheData>();
-                temp.targetMono = mono;
+                var tempGo = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName);
+                AutoBingCacheData cacheData = null;
+                cacheData = tempGo == null ? new GameObject(tempName).AddComponent<AutoBingCacheData>() : tempGo.GetComponent<AutoBingCacheData>();
+
+                cacheData.targetMonos.Add(mono);
                 var text = scriptAsset.text;
                 if (text.IndexOf("partial class " + className) == -1)
                 {
@@ -46,7 +55,7 @@ namespace YFramework.Editor
                     isChange = !text.Equals(newText);
                 }
 
-                CreateDesigner(mono, temp, fullPath);
+                CreateDesigner(mono, fullPath);
             }
             else
             {
@@ -54,38 +63,29 @@ namespace YFramework.Editor
             }
         }
 
-        private static void CreateDesigner(MonoBehaviour mono, AutoBingCacheData temp, string fullPath)
+        private static void CreateDesigner(MonoBehaviour mono, string fullPath)
         {
             var directory = Path.GetDirectoryName(fullPath);
             string newFileName = $"{mono.GetType().Name}.Designer.cs";
             string fullNewPath = Path.Combine(directory, newFileName);
-            CreateDesignerText(mono, temp, fullNewPath);
+            CreateDesignerText(mono, fullNewPath);
         }
 
-        private static void CreateDesignerText(MonoBehaviour mono, AutoBingCacheData temp, string fullNewPath)
+        private static void CreateDesignerText(MonoBehaviour mono, string fullNewPath)
         {
             string oldText = "";
             if (File.Exists(fullNewPath))
             {
                 oldText = File.ReadAllText(fullNewPath);
             }
+
             StringBuilder str = new StringBuilder();
             str.AppendLine();
             str.Append("public partial class ");
             str.AppendLine(mono.GetType().Name);
             str.AppendLine("{");
 
-            var bingElementTypes = AutoBingRules.BingElementTypes;
-            foreach (var eType in bingElementTypes)
-            {
-                List<GameObject> bingGos = new List<GameObject>();
-                mono.transform.FindRecursiveWithStart(eType.GetField("Name").GetValue(null).ToString(), bingGos);
-                foreach (var go in bingGos)
-                {
-                    str.AppendLine("   public " + eType.GetField("TName").GetValue(null) + " " + go.name + ";");
-                }
-            }
-
+            WriteRecursiveWithType(mono.transform, str);
             str.AppendLine("}");
             var newText = str.ToString();
             File.WriteAllText(fullNewPath, newText);
@@ -93,41 +93,90 @@ namespace YFramework.Editor
             AssetDatabase.Refresh();
             if (!isChange)
             {
-                BingMember();
+                BingAfterReload();
+            }
+        }
+
+        private static void WriteRecursiveWithType(Transform parent, StringBuilder str)
+        {
+            foreach (Transform child in parent)
+            {
+                var eType = AutoBingRules.BingElementTypes.Find(bingElementType =>
+                {
+                    var startWithStr = bingElementType.GetField("Name").GetValue(null).ToString();
+                    var tName = bingElementType.GetField("TName").GetValue(null).ToString();
+                    if (child.name.StartsWith(startWithStr))
+                    {
+                        str.AppendLine("   public " + tName + " " + child.gameObject.name + ";");
+                        return true;
+                    }
+
+                    return false;
+                });
+
+                if (eType != null)
+                {
+                    var type = Type.GetType(eType.GetField("TName").GetValue(null).ToString());
+                    var t = AutoBingRules.FiltrationElementTypes.Find(x =>
+                    {
+                        if (type == null) return false;
+                        return type.IsSubclassOf(x);
+                    });
+                    if (t != null)
+                    {
+                        var mono = child.GetComponent(type) as MonoBehaviour;
+                        MonoScript.FromMonoBehaviour(mono);
+                        AutoBing(mono);
+                        continue;
+                    }
+                }
+
+                if (child.childCount > 0)
+                {
+                    WriteRecursiveWithType(child, str);
+                }
             }
         }
 
         [UnityEditor.Callbacks.DidReloadScripts]
-        private static void BingMember()
+        private static void BingAfterReload()
         {
             var cache = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName)?.GetComponent<AutoBingCacheData>();
             if (cache != null)
             {
-                var t = cache.targetMono.GetType();
-                //引用赋值
-                var fieldInfos = t.GetFields(BindingFlags.Public | BindingFlags.Instance);
-                foreach (var fieldInfo in fieldInfos)
+                foreach (var mono in cache.targetMonos)
                 {
-                    var tran = cache.targetMono.transform.FindRecursive(fieldInfo.Name);
-                    if (tran)
-                    {
-                        if (!fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
-                        {
-                            Debug.LogWarning("不是继承mono的组件:" + fieldInfo.Name);
-                            continue;
-                        }
-                        var type = tran.GetComponent(fieldInfo.FieldType.FullName);
-                        fieldInfo.SetValue(cache.targetMono, type);
-                    }
+                    BingElements(mono);
                 }
-                Object.DestroyImmediate(cache.gameObject);
+
+                UnityEngine.Object.DestroyImmediate(cache.gameObject);
             }
         }
 
-
-        public class AutoBingCacheData : MonoBehaviour
+        private static void BingElements(MonoBehaviour mono)
         {
-            public MonoBehaviour targetMono;
+            var t = mono.GetType();
+            var fieldInfos = t.GetFields(BindingFlags.Public | BindingFlags.Instance);
+            foreach (var fieldInfo in fieldInfos)
+            {
+                var tran = mono.transform.FindRecursive(fieldInfo.Name);
+                if (tran)
+                {
+                    if (!fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
+                    {
+                        Debug.LogWarning("不是继承mono的组件:" + fieldInfo.Name);
+                        continue;
+                    }
+
+                    var type = tran.GetComponent(fieldInfo.FieldType.FullName);
+                    fieldInfo.SetValue(mono, type);
+                }
+            }
+        }
+
+        private class AutoBingCacheData : MonoBehaviour
+        {
+            public List<MonoBehaviour> targetMonos = new List<MonoBehaviour>();
         }
     }
 }

@@ -12,17 +12,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using YFramework;
 using YFramework.Kit;
+using YFramework.UI;
 
-public partial class Test1 : YMonoBehaviour
+public partial class Test1 : UIBase
 {
-    private void Start()
+    protected void Start()
     {
+        OnStart();
     }
 
     private void Update()
     {
-       
-    
+        
+    }
+
+    public override void OnStart()
+    {
+        // BtnShow.onClick.AddListener(() =>
+        // {
+        //     UIEShowPen.Show();
+        // });
+        // BtnHide.onClick.AddListener(() =>
+        // {
+        //     UIEShowPen.Hide();
+        // });
+    }
+
+    protected override void OnShow()
+    {
+    }
+
+    protected override void OnHide()
+    {
+        
     }
 }
 

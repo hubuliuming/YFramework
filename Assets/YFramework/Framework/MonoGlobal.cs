@@ -34,6 +34,10 @@ namespace YFramework
         {
             DontDestroyOnLoad(gameObject);
         }
-        
+
+        public override void OnStart()
+        {
+            
+        }
     }
 }

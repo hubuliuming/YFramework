@@ -8,7 +8,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace YFramework.UI
 {
@@ -33,13 +32,19 @@ namespace YFramework.UI
 
         public virtual void Show()
         {
-            UIManager.Instance.ShowUI(gameObject);
+            var success = UIManager.Instance.ShowUI(gameObject);
+            if(success) OnShow();
         }
 
         public virtual void Hide()
         {
-            UIManager.Instance.HideUI(gameObject);
+            var success = UIManager.Instance.HideUI(gameObject);
+            if (success) OnHide();
         }
+
+        protected abstract void OnShow();
+        protected abstract void OnHide();
+
     }
 
     public class UIManager 
@@ -58,21 +63,21 @@ namespace YFramework.UI
             }
         }
         
-        private  Stack<GameObject> _lastUIs = new Stack<GameObject>();
+        private Stack<GameObject> _lastUIs = new Stack<GameObject>();
         public GameObject CurUI { get;  private set; }
         public bool IsNullUI  => CurUI == null;
         
-        public void ShowUI(GameObject curUI) 
+        public bool ShowUI(GameObject curUI) 
         {
             if (curUI == null)
             {
                 Debug.LogWarning("要展示的物体为空！");
-                return;
+                return false;
             }
             if (curUI == CurUI)
             {
                 Debug.Log("重复打开当前的UI："+curUI);
-                return;
+                return false;
             }
             if (CurUI != null) 
             {
@@ -80,11 +85,12 @@ namespace YFramework.UI
             }
             CurUI = curUI;
             CurUI.gameObject.SetActive(true);
+            return true;
         }
         
-        public void HideUI()
+        public bool HideUI()
         {
-            if (CurUI == null) return;
+            if (CurUI == null) return false;
             CurUI.SetActive(false);
             if (_lastUIs.Count > 0)
             { 
@@ -95,15 +101,19 @@ namespace YFramework.UI
                 CurUI = null;
                 _lastUIs.Clear();
             }
+            return true;
         }
 
-        public void HideUI(GameObject curUI)
+        public bool HideUI(GameObject curUI)
         {
             if (CurUI == curUI)
             {
-                HideUI();
-            } else {
-                Debug.LogError("不允许跨索引隐藏:"+ curUI.name +","+"当前UI为："+CurUI.name); 
+                return HideUI();
+            }
+            else
+            {
+                Debug.LogError("不允许跨索引隐藏:" + curUI.name + "," + "当前UI为：" + CurUI.name);
+                return false;
             }
         }
 

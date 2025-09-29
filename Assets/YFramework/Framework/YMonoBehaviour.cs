@@ -12,6 +12,8 @@ namespace YFramework
 {
     public abstract class YMonoBehaviour : MonoBehaviour
     {
+        public abstract void OnStart();
+
         protected virtual bool IsActive()
         {
             return isActiveAndEnabled;

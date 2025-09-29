@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace YFramework
 {
@@ -26,6 +27,12 @@ namespace YFramework
             typeof(Drod),
             typeof(Ipf),
             typeof(Cvas),
+            typeof(UIE)
+        };
+
+        internal static List<Type> FiltrationElementTypes = new List<Type>()
+        {
+            typeof(YFramework.YMonoBehaviour)
         };
         #region UI
         
@@ -88,6 +95,21 @@ namespace YFramework
             public static string TName = typeof(UnityEngine.Canvas).FullName;
         }
         
+        #endregion
+
+        #region Custom
+
+        #region UI
+
+        private class UIE : IAutoBingElement
+        {
+            public static string Name =  typeof(UIE).Name;
+            public static string TName = typeof(YFramework.UI.UIBase).FullName;
+        }
+
+        #endregion
+        
+
         #endregion
     }
     

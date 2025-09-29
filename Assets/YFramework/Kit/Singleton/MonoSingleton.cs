@@ -36,5 +36,10 @@ namespace YFramework.Kit.Singleton
             DontDestroyOnLoad(gameObject);
             if (_instance == null) _instance = this as T;
         }
+
+        public override void OnStart()
+        {
+            
+        }
     }
 }
