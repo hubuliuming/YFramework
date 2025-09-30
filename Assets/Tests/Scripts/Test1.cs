@@ -30,11 +30,11 @@ public partial class Test1 : UIBase
     {
         // BtnShow.onClick.AddListener(() =>
         // {
-        //     UIEShowPen.Show();
+        //     UIETest2.Show();
         // });
         // BtnHide.onClick.AddListener(() =>
         // {
-        //     UIEShowPen.Hide();
+        //     UIETest2.Hide();
         // });
     }
 
