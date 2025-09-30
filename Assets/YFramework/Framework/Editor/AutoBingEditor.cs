@@ -74,6 +74,8 @@ namespace YFramework.Editor
         private static void CreateDesignerText(MonoBehaviour mono, string fullNewPath)
         {
             string oldText = "";
+            string tabSpace = "\t";
+            int tabNum = 0;
             if (File.Exists(fullNewPath))
             {
                 oldText = File.ReadAllText(fullNewPath);
@@ -81,12 +83,28 @@ namespace YFramework.Editor
 
             StringBuilder str = new StringBuilder();
             str.AppendLine();
-            str.Append("public partial class ");
-            str.AppendLine(mono.GetType().Name);
-            str.AppendLine("{");
+            var nameSpace = mono.GetType().Namespace;
+            if (!string.IsNullOrEmpty(nameSpace))
+            {
+                str.AppendLine("namespace " + nameSpace);
+                str.AppendLine("{");
+            }
+            else
+            {
+                tabSpace = "";
+            }
 
-            WriteRecursiveWithType(mono.transform, str);
-            str.AppendLine("}");
+            str.Append(tabSpace + "public partial class ");
+            str.AppendLine(mono.GetType().Name);
+            str.AppendLine(tabSpace + "{");
+
+            WriteRecursiveWithType(mono.transform, str, tabSpace);
+            str.AppendLine(tabSpace + "}");
+            if (!string.IsNullOrEmpty(nameSpace))
+            {
+                str.AppendLine("}");
+            }
+
             var newText = str.ToString();
             File.WriteAllText(fullNewPath, newText);
             isChange = !oldText.Equals(newText);
@@ -97,7 +115,7 @@ namespace YFramework.Editor
             }
         }
 
-        private static void WriteRecursiveWithType(Transform parent, StringBuilder str)
+        private static void WriteRecursiveWithType(Transform parent, StringBuilder str, string tabSpace)
         {
             foreach (Transform child in parent)
             {
@@ -105,12 +123,12 @@ namespace YFramework.Editor
                 {
                     var startWithStr = bingElementType.GetField("Name").GetValue(null).ToString();
                     var tbaseName = bingElementType.GetField("TName").GetValue(null).ToString();
-               
+
                     if (child.name.StartsWith(startWithStr))
                     {
                         var objT = child.gameObject.GetComponent(tbaseName);
                         var tName = objT.GetType().FullName;
-                        str.AppendLine("   public " + tName + " " + child.gameObject.name + ";");
+                        str.AppendLine(tabSpace + "\tpublic " + tName + " " + child.gameObject.name + ";");
                         return true;
                     }
 
@@ -136,7 +154,7 @@ namespace YFramework.Editor
 
                 if (child.childCount > 0)
                 {
-                    WriteRecursiveWithType(child, str);
+                    WriteRecursiveWithType(child, str, tabSpace);
                 }
             }
         }
