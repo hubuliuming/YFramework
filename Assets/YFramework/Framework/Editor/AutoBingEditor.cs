@@ -29,6 +29,11 @@ namespace YFramework.Editor
         {
             var mono = (MonoBehaviour) command.context;
             AutoBing(mono);
+            AssetDatabase.Refresh();
+            if (!isChange)
+            {
+                BingAfterReload();
+            }
         }
 
         private static void AutoBing(MonoBehaviour mono)
@@ -44,7 +49,6 @@ namespace YFramework.Editor
                 var tempGo = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName);
                 AutoBingCacheData cacheData = null;
                 cacheData = tempGo == null ? new GameObject(tempName).AddComponent<AutoBingCacheData>() : tempGo.GetComponent<AutoBingCacheData>();
-
                 cacheData.targetMonos.Add(mono);
                 var text = scriptAsset.text;
                 if (text.IndexOf("partial class " + className) == -1)
@@ -53,6 +57,7 @@ namespace YFramework.Editor
                     var newText = text.Insert(index, "partial ");
                     File.WriteAllText(fullPath, newText);
                     isChange = !text.Equals(newText);
+                    Debug.Log("dd:" + isChange);
                 }
 
                 CreateDesigner(mono, fullPath);
@@ -107,12 +112,7 @@ namespace YFramework.Editor
 
             var newText = str.ToString();
             File.WriteAllText(fullNewPath, newText);
-            isChange = !oldText.Equals(newText);
-            AssetDatabase.Refresh();
-            if (!isChange)
-            {
-                BingAfterReload();
-            }
+            isChange = !oldText.Equals(newText) || isChange;
         }
 
         private static void WriteRecursiveWithType(Transform parent, StringBuilder str, string tabSpace)
