@@ -28,5 +28,10 @@ namespace YFramework.Extension.Math
             if (eulerAngles.z > 180) eulerAngles.z -= 360;
             return eulerAngles;
         }
+
+        public static Vector2 CovertWithoutY(this Vector3 vector)
+        {
+            return new Vector2(vector.x, vector.z);
+        }
     }
 }
