@@ -59,7 +59,6 @@ namespace YFramework.Editor
                     var newText = text.Insert(index, "partial ");
                     File.WriteAllText(fullPath, newText);
                     isChange = !text.Equals(newText);
-                    Debug.Log("dd:" + isChange);
                 }
 
                 CreateDesigner(mono, fullPath);
