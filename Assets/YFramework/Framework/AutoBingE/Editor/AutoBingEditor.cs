@@ -27,6 +27,8 @@ namespace YFramework.Editor
         [MenuItem("CONTEXT/MonoBehaviour/AutoBing")]
         private static void AutoBing(MenuCommand command)
         {
+            if(EditorApplication.isPlaying) return;
+            if(EditorApplication.isPaused) return;
             var mono = (MonoBehaviour) command.context;
             AutoBing(mono);
             AssetDatabase.Refresh();
@@ -123,11 +125,12 @@ namespace YFramework.Editor
                 {
                     var startWithStr = bingElementType.GetField("Name").GetValue(null).ToString();
                     var tbaseName = bingElementType.GetField("TName").GetValue(null).ToString();
-
+                    
                     if (child.name.StartsWith(startWithStr))
                     {
                         var objT = child.gameObject.GetComponent(tbaseName);
-                        var tName = objT.GetType().FullName;
+                        var tName = "";
+                        tName = objT == null ? tbaseName : objT.GetType().FullName;
                         str.AppendLine(tabSpace + "\tpublic " + tName + " " + child.gameObject.name + ";");
                         return true;
                     }
@@ -183,14 +186,21 @@ namespace YFramework.Editor
                 var tran = mono.transform.FindRecursive(fieldInfo.Name);
                 if (tran)
                 {
-                    if (!fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
-                    {
-                        Debug.LogWarning("不是继承mono的组件:" + fieldInfo.Name);
-                        continue;
-                    }
+                    // if (!fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
+                    // {
+                    //     Debug.LogWarning("不是继承mono的组件:" + fieldInfo.Name);
+                    //     continue;
+                    // }
 
                     var type = tran.GetComponent(fieldInfo.FieldType.FullName);
-                    fieldInfo.SetValue(mono, type);
+                    if (type == null)
+                    {
+                        fieldInfo.SetValue(mono, tran.gameObject);
+                    }
+                    else
+                    {
+                        fieldInfo.SetValue(mono, type);
+                    }
                 }
             }
         }

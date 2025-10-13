@@ -5,5 +5,6 @@ namespace CC
 	{
 		public UnityEngine.UI.Toggle Togdd;
 		public UnityEngine.UI.Button BtnHi;
+		public UnityEngine.GameObject Go1;
 	}
 }

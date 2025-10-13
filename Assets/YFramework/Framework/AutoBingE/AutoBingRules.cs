@@ -9,7 +9,6 @@
 
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace YFramework
 {
@@ -17,6 +16,7 @@ namespace YFramework
     {
         internal static List<Type> BingElementTypes = new List<Type>()
         {
+            typeof(Go),
             typeof(Img),
             typeof(Txt),
             typeof(RawImg),
@@ -34,6 +34,12 @@ namespace YFramework
         {
             typeof(YFramework.YMonoBehaviour)
         };
+        
+        private class Go : IAutoBingElement
+        {
+            public static string Name = typeof(Go).Name;
+            public static string TName = typeof(UnityEngine.GameObject).FullName;
+        }
         #region UI
         
         private class Img : IAutoBingElement
