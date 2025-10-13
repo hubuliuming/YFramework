@@ -177,7 +177,7 @@ namespace YFramework.Extension
             List<Transform> activeGos = new List<Transform>();
             for (int i = 0; i < trans.childCount; i++)
             {
-                if (trans.transform.GetChild(i).gameObject.activeSelf)
+                if (trans.transform.GetChild(i).gameObject.activeInHierarchy)
                 {
                     activeGos.Add(trans.GetChild(i));
                 }
