@@ -110,6 +110,25 @@ namespace YFramework.Extension
             euler.z = target;
             trans.localEulerAngles = euler;
         }
+
+        public static void SetScaleX(this Transform trans, float target)
+        {
+            var scale = trans.localScale;
+            scale.x = target;
+            trans.localScale = scale;
+        }
+        public static void SetScaleY(this Transform trans, float target)
+        {
+            var scale = trans.localScale;
+            scale.y = target;
+            trans.localScale = scale;
+        }
+        public static void SetScaleZ(this Transform trans, float target)
+        {
+            var scale = trans.localScale;
+            scale.z = target;
+            trans.localScale = scale;
+        }
         
         public static void AddPosX(this Transform trans, float target)
         {
@@ -154,6 +173,25 @@ namespace YFramework.Extension
         public static void AddLocalPosY(this MonoBehaviour mono, float target) => AddLocalPosY(mono.transform,target);
         public static void AddLocalPosZ(this MonoBehaviour mono, float target) => AddLocalPosZ(mono.transform,target);
 
+        public static void AddScaleX(this Transform trans, float target)
+        {
+            var scale = trans.localScale;
+            scale.x += target;
+            trans.localScale = scale;
+        }
+        public static void AddScaleY(this Transform trans, float target)
+        {
+            var scale = trans.localScale;
+            scale.y += target;
+            trans.localScale = scale;
+        }
+
+        public static void AddScaleZ(this Transform trans, float target)
+        {
+            var scale = trans.localScale;
+            scale.z += target;
+            trans.localScale = scale;
+        }
         public static void Reset(this Transform trans)
         {
             trans.localPosition = Vector3.zero;
@@ -187,7 +225,7 @@ namespace YFramework.Extension
         }
         public static GameObject[] GetActiveGameObjectsInChildren(this GameObject go)
         {
-            var activeTrans =GetActiveGameObjectsInChildren(go.transform);
+            var activeTrans = GetActiveGameObjectsInChildren(go.transform);
             var activeGos = new GameObject[activeTrans.Length];
             for (int i = 0; i < activeTrans.Length; i++)
             {
