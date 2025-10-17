@@ -21,21 +21,9 @@ public partial class Test1 : UIBase
         OnStart();
     }
 
-    private void Update()
-    {
-        
-    }
-
     public override void OnStart()
     {
-        // BtnShow.onClick.AddListener(() =>
-        // {
-        //     UIETest2.Show();
-        // });
-        // BtnHide.onClick.AddListener(() =>
-        // {
-        //     UIETest2.Hide();
-        // });
+        
     }
 
     protected override void OnShow()

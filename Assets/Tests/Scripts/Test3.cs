@@ -23,6 +23,6 @@ public class Test3 : YMonoBehaviour
 
     public override void OnStart()
     {
-        Debug.Log("dd" + transform.childCount);
+        
     }
 }

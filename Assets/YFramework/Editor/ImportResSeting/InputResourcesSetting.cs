@@ -14,20 +14,19 @@ namespace YFramework.Editor
         private static List<string> _curApplyPaths = new List<string>(100);
 
         //private string m_ruloPattern = "^[0-9]+_[0-9]+$";
-        private void OnPreprocessTexture()
-        {
-            Debug.Log("cout:" + _curApplyPaths.Count);
-            if (_curApplyPaths.Contains(assetPath)) return;
-            TextureImporter importer = assetImporter as TextureImporter;
-            if(importer.textureType != TextureImporterType.Default) return;
-            importer.textureType = TextureImporterType.Sprite;
-            importer.mipmapEnabled = false;
-            importer.alphaIsTransparency = true;
-            _curApplyPaths.Add(assetPath);
-            
-            //NamingConvention("UI",m_ruloPattern);
-            //NamingConvention("Test",m_ruloPattern);
-        }
+        // private void OnPreprocessTexture()
+        // {
+        //     if (_curApplyPaths.Contains(assetPath)) return;
+        //     TextureImporter importer = assetImporter as TextureImporter;
+        //     if(importer.textureType != TextureImporterType.Default) return;
+        //     importer.textureType = TextureImporterType.Sprite;
+        //     importer.mipmapEnabled = false;
+        //     importer.alphaIsTransparency = true;
+        //     _curApplyPaths.Add(assetPath);
+        //     
+        //     //NamingConvention("UI",m_ruloPattern);
+        //     //NamingConvention("Test",m_ruloPattern);
+        // }
         
         private void NamingConvention(string path,string rulePattern)
         {
