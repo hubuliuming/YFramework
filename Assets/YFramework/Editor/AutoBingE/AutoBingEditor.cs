@@ -185,12 +185,6 @@ namespace YFramework.Editor
                 var tran = mono.transform.FindRecursive(fieldInfo.Name);
                 if (tran)
                 {
-                    // if (!fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
-                    // {
-                    //     Debug.LogWarning("不是继承mono的组件:" + fieldInfo.Name);
-                    //     continue;
-                    // }
-
                     var type = tran.GetComponent(fieldInfo.FieldType.FullName);
                     if (type == null)
                     {

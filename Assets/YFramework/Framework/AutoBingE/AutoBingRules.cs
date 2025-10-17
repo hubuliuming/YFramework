@@ -12,9 +12,9 @@ using System.Collections.Generic;
 
 namespace YFramework
 {
-    internal class AutoBingRules
+    public class AutoBingRules
     {
-        internal static List<Type> BingElementTypes = new List<Type>()
+        public static List<Type> BingElementTypes = new List<Type>()
         {
             typeof(Go),
             typeof(Img),
@@ -30,7 +30,7 @@ namespace YFramework
             typeof(UIE)
         };
 
-        internal static List<Type> FiltrationElementTypes = new List<Type>()
+        public static List<Type> FiltrationElementTypes = new List<Type>()
         {
             typeof(YFramework.YMonoBehaviour)
         };

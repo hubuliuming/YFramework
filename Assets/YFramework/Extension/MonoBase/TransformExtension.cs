@@ -130,6 +130,10 @@ namespace YFramework.Extension
             trans.localScale = scale;
         }
         
+        public static void SetScaleX(this MonoBehaviour mono, float target) => SetScaleX(mono.transform, target);
+        public static void SetScaleY(this MonoBehaviour mono, float target) => SetScaleY(mono.transform, target);
+        public static void SetScaleZ(this MonoBehaviour mono, float target) => SetScaleZ(mono.transform, target);
+        
         public static void AddPosX(this Transform trans, float target)
         {
             var pos = trans.position;
