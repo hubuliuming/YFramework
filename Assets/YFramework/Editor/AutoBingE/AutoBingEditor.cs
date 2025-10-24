@@ -16,6 +16,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using YFramework.Extension;
+using YFramework.Kit;
 
 namespace YFramework.Editor
 {
@@ -73,15 +74,21 @@ namespace YFramework.Editor
         {
             var directory = Path.GetDirectoryName(fullPath);
             string newFileName = $"{mono.GetType().Name}.Designer.cs";
-            string fullNewPath = Path.Combine(directory, newFileName);
-            CreateDesignerText(mono, fullNewPath);
+            if (directory != null)
+            {
+                string fullNewPath = Path.Combine(directory, newFileName);
+                CreateDesignerText(mono, fullNewPath);
+            }
+            else
+            {
+                Debug.LogWarning("未能找到对应的脚本资源文件。path:" + fullPath);
+            }
         }
 
         private static void CreateDesignerText(MonoBehaviour mono, string fullNewPath)
         {
             string oldText = "";
             string tabSpace = "\t";
-            int tabNum = 0;
             if (File.Exists(fullNewPath))
             {
                 oldText = File.ReadAllText(fullNewPath);
@@ -120,40 +127,38 @@ namespace YFramework.Editor
         {
             foreach (Transform child in parent)
             {
-                var eType = AutoBingRules.BingElementTypes.Find(bingElementType =>
+                Type filter = null;
+                foreach (var bingElementType in AutoBingRules.BingElementTypes)
                 {
                     var startWithStr = bingElementType.GetField("Name").GetValue(null).ToString();
-                    var tbaseName = bingElementType.GetField("TName").GetValue(null).ToString();
-                    
+                    var t = bingElementType.GetField("TName").GetValue(null).ToString();
+                
                     if (child.name.StartsWith(startWithStr))
                     {
-                        var objT = child.gameObject.GetComponent(tbaseName);
+                        var target = TypeResolverForUnity.ResolveType(t, true, "YFramework");
+                        if (target != null)
+                        {
+                            filter = AutoBingRules.FiltrationElementTypes.Find(f => target.IsSubclassOf(f));
+                        }
+
+                        if (filter != null)
+                        {
+                            var mono = child.GetComponent(filter) as MonoBehaviour;
+                            MonoScript.FromMonoBehaviour(mono);
+                            AutoBing(mono);
+                        }
+                        var objT = child.gameObject.GetComponent(t);
                         var tName = "";
-                        tName = objT == null ? tbaseName : objT.GetType().FullName;
+                        tName = objT == null ? t : objT.GetType().FullName;
                         str.AppendLine(tabSpace + "\tpublic " + tName + " " + child.gameObject.name + ";");
-                        return true;
-                    }
-
-                    return false;
-                });
-
-                if (eType != null)
-                {
-                    var type = Type.GetType(eType.GetField("TName").GetValue(null).ToString());
-                    var t = AutoBingRules.FiltrationElementTypes.Find(x =>
-                    {
-                        if (type == null) return false;
-                        return type.IsSubclassOf(x);
-                    });
-                    if (t != null)
-                    {
-                        var mono = child.GetComponent(type) as MonoBehaviour;
-                        MonoScript.FromMonoBehaviour(mono);
-                        AutoBing(mono);
-                        continue;
+                        break;
                     }
                 }
 
+                if (filter != null)
+                {
+                    continue;
+                }
                 if (child.childCount > 0)
                 {
                     WriteRecursiveWithType(child, str, tabSpace);
@@ -183,17 +188,21 @@ namespace YFramework.Editor
             foreach (var fieldInfo in fieldInfos)
             {
                 var tran = mono.transform.FindRecursive(fieldInfo.Name);
-                if (tran)
+                if (fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
                 {
                     var type = tran.GetComponent(fieldInfo.FieldType.FullName);
                     if (type == null)
                     {
-                        fieldInfo.SetValue(mono, tran.gameObject);
+                        Debug.LogError($"this element {fieldInfo.Name} is not subclass of {fieldInfo.FieldType.FullName}");
                     }
                     else
                     {
                         fieldInfo.SetValue(mono, type);
                     }
+                }
+                else
+                {
+                    fieldInfo.SetValue(mono, tran.gameObject);
                 }
             }
         }

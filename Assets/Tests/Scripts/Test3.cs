@@ -10,7 +10,7 @@ using System;
 using UnityEngine;
 using YFramework;
 
-public class Test3 : YMonoBehaviour 
+public partial class Test3 : YMonoBehaviour 
 {
     #region 成员变量
 
