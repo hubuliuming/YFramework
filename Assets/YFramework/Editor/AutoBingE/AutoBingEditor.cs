@@ -23,7 +23,7 @@ namespace YFramework.Editor
     internal static class AutoBingEditor
     {
         private static readonly string tempName = "YFrameworkAutoBingTemp";
-        private static bool isChange;
+        private static bool isScriptsChange;
 
         [MenuItem("CONTEXT/MonoBehaviour/AutoBing")]
         private static void AutoBing(MenuCommand command)
@@ -31,9 +31,12 @@ namespace YFramework.Editor
             if(EditorApplication.isPlaying) return;
             if(EditorApplication.isPaused) return;
             var mono = (MonoBehaviour) command.context;
+            var tempGo = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName);
+            AutoBingCacheData cacheData = null;
+            cacheData = tempGo == null ? new GameObject(tempName).AddComponent<AutoBingCacheData>() : tempGo.GetComponent<AutoBingCacheData>();
             AutoBing(mono);
             AssetDatabase.Refresh();
-            if (!isChange)
+            if (!isScriptsChange)
             {
                 BingAfterReload();
             }
@@ -41,17 +44,23 @@ namespace YFramework.Editor
 
         private static void AutoBing(MonoBehaviour mono)
         {
+            var cacheData = GetCacheData();
+            foreach (var targetMono in cacheData.targetMonos)
+            {
+                if (targetMono.GetType() == mono.GetType())
+                {
+                    Debug.LogWarning($"GameObject:{targetMono.name} already bing type {mono.GetType().FullName},The GameObject:{mono.name} can not bingElement!");
+                    return;
+                }
+            }
             MonoScript scriptAsset = MonoScript.FromMonoBehaviour(mono);
             if (scriptAsset != null)
-            {
+            {  
                 string scriptAssetPath = AssetDatabase.GetAssetPath(scriptAsset);
                 var className = scriptAsset.name;
                 string fullPath = Path.GetFullPath(scriptAssetPath);
                 if (fullPath.Contains("Library")) return;
                 if (!fullPath.Contains("Assets")) return;
-                var tempGo = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName);
-                AutoBingCacheData cacheData = null;
-                cacheData = tempGo == null ? new GameObject(tempName).AddComponent<AutoBingCacheData>() : tempGo.GetComponent<AutoBingCacheData>();
                 cacheData.targetMonos.Add(mono);
                 var text = scriptAsset.text;
                 if (text.IndexOf("partial class " + className) == -1)
@@ -59,9 +68,9 @@ namespace YFramework.Editor
                     var index = text.IndexOf("class");
                     var newText = text.Insert(index, "partial ");
                     File.WriteAllText(fullPath, newText);
-                    isChange = !text.Equals(newText);
+                    isScriptsChange = !text.Equals(newText);
                 }
-
+                
                 CreateDesigner(mono, fullPath);
             }
             else
@@ -120,13 +129,20 @@ namespace YFramework.Editor
 
             var newText = str.ToString();
             File.WriteAllText(fullNewPath, newText);
-            isChange = !oldText.Equals(newText) || isChange;
+            isScriptsChange = !oldText.Equals(newText) || isScriptsChange;
         }
 
         private static void WriteRecursiveWithType(Transform parent, StringBuilder str, string tabSpace)
         {
             foreach (Transform child in parent)
             {
+                var yMono = child.GetComponent<YFramework.YMonoBehaviour>();
+                if (yMono)
+                { 
+                    AutoBing(yMono);
+                    str.AppendLine(tabSpace + "\tpublic " + yMono.GetType().FullName + " " + child.gameObject.name + ";");
+                    continue;
+                }
                 Type filter = null;
                 foreach (var bingElementType in AutoBingRules.BingElementTypes)
                 {
@@ -144,7 +160,6 @@ namespace YFramework.Editor
                         if (filter != null)
                         {
                             var mono = child.GetComponent(filter) as MonoBehaviour;
-                            MonoScript.FromMonoBehaviour(mono);
                             AutoBing(mono);
                         }
                         var objT = child.gameObject.GetComponent(t);
@@ -169,16 +184,15 @@ namespace YFramework.Editor
         [UnityEditor.Callbacks.DidReloadScripts]
         private static void BingAfterReload()
         {
-            var cache = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName)?.GetComponent<AutoBingCacheData>();
+            var cache = GetCacheData();
             if (cache != null)
             {
                 foreach (var mono in cache.targetMonos)
                 {
                     BingElements(mono);
                 }
-
-                UnityEngine.Object.DestroyImmediate(cache.gameObject);
             }
+            ClearCacheData();
         }
 
         private static void BingElements(MonoBehaviour mono)
@@ -190,14 +204,22 @@ namespace YFramework.Editor
                 var tran = mono.transform.FindRecursive(fieldInfo.Name);
                 if (fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
                 {
-                    var type = tran.GetComponent(fieldInfo.FieldType.FullName);
-                    if (type == null)
+                    if (tran !=null)
                     {
-                        Debug.LogError($"this element {fieldInfo.Name} is not subclass of {fieldInfo.FieldType.FullName}");
+                        var type = tran.GetComponent(fieldInfo.FieldType.FullName);
+                        if (type == null)
+                        {
+                            Debug.LogError($"this element {fieldInfo.Name} is not subclass of {fieldInfo.FieldType.FullName}");
+                        }
+                        else
+                        {
+                            fieldInfo.SetValue(mono, type);
+                        }
                     }
                     else
                     {
-                        fieldInfo.SetValue(mono, type);
+                        Debug.LogWarning($"this scripts {mono.name} has no bing element {fieldInfo.Name}");
+                        continue;
                     }
                 }
                 else
@@ -207,9 +229,21 @@ namespace YFramework.Editor
             }
         }
 
+        private static AutoBingCacheData GetCacheData()
+        {
+            return SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName)?.GetComponent<AutoBingCacheData>();
+        }
+
+        private static void ClearCacheData()
+        {
+            var cache = GetCacheData();
+            if(cache) 
+                UnityEngine.Object.DestroyImmediate(cache.gameObject);
+        }
+
         private class AutoBingCacheData : MonoBehaviour
         {
             public List<MonoBehaviour> targetMonos = new List<MonoBehaviour>();
-        }
+       }
     }
 }

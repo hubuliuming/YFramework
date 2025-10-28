@@ -267,6 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae246178f466844e888f6e06ec22122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Togdddd: {fileID: 457070481}
+  BtnHidd: {fileID: 758920714}
+  Go1: {fileID: 1741977485}
 --- !u!1 &280664714
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 1201750625178486227, guid: c44ea0e01161d7c48808d6126e1c50eb, type: 3}
       propertyPath: m_Name
       value: Test1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165444721274837144, guid: c44ea0e01161d7c48808d6126e1c50eb, type: 3}
+      propertyPath: GoHello
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6260092260889157437, guid: c44ea0e01161d7c48808d6126e1c50eb, type: 3}
       propertyPath: m_Pivot.x
@@ -1119,6 +1126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae246178f466844e888f6e06ec22122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Togdddd: {fileID: 0}
+  BtnHidd: {fileID: 0}
+  Go1: {fileID: 0}
 --- !u!114 &56356529921577452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,9 +1586,8 @@ MonoBehaviour:
   BtnShow: {fileID: 378803577435441528}
   TxtShow: {fileID: 6693801951901834621}
   BtnHide: {fileID: 2175856615855769087}
-  UIETest2: {fileID: 7691515801934840448}
-  GoHello: {fileID: 3987231017315016440}
-  ImgHello: {fileID: 964092297152863215}
+  Test2: {fileID: 7691515801934840448}
+  GoHello: {fileID: 5796030662584592194}
 --- !u!1 &3600624376090515565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,6 +1653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5796030662584592193}
+  - component: {fileID: 5796030662584592194}
   m_Layer: 5
   m_Name: GoHello
   m_TagString: Untagged
@@ -1855,6 +1865,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5796030662584592194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3987231017315016440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ef8c7842aadee41881b0e5a48e6217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Togdd: {fileID: 0}
+  Test3: {fileID: 0}
+  BtnHi: {fileID: 0}
 --- !u!224 &5949322317199164133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2078,7 +2103,7 @@ GameObject:
   - component: {fileID: 5753680656457509891}
   - component: {fileID: 7691515801934840448}
   m_Layer: 5
-  m_Name: UIETest2
+  m_Name: Test2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2167,9 +2192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Togdd: {fileID: 1923520171540869808}
-  Togdddd: {fileID: 457070481}
-  BtnHidd: {fileID: 758920714}
-  Go1: {fileID: 1741977483}
+  Test3: {fileID: 238091173}
   BtnHi: {fileID: 6372988691546077558}
 --- !u!114 &7695672606467566376
 MonoBehaviour:

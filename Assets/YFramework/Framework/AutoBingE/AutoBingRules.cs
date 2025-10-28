@@ -27,7 +27,6 @@ namespace YFramework
             typeof(Drod),
             typeof(Ipf),
             typeof(Cvas),
-            typeof(UIE)
         };
 
         public static List<Type> FiltrationElementTypes = new List<Type>()
@@ -104,18 +103,7 @@ namespace YFramework
         #endregion
 
         #region Custom
-
-        #region UI
-
-        private class UIE : IAutoBingElement
-        {
-            public static string Name =  typeof(UIE).Name;
-            public static string TName = typeof(YFramework.UI.UIBase).FullName;
-        }
-
-        #endregion
         
-
         #endregion
     }
     
