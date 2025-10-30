@@ -227,6 +227,7 @@ namespace YFramework.Editor
                     fieldInfo.SetValue(mono, tran.gameObject);
                 }
             }
+            EditorUtility.SetDirty(mono);
         }
 
         private static AutoBingCacheData GetCacheData()
