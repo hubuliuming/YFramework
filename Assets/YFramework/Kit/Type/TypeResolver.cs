@@ -74,9 +74,7 @@ namespace YFramework.Kit
             var priorityAssemblies = assemblies.Where(asm =>
                 priorityAssemblie.Contains(asm.GetName().Name) ||
                 asm.FullName.StartsWith("Assembly-CSharp") ||
-                asm.FullName.StartsWith("Unity") ||
-                asm.FullName.StartsWith("System.") ||
-                asm.FullName.StartsWith("mscorlib")).ToArray();
+                asm.FullName.StartsWith("Unity")).ToArray();
 
             // 先在高优先级程序集中查找
             foreach (Assembly assembly in priorityAssemblies)
