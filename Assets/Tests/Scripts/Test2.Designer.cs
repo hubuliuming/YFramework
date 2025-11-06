@@ -7,6 +7,6 @@ namespace CC
 		public UnityEngine.UI.Toggle Togdddd;
 		public UnityEngine.UI.Button BtnHidd;
 		public UnityEngine.GameObject Go;
-		public UnityEngine.UI.Button BtnHi;
+		public UnityEngine.UI.Button[] BtnHis;
 	}
 }

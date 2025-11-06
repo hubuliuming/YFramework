@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YFramework.Collections;
 using YFramework.Extension;
 using YFramework.Kit;
 
@@ -32,10 +33,12 @@ namespace YFramework.Editor
             if(EditorApplication.isPlaying) return;
             if(EditorApplication.isPaused) return;
             var mono = (MonoBehaviour) command.context;
-            var tempGo = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName);
             AutoBindCacheData cacheData = null;
-            cacheData = tempGo == null ? new GameObject(tempName).AddComponent<AutoBindCacheData>() : tempGo.GetComponent<AutoBindCacheData>();
-            
+            cacheData = GetCacheData();
+            if (cacheData == null)
+            {
+                cacheData = new GameObject(tempName).AddComponent<AutoBindCacheData>();
+            }
             AutoBind(cacheData,new MonoLocalData(mono));
             AssetDatabase.Refresh();
             if (!isScriptsChange)
@@ -104,36 +107,36 @@ namespace YFramework.Editor
                 oldText = File.ReadAllText(fullNewPath);
             }
 
-            StringBuilder str = new StringBuilder();
-            str.AppendLine();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine();
             var nameSpace = localData.mono.GetType().Namespace;
             if (!string.IsNullOrEmpty(nameSpace))
             {
-                str.AppendLine("namespace " + nameSpace);
-                str.AppendLine("{");
+                sb.AppendLine("namespace " + nameSpace);
+                sb.AppendLine("{");
             }
             else
             {
                 tabSpace = "";
             }
 
-            str.Append(tabSpace + "public partial class ");
-            str.AppendLine(localData.mono.GetType().Name);
-            str.AppendLine(tabSpace + "{");
+            sb.Append(tabSpace + "public partial class ");
+            sb.AppendLine(localData.mono.GetType().Name);
+            sb.AppendLine(tabSpace + "{");
 
-            WriteRecursiveWithType(cacheData,localData, localData.mono.transform, str, tabSpace);
-            str.AppendLine(tabSpace + "}");
+            WriteRecursiveWithType(cacheData,localData, localData.mono.transform, sb, tabSpace);
+            sb.AppendLine(tabSpace + "}");
             if (!string.IsNullOrEmpty(nameSpace))
             {
-                str.AppendLine("}");
+                sb.AppendLine("}");
             }
 
-            var newText = str.ToString();
+            var newText = sb.ToString();
             File.WriteAllText(fullNewPath, newText);
             isScriptsChange = !oldText.Equals(newText) || isScriptsChange;
         }
 
-        private static void WriteRecursiveWithType(AutoBindCacheData cacheData,MonoLocalData localData,Transform curTrans,StringBuilder str, string tabSpace)
+        private static void WriteRecursiveWithType(AutoBindCacheData cacheData,MonoLocalData localData,Transform curTrans,StringBuilder sb, string tabSpace)
         {
             foreach (Transform child in curTrans)
             {
@@ -141,22 +144,10 @@ namespace YFramework.Editor
                 if (yMono)
                 {
                     var t = yMono.GetType();
-                    var memberName = GetProcessMemberName(child.gameObject.name);
-                    var arrayStr = GetProcessArrayMember(localData, t,memberName,child.gameObject.name);
-                    //var memberSb = str.AppendLine(tabSpace + "\tpublic " + t.FullName + " " + memberName + ";");
-                    if (string.IsNullOrEmpty(arrayStr))
-                    {
-                        str.AppendLine(tabSpace + "\tpublic " + t.FullName + " " + memberName + ";");
-                        localData.memberNewName2Origin.Add(memberName, child.gameObject.name);
-                    }
-                    else
-                    {
-                        if (localData.memberType2ArrayOrigin[t].Count == 1)
-                        {
-                            str.AppendLine(tabSpace + "\tpublic " + t.FullName + arrayStr + " " + memberName + "s;");
-                        }
-                    }
-                    localData.type2MemberName.Add(new KeyValuePair<Type, string>(t, memberName));
+                    var memberName = GetProcessMemberName(child.gameObject.name,false);
+                    localData.type2MemberName.Add(t.FullName, memberName);
+                    var arrayStr = ProcessArrayMember(localData, t,memberName,child.gameObject.name);
+                    ProcessWriteMember(localData, sb, child.gameObject.name, memberName, arrayStr, t, tabSpace);
                     AutoBind(cacheData,new MonoLocalData(yMono));
                     continue;
                 }
@@ -172,20 +163,9 @@ namespace YFramework.Editor
                         var memberName = GetProcessMemberName(child.gameObject.name);
                         if (!string.IsNullOrEmpty(memberName))
                         {
-                            var arrayStr = GetProcessArrayMember(localData, targetType, memberName,child.gameObject.name);
-                            if (string.IsNullOrEmpty(arrayStr))
-                            {
-                                str.AppendLine(tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";");
-                                localData.memberNewName2Origin.Add(memberName, child.gameObject.name);
-                            }
-                            else
-                            {
-                                if (localData.memberType2ArrayOrigin[targetType].Count == 1)
-                                {
-                                    str.AppendLine(tabSpace + "\tpublic " + targetType.FullName + arrayStr + " " + memberName + "s;");
-                                }
-                            }
-                            localData.type2MemberName.Add(new KeyValuePair<Type, string>(targetType, memberName));
+                            localData.type2MemberName.Add(targetType.FullName, memberName);
+                            var arrayStr = ProcessArrayMember(localData, targetType, memberName,child.gameObject.name);
+                            ProcessWriteMember(localData,sb, child.gameObject.name, memberName, arrayStr, targetType, tabSpace);
                         }
                         else
                         {
@@ -211,7 +191,7 @@ namespace YFramework.Editor
                 }
                 if (child.childCount > 0)
                 {
-                    WriteRecursiveWithType(cacheData,localData,child,str, tabSpace);
+                    WriteRecursiveWithType(cacheData,localData,child,sb, tabSpace);
                 }
             }
         }
@@ -238,9 +218,10 @@ namespace YFramework.Editor
             {
                 try
                 {
+                    var objName = localData.memberNewName2ObjName[fieldInfo.Name];
                     if (fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
                     {
-                        var tran = localData.mono.transform.FindRecursive(localData.memberNewName2Origin[fieldInfo.Name]);
+                        var tran = localData.mono.transform.FindRecursive(objName);
                         if (tran !=null)
                         {
                             var type = tran.GetComponent(fieldInfo.FieldType.FullName);
@@ -264,9 +245,11 @@ namespace YFramework.Editor
                         var arrayType = fieldInfo.FieldType.GetElementType();
                         if (arrayType != null)
                         {
-                            var originNames = localData.memberType2ArrayOrigin[arrayType];
-                            foreach (var originName in originNames)
+                            var originNames = localData.memberType2ArrayObjName[arrayType.FullName];
+                            Array array = Array.CreateInstance(arrayType, originNames.Count);
+                            for (int i = 0; i < originNames.Count; i++)
                             {
+                                var originName = originNames[i];
                                 var tran = localData.mono.transform.FindRecursive(originName);
                                 if (tran !=null)
                                 {
@@ -277,7 +260,7 @@ namespace YFramework.Editor
                                     }
                                     else
                                     {
-                                        fieldInfo.SetValue(localData.mono, type);
+                                        array.SetValue(type, i);
                                     }
                                 }
                                 else
@@ -285,18 +268,20 @@ namespace YFramework.Editor
                                     Debug.LogWarning($"this scripts {localData.mono.name} has no bind element {fieldInfo.Name}");
                                     continue;
                                 }
+                               
                             }
+                            fieldInfo.SetValue(localData.mono, array);
                         }
                     }
                     else
                     {
-                        var tran = localData.mono.transform.FindRecursive(localData.memberNewName2Origin[fieldInfo.Name]);
+                        var tran = localData.mono.transform.FindRecursive(objName);
                         fieldInfo.SetValue(localData.mono, tran.gameObject);
                     }
                 }
                 catch (Exception e)
                 {
-                    Debug.LogError("fail:"+fieldInfo.FieldType);
+                    Debug.LogError("fail:"+fieldInfo.FieldType +" Exception:" + e);
                     throw;
                 }
                
@@ -306,10 +291,11 @@ namespace YFramework.Editor
         
         private static AutoBindCacheData GetCacheData()
         {
-            return SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.name == tempName)?.GetComponent<AutoBindCacheData>();
+            var go = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(o => o.name == tempName);
+            return go ? go.GetComponent<AutoBindCacheData>() : null;
         }
 
-        private static string GetProcessMemberName(string origin)
+        private static string GetProcessMemberName(string origin,bool removeLastNum = true)
         {
             if (string.IsNullOrEmpty(origin))
                 return string.Empty;
@@ -330,39 +316,67 @@ namespace YFramework.Editor
                 var str = cleaned.Remove(0, 1);
                 cleaned = str + num;
             }
-            
-            if (char.IsDigit(cleaned[cleaned.Length - 1]))
+
+            if (removeLastNum)
             {
-                cleaned = cleaned.Remove(cleaned.Length - 1);
+                if (char.IsDigit(cleaned[^1]))
+                {
+                    cleaned = cleaned.Remove(cleaned.Length - 1);
+                }
             }
-    
             return cleaned;
         }
 
-        private static string GetProcessArrayMember(MonoLocalData localData,Type t,string memberName,string objName)
+        private static string ProcessArrayMember(MonoLocalData localData,Type t,string memberName,string objName)
         {
             string arrayStr = "";
-
+            List<string> targetValues = new List<string>();
             foreach (var key in localData.type2MemberName)
             {
-                if (key.Key == t)
+                if (key.Key == t.FullName)
                 {
                     if (key.Value.Equals(memberName))
                     {
-                        arrayStr = "[]";
-                        if (localData.memberType2ArrayOrigin.ContainsKey(t))
-                        {
-                            localData.memberType2ArrayOrigin[t].Add(objName);
-                        }
-                        else
-                        {
-                            localData.memberType2ArrayOrigin.Add(t,new List<string>{objName});
-                        }
+                        targetValues.Add(key.Value);
                     }
                 }
             }
+
+            if (targetValues.Count > 1)
+            {
+                arrayStr = "[]";
+                if (localData.memberType2ArrayObjName.ContainsKey(t.FullName))
+                {
+                    localData.memberType2ArrayObjName[t.FullName].Add(objName);
+                }
+                else
+                {
+                    localData.memberType2ArrayObjName.Add(t.FullName,new SerializableList<string>() {targetValues[0]});
+                    localData.memberType2ArrayObjName[t.FullName].Add(objName);
+                }
+            }
+            
+            targetValues.Clear();
             return arrayStr;
         }
+        private static void ProcessWriteMember(MonoLocalData localData, StringBuilder sb, string objName, string memberName, string arrayStr, Type targetType, string tabSpace)
+        {
+            if (string.IsNullOrEmpty(arrayStr))
+            {
+                sb.AppendLine(tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";");
+                localData.memberNewName2ObjName.Add(memberName, objName);
+            }
+            else
+            {
+                if (localData.memberType2ArrayObjName[targetType.FullName].Count > 0)
+                {
+                    var oldMember = tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";";
+                    var newArrayMember = tabSpace + "\tpublic " + targetType.FullName + arrayStr + " " + memberName + "s;";
+                    sb.Replace(oldMember, newArrayMember);
+                }
+            }
+        }
+        
         
         private static void ClearCacheData()
         {
@@ -373,7 +387,7 @@ namespace YFramework.Editor
             }
         }
 
-        private class AutoBindCacheData : MonoBehaviour
+        public class AutoBindCacheData : MonoBehaviour
         {
             public List<MonoLocalData> targetMonos = new List<MonoLocalData>();
 
@@ -382,20 +396,26 @@ namespace YFramework.Editor
                 targetMonos.Clear();
             }
         }
-        
-        private class MonoLocalData
+
+        [Serializable]
+        public class MonoLocalData
         {
             public MonoBehaviour mono;
-            public Dictionary<string, string> memberNewName2Origin;
-            public Dictionary<Type, List<string>> memberType2ArrayOrigin;
-            public List<KeyValuePair<Type,string>> type2MemberName;
+            public SerializableKeyValue<string,string> memberNewName2ObjName;
+            public SerializableKeyValue<string, SerializableList<string>> memberType2ArrayObjName;
+            public SerializableKeyValue<string,string> type2MemberName;
 
             public MonoLocalData(MonoBehaviour mono)
             {
                 this.mono = mono;
-                memberNewName2Origin = new Dictionary<string, string>();
-                memberType2ArrayOrigin = new Dictionary<Type, List<string>>();
-                type2MemberName = new List<KeyValuePair<Type, string>>();
+                memberNewName2ObjName = new SerializableKeyValue<string, string>();
+                memberType2ArrayObjName = new SerializableKeyValue<string, SerializableList<string>>();
+                type2MemberName = new SerializableKeyValue<string, string>();
+            }
+
+            public override string ToString()
+            {
+                return $"mono:{mono.name} memberNewName2ObjName:{memberNewName2ObjName.Count} memberType2ArrayObjName:{memberType2ArrayObjName.Count} type2MemberName:{type2MemberName.Count}";
             }
         }
     }
