@@ -119,7 +119,6 @@ namespace YFramework.Editor
             {
                 tabSpace = "";
             }
-
             sb.Append(tabSpace + "public partial class ");
             sb.AppendLine(localData.mono.GetType().Name);
             sb.AppendLine(tabSpace + "{");
@@ -214,7 +213,8 @@ namespace YFramework.Editor
         {
             var t = localData.mono.GetType();
             var fieldInfos = t.GetFields(BindingFlags.Public | BindingFlags.Instance);
-            foreach (var fieldInfo in fieldInfos)
+            var newFieldInfos = fieldInfos.Where(f => f.IsDefined(typeof(AutoBindFieldAttribute), false));
+            foreach (var fieldInfo in newFieldInfos)
             {
                 try
                 {
@@ -232,6 +232,7 @@ namespace YFramework.Editor
                             else
                             {
                                 fieldInfo.SetValue(localData.mono, type);
+                                localData.processedTrans.Add(tran);
                             }
                         }
                         else
@@ -250,10 +251,23 @@ namespace YFramework.Editor
                             for (int i = 0; i < originNames.Count; i++)
                             {
                                 var originName = originNames[i];
-                                var tran = localData.mono.transform.FindRecursive(originName);
-                                if (tran !=null)
+                                var trans = localData.mono.transform.FindsRecursive(originName);
+                                if (trans.Count > 0)
                                 {
+                                    var tran = trans[0];
+                                    if (trans.Count > 1)
+                                    {
+                                        foreach (var tran1 in trans)
+                                        {
+                                            if (!localData.processedTrans.Contains(tran1))
+                                            {
+                                                tran = tran1;
+                                                break;
+                                            }
+                                        }
+                                    }
                                     var type = tran.GetComponent(arrayType.FullName);
+                                   
                                     if (type == null)
                                     {
                                         Debug.LogError($"this element {fieldInfo.Name} is not subclass of {arrayType.FullName}");
@@ -261,6 +275,7 @@ namespace YFramework.Editor
                                     else
                                     {
                                         array.SetValue(type, i);
+                                        localData.processedTrans.Add(tran);
                                     }
                                 }
                                 else
@@ -277,6 +292,7 @@ namespace YFramework.Editor
                     {
                         var tran = localData.mono.transform.FindRecursive(objName);
                         fieldInfo.SetValue(localData.mono, tran.gameObject);
+                        localData.processedTrans.Add(tran);
                     }
                 }
                 catch (Exception e)
@@ -300,31 +316,31 @@ namespace YFramework.Editor
             if (string.IsNullOrEmpty(origin))
                 return string.Empty;
     
-            string cleaned = Regex.Replace(origin, @"[^a-zA-Z0-9_]", "");
+            string memberName = Regex.Replace(origin, @"[^a-zA-Z0-9_]", "");
     
-            if (string.IsNullOrEmpty(cleaned))
+            if (string.IsNullOrEmpty(memberName))
                 return string.Empty;
     
-            cleaned = cleaned.TrimEnd('_');
+            memberName = memberName.TrimEnd('_');
     
-            if (string.IsNullOrEmpty(cleaned))
+            if (string.IsNullOrEmpty(memberName))
                 return string.Empty;
     
-            if (char.IsDigit(cleaned[0]))
+            if (char.IsDigit(memberName[0]))
             {
-                var num = cleaned[0];
-                var str = cleaned.Remove(0, 1);
-                cleaned = str + num;
+                var num = memberName[0];
+                var str = memberName.Remove(0, 1);
+                memberName = str + num;
             }
 
             if (removeLastNum)
             {
-                if (char.IsDigit(cleaned[^1]))
+                if (char.IsDigit(memberName[^1]))
                 {
-                    cleaned = cleaned.Remove(cleaned.Length - 1);
+                    memberName = memberName.Remove(memberName.Length - 1);
                 }
             }
-            return cleaned;
+            return memberName;
         }
 
         private static string ProcessArrayMember(MonoLocalData localData,Type t,string memberName,string objName)
@@ -363,6 +379,7 @@ namespace YFramework.Editor
         {
             if (string.IsNullOrEmpty(arrayStr))
             {
+                sb.AppendLine(tabSpace + "\t[YFramework.AutoBindField]");
                 sb.AppendLine(tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";");
                 localData.memberNewName2ObjName.Add(memberName, objName);
             }
@@ -371,7 +388,8 @@ namespace YFramework.Editor
                 if (localData.memberType2ArrayObjName[targetType.FullName].Count > 0)
                 {
                     var oldMember = tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";";
-                    var newArrayMember = tabSpace + "\tpublic " + targetType.FullName + arrayStr + " " + memberName + "s;";
+                    memberName += "s";
+                    var newArrayMember = tabSpace + "\tpublic " + targetType.FullName + arrayStr + " " + memberName+";";
                     sb.Replace(oldMember, newArrayMember);
                 }
             }
@@ -387,7 +405,7 @@ namespace YFramework.Editor
             }
         }
 
-        public class AutoBindCacheData : MonoBehaviour
+        private class AutoBindCacheData : MonoBehaviour
         {
             public List<MonoLocalData> targetMonos = new List<MonoLocalData>();
 
@@ -398,12 +416,13 @@ namespace YFramework.Editor
         }
 
         [Serializable]
-        public class MonoLocalData
+        private class MonoLocalData
         {
             public MonoBehaviour mono;
             public SerializableKeyValue<string,string> memberNewName2ObjName;
             public SerializableKeyValue<string, SerializableList<string>> memberType2ArrayObjName;
             public SerializableKeyValue<string,string> type2MemberName;
+            public List<Transform> processedTrans;
 
             public MonoLocalData(MonoBehaviour mono)
             {
@@ -411,6 +430,7 @@ namespace YFramework.Editor
                 memberNewName2ObjName = new SerializableKeyValue<string, string>();
                 memberType2ArrayObjName = new SerializableKeyValue<string, SerializableList<string>>();
                 type2MemberName = new SerializableKeyValue<string, string>();
+                processedTrans = new List<Transform>();
             }
 
             public override string ToString()

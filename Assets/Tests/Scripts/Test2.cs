@@ -14,7 +14,7 @@ namespace CC
     public partial class Test2 : UIBase 
     {
         #region 成员变量
-
+        public GameObject dd;
         #endregion
 
         public override void OnStart()

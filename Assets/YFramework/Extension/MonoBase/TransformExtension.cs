@@ -287,6 +287,21 @@ namespace YFramework.Extension
             return child;
         }
         
+        public static List<Transform> FindsRecursive(this Transform parent, string goName)
+        {
+            List<Transform> childs = new List<Transform>();
+            foreach (Transform c in parent)
+            {
+                if (c.name.Equals(goName))
+                {
+                    childs.Add(c);
+                }
+
+                childs.AddRange(FindsRecursive(c, goName));
+            }
+            return childs;
+        }
+        
         public static void FindRecursiveWithStart(this Transform parent, string startWithStr, List<GameObject> resultList)
         {
             foreach (Transform child in parent)

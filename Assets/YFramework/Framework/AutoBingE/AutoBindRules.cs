@@ -111,6 +111,16 @@ namespace YFramework
     { 
    
     }
+    
+    [AttributeUsage(AttributeTargets.Field)]
+    public class AutoBindFieldAttribute : Attribute
+    {
+        public string Name;
+        public AutoBindFieldAttribute(string name = "")
+        {
+            Name = name;
+        }
+    }
 
     public class AutoBindUti
     {
