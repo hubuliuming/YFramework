@@ -16,6 +16,7 @@ using YFramework.UI;
 
 public partial class Test1 : UIBase
 {
+    public GameObject hhh;
     protected void Start()
     {
         OnStart();
@@ -23,7 +24,6 @@ public partial class Test1 : UIBase
 
     public override void OnStart()
     {
-        
     }
 
     protected override void OnShow()

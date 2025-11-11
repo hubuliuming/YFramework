@@ -119,7 +119,6 @@ namespace YFramework.Editor
             {
                 tabSpace = "";
             }
-
             sb.Append(tabSpace + "public partial class ");
             sb.AppendLine(localData.mono.GetType().Name);
             sb.AppendLine(tabSpace + "{");
@@ -214,7 +213,8 @@ namespace YFramework.Editor
         {
             var t = localData.mono.GetType();
             var fieldInfos = t.GetFields(BindingFlags.Public | BindingFlags.Instance);
-            foreach (var fieldInfo in fieldInfos)
+            var newFieldInfos = fieldInfos.Where(f => f.IsDefined(typeof(AutoBindFieldAttribute), false));
+            foreach (var fieldInfo in newFieldInfos)
             {
                 try
                 {
@@ -379,6 +379,7 @@ namespace YFramework.Editor
         {
             if (string.IsNullOrEmpty(arrayStr))
             {
+                sb.AppendLine(tabSpace + "\t[YFramework.AutoBindField]");
                 sb.AppendLine(tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";");
                 localData.memberNewName2ObjName.Add(memberName, objName);
             }
