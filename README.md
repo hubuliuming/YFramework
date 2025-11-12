@@ -1,3 +1,6 @@
 个人使用
 
-V0.1:主要提供根据AutoBingRules里的规律进行绑定，在选中某物体，在Inspector中找到继承mono的自定义类，点击最右上角，选中Autobing按钮，即可自动绑定下面所有物体引用
+使用规则：选中某个GameObjet,在Inspector中找需要执行绑定的MonoBehavior，点击最右上角，选中Autobing按钮，即可自动绑定下面所有物体引用
+
+绑定规则：找到路径YFramework/Framework/AutoBindE/AutoBindRules.cs。点开该脚本可以看到继承IAutoBindElement的类。其中规则就是选中物体
+下的物体开头名字符合类名和类型即可绑定成功
