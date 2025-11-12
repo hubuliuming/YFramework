@@ -14,26 +14,10 @@ using YFramework;
 using YFramework.Kit;
 using YFramework.UI;
 
-public partial class Test1 : UIBase
+public partial class Test1 : MonoBehaviour
 {
     public GameObject hhh;
-    protected void Start()
-    {
-        OnStart();
-    }
 
-    public override void OnStart()
-    {
-    }
-
-    protected override void OnShow()
-    {
-    }
-
-    protected override void OnHide()
-    {
-        
-    }
 }
 
 
