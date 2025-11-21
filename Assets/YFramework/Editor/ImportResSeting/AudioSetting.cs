@@ -23,8 +23,7 @@ namespace YFramework.Editor
         {
             if (_curApplyPaths.Contains(assetPath)) return;
             var importer = assetImporter as AudioImporter;
-            //很短的音频
-            if (arg.length >1f)
+            if (arg.length < 1f)
             {
                 setting.loadType = AudioClipLoadType.DecompressOnLoad;
             }
