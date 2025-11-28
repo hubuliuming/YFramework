@@ -25,6 +25,7 @@ namespace YFramework.Editor
     internal static class AutoBindEditor
     {
         private static readonly string tempName = "YFrameworkAutoBindTemp";
+        private static readonly string parentMonoMemberName = "ParentMono";
         private static bool isScriptsChange;
 
         [MenuItem("CONTEXT/MonoBehaviour/AutoBind")]
@@ -123,6 +124,11 @@ namespace YFramework.Editor
             sb.AppendLine(localData.mono.GetType().Name);
             sb.AppendLine(tabSpace + "{");
 
+            if (localData.parentMono)
+            {
+                sb.AppendLine(tabSpace + "\t[YFramework.AutoBindField]");
+                sb.AppendLine(tabSpace + "\tpublic " + localData.parentMono.GetType().FullName + " " + parentMonoMemberName + ";");
+            }
             WriteRecursiveWithType(cacheData,localData, localData.mono.transform, sb, tabSpace);
             sb.AppendLine(tabSpace + "}");
             if (!string.IsNullOrEmpty(nameSpace))
@@ -139,15 +145,15 @@ namespace YFramework.Editor
         {
             foreach (Transform child in curTrans)
             {
-                var yMono = child.GetComponent<YFramework.YMonoBehaviour>();
-                if (yMono)
+                var yMono = child.GetComponent<YFramework.IAutoBindMono>();
+                if (yMono != null)
                 {
                     var t = yMono.GetType();
                     var memberName = GetProcessMemberName(child.gameObject.name,false);
                     localData.type2MemberName.Add(t.FullName, memberName);
                     var arrayStr = ProcessArrayMember(localData, t,memberName,child.gameObject.name);
                     ProcessWriteMember(localData, sb, child.gameObject.name, memberName, arrayStr, t, tabSpace);
-                    AutoBind(cacheData,new MonoLocalData(yMono));
+                    AutoBind(cacheData,new MonoLocalData(yMono.Mono,localData.mono));
                     continue;
                 }
                 Type filter = null;
@@ -221,6 +227,11 @@ namespace YFramework.Editor
                     var objName = localData.memberNewName2ObjName[fieldInfo.Name];
                     if (fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
                     {
+                        if (fieldInfo.Name.Equals(parentMonoMemberName))
+                        {
+                            fieldInfo.SetValue(localData.mono, localData.parentMono);
+                            continue;
+                        }
                         var tran = localData.mono.transform.FindRecursive(objName);
                         if (tran !=null)
                         {
@@ -419,14 +430,16 @@ namespace YFramework.Editor
         private class MonoLocalData
         {
             public MonoBehaviour mono;
+            public MonoBehaviour parentMono;
             public SerializableKeyValue<string,string> memberNewName2ObjName;
             public SerializableKeyValue<string, SerializableList<string>> memberType2ArrayObjName;
             public SerializableKeyValue<string,string> type2MemberName;
             public List<Transform> processedTrans;
 
-            public MonoLocalData(MonoBehaviour mono)
+            public MonoLocalData(MonoBehaviour mono,MonoBehaviour parentMono = null)
             {
                 this.mono = mono;
+                this.parentMono = parentMono;
                 memberNewName2ObjName = new SerializableKeyValue<string, string>();
                 memberType2ArrayObjName = new SerializableKeyValue<string, SerializableList<string>>();
                 type2MemberName = new SerializableKeyValue<string, string>();

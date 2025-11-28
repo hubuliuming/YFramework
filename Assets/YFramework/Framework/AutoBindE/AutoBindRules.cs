@@ -111,6 +111,11 @@ namespace YFramework
     { 
    
     }
+
+    public interface IAutoBindMono 
+    {
+        UnityEngine.MonoBehaviour Mono { get; }
+    }
     
     [AttributeUsage(AttributeTargets.Field)]
     public class AutoBindFieldAttribute : Attribute
@@ -121,7 +126,7 @@ namespace YFramework
             Name = name;
         }
     }
-
+    
     public class AutoBindUti
     {
         public static IAutoBindElement GetElement(string signName)

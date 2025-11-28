@@ -1193,6 +1193,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854170860}
   m_CullTransparentMesh: 1
+--- !u!114 &1934729792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1172527711882355297, guid: c44ea0e01161d7c48808d6126e1c50eb, type: 3}
+  m_PrefabInstance: {fileID: 5980853106951439069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e3ed269c398b14cbfca06bb31f6a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2110388820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1395,10 @@ PrefabInstance:
       propertyPath: Togdddd
       value: 
       objectReference: {fileID: 5980853106951439074}
+    - target: {fileID: 1575366707100966311, guid: c44ea0e01161d7c48808d6126e1c50eb, type: 3}
+      propertyPath: ParentMono
+      value: 
+      objectReference: {fileID: 1934729792}
     - target: {fileID: 1575366707100966311, guid: c44ea0e01161d7c48808d6126e1c50eb, type: 3}
       propertyPath: BtnHis.Array.size
       value: 4
