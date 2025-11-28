@@ -4,6 +4,8 @@ namespace CC
 	public partial class Test2
 	{
 		[YFramework.AutoBindField]
+		public Test1 ParentMono;
+		[YFramework.AutoBindField]
 		public UnityEngine.UI.Toggle Togdd;
 		[YFramework.AutoBindField]
 		public UnityEngine.UI.Toggle Togdddd;

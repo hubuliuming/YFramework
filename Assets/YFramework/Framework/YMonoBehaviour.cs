@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace YFramework
 {
-    public abstract class YMonoBehaviour : MonoBehaviour
+    public abstract class YMonoBehaviour : MonoBehaviour,IAutoBindMono
     {
         public abstract void OnStart();
 
@@ -18,6 +18,7 @@ namespace YFramework
         {
             return isActiveAndEnabled;
         }
-        
+
+        public MonoBehaviour Mono => this;
     }
 }
