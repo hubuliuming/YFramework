@@ -114,7 +114,7 @@ namespace YFramework
 
     public interface IAutoBindMono 
     {
-        UnityEngine.MonoBehaviour Mono { get; }
+        UnityEngine.MonoBehaviour MonoSelf { get; }
     }
     
     [AttributeUsage(AttributeTargets.Field)]

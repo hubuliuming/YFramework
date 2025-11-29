@@ -7,29 +7,18 @@
 *****************************************************/
 
 using UnityEngine;
+using YFramework;
 using YFramework.UI;
 
 namespace CC
 {
-    public partial class Test2 : UIBase 
+    public partial class Test2 : MonoBehaviour,IAutoBindMono 
     {
         #region 成员变量
         public GameObject dd;
         #endregion
+        
 
-        public override void OnStart()
-        {
-            Debug.Log("OnStart");
-        }
-
-        protected override void OnShow()
-        {
-            Debug.Log("OnShow");
-        }
-
-        protected override void OnHide()
-        {
-            Debug.Log("OnHide");
-        }
+        public MonoBehaviour MonoSelf => this;
     }
 }

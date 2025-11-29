@@ -19,6 +19,6 @@ namespace YFramework
             return isActiveAndEnabled;
         }
 
-        public MonoBehaviour Mono => this;
+        public MonoBehaviour MonoSelf => this;
     }
 }

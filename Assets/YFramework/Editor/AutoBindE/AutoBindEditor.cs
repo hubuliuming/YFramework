@@ -153,7 +153,7 @@ namespace YFramework.Editor
                     localData.type2MemberName.Add(t.FullName, memberName);
                     var arrayStr = ProcessArrayMember(localData, t,memberName,child.gameObject.name);
                     ProcessWriteMember(localData, sb, child.gameObject.name, memberName, arrayStr, t, tabSpace);
-                    AutoBind(cacheData,new MonoLocalData(yMono.Mono,localData.mono));
+                    AutoBind(cacheData,new MonoLocalData(yMono.MonoSelf,localData.mono));
                     continue;
                 }
                 Type filter = null;
