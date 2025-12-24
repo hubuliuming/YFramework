@@ -22,7 +22,8 @@ namespace YFramework
             typeof(RawImg),
             typeof(Tog),
             typeof(Sld),
-            typeof(ScoBar),
+            typeof(ScoB),
+            typeof(ScoV),
             typeof(Btn),
             typeof(Drod),
             typeof(Ipf),
@@ -70,10 +71,16 @@ namespace YFramework
             public static string TName = typeof(UnityEngine.UI.Slider).FullName;
         }
         
-        private class ScoBar : IAutoBindElement
+        private class ScoB : IAutoBindElement
         {
-            public static string Name =  typeof(ScoBar).Name;
+            public static string Name =  typeof(ScoB).Name;
             public static string TName = typeof(UnityEngine.UI.Scrollbar).FullName;
+        }
+        
+        private class ScoV : IAutoBindElement
+        {
+            public static string Name =  typeof(ScoV).Name;
+            public static string TName = typeof(UnityEngine.UI.ScrollRect).FullName;
         }
         
         private class Btn : IAutoBindElement
