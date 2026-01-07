@@ -35,11 +35,8 @@ namespace YFramework.Editor
             if(EditorApplication.isPaused) return;
             var mono = (MonoBehaviour) command.context;
             AutoBindCacheData cacheData = null;
-            cacheData = GetCacheData();
-            if (cacheData == null)
-            {
-                cacheData = new GameObject(tempName).AddComponent<AutoBindCacheData>();
-            }
+            ClearCacheData();
+            cacheData = new GameObject(tempName).AddComponent<AutoBindCacheData>();
             AutoBind(cacheData,new MonoLocalData(mono));
             AssetDatabase.Refresh();
             if (!isScriptsChange)
