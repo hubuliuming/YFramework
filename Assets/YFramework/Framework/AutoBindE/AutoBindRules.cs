@@ -17,6 +17,12 @@ namespace YFramework
         public static List<Type> BindElementTypes = new List<Type>()
         {
             typeof(Go),
+            typeof(Anim),
+            typeof(Rig),
+            typeof(Rig2),
+            typeof(Col),
+            typeof(Col2),
+            typeof(Rect),
             typeof(Img),
             typeof(Txt),
             typeof(RawImg),
@@ -40,6 +46,42 @@ namespace YFramework
             public static string Name = typeof(Go).Name;
             public static string TName = typeof(UnityEngine.GameObject).FullName;
         }
+        private class Rect : IAutoBindElement
+        {
+            public static string Name = typeof(Rect).Name;
+            public static string TName = typeof(UnityEngine.RectTransform).FullName;
+        }
+        
+        private class Anim : IAutoBindElement
+        {
+            public static string Name = typeof(Anim).Name;
+            public static string TName = typeof(UnityEngine.Animator).FullName;
+        }
+        
+        private class Rig : IAutoBindElement
+        {
+            public static string Name = typeof(Rig).Name;
+            public static string TName = typeof(UnityEngine.Rigidbody).FullName;
+        }
+        
+        private class Rig2 : IAutoBindElement
+        {
+            public static string Name = typeof(Rig2).Name;
+            public static string TName = typeof(UnityEngine.Rigidbody2D).FullName;
+        }
+        
+        private class Col : IAutoBindElement
+        {
+            public static string Name = typeof(Col).Name;
+            public static string TName = typeof(UnityEngine.Collider).FullName;
+        }
+        
+        private class Col2 : IAutoBindElement
+        {
+            public static string Name = typeof(Col2).Name;
+            public static string TName = typeof(UnityEngine.Collider2D).FullName;
+        }
+        
         #region UI
         
         private class Img : IAutoBindElement
