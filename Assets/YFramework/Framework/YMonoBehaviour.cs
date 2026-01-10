@@ -20,5 +20,6 @@ namespace YFramework
         }
 
         public MonoBehaviour MonoSelf => this;
+        public virtual bool IgnoreSelf { get; } = false;
     }
 }

@@ -145,6 +145,7 @@ namespace YFramework.Editor
                 var yMono = child.GetComponent<YFramework.IAutoBindMono>();
                 if (yMono != null)
                 {
+                    if(yMono.IgnoreSelf) continue;
                     var t = yMono.GetType();
                     var memberName = GetProcessMemberName(child.gameObject.name,false);
                     localData.type2MemberName.Add(t.FullName, memberName);

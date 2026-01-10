@@ -20,5 +20,6 @@ namespace CC
         
 
         public MonoBehaviour MonoSelf => this;
+        public bool IgnoreSelf { get; }
     }
 }

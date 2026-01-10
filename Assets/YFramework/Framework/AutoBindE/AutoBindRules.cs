@@ -164,6 +164,11 @@ namespace YFramework
     public interface IAutoBindMono 
     {
         UnityEngine.MonoBehaviour MonoSelf { get; }
+
+        /// <summary>
+        ///  Is Ignore sef, if ture parent bing is ignore this
+        /// </summary>
+        bool IgnoreSelf { get; }
     }
     
     [AttributeUsage(AttributeTargets.Field)]
