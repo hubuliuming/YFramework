@@ -308,7 +308,6 @@ namespace YFramework.Editor
                 {
                     Debug.LogError("fail:"+fieldInfo.FieldType +" Exception:" + e);
                     Debug.Log($"check {localData.mono.name} reference GameObjects children name is same"  );
-                    throw;
                 }
                
             }
