@@ -12,6 +12,7 @@ namespace YFramework
 {
     public abstract class YMonoBehaviour : MonoBehaviour,IAutoBindMono
     {
+        //public abstract void Init();
         public abstract void OnStart();
 
         protected virtual bool IsActive()

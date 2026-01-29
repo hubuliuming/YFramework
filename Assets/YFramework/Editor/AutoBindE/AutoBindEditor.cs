@@ -223,7 +223,7 @@ namespace YFramework.Editor
                 try
                 {
                     var objName = localData.memberNewName2ObjName[fieldInfo.Name];
-                    if (fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
+                    if (fieldInfo.FieldType.IsSubclassOf(typeof(Component)))
                     {
                         if (fieldInfo.Name.Equals(parentMonoMemberName))
                         {
@@ -233,7 +233,7 @@ namespace YFramework.Editor
                         var tran = localData.mono.transform.FindRecursive(objName);
                         if (tran !=null)
                         {
-                            var type = tran.GetComponent(fieldInfo.FieldType.FullName);
+                            var type = tran.GetComponent(fieldInfo.FieldType);
                             if (type == null)
                             {
                                 Debug.LogError($"this element {fieldInfo.Name} is not subclass of {fieldInfo.FieldType.FullName}");
@@ -275,7 +275,7 @@ namespace YFramework.Editor
                                             }
                                         }
                                     }
-                                    var type = tran.GetComponent(arrayType.FullName);
+                                    var type = tran.GetComponent(arrayType);
                                    
                                     if (type == null)
                                     {
@@ -324,6 +324,7 @@ namespace YFramework.Editor
         {
             if (string.IsNullOrEmpty(origin))
                 return string.Empty;
+            origin = origin.Trim();
     
             string memberName = Regex.Replace(origin, @"[^a-zA-Z0-9_]", "");
     
@@ -344,10 +345,7 @@ namespace YFramework.Editor
 
             if (removeLastNum)
             {
-                if (char.IsDigit(memberName[^1]))
-                {
-                    memberName = memberName.Remove(memberName.Length - 1);
-                }
+                memberName = Regex.Replace(memberName, @"\d+$", "");
             }
             return memberName;
         }
