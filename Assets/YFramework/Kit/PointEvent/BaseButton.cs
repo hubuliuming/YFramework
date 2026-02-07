@@ -43,7 +43,7 @@ public class BaseButton : YMonoBehaviour,IPointerClickHandler
     
    public void OnPointerClick(PointerEventData eventData)
    {
-      if(!IsActive()) return;
+      if(!isActiveAndEnabled) return;
       onClick?.Invoke();
    }
 }
