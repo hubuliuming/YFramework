@@ -29,8 +29,9 @@ namespace YFramework.Kit
         {
             _timerDic.TryAdd(_curId, iterm);
             iterm.start = true;
+            var index = _curId;
             _curId++;
-            return _curId;
+            return index;
         }
 
         public void UnRegister(int id)
@@ -40,6 +41,15 @@ namespace YFramework.Kit
                 StopTimer(id);
                 _clearId.Add(id);
             }
+        }
+
+        public TimerItem GetItem(int id)
+        {
+            if (_timerDic.ContainsKey(id))
+            {
+                return _timerDic[id];
+            }
+            return null;
         }
         
         public void Pause(int id)
@@ -56,6 +66,12 @@ namespace YFramework.Kit
             {
                 _timerDic[id].start = true;
             }
+        }
+
+        public void ReStart(int id)
+        {
+            StopTimer(id);
+            Resume(id);
         }
 
         public void StopTimer(int id)
