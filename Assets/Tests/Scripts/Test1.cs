@@ -7,6 +7,7 @@
 *****************************************************/
 
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,10 @@ public partial class Test1 : MonoBehaviour
 {
     public GameObject hhh;
 
+    private void Start()
+    {
+        
+    }
 }
 
 

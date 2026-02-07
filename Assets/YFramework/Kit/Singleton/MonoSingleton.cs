@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace YFramework.Kit.Singleton
 {
-    public  class MonoSingleton<T> : YMonoBehaviour where T : MonoBehaviour
+    public class MonoSingleton<T> : YMonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
         public static T Instance

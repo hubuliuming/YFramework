@@ -11,14 +11,11 @@ using UnityEngine;
 namespace YFramework
 {
     public abstract class YMonoBehaviour : MonoBehaviour,IAutoBindMono
-    {
+    { 
+        public virtual void OnAwake(){}
         public abstract void OnStart();
 
-        protected virtual bool IsActive()
-        {
-            return isActiveAndEnabled;
-        }
-
-        public MonoBehaviour Mono => this;
+        public MonoBehaviour MonoSelf => this;
+        public virtual bool IgnoreSelf { get; } = false;
     }
 }

@@ -1,25 +1,27 @@
 /****************************************************
-    文件：Test2.cs
+    文件：TimerKit.cs
     作者：Y
     邮箱: 916111418@qq.com
     日期：#CreateTime#
     功能：Nothing
 *****************************************************/
 
+using System.Collections.Generic;
 using UnityEngine;
-using YFramework;
-using YFramework.UI;
 
-namespace CC
+namespace YFramework.Kit
 {
-    public partial class Test2 : MonoBehaviour,IAutoBindMono 
+    public class TimerKit 
     {
         #region 成员变量
-        public GameObject dd;
-        #endregion
-        
 
-        public MonoBehaviour MonoSelf => this;
-        public bool IgnoreSelf { get; }
+   
+        #endregion
+
+
+        // public static int Register(float updateInterval = 0)
+        // {
+        //     return TimerManager.Instance.Register(updateInterval);
+        // }
     }
 }

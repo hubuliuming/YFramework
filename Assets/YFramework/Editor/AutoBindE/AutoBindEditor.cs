@@ -35,11 +35,8 @@ namespace YFramework.Editor
             if(EditorApplication.isPaused) return;
             var mono = (MonoBehaviour) command.context;
             AutoBindCacheData cacheData = null;
-            cacheData = GetCacheData();
-            if (cacheData == null)
-            {
-                cacheData = new GameObject(tempName).AddComponent<AutoBindCacheData>();
-            }
+            ClearCacheData();
+            cacheData = new GameObject(tempName).AddComponent<AutoBindCacheData>();
             AutoBind(cacheData,new MonoLocalData(mono));
             AssetDatabase.Refresh();
             if (!isScriptsChange)
@@ -148,12 +145,13 @@ namespace YFramework.Editor
                 var yMono = child.GetComponent<YFramework.IAutoBindMono>();
                 if (yMono != null)
                 {
+                    if(yMono.IgnoreSelf) continue;
                     var t = yMono.GetType();
                     var memberName = GetProcessMemberName(child.gameObject.name,false);
                     localData.type2MemberName.Add(t.FullName, memberName);
                     var arrayStr = ProcessArrayMember(localData, t,memberName,child.gameObject.name);
                     ProcessWriteMember(localData, sb, child.gameObject.name, memberName, arrayStr, t, tabSpace);
-                    AutoBind(cacheData,new MonoLocalData(yMono.Mono,localData.mono));
+                    AutoBind(cacheData,new MonoLocalData(yMono.MonoSelf,localData.mono));
                     continue;
                 }
                 Type filter = null;
@@ -225,7 +223,7 @@ namespace YFramework.Editor
                 try
                 {
                     var objName = localData.memberNewName2ObjName[fieldInfo.Name];
-                    if (fieldInfo.FieldType.IsSubclassOf(typeof(MonoBehaviour)))
+                    if (fieldInfo.FieldType.IsSubclassOf(typeof(Component)))
                     {
                         if (fieldInfo.Name.Equals(parentMonoMemberName))
                         {
@@ -235,7 +233,7 @@ namespace YFramework.Editor
                         var tran = localData.mono.transform.FindRecursive(objName);
                         if (tran !=null)
                         {
-                            var type = tran.GetComponent(fieldInfo.FieldType.FullName);
+                            var type = tran.GetComponent(fieldInfo.FieldType);
                             if (type == null)
                             {
                                 Debug.LogError($"this element {fieldInfo.Name} is not subclass of {fieldInfo.FieldType.FullName}");
@@ -277,7 +275,7 @@ namespace YFramework.Editor
                                             }
                                         }
                                     }
-                                    var type = tran.GetComponent(arrayType.FullName);
+                                    var type = tran.GetComponent(arrayType);
                                    
                                     if (type == null)
                                     {
@@ -309,7 +307,7 @@ namespace YFramework.Editor
                 catch (Exception e)
                 {
                     Debug.LogError("fail:"+fieldInfo.FieldType +" Exception:" + e);
-                    throw;
+                    Debug.Log($"check {localData.mono.name} reference GameObjects children name is same"  );
                 }
                
             }
@@ -326,6 +324,7 @@ namespace YFramework.Editor
         {
             if (string.IsNullOrEmpty(origin))
                 return string.Empty;
+            origin = origin.Trim();
     
             string memberName = Regex.Replace(origin, @"[^a-zA-Z0-9_]", "");
     
@@ -346,10 +345,7 @@ namespace YFramework.Editor
 
             if (removeLastNum)
             {
-                if (char.IsDigit(memberName[^1]))
-                {
-                    memberName = memberName.Remove(memberName.Length - 1);
-                }
+                memberName = Regex.Replace(memberName, @"\d+$", "");
             }
             return memberName;
         }
