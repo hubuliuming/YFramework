@@ -155,7 +155,8 @@ namespace YFramework.Editor
                     continue;
                 }
                 Type filter = null;
-                foreach (var bindElementType in AutoBindRules.BindElementTypes)
+                foreach (var bindElementType in AutoBindRules.BindElementTypes
+                             .OrderByDescending(type => type.GetField("Name").GetValue(null).ToString().Length))
                 {
                     var startWithStr = bindElementType.GetField("Name").GetValue(null).ToString();
                     var tStr = bindElementType.GetField("TName").GetValue(null).ToString();
@@ -163,6 +164,11 @@ namespace YFramework.Editor
                     if (child.name.StartsWith(startWithStr))
                     {
                         var targetType = TypeResolverForUnity.ResolveType(tStr, true, "YFramework");
+                        if (targetType == null)
+                        {
+                            Debug.LogWarning($"AutoBind skipped object '{child.gameObject.name}' because component type '{tStr}' is not available in the current project.");
+                            break;
+                        }
                         var memberName = GetProcessMemberName(child.gameObject.name);
                         if (!string.IsNullOrEmpty(memberName))
                         {
