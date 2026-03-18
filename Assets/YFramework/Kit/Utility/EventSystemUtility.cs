@@ -48,7 +48,7 @@ namespace YFramework.Kit.Utility
             }
         }
         return false;
-#elif UNITY_EDITOR
+#else
             return EventSystem.current.IsPointerOverGameObject();
 #endif
         }
