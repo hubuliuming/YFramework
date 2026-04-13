@@ -14,27 +14,73 @@ namespace YFramework
 {
     public class AutoBindRules
     {
-        public static List<Type> BindElementTypes = new List<Type>()
+        public static List<Type> BindElementTypes = CreateBindElementTypes();
+
+        private static List<Type> CreateBindElementTypes()
         {
-            typeof(Go),
-            typeof(Anim),
-            typeof(Rig),
-            typeof(Rig2),
-            typeof(Col),
-            typeof(Col2),
-            typeof(Rect),
-            typeof(Img),
-            typeof(Txt),
-            typeof(RawImg),
-            typeof(Tog),
-            typeof(Sld),
-            typeof(ScoB),
-            typeof(ScoV),
-            typeof(Btn),
-            typeof(Drod),
-            typeof(Ipf),
-            typeof(Cvas),
-        };
+            var bindElementTypes = new List<Type>()
+            {
+                typeof(Go),
+                typeof(Anim),
+                typeof(Rig),
+                typeof(Rig2),
+                typeof(Col),
+                typeof(Col2),
+                typeof(Rect),
+                typeof(Img),
+                typeof(Txt),
+            };
+
+            AddOptionalBindElement(bindElementTypes, typeof(TMP_InputField));
+            AddOptionalBindElement(bindElementTypes, typeof(TMP_Dropdown));
+            AddOptionalBindElement(bindElementTypes, typeof(TMP));
+
+            bindElementTypes.Add(typeof(RawImg));
+            bindElementTypes.Add(typeof(Tog));
+            bindElementTypes.Add(typeof(Sld));
+            bindElementTypes.Add(typeof(ScoB));
+            bindElementTypes.Add(typeof(ScoV));
+            bindElementTypes.Add(typeof(Btn));
+            bindElementTypes.Add(typeof(Drod));
+            bindElementTypes.Add(typeof(Ipf));
+            bindElementTypes.Add(typeof(Cvas));
+
+            return bindElementTypes;
+        }
+
+        private static void AddOptionalBindElement(List<Type> bindElementTypes, Type bindElementType)
+        {
+            var targetTypeName = bindElementType.GetField("TName").GetValue(null)?.ToString();
+            if (string.IsNullOrEmpty(targetTypeName))
+            {
+                return;
+            }
+
+            if (ResolveOptionalType(targetTypeName) != null)
+            {
+                bindElementTypes.Add(bindElementType);
+            }
+        }
+
+        private static Type ResolveOptionalType(string typeName)
+        {
+            var type = Type.GetType(typeName);
+            if (type != null)
+            {
+                return type;
+            }
+
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                type = assembly.GetType(typeName);
+                if (type != null)
+                {
+                    return type;
+                }
+            }
+
+            return null;
+        }
 
         public static List<Type> FiltrationElementTypes = new List<Type>()
         {
@@ -93,6 +139,24 @@ namespace YFramework
         {
             public static string Name =  typeof(Txt).Name;
             public static string TName = typeof(UnityEngine.UI.Text).FullName;
+        }
+
+        private class TMP : IAutoBindElement
+        {
+            public static string Name = typeof(TMP).Name;
+            public static string TName = "TMPro.TextMeshProUGUI";
+        }
+
+        private class TMP_InputField : IAutoBindElement
+        {
+            public static string Name = typeof(TMP_InputField).Name;
+            public static string TName = "TMPro.TMP_InputField";
+        }
+
+        private class TMP_Dropdown : IAutoBindElement
+        {
+            public static string Name = typeof(TMP_Dropdown).Name;
+            public static string TName = "TMPro.TMP_Dropdown";
         }
         
         private class RawImg : IAutoBindElement
