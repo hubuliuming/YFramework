@@ -261,7 +261,17 @@ namespace YFramework.Editor
                         var arrayType = fieldInfo.FieldType.GetElementType();
                         if (arrayType != null)
                         {
-                            var originNames = localData.memberType2ArrayObjName[arrayType.FullName];
+                            if (!localData.memberArrayName2ObjName.ContainsKey(fieldInfo.Name))
+                            {
+                                Debug.LogWarning($"this scripts {localData.mono.name} has no bind element {fieldInfo.Name}");
+                                continue;
+                            }
+                            var originNames = localData.memberArrayName2ObjName[fieldInfo.Name];
+                            if (originNames == null || originNames.Count == 0)
+                            {
+                                Debug.LogWarning($"this scripts {localData.mono.name} has no bind element {fieldInfo.Name}");
+                                continue;
+                            }
                             Array array = Array.CreateInstance(arrayType, originNames.Count);
                             for (int i = 0; i < originNames.Count; i++)
                             {
@@ -374,14 +384,25 @@ namespace YFramework.Editor
             if (targetValues.Count > 1)
             {
                 arrayStr = "[]";
-                if (localData.memberType2ArrayObjName.ContainsKey(t.FullName))
+                var arrayMemberName = memberName + "s";
+                if (localData.memberArrayName2ObjName.ContainsKey(arrayMemberName))
                 {
-                    localData.memberType2ArrayObjName[t.FullName].Add(objName);
+                    localData.memberArrayName2ObjName[arrayMemberName].Add(objName);
                 }
                 else
                 {
-                    localData.memberType2ArrayObjName.Add(t.FullName,new SerializableList<string>() {targetValues[0]});
-                    localData.memberType2ArrayObjName[t.FullName].Add(objName);
+                    var firstObjName = objName;
+                    if (localData.memberNewName2ObjName.ContainsKey(memberName))
+                    {
+                        firstObjName = localData.memberNewName2ObjName[memberName];
+                        localData.memberArrayName2ObjName.Add(arrayMemberName,new SerializableList<string>() {firstObjName});
+                        localData.memberArrayName2ObjName[arrayMemberName].Add(objName);
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"this scripts {localData.mono.name} has no first bind element {memberName}, fallback to current object.");
+                        localData.memberArrayName2ObjName.Add(arrayMemberName,new SerializableList<string>() {objName});
+                    }
                 }
             }
             
@@ -398,11 +419,11 @@ namespace YFramework.Editor
             }
             else
             {
-                if (localData.memberType2ArrayObjName[targetType.FullName].Count > 0)
+                var arrayMemberName = memberName + "s";
+                if (localData.memberArrayName2ObjName.ContainsKey(arrayMemberName) && localData.memberArrayName2ObjName[arrayMemberName].Count > 0)
                 {
                     var oldMember = tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";";
-                    memberName += "s";
-                    var newArrayMember = tabSpace + "\tpublic " + targetType.FullName + arrayStr + " " + memberName+";";
+                    var newArrayMember = tabSpace + "\tpublic " + targetType.FullName + arrayStr + " " + arrayMemberName+";";
                     sb.Replace(oldMember, newArrayMember);
                 }
             }
@@ -434,7 +455,7 @@ namespace YFramework.Editor
             public MonoBehaviour mono;
             public MonoBehaviour parentMono;
             public SerializableKeyValue<string,string> memberNewName2ObjName;
-            public SerializableKeyValue<string, SerializableList<string>> memberType2ArrayObjName;
+            public SerializableKeyValue<string, SerializableList<string>> memberArrayName2ObjName;
             public SerializableKeyValue<string,string> type2MemberName;
             public List<Transform> processedTrans;
 
@@ -443,14 +464,14 @@ namespace YFramework.Editor
                 this.mono = mono;
                 this.parentMono = parentMono;
                 memberNewName2ObjName = new SerializableKeyValue<string, string>();
-                memberType2ArrayObjName = new SerializableKeyValue<string, SerializableList<string>>();
+                memberArrayName2ObjName = new SerializableKeyValue<string, SerializableList<string>>();
                 type2MemberName = new SerializableKeyValue<string, string>();
                 processedTrans = new List<Transform>();
             }
 
             public override string ToString()
             {
-                return $"mono:{mono.name} memberNewName2ObjName:{memberNewName2ObjName.Count} memberType2ArrayObjName:{memberType2ArrayObjName.Count} type2MemberName:{type2MemberName.Count}";
+                return $"mono:{mono.name} memberNewName2ObjName:{memberNewName2ObjName.Count} memberArrayName2ObjName:{memberArrayName2ObjName.Count} type2MemberName:{type2MemberName.Count}";
             }
         }
     }
