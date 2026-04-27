@@ -40,6 +40,22 @@ namespace YFramework.Kit.Convert
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
+        public static string ToStringAnyItem<T>(T[] array)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in array)
+            {
+                sb.Append(item.ToString());
+            }
+            return sb.ToString();
+        }
+
+        
+        /// <summary>
+        /// 把数组里的每个元素依次转化成一个string
+        /// </summary>
+        /// <param name="array"></param>
+        /// <returns></returns>
         public static string ToStringAnyItem(int[] array)
         {
             StringBuilder sb = new StringBuilder();
