@@ -21,7 +21,7 @@ public partial class Test1 : MonoBehaviour
 
     private void Start()
     {
-        
+        Debug.Log("aaaaa");
     }
 }
 
