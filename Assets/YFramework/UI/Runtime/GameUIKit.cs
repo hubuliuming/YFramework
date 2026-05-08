@@ -24,6 +24,7 @@ namespace YFramework.UI
         bool IsUIOpen(GameObject uiObject);
         bool ReleaseUI(GameObject uiObject);
         GameObject GetOpenedUI(GameObject uiObject);
+        T GetWindow<T>() where T : Component, IUIWindow;
     }
 
     public interface IUIWindow
@@ -123,6 +124,11 @@ namespace YFramework.UI
         public static GameObject GetOpened(GameObject uiObject)
         {
             return s_root != null ? s_root.GetOpenedUI(uiObject) : null;
+        }
+
+        public static T GetWindow<T>() where T : Component, IUIWindow
+        {
+            return s_root != null ? s_root.GetWindow<T>() : null;
         }
 
         public static void NotifyOpen(GameObject uiObject, UILayer layer, object userData)

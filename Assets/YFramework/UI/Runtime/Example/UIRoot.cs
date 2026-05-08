@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace YFramework.UI
         [SerializeField] private Transform m_highestRoot;
 
         private Dictionary<int, Transform> m_layerRoots;
+        private Dictionary<Type, IUIWindow> m_windowsByType;
         private UIKitRuntime m_runtime;
         private UIRuntimeCallbacks m_callbacks;
 
@@ -28,6 +30,8 @@ namespace YFramework.UI
             };
 
             GameUIKit.RegisterRoot(this);
+            m_runtime.RegisterSceneUI(CreateLayerRoots(), m_callbacks);
+            BuildWindowCache();
         }
 
         private void OnDestroy()
@@ -79,6 +83,12 @@ namespace YFramework.UI
             return m_runtime.GetOpened(uiObject);
         }
 
+        public T GetWindow<T>() where T : Component, IUIWindow
+        {
+            IUIWindow window;
+            return m_windowsByType.TryGetValue(typeof(T), out window) ? window as T : null;
+        }
+
         private Transform GetLayerRoot(UILayer layer)
         {
             Transform root;
@@ -100,6 +110,48 @@ namespace YFramework.UI
                 { (int)UILayer.Effect, m_effectRoot },
                 { (int)UILayer.Highest, m_highestRoot },
             };
+        }
+
+        private IEnumerable<UILayerRoot> CreateLayerRoots()
+        {
+            return new[]
+            {
+                new UILayerRoot((int)UILayer.Bg, m_bgRoot),
+                new UILayerRoot((int)UILayer.Player, m_playerRoot),
+                new UILayerRoot((int)UILayer.Normal, m_normalRoot),
+                new UILayerRoot((int)UILayer.Effect, m_effectRoot),
+                new UILayerRoot((int)UILayer.Highest, m_highestRoot),
+            };
+        }
+
+        private void BuildWindowCache()
+        {
+            m_windowsByType = new Dictionary<Type, IUIWindow>();
+
+            foreach (UILayerRoot layerRoot in CreateLayerRoots())
+            {
+                if (layerRoot.Root == null)
+                {
+                    continue;
+                }
+
+                IUIWindow[] windows = layerRoot.Root.GetComponentsInChildren<IUIWindow>(true);
+                for (int i = 0; i < windows.Length; i++)
+                {
+                    RegisterWindow(windows[i]);
+                }
+            }
+        }
+
+        private void RegisterWindow(IUIWindow window)
+        {
+            Type windowType = window.GetType();
+            if (m_windowsByType.ContainsKey(windowType))
+            {
+                throw new InvalidOperationException("UIRoot found duplicate IUIWindow type: " + windowType.Name);
+            }
+
+            m_windowsByType.Add(windowType, window);
         }
 
         private void EnsureLayerRoots()
