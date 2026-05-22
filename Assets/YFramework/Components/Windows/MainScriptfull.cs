@@ -10,7 +10,7 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 
-namespace YFramework.Kit.Windows
+namespace YFramework.Components.Windows
 {
     public class MainScriptfull : MonoBehaviour
     {

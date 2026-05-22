@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Object = UnityEngine.Object;
 
-namespace YFramework.Event
+namespace YFramework.Interaction.PointerEvent
 {
     public class EventUtil
     {

@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 
-namespace YFramework.Kit.Net
+namespace YFramework.Network.LegacySocket
 {
     public class UDPClient
     {
@@ -96,7 +96,7 @@ namespace YFramework.Kit.Net
         }
         public void SendMessageBy16Bite(string ip,int port,string msg)
         {
-            var data =Convert.Convert.Convert16Byte(msg);
+            var data = YFramework.Kit.Convert.Convert.Convert16Byte(msg);
             SendMessage(ip,port,data);
         }
         private void ReceivedCallBack(IAsyncResult ar)

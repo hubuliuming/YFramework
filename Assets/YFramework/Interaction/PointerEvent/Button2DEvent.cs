@@ -1,5 +1,5 @@
 
-namespace YFramework.Event
+namespace YFramework.Interaction.PointerEvent
 {
     public class Button2DEvent : BaseButton
     {

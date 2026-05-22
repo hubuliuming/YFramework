@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 
-namespace YFramework.Kit.Net
+namespace YFramework.Network.LegacySocket
 {
     public class TcpClient
     {
@@ -65,7 +65,7 @@ namespace YFramework.Kit.Net
         }
         public void SendMessageBy16Bite(string msg)
         {
-            var data =Convert.Convert.Convert16Byte(msg);
+            var data = YFramework.Kit.Convert.Convert.Convert16Byte(msg);
             SendMessage(data);
         }
 

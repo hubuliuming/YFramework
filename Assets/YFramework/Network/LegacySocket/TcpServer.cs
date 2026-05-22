@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading;
 using UnityEngine;
 
-namespace YFramework.Kit.Net
+namespace YFramework.Network.LegacySocket
 {
     public class TcpServer
     {

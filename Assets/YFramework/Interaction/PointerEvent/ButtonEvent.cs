@@ -1,5 +1,5 @@
 
-namespace YFramework.Event
+namespace YFramework.Interaction.PointerEvent
 {
     //非UI的按钮响应事件
     public class ButtonEvent : BaseButton

@@ -2,48 +2,50 @@
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using YFramework;
-using YFramework.Event;
 
-public class BaseButton : YMonoBehaviour,IPointerClickHandler
+namespace YFramework.Interaction.PointerEvent
 {
-   public enum ObjType
+   public class BaseButton : YMonoBehaviour,IPointerClickHandler
    {
-      /// <summary>
-      /// 2D物体
-      /// </summary>
-      TwoD,
-      /// <summary>
-      /// 3D物体
-      /// </summary>
-      ThreeD,
-   }
+      public enum ObjType
+      {
+         /// <summary>
+         /// 2D物体
+         /// </summary>
+         TwoD,
+         /// <summary>
+         /// 3D物体
+         /// </summary>
+         ThreeD,
+      }
 
-   protected ObjType objType;
+      protected ObjType objType;
    
-   protected virtual void Start()
-   {
-      EventUtil.CheckRaycaster(objType);
-   }
+      protected virtual void Start()
+      {
+         EventUtil.CheckRaycaster(objType);
+      }
 
-   public override void OnStart()
-   {
+      public override void OnStart()
+      {
       
-   }
+      }
 
-   /// <summary>
-   /// Function definition for a button click event.
-   /// </summary>
-   public class ButtonClickedEvent : UnityEvent {}
-   private ButtonEvent.ButtonClickedEvent _onClick = new ButtonEvent.ButtonClickedEvent();
-   public ButtonEvent.ButtonClickedEvent onClick
-   {
-      get { return _onClick; }
-      set { _onClick = value; }
-   }
+      /// <summary>
+      /// Function definition for a button click event.
+      /// </summary>
+      public class ButtonClickedEvent : UnityEvent {}
+      private ButtonEvent.ButtonClickedEvent _onClick = new ButtonEvent.ButtonClickedEvent();
+      public ButtonEvent.ButtonClickedEvent onClick
+      {
+         get { return _onClick; }
+         set { _onClick = value; }
+      }
     
-   public void OnPointerClick(PointerEventData eventData)
-   {
-      if(!isActiveAndEnabled) return;
-      onClick?.Invoke();
+      public void OnPointerClick(PointerEventData eventData)
+      {
+         if(!isActiveAndEnabled) return;
+         onClick?.Invoke();
+      }
    }
 }

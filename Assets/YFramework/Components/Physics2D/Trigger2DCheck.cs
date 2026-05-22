@@ -8,7 +8,7 @@
 
 using UnityEngine;
 
-namespace YFramework.Kit.Physics2D
+namespace YFramework.Components.Physics2D
 {
     public class Trigger2DCheck : MonoBehaviour
     {

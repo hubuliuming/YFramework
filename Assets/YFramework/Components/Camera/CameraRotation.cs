@@ -1,58 +1,61 @@
 using UnityEngine;
 
-public class CameraRotation : MonoBehaviour
+namespace YFramework.Components.Camera
 {
-    public Camera targetCamera;
-    public float rotationSpeed = 15f; // 旋转速度
-    public RectTransform controlArea; // 指定控制区域
-
-    private Vector2 lastMousePosition;
-    private bool isDragging = false;
-
-    void Update()
+    public class CameraRotation : MonoBehaviour
     {
-        HandleMouseInput();
-    }
+        public UnityEngine.Camera targetCamera;
+        public float rotationSpeed = 15f; // 旋转速度
+        public RectTransform controlArea; // 指定控制区域
 
-    void HandleMouseInput()
-    {
-        // 检查鼠标是否在指定区域内
-        if (RectTransformUtility.RectangleContainsScreenPoint(controlArea, Input.mousePosition))
+        private Vector2 lastMousePosition;
+        private bool isDragging = false;
+
+        void Update()
         {
-            if (Input.GetMouseButtonDown(0)) // 鼠标左键按下
-            {
-                lastMousePosition = Input.mousePosition;
-                isDragging = true;
-            }
+            HandleMouseInput();
+        }
 
-            if (Input.GetMouseButton(0) && isDragging) // 鼠标左键按住并拖动
+        void HandleMouseInput()
+        {
+            // 检查鼠标是否在指定区域内
+            if (RectTransformUtility.RectangleContainsScreenPoint(controlArea, Input.mousePosition))
             {
-                Vector2 delta = (Vector2)Input.mousePosition - lastMousePosition;
-                RotateCamera(delta);
-                lastMousePosition = Input.mousePosition;
-            }
+                if (Input.GetMouseButtonDown(0)) // 鼠标左键按下
+                {
+                    lastMousePosition = Input.mousePosition;
+                    isDragging = true;
+                }
 
-            if (Input.GetMouseButtonUp(0)) // 鼠标左键释放
+                if (Input.GetMouseButton(0) && isDragging) // 鼠标左键按住并拖动
+                {
+                    Vector2 delta = (Vector2)Input.mousePosition - lastMousePosition;
+                    RotateCamera(delta);
+                    lastMousePosition = Input.mousePosition;
+                }
+
+                if (Input.GetMouseButtonUp(0)) // 鼠标左键释放
+                {
+                    isDragging = false;
+                }
+            }
+            else
             {
-                isDragging = false;
+                // 如果鼠标移出区域，停止拖动
+                if (isDragging)
+                {
+                    isDragging = false;
+                }
             }
         }
-        else
+
+        void RotateCamera(Vector2 delta)
         {
-            // 如果鼠标移出区域，停止拖动
-            if (isDragging)
-            {
-                isDragging = false;
-            }
+            // 根据鼠标移动量旋转相机
+            float rotationX = delta.y * rotationSpeed * Time.deltaTime;
+            float rotationY = -delta.x * rotationSpeed * Time.deltaTime;
+
+            targetCamera.transform.Rotate(rotationX, rotationY, 0);
         }
-    }
-
-    void RotateCamera(Vector2 delta)
-    {
-        // 根据鼠标移动量旋转相机
-        float rotationX = delta.y * rotationSpeed * Time.deltaTime;
-        float rotationY = -delta.x * rotationSpeed * Time.deltaTime;
-
-        targetCamera.transform.Rotate(rotationX, rotationY, 0);
     }
 }
