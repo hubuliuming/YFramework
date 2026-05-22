@@ -247,13 +247,3 @@ AutoBind 不只是绑定普通控件。
 - 回填搜索规则
 
 这三处只改其中一处，最容易留下隐性 bug。
-
-## CHANGE LOG
-
-### 2026-04-17
-
-- 修改内容：`AutoBindEditor` 的生成缓存新增字段到 `Transform` 的记录；单字段与数组字段回填优先使用生成阶段记录的 `Transform`。
-- 修改原因：父 Mono 自动绑定时，子 AutoBind Mono 内部同名对象可能抢占父字段回填结果。
-- 影响范围：AutoBind 编辑器生成缓存与回填逻辑；不影响 `TransformExtension` 全局递归查找行为。
-- 是否涉及结构：否。
-- 是否需要人工操作：是，需要在 Unity/GamePlayer 中人工执行 AutoBind 场景回归确认。
