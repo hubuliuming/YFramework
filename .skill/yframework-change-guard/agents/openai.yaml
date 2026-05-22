@@ -1,0 +1,7 @@
+interface:
+  display_name: "YFramework Change Guard"
+  short_description: "Project guardrails for YFramework changes and docs."
+  default_prompt: "Use $yframework-change-guard to plan, implement, document, and verify a YFramework project change under the repository rules."
+
+policy:
+  allow_implicit_invocation: true

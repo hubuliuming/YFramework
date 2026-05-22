@@ -14,6 +14,6 @@ namespace CC
 		[YFramework.AutoBindField]
 		public UnityEngine.GameObject Go;
 		[YFramework.AutoBindField]
-		public UnityEngine.UI.Button[] BtnHis;
+		public UnityEngine.UI.Button BtnHi;
 	}
 }

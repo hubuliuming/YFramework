@@ -127,7 +127,7 @@ AutoBind 是当前项目最值得先掌握的能力之一。
 
 包含：
 
-- `UIBase` / `UIManager`
+- `GameUIKit` / `UIKitRuntime`
 - `CircleImage`
 - `PolygonColliderImage`
 - `SlideScrollHorizontal`

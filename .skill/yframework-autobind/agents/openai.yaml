@@ -1,0 +1,7 @@
+interface:
+  display_name: "YFramework AutoBind"
+  short_description: "AutoBind generator, Designer fields, and binding rules."
+  default_prompt: "Use $yframework-autobind to inspect or change YFramework AutoBind generation, `*.Designer.cs` output, node prefix rules, recursive binding, or field backfill behavior."
+
+policy:
+  allow_implicit_invocation: true

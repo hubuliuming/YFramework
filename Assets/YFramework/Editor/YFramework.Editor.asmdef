@@ -2,7 +2,8 @@
     "name": "YFramework.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:c9c420c8923f17042a243ff493012884"
+        "GUID:c9c420c8923f17042a243ff493012884",
+        "GUID:98f702da6ca044be59a864a9419c4eab"
     ],
     "includePlatforms": [
         "Editor"

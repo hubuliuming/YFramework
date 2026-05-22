@@ -248,7 +248,7 @@ namespace YFramework.UI.Layout
             ResetManagedChildScales();
             base.OnDisable();
         }
-
+#if UNITY_EDITOR
         protected override void OnRectTransformDimensionsChange()
         {
             base.OnRectTransformDimensionsChange();
@@ -267,7 +267,7 @@ namespace YFramework.UI.Layout
             NormalizeSerializedFields();
             RequestLayoutRefresh();
         }
-
+#endif
         private void ApplyLayout()
         {
             if (!IsActive())

@@ -149,8 +149,8 @@ namespace YFramework.Editor
                     var t = yMono.GetType();
                     var memberName = GetProcessMemberName(child.gameObject.name,false);
                     localData.type2MemberName.Add(t.FullName, memberName);
-                    var arrayStr = ProcessArrayMember(localData, t,memberName,child.gameObject.name);
-                    ProcessWriteMember(localData, sb, child.gameObject.name, memberName, arrayStr, t, tabSpace);
+                    var arrayStr = ProcessArrayMember(localData, t,memberName,child.gameObject.name, child);
+                    ProcessWriteMember(localData, sb, child.gameObject.name, memberName, arrayStr, t, tabSpace, child);
                     AutoBind(cacheData,new MonoLocalData(yMono.MonoSelf,localData.mono));
                     continue;
                 }
@@ -173,8 +173,8 @@ namespace YFramework.Editor
                         if (!string.IsNullOrEmpty(memberName))
                         {
                             localData.type2MemberName.Add(targetType.FullName, memberName);
-                            var arrayStr = ProcessArrayMember(localData, targetType, memberName,child.gameObject.name);
-                            ProcessWriteMember(localData,sb, child.gameObject.name, memberName, arrayStr, targetType, tabSpace);
+                            var arrayStr = ProcessArrayMember(localData, targetType, memberName,child.gameObject.name, child);
+                            ProcessWriteMember(localData,sb, child.gameObject.name, memberName, arrayStr, targetType, tabSpace, child);
                         }
                         else
                         {
@@ -236,7 +236,7 @@ namespace YFramework.Editor
                             fieldInfo.SetValue(localData.mono, localData.parentMono);
                             continue;
                         }
-                        var tran = localData.mono.transform.FindRecursive(objName);
+                        var tran = GetBindTransform(localData, fieldInfo.Name, objName);
                         if (tran !=null)
                         {
                             var type = tran.GetComponent(fieldInfo.FieldType);
@@ -276,21 +276,9 @@ namespace YFramework.Editor
                             for (int i = 0; i < originNames.Count; i++)
                             {
                                 var originName = originNames[i];
-                                var trans = localData.mono.transform.FindsRecursive(originName);
-                                if (trans.Count > 0)
+                                var tran = GetBindArrayTransform(localData, fieldInfo.Name, i, originName);
+                                if (tran != null)
                                 {
-                                    var tran = trans[0];
-                                    if (trans.Count > 1)
-                                    {
-                                        foreach (var tran1 in trans)
-                                        {
-                                            if (!localData.processedTrans.Contains(tran1))
-                                            {
-                                                tran = tran1;
-                                                break;
-                                            }
-                                        }
-                                    }
                                     var type = tran.GetComponent(arrayType);
                                    
                                     if (type == null)
@@ -315,7 +303,12 @@ namespace YFramework.Editor
                     }
                     else
                     {
-                        var tran = localData.mono.transform.FindRecursive(objName);
+                        var tran = GetBindTransform(localData, fieldInfo.Name, objName);
+                        if (tran == null)
+                        {
+                            Debug.LogWarning($"this scripts {localData.mono.name} has no bind element {fieldInfo.Name}");
+                            continue;
+                        }
                         fieldInfo.SetValue(localData.mono, tran.gameObject);
                         localData.processedTrans.Add(tran);
                     }
@@ -328,6 +321,63 @@ namespace YFramework.Editor
                
             }
             EditorUtility.SetDirty(localData.mono);
+        }
+
+        private static Transform GetBindTransform(MonoLocalData localData, string fieldName, string objName)
+        {
+            if (localData.memberNewName2Transform != null && localData.memberNewName2Transform.ContainsKey(fieldName))
+            {
+                var tran = localData.memberNewName2Transform[fieldName];
+                if (tran != null)
+                {
+                    return tran;
+                }
+            }
+
+            if (string.IsNullOrEmpty(objName))
+            {
+                return null;
+            }
+
+            return localData.mono.transform.FindRecursive(objName);
+        }
+
+        private static Transform GetBindArrayTransform(MonoLocalData localData, string fieldName, int index, string originName)
+        {
+            if (localData.memberArrayName2Transforms != null && localData.memberArrayName2Transforms.ContainsKey(fieldName))
+            {
+                var trans = localData.memberArrayName2Transforms[fieldName];
+                if (trans != null && index >= 0 && index < trans.Count && trans[index] != null)
+                {
+                    return trans[index];
+                }
+            }
+
+            if (string.IsNullOrEmpty(originName))
+            {
+                return null;
+            }
+
+            var foundTrans = localData.mono.transform.FindsRecursive(originName);
+            if (foundTrans.Count <= 0)
+            {
+                return null;
+            }
+
+            var tran = foundTrans[0];
+            if (foundTrans.Count > 1)
+            {
+                foreach (var tran1 in foundTrans)
+                {
+                    if (!localData.processedTrans.Contains(tran1))
+                    {
+                        tran = tran1;
+                        break;
+                    }
+                }
+            }
+
+            return tran;
         }
         
         private static AutoBindCacheData GetCacheData()
@@ -366,7 +416,7 @@ namespace YFramework.Editor
             return memberName;
         }
 
-        private static string ProcessArrayMember(MonoLocalData localData,Type t,string memberName,string objName)
+        private static string ProcessArrayMember(MonoLocalData localData,Type t,string memberName,string objName, Transform objTrans)
         {
             string arrayStr = "";
             List<string> targetValues = new List<string>();
@@ -388,20 +438,26 @@ namespace YFramework.Editor
                 if (localData.memberArrayName2ObjName.ContainsKey(arrayMemberName))
                 {
                     localData.memberArrayName2ObjName[arrayMemberName].Add(objName);
+                    localData.memberArrayName2Transforms[arrayMemberName].Add(objTrans);
                 }
                 else
                 {
                     var firstObjName = objName;
+                    Transform firstObjTrans = objTrans;
                     if (localData.memberNewName2ObjName.ContainsKey(memberName))
                     {
                         firstObjName = localData.memberNewName2ObjName[memberName];
+                        firstObjTrans = localData.memberNewName2Transform[memberName];
                         localData.memberArrayName2ObjName.Add(arrayMemberName,new SerializableList<string>() {firstObjName});
                         localData.memberArrayName2ObjName[arrayMemberName].Add(objName);
+                        localData.memberArrayName2Transforms.Add(arrayMemberName,new SerializableList<Transform>() {firstObjTrans});
+                        localData.memberArrayName2Transforms[arrayMemberName].Add(objTrans);
                     }
                     else
                     {
                         Debug.LogWarning($"this scripts {localData.mono.name} has no first bind element {memberName}, fallback to current object.");
                         localData.memberArrayName2ObjName.Add(arrayMemberName,new SerializableList<string>() {objName});
+                        localData.memberArrayName2Transforms.Add(arrayMemberName,new SerializableList<Transform>() {objTrans});
                     }
                 }
             }
@@ -409,13 +465,14 @@ namespace YFramework.Editor
             targetValues.Clear();
             return arrayStr;
         }
-        private static void ProcessWriteMember(MonoLocalData localData, StringBuilder sb, string objName, string memberName, string arrayStr, Type targetType, string tabSpace)
+        private static void ProcessWriteMember(MonoLocalData localData, StringBuilder sb, string objName, string memberName, string arrayStr, Type targetType, string tabSpace, Transform targetTrans)
         {
             if (string.IsNullOrEmpty(arrayStr))
             {
                 sb.AppendLine(tabSpace + "\t[YFramework.AutoBindField]");
                 sb.AppendLine(tabSpace + "\tpublic " + targetType.FullName + " " + memberName + ";");
                 localData.memberNewName2ObjName.Add(memberName, objName);
+                localData.memberNewName2Transform.Add(memberName, targetTrans);
             }
             else
             {
@@ -455,7 +512,9 @@ namespace YFramework.Editor
             public MonoBehaviour mono;
             public MonoBehaviour parentMono;
             public SerializableKeyValue<string,string> memberNewName2ObjName;
+            public SerializableKeyValue<string,Transform> memberNewName2Transform;
             public SerializableKeyValue<string, SerializableList<string>> memberArrayName2ObjName;
+            public SerializableKeyValue<string, SerializableList<Transform>> memberArrayName2Transforms;
             public SerializableKeyValue<string,string> type2MemberName;
             public List<Transform> processedTrans;
 
@@ -464,14 +523,16 @@ namespace YFramework.Editor
                 this.mono = mono;
                 this.parentMono = parentMono;
                 memberNewName2ObjName = new SerializableKeyValue<string, string>();
+                memberNewName2Transform = new SerializableKeyValue<string, Transform>();
                 memberArrayName2ObjName = new SerializableKeyValue<string, SerializableList<string>>();
+                memberArrayName2Transforms = new SerializableKeyValue<string, SerializableList<Transform>>();
                 type2MemberName = new SerializableKeyValue<string, string>();
                 processedTrans = new List<Transform>();
             }
 
             public override string ToString()
             {
-                return $"mono:{mono.name} memberNewName2ObjName:{memberNewName2ObjName.Count} memberArrayName2ObjName:{memberArrayName2ObjName.Count} type2MemberName:{type2MemberName.Count}";
+                return $"mono:{mono.name} memberNewName2ObjName:{memberNewName2ObjName.Count} memberNewName2Transform:{memberNewName2Transform.Count} memberArrayName2ObjName:{memberArrayName2ObjName.Count} memberArrayName2Transforms:{memberArrayName2Transforms.Count} type2MemberName:{type2MemberName.Count}";
             }
         }
     }
