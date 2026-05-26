@@ -1,6 +1,6 @@
 ---
 name: yframework-change-guard
-description: "Use for any YFramework project code change, documentation synchronization, final verification, or implementation handoff that must obey `AGENTS.md`: read `Doc/` first, require a confirmed plan before implementation, keep changes minimal, avoid Animator/Prefab/Scene structure edits, update `FACT` / `CURRENT STRATEGY` / `KNOWN ISSUES` / `CHANGE LOG`, read and write Chinese docs as UTF-8, inspect `git diff`, and verify affected Unity C# projects."
+description: "Use for any YFramework project code change, documentation synchronization, final verification, or implementation handoff that must obey `AGENTS.md`: read `Doc/` first, require a confirmed plan before implementation, keep changes minimal, avoid Animator/Prefab/Scene structure edits, update `FACT` / `CURRENT STRATEGY` / `KNOWN ISSUES`, read and write Chinese docs as UTF-8, inspect `git diff`, and verify affected Unity C# projects."
 ---
 
 # YFramework Change Guard
@@ -58,7 +58,6 @@ Update only affected sections:
 - `FACT`: actual parameter, call relationship, control logic, or landed behavior changes.
 - `CURRENT STRATEGY`: actual behavior strategy changes.
 - `KNOWN ISSUES`: resolved issues removed or marked, new real issues added.
-- `CHANGE LOG`: append modification content, reason, impact scope, structural involvement, and manual action need.
 
 Do not add suggestions, future plans, or assumptions as completed facts.
 
