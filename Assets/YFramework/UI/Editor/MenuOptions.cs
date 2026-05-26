@@ -31,7 +31,7 @@ namespace YFramework.Editor.UI
         
         private const int UI_Layer = 5;
 
-        [MenuItem("GameObject/YFreamwork/UI/PolygonColliderImage", false ,(int)MenuOptionsPriorityOrder.PolygonColliderImage)]
+        [MenuItem("GameObject/YFramework/UI/PolygonColliderImage", false ,(int)MenuOptionsPriorityOrder.PolygonColliderImage)]
         private static void AddPolygonColliderImage()
         {
             var canvasTrans = GetOrCreateCanvasGameObject();
@@ -48,7 +48,7 @@ namespace YFramework.Editor.UI
             image.transform.localPosition = Vector3.zero;
         }
         
-        [MenuItem("GameObject/YFreamwork/UI/CircleImage", false ,(int)MenuOptionsPriorityOrder.CircleImage)]
+        [MenuItem("GameObject/YFramework/UI/CircleImage", false ,(int)MenuOptionsPriorityOrder.CircleImage)]
         private static void AddCircleImage()
         {
             var canvasTrans = GetOrCreateCanvasGameObject();
