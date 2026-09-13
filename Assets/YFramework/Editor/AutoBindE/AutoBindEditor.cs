@@ -22,7 +22,7 @@ using YFramework.Kit;
 
 namespace YFramework.Editor
 {
-    internal static class AutoBindEditor
+    public static class AutoBindEditor
     {
         private static readonly string tempName = "YFrameworkAutoBindTemp";
         private static readonly string parentMonoMemberName = "ParentMono";

@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace YFramework.Editor.UI
 {
-    [CustomEditor(typeof(YFramework.UI.CircleImage),true)]
+    [CustomEditor(typeof(Kit.CircleImage),true)]
     [CanEditMultipleObjects]
     public class CricleImageEditor : UnityEditor.UI.ImageEditor
     {

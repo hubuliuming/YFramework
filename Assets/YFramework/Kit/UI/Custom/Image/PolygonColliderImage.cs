@@ -9,7 +9,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace YFramework.UI
+namespace YFramework.Kit
 {
     public class PolygonColliderImage : Image
     {

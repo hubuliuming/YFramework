@@ -13,7 +13,7 @@ using UnityEngine.Sprites;
 using UnityEngine.UI;
 using YFramework.Kit.Utility;
 
-namespace YFramework.UI
+namespace YFramework.Kit
 {
     public class CircleImage : Image
     {

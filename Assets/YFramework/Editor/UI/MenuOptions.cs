@@ -12,7 +12,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using YFramework.UI;
+using YFramework.Kit;
 
 namespace YFramework.Editor.UI
 {
